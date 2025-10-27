@@ -26,9 +26,10 @@
   <div class='site-wrap'>
 
 <div class='header-wrap'>
-    <div class='header' id='header'> <div class='widget Header' id='Header1'> <div id='header-inner'>
+    <div class='header section' id='header'> <div class='widget Header' id='Header1'>
+            <div id='header-inner'>
                 <div class='titlewrapper'>
-                    <h1 class='title' style="margin: 0;"> {% if page.url != "/" %}
+                    <h1 class='title' style='color: $(header);'> {% if page.url != "/" %}
                             <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
                         {% else %}
                             {{ site.title }}
@@ -37,8 +38,7 @@
                 </div>
                 {% if site.description %}
                 <div class='descriptionwrapper'>
-                    <p class='description'><span>{{ site.description }}</span></p>
-                </div>
+                    <p class='description' style='color: $(description);'><span>{{ site.description }}</span></p> </div>
                 {% endif %}
             </div>
         </div> <div id='Text1' class='widget Text'>
@@ -47,7 +47,6 @@
             1. Blog chỉ đăng những bộ BHTT (tiểu thuyết bách hợp) đã edit hoàn tất ở wattpad <a href="https://www.wattpad.com/user/luoilelet" target="_blank">@luoilelet</a><br/>
             2. Bản edit có sự hỗ trợ của AI.<br/>
             3. Để xem chú thích chỉ cần click vào <span style="color: #f73e05;">✶</span><br/>
-            4. Bình luận không yêu cầu đăng nhập nên mong nhận được sự ồn ào của bà con.
            </div>
         </div>
 
@@ -55,6 +54,7 @@
              <div class='widget-content'>THỂ LOẠI</div>
          </div>
     </div> </div> ```
+*Lưu ý:* Các biến màu `$(header)` và `$(description)` sẽ không hoạt động trong Jekyll. Bạn cần thay chúng bằng mã màu hex tương ứng từ đầu file CSS (ví dụ: `#000000`). Nếu sau khi sửa HTML mà vẫn lệch, bạn cần vào `style.css`, tìm các quy tắc cho `.Header h1` và `.description` và điều chỉnh `font-size`, `text-align`, `letter-spacing`, `text-transform: uppercase;` cho khớp.
 
     <div class='menu-wrap'>
       <div id='nav-wrap'>
@@ -116,19 +116,6 @@
       </div>
     </div>
 
-    <div class='footer-wrap'>
-      <div class='footerbox'>
-         <ul id='LinkList2'>
-           <li><a href="#">Chính sách</a></li>
-           <li><a href="#">Bản quyền</a></li>
-           <li><a href="#">Liên hệ</a></li>
-         </ul>
-      </div>
-    </div>
-
-    <div class='credit'>
-      <a href='{{ "/" | relative_url }}'>{{ site.title }}</a><i class='far fa-copyright'></i> {{ "now" | date: "%Y" }} | Designed by <a href='https://www.oddthemes.com/' target='_blank'>Oddthemes</a> | Distributed by <a href='https://gooyaabitemplates.com/' rel='dofollow' target='_blank'>Gooyaabi</a>
-    </div>
     <div style='clear: both;'></div>
 
   </div> <a class='scroll' href='#' style='display: none;'><i class='fas fa-angle-up'></i></a>
