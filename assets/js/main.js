@@ -1,4 +1,4 @@
-jQuery(function($){$.fn.scrollToTop=function(){$(this).hide().removeAttr(&quot;href&quot;);if($(window).scrollTop()!=&quot;0&quot;){$(this).fadeIn(&quot;slow&quot;)}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()==&quot;0&quot;){$(scrollDiv).fadeOut(&quot;slow&quot;)}else{$(scrollDiv).fadeIn(&quot;slow&quot;)}});$(this).click(function(){$(&quot;html,body&quot;).animate({scrollTop:0},&quot;slow&quot;)})}});jQuery(function($){$(&quot;.scroll&quot;).scrollToTop()});
+jQuery(function($){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html,body").animate({scrollTop:0},"slow")})}});jQuery(function($){$(".scroll").scrollToTop()});
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".widget.Image").forEach(function (widget) {
       const a = widget.querySelector("a");
@@ -114,4 +114,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-// ]]>
