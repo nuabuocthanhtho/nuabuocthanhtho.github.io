@@ -1744,7 +1744,7 @@ div#Text1 {
 /* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
 #Text1 .widget-content {
     position: relative !important;
-    top: -15px !important; /* Dịch chuyển khối đi lên 15px */
+    top: -10px !important; /* Dịch chuyển khối đi lên 15px */
 }
 
 /* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
@@ -1763,8 +1763,8 @@ div#Text1 {
     font-weight: 300 !important;
     font-size: 19px !important;
     white-space: pre-line !important;
-    line-height: 1.6 !important; /* << Bạn có thể thử lại 1.5, 1.6, 1.7, 1.8 xem cái nào vừa mắt */
-    margin-top: 0 !important; /* << BỎ margin-top âm */
+    line-height: 1.0 !important; /* << Bạn có thể thử lại 1.5, 1.6, 1.7, 1.8 xem cái nào vừa mắt */
+    margin-top: -5px !important; /* << BỎ margin-top âm */
     position: static !important; /* << TRẢ LẠI vị trí tĩnh bình thường */
     /* Không cần 'top' nữa */
 }
