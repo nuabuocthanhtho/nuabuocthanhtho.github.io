@@ -1,0 +1,2289 @@
+/*
+-----------------------------------------------
+Template: Renique Blogger Template 
+Name:  Ceyron Louis
+Designer Url - https://www.oddthemes.com
+----------------------------------------------- */
+
+/* Variables starting
+
+<Group description="Body" selector="body">
+	<Variable name="background" description="Background" type="color" default="#FDFCFB" value="#FDFCFB"/>
+	<Variable name="text" description="Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="link" description="Link" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="link.hover" description="Link Hover" type="color" default="#000000" value="#000000"/>
+</Group>
+
+<Group description="Social Media and Search Form" selector="menu">
+	<Variable name="social.color" description="Social Media Icons" type="color" default="#000000" value="#000000"/>
+	<Variable name="social.hover" description="Social Media Icons Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="search.border" description="Search Border" type="color" default="#000000" value="#000000"/>
+	<Variable name="search.color" description="Search Text and Submit" type="color" default="#000000" value="#000000"/>
+	<Variable name="search.submit.hover" description="Search Submit Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+<Group description="Header" selector="header">
+	<Variable name="header" description="Title" type="color" default="#000000"  value="#000000"/>
+	<Variable name="description" description="Description" type="color" default="#000000"  value="#000000"/>
+</Group>
+
+<Group description="Navigation" selector="menu">
+	<Variable name="nav.color" description="Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="nav.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="nav.level.background" description="Drop Down Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="nav.level.background.hover" description="Drop Down Background Hover" type="color" default="#000" value="#000000"/>
+	<Variable name="nav.level.color" description="Drop Down Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="nav.level.color.hover" description="Drop Down Text Hover" type="color" default="#fff" value="#ffffff"/>
+</Group>
+
+<Group description="Slider" selector="slider">
+	<Variable name="slider.date" description="Date" type="color" default="#FFFFFF" value="#FFFFFF"/>
+	<Variable name="slider.title" description="Title" type="color" default="#FFFFFF" value="#FFFFFF"/>
+	<Variable name="slider.snippet" description="Snippet" type="color" default="#FFFFFF" value="#FFFFFF"/>
+	<Variable name="slider.button.background" description="Button Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="slider.button.background.hover" description="Button Background Hover" type="color" default="#000" value="#000000"/>
+	<Variable name="slider.button.color" description="Button Colour" type="color" default="#000" value="#000000"/>
+	<Variable name="slider.button.color.hover" description="Button Colour Hover" type="color" default="#fff" value="#ffffff"/>
+	<Variable name="slider.dots" description="Dots" type="color" default="#ffffff" value="#ffffff"/>
+	<Variable name="slider.dots.h" description="Dots Hover And Current" type="color" default="#000000" value="#000000"/>
+</Group>
+
+<Group description="Categories" selector="categories">
+	<Variable name="categories.heading" description="Heading" type="color" default="#000000"  value="#000000"/>
+	<Variable name="categories.title" description="Title" type="color" default="#000000"  value="#000000"/>
+	<Variable name="categories.title.hover" description="Title Hover" type="color" default="#e3c9bf"  value="#e3c9bf"/>
+	<Variable name="categories.caption" description="Caption" type="color" default="#000000"  value="#000000"/>
+</Group>
+
+<Group description="Posts Homepage" selector="main-wrap">
+	<Variable name="home.date" description="Date" type="color" default="#000000" value="#000000"/>
+	<Variable name="home.title" description="Title" type="color" default="#000000" value="#000000"/>
+	<Variable name="home.title.hover" description="Title Hover" type="color" default="#000000" value="#000000"/>
+	<Variable name="home.summary" description="Snippet" type="color" default="#000000" value="#000000"/>
+	<Variable name="home.button.background" description="Button Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="home.button.background.hover" description="Button Background Hover" type="color" default="#000" value="#000000"/>
+	<Variable name="home.button.color" description="Button Text" type="color" default="#000" value="#000000"/>
+	<Variable name="home.button.color.hover" description="Button Text Hover" type="color" default="#fff" value="#ffffff"/>
+</Group>
+
+<Group description="Posts Main" selector="main-wrap">
+	<Variable name="post.header" description="Date And Location" type="color" default="#000000" value="#000000"/>
+	<Variable name="post.title" description="Title" type="color" default="#000000" value="#000000"/>
+	<Variable name="post.footer.color" description="Post Footer" type="color" default="#000000" value="#000000"/>
+	<Variable name="post.footer.color.hover" description="Post Footer Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+<Group description="Post Pager" selector="main-wrap">
+	<Variable name="postpager.title" description="Post Title" type="color" default="#000000" value="#000000"/>
+	<Variable name="postpager.title.hover" description="Post Title Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="postpager.color" description="Text" type="color" default="#000000" value="#000000"/>
+</Group>
+
+ <Group description="Related Posts" selector="relatedposts">
+	<Variable name="related.heading" description="Heading" type="color" default="#000000" value="#000000"/>
+	<Variable name="related.title" description="Post Title" type="color" default="#000000" value="#000000"/>
+	<Variable name="related.title.hover" description="Post Title Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+ <Group description="Comment Section" selector="comments">
+	<Variable name="comments.heading" description="Heading" type="color" default="#000000" value="#000000"/>
+	<Variable name="comments.user" description="User" type="color" default="#000000" value="#000000"/>
+	<Variable name="comments.date" description="Date" type="color" default="#000000" value="#000000"/>
+	<Variable name="comments.actions" description="Actions" type="color" default="#000000" value="#000000"/>
+</Group>
+
+<Group description="Newsletter" selector="newsletter-wrap">
+	<Variable name="follow.background" description="Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="follow.heading" description="Heading" type="color" default="#000" value="#000000"/>
+	<Variable name="follow.caption" description="Caption" type="color" default="#444" value="#444444"/>
+	<Variable name="follow.border" description="Border" type="color" default="#000000" value="#000000"/>
+	<Variable name="follow.text" description="Text" type="color" default="#000" value="#000000"/>
+	<Variable name="follow.submit.background" description="Submit Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="follow.submit.background.hover" description="Submit Background Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="follow.submit" description="Submit Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="follow.submit.hover" description="Submit Text Hover" type="color" default="#000000" value="#000000"/>
+</Group>
+
+<Group description="Blog Pager" selector="main-wrap">
+	<Variable name="pager.color" description="Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="pager.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+<Group description="Footer" selector="footer-wrap">
+	<Variable name="footer.links" description="Links" type="color" default="#000000" value="#000000"/>
+	<Variable name="footer.links.hover" description="Links Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+<Group description="Credits" selector="credits">
+	<Variable name="credits.color" description="Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="credits.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
+</Group>
+
+<Group description="Additional" selector="body">
+	<Variable name="selection.background" description="Selection Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="selection.color" description="Selection Text" type="color" default="#000000" value="#000000"/>
+	<Variable name="scrollbar.background" description="Scrollbar Background" type="color" default="#FDFCFB" value="#FDFCFB"/>
+	<Variable name="scrollbar.thumb" description="Scrollbar Thumb" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="top.color" description="Back To Top Icon" type="color" default="#e3c9bf" value="#e3c9bf"/>
+	<Variable name="top.color.hover" description="Back To Top Button Hover" type="color" default="#000000" value="#000000"/>
+</Group>
+
+*/
+
+/*-------------------------
+Reset
+------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, .section, .widget {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+
+/*-------------------
+Page
+-------------------*/
+
+.site-wrap {
+	width: 100%;
+	background: $(background);}
+
+.outer-wrap {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;}
+
+.inner-wrap {
+	width: auto;
+	margin: 0;
+	padding: 0;}
+
+.main-wrap {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;}
+
+.instagram-wrap,
+.footer-wrap {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: justify;}
+
+@media screen and (max-width: 850px) {
+.categories-wrap #categories .Image {
+    margin-right: 10px !important;
+    margin-bottom: 10px !important;
+}
+.categories-wrap .widget.Image h2 {
+    font-size: 16px !important;
+}
+.categories-wrap .widget.Image img {
+    width: 38px !important;
+    height: 38px !important;
+}
+.home-title{
+	font-size:25px !important;
+}
+
+
+
+    .outer-wrap {width: 90%; margin: 0 auto;}
+    .main-wrap {width: 100%; float: none;}}
+
+@media screen and (min-width: 851px) and (max-width: 1150px) {
+
+    .outer-wrap {width: 90%; margin: 0 auto;}
+    .main-wrap {width: 70%;}}
+
+
+/*-------------------
+Blog Content
+-------------------*/
+
+body {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: $(text);
+	letter-spacing: 0px;
+	overflow-x: hidden;}
+
+a {
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;}
+
+a,
+a:visited,
+a:hover {
+	text-decoration: none;}
+
+.post-body a {
+	font-weight: 400;
+	text-decoration: none;
+	color: $(link);
+	position: relative;}
+
+.post-body a:hover {
+	color: $(link.hover);
+	text-decoration: none;}
+
+.separator a {
+	max-width: 100%;
+	height: auto;
+	margin-right: 0em !important;
+	margin-left: 0em !important;}
+
+a img {
+	display: block;
+	position: static !important;
+	border-bottom: 0 !important;}
+
+.post-body {
+	width: 100%;
+	text-align: justify;
+	line-height: 1.6;
+	position: relative;}
+
+.post-body img,
+.post-body a img {
+	max-width: 100% !important;
+	height: auto;
+	margin: 0 !important;
+	float: none !important;
+	display: inline !important;}
+
+.post-body ol {
+	padding: 0 0 0 2.5em;
+	list-style: decimal;
+	list-style-type: decimal;}
+
+.post-body h1,
+.post-body h2 {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	letter-spacing: -1px;}
+
+.post-body p {
+	margin: 15px 15%;}
+
+.video_outer_wrap {
+	width: 100%;
+	max-width: 100%;}
+
+.video_wrap {
+	position: relative;
+	padding-bottom: 56%;
+	padding-top: 0px;
+	height: 0;
+	background-color: $(background) !important;}
+
+.video_wrap iframe,
+.video_wrap object,
+.video_wrap embed {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	position: absolute;}
+
+iframe,
+.YOUTUBE-iframe-video {
+	max-width: 100%;}
+
+input, textarea {
+	outline: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px $(background) inset;}
+
+.widget-item-control {
+	height: 0px;}
+
+@media screen and (max-width: 550px) {
+	.post-body p {margin: 15px 30px;}}
+
+
+/*-------------------
+Social & Search
+-------------------*/
+
+.top-wrap {
+	width: 100%;
+	height: 60px;
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	padding: 0;
+	z-index: 9;
+	position: fixed;
+	background: transparent;
+	border: 0;
+	text-align: center;}
+
+#HTML97 {
+	width: 40%;
+	text-align: left;
+	float: left;
+	padding-left: 20px;}
+
+#HTML98 {
+	width: 40%;
+	float: right;
+	padding-right: 25px;}
+
+#HTML97 .widget-content {
+	width: auto;
+	height: 60px;
+	line-height: 60px;
+	display: inline-block;
+	vertical-align: middle;}
+
+.top-socialmedia a {
+	font-size: 9.5px;
+	margin: 0 5px !important;
+	display: inline-block;
+	color: $(social.color);}
+
+.top-socialmedia a:hover {
+	color: $(social.hover);}
+
+.search {
+	width: 130px;
+	margin: 20px 0 0 auto;
+	padding: 0;
+	background: transparent;
+	vertical-align: middle;
+	border: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.searchbox {
+	width: 86%;
+	height: 20px;
+	float: left;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid $(search.border);
+	color: $(search.color);
+	font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0px;
+    text-align: left;}
+
+.searchsubmit {
+	width: 10%;
+	height: 20px;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	float: right;
+	font-size: 9.5px;
+	text-align: right;
+	color: $(search.color);
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;}
+
+.searchsubmit:hover {
+	color: $(search.submit.hover);}
+
+.search input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px $(background) inset !important;}
+
+@media screen and (max-width: 1000px) {
+	.top-wrap {position: relative;}}
+
+
+/*-------------------
+Header
+-------------------*/
+
+.header-wrap {
+	width: 90%;
+	height: auto;
+	margin: 0 auto 20px;
+	padding: 50px 5% 0;
+	position: relative;
+	background: $(background);
+	border: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.header-wrap .widget {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: inline-block;
+	text-align: center;}
+
+.Header h1 {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 60px;
+	letter-spacing: -1px;
+	color: $(header);
+	margin: 0;}
+
+.Header h1 a,
+.Header h1 a:visited,
+.Header h1 a:hover {
+	color: $(header);}
+
+.Header img {
+	text-align: center;
+	width: auto;
+	margin: 0 auto;}
+
+.description {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(description);
+	margin: 0;}
+
+@media screen and (max-width: 1000px) {
+	.header-wrap {padding: 20px 5% 0;}}
+
+
+/*-------------------
+Navigation
+-------------------*/
+
+.menu-wrap {
+	width: 100%;
+	height: 40px;
+	margin: 0 auto 40px;
+	padding: 0;
+	z-index: 9;
+	position: relative;
+	background: transparent;
+	border: 0;
+	text-align: center;}
+
+.menu-wrap a,
+.menu-wrap a:visited {
+	color: $(nav.color);
+	margin: 0;
+	padding: 0;}
+
+.menu-wrap a:hover {
+	color: $(nav.color.hover);}
+
+.menu-wrap h2 {
+	display: none !important;}
+
+.menu-wrap .widget {
+	width: auto;
+	height: 40px;
+	margin: 0 auto;
+	padding: 0;
+	line-height: 40px;
+	display: inline-block;
+	vertical-align: middle;}
+
+.menu-wrap #LinkList1 {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;}
+
+.menu-wrap li,
+.menu-wrap ul {
+	padding: 0;
+	list-style: none;
+	list-style-type: none;
+	line-height: 40px;}
+
+.menu-wrap li {
+	margin: 0 15px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;}
+
+.menu-wrap .level-two {
+	width: 130px;
+	left: 50%;
+	margin: -10px 0 0 -30px;
+	position: absolute;
+	border: 0;
+	display: none;
+	text-align: left;
+	z-index: 99;}
+
+.menu-wrap .level-three {
+	width: 130px;
+	top: 0;
+	left: 130px;
+	position: absolute;
+	border: 0;
+	display: none;
+	text-align: left;
+	z-index: 99;}
+
+.menu-wrap .Label .level-two {
+	max-height: 250px;
+	overflow-y: auto;}
+
+.menu-wrap .level-two li,
+.menu-wrap .level-three li {
+	margin: 0;
+	display: block;
+	line-height: normal;}
+
+.menu-wrap .level-two li a,
+.menu-wrap .level-three li a {
+	background: $(nav.level.background);
+	color: $(nav.level.color);
+	padding: 9px 10px;
+	display: block;}
+
+.menu-wrap .level-two li a:hover,
+.menu-wrap .level-three li a:hover {
+	background: $(nav.level.background.hover);
+	color: $(nav.level.color.hover);}
+
+.menu-wrap li.parent:hover .level-two,
+.menu-wrap .child-item.sharewidth:hover .level-three {
+	display: block;}
+
+.menu-wrap .fa.fa-fw.fa-angle-down,
+.menu-wrap .fa.fa-fw.fa-angle-right,
+.menu-wrap .level-three a:after {
+	display: none;}
+
+.menu-wrap li.child-item.sharewidth a:after {
+	content: "\f105";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 8px;
+	margin: 0 0 0 5px;}
+
+.menu-wrap li > a:after {
+	content: "\f107";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 8px;
+	margin: 0 0 0 5px;} 
+
+.menu-wrap li > a:only-child:after {
+	content: '';
+	margin: 0;}
+
+@media screen and (min-width: 901px) {
+    #nav-wrap {
+        visibility: hidden;
+    }
+	.sidemenu {display: none;}
+	} 
+
+@media screen and (max-width: 900px) {
+	.sidemenu {margin: 0 auto !important; padding: 0; width: auto; height: 50px; overflow: hidden; display: block;
+		appearence: none; font-size: 12px; box-shadow: none; border: none; cursor: pointer; transition: background 0.3s;
+		position: relative; background: transparent; color: $(nav.color);}
+	.sidemenu span {font-family: 'Karla', sans-serif; font-weight: 400; font-size: 12px; letter-spacing: 0px; text-transform: uppercase;}
+	.sidemenu i {font-size: 9.5px; margin-left: 7px;}
+.sidemenu {
+    display: none !important;
+}
+	.sidemenu:focus {outline: none;}
+	.menu-wrap {width: 100%; height: auto; position: relative; text-align: center; }
+	.menu-wrap .menu {display: none; padding: 0 0 15px;}
+	.menu-wrap ul {padding: 0;}
+	.menu-wrap li, .menu-wrap .widget {display: block; height: auto; line-height: 35px; margin: 0;}
+	.menu-wrap .level-two {width: 95%; left: 0; position: relative; margin: 0 2.5%; text-align: center; border: 0px;}
+	.menu-wrap .level-three {width: 90%; left: 0; position: relative; text-align: center; margin: 0 5%; border: 0px;}
+	.menu-wrap .Label .level-two {max-height: none; overflow-y: visible;}
+	.menu-wrap li.parent:hover .level-two, .menu-wrap .child-item.sharewidth:hover .level-three {display: none;}
+	.menu-wrap .fa.fa-fw.fa-angle-down, .menu-wrap .fa.fa-fw.fa-angle-right {color: transparent !important;
+		position: absolute; top: 0; left: 0; width: 100%; display: block; height: 35px; z-index: 5;}
+	.menu-wrap .level-three a:after {display: none;}
+	.menu-wrap li.child-item.sharewidth a:after {content: "\f105";}}
+
+
+/*-------------------
+Slider
+-------------------*/
+
+.slider-wrap {
+	margin: 0 auto 50px;}
+
+ul.slide-posts {
+	margin: 0;
+	padding: 0;}
+
+.slide-posts {
+	margin: 0 !important;}
+
+li.slide-post {
+	margin: 0;
+	padding: 0 !important;
+	position: relative;}
+
+.slide-thumb {
+	width: 100%;
+	height: 500px;
+	background-size: cover !important;
+	background-position: 50% 50% !important;}
+
+.slide1 {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: block;
+	position: absolute;
+	text-align: center;
+	background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.slide2 {
+	width: 100%;
+	height: 100%;
+	display: table;}
+
+.slide3 {
+	width: 100%;
+	height: 100%;
+	display: table-cell;
+	vertical-align: bottom;}
+
+.slide4 {
+	max-width: 50% !important;
+	margin: 0 auto 5%;
+	padding: 0;
+	background: none;
+	display: inline-block;
+	position: relative;
+	z-index: 5;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.slide-date {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: $(slider.date);
+	margin-bottom: 4px;
+	position: relative;
+	z-index: 5;}
+
+.slide-title {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 35px;
+	letter-spacing: -1px;
+	color: $(slider.title);
+	position: relative;
+	margin: 0 0 20px;
+	z-index: 5;}
+
+.slide-snippet {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 0px;
+	color: $(slider.snippet);
+	line-height: 20px;
+	position: relative;
+	margin: 0 0 30px;
+	z-index: 5;}
+
+.slide-button {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+    letter-spacing: 0px;
+	text-transform: uppercase;
+	-webkit-font-smoothing: subpixel-antialiased;
+	position: relative;
+	margin: 0;
+	z-index: 5;}
+
+.slide-button span {
+	background: $(slider.button.background);
+	color: $(slider.button.color);
+	padding: 8px 12px;}
+
+.slide-button span:hover {
+	color: $(slider.button.color.hover);
+}
+
+.slick-dots {
+	bottom: 5px;}
+
+.slick-dots li {
+	margin: 0px !important;}
+
+.slick-dots li button:before {
+	font-size: 7px !important;}
+	ul.slick-dots {
+	margin: 0 !important;
+	padding: 0 !important;}
+
+.slick-dots li.slick-active button:before {
+	opacity: 1 !important;
+	color: $(slider.dots.h) !important;}
+
+.slick-dots li button:before {
+	opacity: 1 !important;
+	color: $(slider.dots) !important;}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+	color: $(slider.dots.h) !important;}
+
+@media screen and (max-width: 500px) {
+	.slide4 {max-width: 85% !important; margin: 0 auto 13%;}}
+
+@media screen and (min-width: 501px) and (max-width: 850px) {
+	.slide4 {max-width: 70% !important; margin: 0 auto 10%;}}
+
+
+
+
+
+/*-------------------
+Homepage Posts
+-------------------*/
+
+.post-thumb {
+	width: 100%;
+	padding-bottom: 500px;
+	background-size: cover !important;
+	background-position: 50% 50% !important;}
+
+.postthumb img {
+	display: none !important;}
+
+.post1 {
+	width: 100%;
+	padding: 30px 15% 40px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.home-date {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: $(home.date);
+	text-align: center;}
+.home-comments {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: $(home.date);
+  text-align: center;
+  margin-bottom: 15px; /* Tạo khoảng cách với tiêu đề bên dưới */
+}
+.home-comments a {
+  color: inherit;
+}
+.home-comments a:hover {
+  color: $(link.hover);
+}
+.home-title {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 35px;
+	letter-spacing: -1px;
+	color: $(home.title);
+	text-align: center;
+	margin: 3px 0 20px;}
+
+.home-title a,
+.home-title a:visited {
+	color: $(home.title) !important;}
+
+.home-title a:hover {
+	color: $(home.title.hover) !important;}
+
+.home-summary {
+	color: $(home.summary);
+	text-align: justify;
+    text-align-last: center;}
+
+.home-button {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 11px;
+	letter-spacing: .5px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 30px 0 0;}
+
+.home-button a {
+	color: $(home.button.color);
+    background: $(home.button.background);
+    padding: 9px 15px;}
+
+.home-button a:hover {
+	background: $(home.button.background.hover);
+	color: $(home.button.color.hover);}
+
+@media screen and (max-width: 850px) {
+	.postthumb, .post1 {width: 100%;}
+	.post1 {padding: 30px 5% 40px;}}
+
+
+/*-------------------
+Blog Posts
+-------------------*/
+
+.post-header {
+	margin-bottom: 30px;
+	text-align: center;}
+
+.post-header .post-date {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: $(post.header);}
+
+.post-header .post-title {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 35px;
+	letter-spacing: -1px;
+	color: $(post.title);
+	margin: 10px 20px !important;}
+
+.post-location {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(post.header);}
+
+.post-footer {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(post.footer.color);
+	text-align: center;
+	margin: 50px auto 20px;}
+
+.post-footer a {
+	color: $(post.footer.color);}
+
+.post-footer a:hover {
+	color: $(post.footer.color.hover);}
+
+.post-share {
+	margin-top: 10px;}
+
+.post-share span {
+	display: block;}
+
+.post-share a {
+	font-size: 9.5px;
+	margin: 8px !important;
+	display: inline-block;}
+
+.post-labels a {
+	color: $(post.footer.color);}
+
+.post-labels a:hover {
+	color: $(post.footer.color.hover);}
+
+blockquote {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 25px;
+	letter-spacing: -1px;
+	text-align: center;
+	margin: 20px 0;
+	padding: 0px 22%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.status-msg-wrap {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 25px;
+	letter-spacing: -1px;
+	color: $(text);
+	text-align: center;
+	width: auto;
+	margin: 0 auto 30px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+@media screen and (max-width: 550px) {
+	blockquote {padding: 0px 45px;}}
+
+
+/*-------------------
+Post Pager
+-------------------*/
+
+.post-pager {
+	width: 100%;
+	display: block;
+	margin: 0 0 30px;}
+
+.previous {
+	width: 49%;
+	float: left;
+	text-align: left;}
+
+.next {
+	width: 49%;
+	float: right;
+	text-align: right;}
+
+.pager-info {
+	width: 100%;
+	display: block;}
+
+.next-post,
+.prev-post {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(postpager.color);
+	text-shadow: none;}
+
+.next .pager-title {
+	width: 90%;
+	margin: 0;
+	display: inline-block;
+	vertical-align: bottom;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.previous .pager-title {
+	width: 90%;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.post-pager .prev-title,
+.post-pager .next-title {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: -1px;}
+
+.post-pager a,
+.post-pager a:visited {
+	color: $(postpager.title);}
+
+.post-pager a:hover {
+	color: $(postpager.title.hover);}
+
+@media screen and (max-width: 700px) {
+	.previous .pager-title {margin: 0px 0 0 10px;}
+	.post-pager {margin: 0 0 50px 0;}}
+
+
+/*-------------------
+Related Posts
+-------------------*/
+
+.relatedposts {
+	width: 104%;
+	margin: 0 0 0 -2% !important;
+	padding-bottom: 0!important;
+	background: $(background);}
+
+.relatedtitle {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(related.heading);
+	text-align: center;
+	margin: 0 auto 20px;}
+
+.relatedpost {
+	width: 29.33%;
+	margin: 0 2%;
+	float: left;
+	position: relative;}
+
+.related-wrap .relatedthumb {
+	width: 100%;
+	padding-bottom: 130%;
+	background-size: cover !important;
+	background-position: 50% 50% !important;}
+
+.related-wrap .related-title {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 23px;
+	letter-spacing: -1px;
+	color: $(related.title);
+	text-align: center;
+	margin: 15px 0 0;}
+
+.related-wrap .related-title:hover {
+	color: $(related.title.hover);
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;}
+
+@media screen and (max-width: 700px) {
+	.relatedpost {width: 100%; margin-bottom: 20px;}}
+
+
+/*-------------------
+Comments
+-------------------*/
+
+.comments {
+	margin: 60px 0 40px;
+	font-weight: 400;}
+
+.comments h4 {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(comments.heading);
+	text-align: center;
+	margin: 0 5px;
+	padding-bottom: 10px;}
+
+.comments .comment {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.comments .comment-content {
+	padding: 0px;}
+
+.comment-replies .comment {
+	margin: 20px 0 !important;
+	padding: 0 0 10px !important;;}
+
+.comments .comments-content .user a {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(comments.user);
+	margin-bottom: 0px;
+	display: block;}
+
+.comments .comments-content p.comment-content a {
+	text-decoration: none;
+	color: $(link);}
+
+.comments .thread-count,
+.comments .comment-actions,
+.comments .continue,
+.comments .comments-content .datetime {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	margin-left: 0;
+	padding: 3px 0;}
+
+.comments .comments-content .datetime {
+	display: block;
+	margin-top: 0px;}
+
+.comments .comments-content .datetime a {
+	color: $(comments.date);}
+
+.comments .comment-actions a:hover {
+	text-decoration: none!important;}
+
+.comments .continue a {
+	display: block;
+	padding: 0;}
+
+.comments .comment-block {
+	margin: 0;
+	padding-bottom: 10px;}
+
+.comments .avatar-image-container {
+	display: none;}
+
+.comments .thread-count a,
+.comments .comment .comment-actions a,
+.comments .continue a {
+    color: $(comments.actions) !important;}
+
+.comment-replies .comment {
+    margin: 20px 0 0 !important;
+    padding: 0 !important;}
+
+.comments .continue a {
+    font-weight: 400 !important;}
+
+
+/*-------------------
+Newsletter
+-------------------*/
+
+.newsletter-wrap {
+	width: 800px;
+	height: auto;
+	margin: 0px auto 50px;
+	padding: 50px;
+	background: $(follow.background);
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.newsletter-heading {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 25px;
+	letter-spacing: -1px;
+	color: $(follow.heading);}
+
+.newsletter-caption {
+	font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+	letter-spacing: 0px;
+	color: $(follow.caption);}
+
+#HTML3 h2 {
+	display: none;}
+
+#HTML3 .widget-content {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	border: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+#mc_embed_signup {
+	width: 100%;
+	margin: 30px auto 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+#mc_embed_signup .mc-field-group #mce-FNAME {
+	width: 23%;
+	height: 35px;
+	margin: 0 2% 0 0;
+	padding: 0;
+	color:#fff;
+	float: left;
+	background: transparent;
+	border: 1px solid $(follow.border);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+#mc_embed_signup .mc-field-group #mce-EMAIL {
+	width: 50%;
+	height: 35px;
+	margin: 0;
+	color:#fff;
+	padding: 0 0 0 5px;
+	float: left;
+	background: transparent;
+	border: 1px solid $(follow.border);
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+#mc_embed_signup .button {
+	width: 23%;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	float: right;
+	background: $(follow.submit.background);
+	border: 1px solid $(follow.border);
+	border-radius: 0;
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	color: $(follow.submit);
+	text-align: center;
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-ms-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;}
+#mc_embed_signup div.mce_inline_error {
+    color: #c80a0a !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 400 !important;
+}
+#mc_embed_signup .button:hover {
+	background: $(follow.submit.background.hover);
+	color: $(follow.submit.hover);
+	cursor: pointer;}
+
+#mc_embed_signup ::placeholder {
+	color: $(follow.submit) !important;
+	opacity: 1 !important;}
+
+#mc_embed_signup :-ms-input-placeholder {
+	color: $(follow.submit) !important;}
+
+#mc_embed_signup ::-ms-input-placeholder {
+	color: $(follow.submit) !important;}
+
+@media screen and (max-width: 950px) {
+	.newsletter-wrap {width: 85%;}}
+
+@media screen and (max-width: 750px) {
+	#mc_embed_signup .mc-field-group #mce-FNAME,
+	#mc_embed_signup .mc-field-group #mce-EMAIL {width: 100%; margin: 2px 0;}
+	#mc_embed_signup .button {width: 100%; margin: 2px 0 0 0;}}
+
+@media screen and (max-width: 500px) {
+	.newsletter-wrap {padding: 50px 30px;}}
+
+
+/*-------------------
+Pager
+-------------------*/
+
+#blog-pager {
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-align: center;
+	margin: 0;}
+
+#blog-pager a,
+#blog-pager a:visited {
+	display: inline-block;
+	color: $(pager.color);}
+
+#blog-pager a:hover {
+	color: $(pager.color.hover);}
+
+
+/*-------------------
+Instagram
+-------------------*/
+
+.instagram-wrap {
+	width: 100%;
+	height: auto;
+	margin: 40px 0 0 0 !important;
+	padding: 0;}
+
+.instawrap {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;}
+
+#HTML99 h2 {
+	display: none !important;}
+
+#HTML99 {
+	width: 100%;
+	height: auto;
+	margin: 0
+	padding: 0;}
+
+@media screen and (max-width: 1050px) {
+	.instawrap {width: 90%;}}
+
+
+/*-------------------
+Footer
+-------------------*/
+
+.footer-wrap {
+	width: 100%;}
+
+.footerbox {
+	width: 1000px;
+	margin: 40px auto 20px;
+	display: table;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+#LinkList2 {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	text-align: center;}
+
+#LinkList2 li, #LinkList2 ul {
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+    line-height: 20px;}
+
+#LinkList2 li {
+    margin: 0 15px;
+    display: inline-block;
+    position: relative;}
+
+#LinkList2 a {
+	color: $(footer.links);}
+
+#LinkList2 a:hover {
+	color: $(footer.links.hover);}
+
+@media screen and (max-width: 1050px) {
+	.footerbox {width: 90%;}}
+
+
+/*-------------------
+Credits
+-------------------*/
+
+.credit {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	color: $(credits.color);
+	text-align: center;
+	width: 100% !important;
+	height: 50px;
+	line-height: 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;}
+
+.credit a,
+.credit a:visited {
+	color: $(credits.color);}
+
+.credit a:hover {
+	color: $(credits.color.hover);}
+
+.credit i {
+	font-size: 9px;
+	margin: 0 5px;}
+
+
+/*-------------------
+Additional
+-------------------*/
+
+#Navbar1,#Attribution1,.quickedit,.zippy,.feed-links,.top-wrap h2, .menu-wrap h2,.slider-wrap h2,.item-snippet,.comments .comments-content .icon.blog-author,.PopularPosts .item-title {
+	display: none !important;}
+
+::-moz-selection {
+	background: $(selection.background);
+	color: $(selection.color);}
+
+::selection {
+	background: $(selection.background);
+	color: $(selection.color);}
+
+::-webkit-scrollbar {
+	width: 7px;}
+
+::-webkit-scrollbar-track {
+	background: $(scrollbar.background);}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:window-inactive {
+	background: $(scrollbar.thumb);}
+
+.cookie-choices-info {
+	background: $(background) !important;
+	border-bottom: 1px solid $(link);}
+
+.cookie-choices-info .cookie-choices-text {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 14px !important;
+	letter-spacing: 0px;
+	color: $(text) !important;}
+
+.cookie-choices-info .cookie-choices-button {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400 !important;
+	font-size: 12px !important;
+	letter-spacing: 0px;
+	color: $(text) !important;}
+
+.cookie-choices-info #cookieChoiceDismiss {
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 12px !important;
+	letter-spacing: 0px;
+	color: $(text) !important;}
+
+.scroll {
+	right: 20px;
+	bottom: 50px;
+	padding: 0;
+	position: fixed;
+	border: 0;
+	font-size: 25px;
+	color: $(top.color);
+	cursor: pointer;}
+
+.scroll:hover {
+	color: $(top.color.hover);
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-ms-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;}
+
+
+
+
+
+
+
+.home-button {
+  transform: skewX(-20deg);
+    padding: 0px 7px;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+.home-button a {
+  transform: skewX(20deg);
+    font-family: sans-serif;
+}
+.home-button span {
+    transform: skewX(20deg);
+    display: inline-block;
+}
+
+
+
+.slide-button {
+    display: inline-block;
+    background: $(slider.button.background);
+    transform: skewX(-20deg);
+    padding: 0 6px;
+}
+.slide-button span {
+    display: inline-block;
+    transform: skewX(20deg);
+}
+.slide-button:hover{
+	background: $(slider.button.background.hover);
+}
+.slide-button:hover span {
+    background: $(slider.button.background.hover);
+}
+
+.categories-wrap {
+  	padding: 30px 0px;
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+	width: 90%;
+}
+
+.categories-wrap .widget.Image a {
+  display: inline-flex;
+  align-items: center;
+  
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 5px 15px 5px 5px;
+  transition: background 0.3s ease;
+  max-width: 100%;
+}
+
+.categories-wrap .widget.Image a {
+  background-color: #eaeaea;
+}
+
+
+.categories-wrap .categories-caption {
+  display:none;
+}
+.categories-wrap #categories .Image {
+    display: inline-flex;
+    margin-right: 30px;
+	margin-bottom: 30px;
+}
+div#categorytitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#categorytitle .widget-content {
+    font-size: 26px;
+}
+.categories-wrap .widget.Image a:hover {
+    background-color: $(categories.title.hover);
+}
+
+
+
+.categories-wrap .widget.Image {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50px;
+  max-width: 100%;
+}
+
+.categories-wrap .widget.Image h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  order: 2;
+    margin-left: 10px;
+}
+
+.categories-wrap .widget.Image img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.newsletter-wrap,
+.instagram-wrap {
+  display: none;
+}
+.description {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 14px !important;
+}
+.post-thumb:empty {
+  display: none;
+}
+.home-title {
+  font-family: 'Source Serif 4', sans-serif !important;
+}
+.home-summary {
+  font-family: 'Cormorant Upright', sans-serif !important;
+}
+.post-header {
+  font-family: 'Source Serif 4', serif !important;
+}
+.post-body {
+  font-family: 'Niramit', serif !important;
+  font-size: 22px !important;
+}
+/* --- Mã CSS cuối cùng, ổn định nhất --- */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #f73e05;
+  font-size: 85%;
+}
+
+/* Đã xóa .tooltip ở selector này */
+.tooltiptext {
+  /* Trạng thái ẩn */
+  visibility: hidden;
+  opacity: 0;
+  
+  /* Định vị */
+  position: absolute; /* Quan trọng để không làm xô lệch văn bản */
+  
+  /* Định dạng */
+  width: 380px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  z-index: 9999;
+  transition: opacity 0.2s, visibility 0.2s;
+  font-size: 20px;
+  line-height: 1.5;
+  max-height: 450px; 
+  overflow-y: auto;
+}
+
+/* Đã xóa .tooltip ở selector này */
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Đã xóa .tooltip ở selector này */
+.tooltiptext.show {
+  visibility: visible;
+  opacity: 1;
+}
+/* --- Mã CSS dành riêng cho di động --- */
+@media screen and (max-width: 480px) {
+  .tooltiptext {
+    /* Chiếm 90% chiều rộng màn hình thay vì 380px cố định */
+    width: 90vw; 
+
+    /* Giảm kích thước chữ một chút cho dễ đọc */
+    font-size: 16px; 
+  }
+}
+/* Áp dụng cho màn hình có chiều rộng tối đa là 768px (máy tính bảng và điện thoại) */
+@media screen and (max-width: 768px) {
+  .post-body.entry-content {
+    /* Giữ lại dòng này để font chữ dễ đọc trên di động */
+    font-family: Verdana, Tahoma, sans-serif; 
+
+    /* Chỉ sửa dòng này */
+    font-size: 17px !important; 
+  }
+}
+/* Tùy chỉnh font cho tiêu đề và categories box */
+
+/* Áp dụng font Xanh Mono cho tiêu đề bài viết */
+h1.title {
+  font-family: 'Xanh Mono', monospace !important;
+  word-spacing: -15px; /* Thêm dòng này để kéo các từ lại gần nhau */
+}
+
+/* Áp dụng font Roboto Flex cho khu vực Top Categories */
+.categories-box {
+  font-family: 'Roboto Flex', sans-serif !important;
+}
+/* ----- BẢN SỬA LỖI CUỐI CÙNG (PHƯƠNG PHÁP MẠNH HƠN) ----- */
+
+/* 1. TĂNG khoảng cách bằng cách ĐẨY CẢ WIDGET đi xuống */
+div#Text1 {
+    margin-top: 20px !important;
+}
+
+/* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
+#Text1 .widget-content {
+    position: relative !important;
+    top: -15px !important; /* Dịch chuyển khối đi lên 15px */
+}
+
+/* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
+
+#Text1 h2.title {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 400 !important;
+    margin-bottom: 0 !important;
+}
+
+#Text1 .widget-content {
+    /* Các tùy chỉnh cũ */
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 19px !important;
+    white-space: pre-line !important;
+    margin-top: -10px !important;
+    
+    /* Dòng mới để tăng khoảng cách giữa các dòng */
+    line-height: 1.8 !important; 
+}
+
+#Text1 .widget-content a {
+    color: #FFA500 !important;
+    font-weight: 400 !important;
+}
+
+#Text1 .widget-content a:hover {
+    color: #E69500 !important;
+}
+/* --- TÙY CHỈNH CHO TIÊU ĐỀ "THỂ LOẠI" --- */
+
+/* Giảm khoảng cách bên trên của cả khối "THỂ LOẠI" */
+div#HTML1 {
+    margin-top: 15px !important; 
+}
+
+/* Đổi font và căn giữa cho chữ "THỂ LOẠI" */
+div#HTML1 .widget-content {
+    font-family: 'Sigmar', cursive !important; /* Đã đổi sang font Sigmar */
+    text-align: center !important;
+color: #453f30 !important; /* Thêm dòng này để đổi màu xám nhạt hơn */
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này để tạo bóng */
+}
+/* Tăng khoảng cách dưới khu vực Thể Loại */
+.categories-wrap {
+  margin-bottom: 40px !important;
+}
+/* --- CSS CHO THANH ĐIỀU HƯỚNG CHƯƠNG (PHIÊN BẢN HOÀN CHỈNH) --- */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.chapter-nav a {
+  color: #555555 !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.chapter-nav a:hover {
+  color: #000000 !important;
+  background-color: #f0f0f0;
+}
+
+.chapter-nav a.disabled {
+  color: #ccc !important;
+  pointer-events: none;
+  cursor: default;
+  background-color: transparent !important;
+}
+
+/* --- MÃ MỚI: CHỈNH FONT CHỮ CHO PHIÊN BẢN ĐIỆN THOẠI --- */
+@media screen and (max-width: 768px) {
+  .chapter-nav {
+    max-width: 90%; /* Thu hẹp chiều rộng trên di động */
+  }
+  .chapter-nav a {
+    font-size: 15px !important; /* Giảm kích thước chữ */
+    padding: 8px 10px !important; /* Giảm khoảng đệm */
+  }
+}
+/* --- CSS CHO POP-UP MỤC LỤC --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  display: none; /* Mặc định ẩn đi */
+}
+
+/* --- MÃ ĐÃ SỬA CHO POPUP MỤC LỤC --- */
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* --- Phần hiệu ứng nền bạch kim --- */
+  background: linear-gradient(135deg, 
+      rgba(220, 220, 220, 0.9),  /* Xám bạc nhạt */
+      rgba(245, 245, 245, 0.95), /* Trắng khói */
+      rgba(229, 228, 226, 0.9),  /* Màu bạch kim */
+      rgba(245, 245, 245, 0.95), /* Trắng khói */
+      rgba(220, 220, 220, 0.9)); /* Xám bạc nhạt */
+  background-size: 300% 300%;
+  animation: metallic-shine 7s ease-in-out infinite;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Bodoni Moda', serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-toc-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.modal-toc-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.modal-toc-list li:last-child {
+  border-bottom: none;
+}
+.modal-toc-list a {
+  text-decoration: none;
+  color: #6B0000 !important;
+  display: block;
+  transition: all 0.2s ease;
+}
+.modal-toc-list a:hover {
+  color: #d10f0f !important; /* Đã đổi sang màu xanh rêu đậm */
+  padding-left: 5px;
+  font-weight: bold; /* Thêm chữ in đậm để nổi bật hơn */
+}
+/* --- TÙY CHỈNH FONT CHO POP-UP MỤC LỤC --- */
+
+/* Đổi font cho tiêu đề "Mục lục" */
+.modal-content h3 {
+  font-family: 'Bodoni Moda', serif !important;
+}
+
+/* Đổi font cho danh sách các chương */
+.modal-toc-list ul li a {
+  font-family: 'Niramit', sans-serif !important;
+  font-size: 16px; /* Tăng nhẹ kích thước chữ cho dễ đọc hơn */
+}
+/* --- CSS CHO POP-UP DANH SÁCH TRUYỆN --- */
+.story-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  display: none;
+  cursor: pointer;
+}
+/* --- MÃ ĐÃ SỬA CHO POPUP THỂ LOẠI --- */
+.story-popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Niramit', sans-serif;
+  text-align: center; /* <<< THÊM DÒNG NÀY ĐỂ CANH GIỮA */
+
+  /* --- Phần hiệu ứng nền bạch kim --- */
+  background: linear-gradient(135deg, 
+      rgba(220, 220, 220, 0.9),
+      rgba(245, 245, 245, 0.95),
+      rgba(229, 228, 226, 0.9),
+      rgba(245, 245, 245, 0.95),
+      rgba(220, 220, 220, 0.9));
+  background-size: 300% 300%;
+  animation: metallic-shine 7s ease-in-out infinite;
+}
+.story-popup-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Bodoni Moda', serif;
+  font-size: 28px;
+  text-align: center;
+  color: #333;
+}
+.story-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.story-popup-close:hover {
+  color: #000;
+}
+#popup-story-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#popup-story-list li {
+  padding: 12px 5px;
+  border-bottom: 1px solid #eee;
+}
+#popup-story-list li:last-child {
+  border-bottom: none;
+}
+#popup-story-list a {
+  text-decoration: none;
+  color: #333 !important;
+  font-size: 18px;
+  display: block;
+  transition: all 0.2s ease;
+}
+#popup-story-list a:hover {
+  color: #000000 !important;
+  padding-left: 10px;
+}
+#popup-story-list .loading-text,
+#popup-story-list .no-stories-text {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #888;
+}
+.post-share {
+    display: none !important;
+}
+/* --- MÃ CUỐI CÙNG: HIỆU ỨNG XANH CHO TIÊU ĐỀ POPUP --- */
+
+/* Áp dụng tất cả style trực tiếp cho link "Mục lục" */
+.modal-content h3 a {
+    /* 1. Thuộc tính FONT và SHADOW bạn muốn */
+    font-family: "Bungee Inline", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    transition: text-shadow 0.2s ease-in-out;
+
+    /* 2. Hiệu ứng kim loại MÀU XANH */
+    background: linear-gradient(to right, #6B0000, #FF7B7B, #E01111, #6B0000);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine-effect 3s linear infinite;
+}
+
+/* 3. Hiệu ứng hover chỉ đổi bóng đổ */
+.modal-content h3 a:hover {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 4. Giữ lại mã animation (nếu bạn đã xóa nó) */
+@keyframes shine-effect {
+  to {
+    background-position: -200% center;
+  }
+}
+
+/* --- TÙY CHỈNH FONT CHỮ CHO NỘI DUNG BÌNH LUẬN (PHIÊN BẢN SỬA LỖI) --- */
+
+/* Áp dụng cho cả bình luận ngắn (không có thẻ p) và bình luận dài */
+#comments .comment-content, 
+#comments .comment-body p {
+    font-family: 'Niramit', serif !important;
+    font-size: 18px !important; /* <-- BẠN CÓ THỂ THAY ĐỔI CỠ CHỮ Ở ĐÂY */
+    line-height: 1.6 !important;
+    word-break: break-word; /* Giúp tự động xuống dòng khi chữ quá dài */
+}
+
+/* Áp dụng cho màn hình nhỏ (di động, máy tính bảng) */
+@media screen and (max-width: 768px) {
+    #comments .comment-content, 
+    #comments .comment-body p {
+        font-size: 15px !important; /* <-- BẠN CÓ THỂ THAY ĐỔI CỠ CHỮ CHO DI ĐỘNG Ở ĐÂY */
+    }
+}
+/* --- SỬA FONT CHO NÚT "TRẢ LỜI" VÀ CÁC HÀNH ĐỘNG KHÁC --- */
+#comments .comment-actions a,
+#comments .comment-actions span {
+    font-family: 'Niramit', serif !important;
+    text-transform: none !important; /* Bỏ viết hoa chữ "TRẢ LỜI" */
+    font-size: 15px !important;      /* Chỉnh lại cỡ chữ cho phù hợp */
+    font-weight: 500 !important;
+    color: #fca400 !important; 
+}
+/* --- Khung ghi chú cho Editor (Đã sửa lỗi canh lề) --- */
+
+/* 1. Kiểu dáng chung của cái khung */
+.khung-ghi-chu {
+  background-color: #F8F7F7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 80%; 
+  padding: 15px 50px; /* Tạo khoảng đệm bên trong khung */
+  margin: 20px auto;
+  box-sizing: border-box; 
+}
+
+/* 2. Ghi đè margin mặc định và căn đều cho các đoạn văn bên trong */
+.khung-ghi-chu p {
+  text-align: justify !important;
+  margin-left: 0 !important; /* Bỏ khoảng lề trái mặc định */
+  margin-right: 0 !important; /* Bỏ khoảng lề phải mặc định */
+}
+
+/* 3. Giữ cho tiêu đề "Editor" luôn ở giữa */
+.khung-ghi-chu .tieu-de-editor {
+  text-align: center !important; 
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+/* --- Hết phần Khung ghi chú --- */
+/* --- Mã sửa lỗi khung ghi chú trên di động --- */
+@media screen and (max-width: 768px) {
+  .khung-ghi-chu {
+    width: 95%; /* Nới rộng khung ra gần hết chiều ngang màn hình */
+    padding: 15px 20px; /* Giảm khoảng đệm trái/phải để có thêm không gian cho chữ */
+  }
+}
+/* --- BẮT ĐẦU MÃ HIỆU ỨNG LOÉ SÁNG KIM LOẠI (ĐÃ SỬA LỖI) --- */
+.color-change-effect {
+  /* Tùy chỉnh font chữ */
+  font-weight: bold;
+  font-size: 110%;
+
+  /* Tạo màu nền kim loại dạng gradient */
+  background: linear-gradient(to right, #f0c34d, #d8a011, #b6860a, #d8a011, #f0c34d);
+  
+  /* Kích thước nền lớn hơn để có không gian cho hiệu ứng chạy */
+  background-size: 200% auto;
+
+  /* Cốt lõi: Làm chữ trong suốt để nền hiện ra theo hình dạng chữ */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Dành cho trình duyệt Webkit (Chrome, Safari) */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Áp dụng hiệu ứng động có tên là 'shine-effect' */
+  animation: shine-effect 3s linear infinite;
+}
+
+/* Định nghĩa các bước của hiệu ứng động 'shine-effect' */
+@keyframes shine-effect {
+  to {
+    /* Di chuyển vị trí của nền để tạo cảm giác loé sáng */
+    background-position: -200% center;
+  }
+}
+/* --- KẾT THÚC MÃ HIỆU ỨNG --- */
+/* --- Keyframes cho hiệu ứng nền kim loại --- */
+@keyframes metallic-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* --- TÙY CHỈNH HIỆU ỨNG CHO CÁC TIÊU ĐỀ POPUP --- */
+
+/* --- 1. Tiêu đề "MỤC LỤC" (Giữ nguyên màu đỏ) --- */
+.modal-content h3 a {
+  font-family: "Bungee Inline", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  
+  background: linear-gradient(to right, #6B0000, #FF7B7B, #E01111, #6B0000);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine-effect 3s linear infinite;
+  text-shadow: none !important;
+}
+
+.modal-content h3 a:hover {
+  text-shadow: none !important;
+  opacity: 0.8;
+}
+
+
+/* --- 2. Tiêu đề "THỂ LOẠI" (Màu xanh đen mới) --- */
+.story-popup-content h3 {
+  font-family: "Bungee Inline", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  
+  /* Màu gradient XANH ĐEN mới của bạn */
+  background: linear-gradient(to right, #3A3A3A, #B0B0B0, #888888, #3A3A3A);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine-effect 4s linear infinite; /* Chỉnh tốc độ animation một chút cho khác biệt */
+  text-shadow: none !important;
+}
+
+.story-popup-content h3:hover {
+  text-shadow: none !important;
+  opacity: 0.8;
+}
+/* --- BẮT ĐẦU MÃ LÀM ĐẸP KHUNG BÌNH LUẬN --- */
+
+/* 1. Tạo khung bao quanh cho mỗi bình luận */
+.comments .comment {
+    background-color: #f9f9f9;  /* Màu nền hơi xám nhẹ */
+    border: 1px solid #e0e0e0;      /* Đường viền mỏng */
+    border-radius: 8px;             /* Bo góc cho mềm mại */
+    padding: 15px 20px;             /* Khoảng đệm bên trong */
+    margin-bottom: 20px !important; /* Khoảng cách giữa các bình luận */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Bóng đổ nhẹ tạo chiều sâu */
+}
+
+/* 2. Tên người bình luận */
+.comments .comments-content .user a {
+    font-family: 'Oswald', sans-serif !important; /* Dùng font khác để tạo điểm nhấn */
+    font-weight: 600 !important;
+    color: #2c3e50 !important; /* Màu xanh đen */
+    font-size: 16px !important;
+}
+
+/* 3. Ngày giờ bình luận */
+.comments .comments-content .datetime a {
+    font-size: 13px !important;
+    color: #7f8c8d !important; /* Màu xám */
+    font-style: italic;
+    text-transform: none !important; /* Bỏ viết hoa */
+}
+
+/* 4. Nội dung bình luận - Quan trọng nhất để sửa lỗi font */
+#comments .comment-content, 
+#comments .comment-body p {
+    font-family: 'Niramit', serif !important; /* Áp dụng font Niramit hỗ trợ tiếng Việt */
+    font-size: 18px !important;
+    line-height: 1.7 !important; /* Giãn dòng cho dễ đọc */
+    color: #34495e !important; /* Màu chữ chính */
+    margin-top: 10px !important;
+    word-break: break-word; /* Tự động xuống dòng khi chữ quá dài */
+}
+
+/* 5. Các nút hành động (Trả lời, Xóa) */
+.comments .comment-actions a {
+    font-family: 'Niramit', serif !important;
+    text-transform: none !important; /* Bỏ viết hoa chữ "TRẢ LỜI" */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #3498db !important; /* Màu xanh dương cho liên kết */
+    margin-top: 15px;
+    display: inline-block;
+    transition: color 0.2s; /* Hiệu ứng khi di chuột */
+}
+
+.comments .comment-actions a:hover {
+    color: #2980b9 !important; /* Đổi màu khi di chuột vào */
+    text-decoration: underline;
+}
+
+/* --- KẾT THÚC MÃ LÀM ĐẸP KHUNG BÌNH LUẬN --- */
+/* --- BẮT ĐẦU: Khung ghi chú cho Tác giả --- */
+.khung-tac-gia {
+  background-color: #fdf5e6; /* Màu nền be (Old Lace) */
+  border-left: 5px solid #a0522d; /* Đường viền trái màu nâu (Sienna) */
+  border-radius: 0 8px 8px 0; /* Bo góc ở bên phải cho mềm mại */
+  width: 80%;
+  padding: 15px 20px 15px 25px; /* Khoảng đệm bên trong */
+  margin: 25px auto; /* Khoảng cách trên dưới với nội dung chính */
+  box-sizing: border-box;
+  color: #444; /* Màu chữ tối hơn một chút */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05); /* Thêm bóng đổ nhẹ */
+}
+
+/* Ghi đè các định dạng mặc định cho đoạn văn bên trong khung */
+.khung-tac-gia p {
+  text-align: justify !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  line-height: 1.7 !important; /* Giãn dòng cho dễ đọc */
+}
+
+/* Định dạng cho tiêu đề "Lời tác giả" */
+.khung-tac-gia .tieu-de-tac-gia {
+  text-align: left !important; /* Canh trái tiêu đề */
+  font-weight: bold;
+  font-style: normal; /* Tiêu đề không bị in nghiêng */
+  font-family: 'Bodoni Moda', serif; /* Dùng font khác cho tiêu đề */
+  font-size: 110%;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #a0522d; /* Màu tiêu đề trùng màu viền */
+}
+
+/* Tùy chỉnh cho màn hình di động */
+@media screen and (max-width: 768px) {
+  .khung-tac-gia {
+    width: 95%;
+    padding: 15px 15px 15px 20px;
+  }
+}
+/* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
