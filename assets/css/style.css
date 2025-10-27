@@ -803,20 +803,22 @@ Homepage Posts
   color: $(link.hover);
 }
 .home-title {
-	font-family: 'Bodoni Moda', serif;
-	font-weight: 400;
-	font-size: 35px;
-	letter-spacing: -1px;
-	color: $(home.title);
-	text-align: center;
-	margin: 3px 0 20px;}
+  font-family: 'Source Serif 4', serif !important; /* Đổi thành Source Serif 4 */
+  font-weight: 400;
+  font-size: 35px; /* Giữ nguyên size gốc */
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 3px 0 20px;
+}
 
 .home-title a,
-.home-title a:visited {
-	color: $(home.title) !important;}
+.home-title a:visited { /* Áp dụng cho cả link thường và link đã click */
+  color: #000000 !important; /* Ép màu đen */
+}
 
 .home-title a:hover {
-	color: $(home.title.hover) !important;}
+  color: #000000 !important; /* Màu hover gốc cũng là đen */
+}
 
 .home-summary {
 	color: $(home.summary);
