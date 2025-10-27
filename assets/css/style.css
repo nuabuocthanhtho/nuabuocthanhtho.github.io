@@ -1734,29 +1734,31 @@ div#Text1 {
 
 /* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
 
+/* --- Sửa khoảng cách cho Widget Giới thiệu --- */
+
 #Text1 h2.title {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 400 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 10px !important; /* << TẠO KHOẢNG CÁCH DƯỚI TIÊU ĐỀ */
+    /* Bỏ margin-top ở đây nếu có */
 }
 
 #Text1 .widget-content {
-    /* Các tùy chỉnh cũ */
     font-family: 'Oswald', sans-serif !important;
     font-weight: 300 !important;
     font-size: 19px !important;
     white-space: pre-line !important;
-    margin-top: -10px !important;
-    
-    /* Dòng mới để tăng khoảng cách giữa các dòng */
-    line-height: 1.0 !important; 
+    line-height: 1.6 !important; /* << Bạn có thể thử lại 1.5, 1.6, 1.7, 1.8 xem cái nào vừa mắt */
+    margin-top: 0 !important; /* << BỎ margin-top âm */
+    position: static !important; /* << TRẢ LẠI vị trí tĩnh bình thường */
+    /* Không cần 'top' nữa */
 }
 
+/* Các quy tắc cho link bên trong .widget-content giữ nguyên */
 #Text1 .widget-content a {
     color: #FFA500 !important;
     font-weight: 400 !important;
 }
-
 #Text1 .widget-content a:hover {
     color: #E69500 !important;
 }
