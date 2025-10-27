@@ -1,21 +1,31 @@
 ---
-layout: default
+layout: default # Kế thừa từ khung sườn default.html
+title: Trang chủ # Tiêu đề cho trang chủ
 ---
 
-<h2>{{ site.title }}</h2>
-<p>Nội dung trang chủ của tôi.</p>
+{% for post in site.posts %}
+  <div class='post-outer'>
+    <div class='post hentry uncustomized-post-template'> <div class='postthumb'>
+        <a href="{{ post.url | relative_url }}">
+          {% if post.image %}
+            <div class='post-thumb' style='background-image: url("{{ post.image | relative_url }}");'></div>
+          {% else %}
+             <div class='post-thumb' style='background-image: url("/assets/images/default.jpg");'></div>
+          {% endif %}
+        </a>
+      </div>
 
-<hr>
+      <div class='post1'>
+        <h2 class='home-date'>{{ post.date | date: "%d-%m-%Y" }}</h2>
+        <div class='home-title' itemprop='name'>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </div>
+        <div class='home-summary'>
+          {{ post.excerpt }} </div>
+        <div class='home-button'>
+          <a href="{{ post.url | relative_url }}"><span>Xem tiếp</span></a>
+        </div>
+      </div>
+      <div class='clear'></div>
 
-<h2>Bài viết mới nhất</h2>
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <h3>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </h3>
-      <p>{{ post.date | date: "%d-%m-%Y" }}</p>
-    </li>
-  {% endfor %}
-</ul>
+    </div> </div> {% endfor %}
