@@ -16,7 +16,7 @@ title: Trang chủ # Tiêu đề cho trang chủ
       </div>
 
       <div class='post1'>
-        <h2 class='home-date'>{{ post.date | date: "%d-%m-%Y" }}</h2>
+        <h2 class='home-date'>{{ post.date | date: "%d tháng %m, %Y" }}</h2>
         <div class='home-title' itemprop='name'>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
