@@ -1545,7 +1545,7 @@ Additional
 }
 
 .categories-wrap {
-  	padding: 10px 0px 30px 0px;
+  	padding: 5px 0px 30px 0px;
     max-width: 1000px;
     text-align: center;
     margin: 0 auto;
@@ -1749,7 +1749,7 @@ div#Text1 {
     margin-top: -10px !important;
     
     /* Dòng mới để tăng khoảng cách giữa các dòng */
-    line-height: 1.2 !important; 
+    line-height: 1.0 !important; 
 }
 
 #Text1 .widget-content a {
