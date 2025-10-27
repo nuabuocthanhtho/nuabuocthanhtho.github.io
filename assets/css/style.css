@@ -832,23 +832,38 @@ Homepage Posts
   /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
 }
 .home-button {
-	font-family: 'Karla', sans-serif;
-	font-weight: 400;
-	font-size: 11px;
-	letter-spacing: .5px;
-	text-transform: uppercase;
-	text-align: center;
-	margin: 30px 0 0;}
+  font-family: 'Karla', sans-serif; /* Font gốc */
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 30px auto 0; /* Căn giữa nút */
+  display: inline-block; /* Quan trọng để transform và căn giữa hoạt động */
+  transform: skewX(-20deg); /* Hiệu ứng nghiêng cho div cha */
+  background: #e3c9bf; /* Màu nền gốc $(home.button.background) - Chuyển sang div cha */
+  padding: 0px 7px; /* Padding ngang từ CSS gốc */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+}
 
 .home-button a {
-	color: $(home.button.color);
-    background: $(home.button.background);
-    padding: 9px 15px;}
+  display: inline-block; /* Quan trọng */
+  color: #000000; /* Màu chữ gốc $(home.button.color) */
+  padding: 9px 8px; /* Padding gốc là 9px 15px, nhưng do skew nên cần điều chỉnh padding ngang ở đây (8px) và ở div cha (7px) */
+  text-decoration: none; /* Bỏ gạch chân */
+  transform: skewX(20deg); /* Hiệu ứng nghiêng ngược lại cho link con */
+  /* Không cần background ở đây nữa */
+}
 
-.home-button a:hover {
-	background: $(home.button.background.hover);
-	color: $(home.button.color.hover);}
+/* Bỏ qua CSS cho span vì HTML hiện tại không có span */
 
+.home-button:hover { /* Áp dụng hover cho div cha */
+   background: #000000; /* Màu nền hover gốc $(home.button.background.hover) */
+}
+
+.home-button:hover a { /* Đổi màu chữ khi hover div cha */
+  color: #ffffff; /* Màu chữ hover gốc $(home.button.color.hover) */
+}
 @media screen and (max-width: 850px) {
 	.postthumb, .post1 {width: 100%;}
 	.post1 {padding: 30px 5% 40px;}}
