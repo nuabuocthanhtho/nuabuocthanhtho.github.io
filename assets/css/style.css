@@ -1749,7 +1749,7 @@ div#Text1 {
     margin-top: -10px !important;
     
     /* Dòng mới để tăng khoảng cách giữa các dòng */
-    line-height: 1.0 !important; 
+    line-height: 1.4 !important; 
 }
 
 #Text1 .widget-content a {
