@@ -822,7 +822,13 @@ Homepage Posts
 	color: $(home.summary);
 	text-align: justify;
     text-align-last: center;}
-
+.home-summary {
+  color: #000000; /* Lấy màu từ biến $(home.summary) gốc */
+  text-align: justify;
+  text-align-last: center; /* Căn giữa dòng cuối */
+  font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
+  /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
+}
 .home-button {
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
