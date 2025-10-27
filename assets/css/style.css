@@ -1762,15 +1762,16 @@ div#Text1 {
 
 /* Giảm khoảng cách bên trên của cả khối "THỂ LOẠI" */
 div#HTML1 {
-    margin-top: 15px !important; 
+    margin-top: 15px !important;
 }
 
-/* Đổi font và căn giữa cho chữ "THỂ LOẠI" */
+/* Đổi font, căn giữa, màu, bóng cho chữ "THỂ LOẠI" */
 div#HTML1 .widget-content {
-    font-family: 'Sigmar', cursive !important; /* Đã đổi sang font Sigmar */
+    font-family: 'Sigmar', cursive !important; /* Đảm bảo font Sigmar */
     text-align: center !important;
-color: #453f30 !important; /* Thêm dòng này để đổi màu xám nhạt hơn */
-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này để tạo bóng */
+    color: #453f30 !important; /* Màu xám nhạt hơn */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Tạo bóng */
+    font-size: 26px; /* Kích thước font gốc là 26px */
 }
 /* Tăng khoảng cách dưới khu vực Thể Loại */
 .categories-wrap {
