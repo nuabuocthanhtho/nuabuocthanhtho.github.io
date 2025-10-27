@@ -1,2 +1,12 @@
 theme: jekyll-theme-minimal
-title: Nửa Bước Thành Thơ
+title: Nửa Bước Thánh Thơ # Tiêu đề blog của bạn
+description: Mô tả ngắn gọn về blog của bạn # Mô tả blog
+# toc_url: /link-den-trang-muc-luc.html # THÊM DÒNG NÀY VÀ THAY LINK KHI BẠN CÓ TRANG MỤC LỤC TỔNG
+
+# Cấu hình Jekyll cơ bản (có thể đã có sẵn)
+theme: jekyll-theme-minimal # Hoặc bỏ dòng này nếu bạn không dùng theme gốc nữa
+markdown: kramdown
+permalink: /:year/:month/:day/:title.html # Cấu trúc link bài viết
+
+# Cấu hình excerpt (đoạn trích)
+excerpt_separator: "" # Điểm ngắt để tạo excerpt thủ công
