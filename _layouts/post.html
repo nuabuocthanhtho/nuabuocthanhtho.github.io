@@ -1,34 +1,45 @@
 ---
-layout: default
+layout: default # Kế thừa từ khung sườn default.html
 ---
-<article>
-  <h1>{{ page.title }}</h1>
-  <p>{{ page.date | date: "%d-%m-%Y" }}</p>
+<div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
 
-  <hr>
+  <div class='post-header'>
+    <div class='post-date'>
+      {{ page.date | date: "%d-%m-%Y" }} </div>
+    <h1 class='post-title entry-title' itemprop='name'>
+      {{ page.title }} </h1>
+    </div>
 
-  {{ content }}
+  <div class='post-body entry-content' id='post-body-{{ page.id }}' itemprop='articleBody'>
+    {{ content }} <div style='clear: both;'></div>
+  </div>
 
-  <hr>
+  {% if page.previous.url or page.next.url %}
+    <div class="chapter-nav">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url }}">&laquo; Chương Trước</a>
+      {% else %}
+        <a href="#" class="disabled">&laquo; Chương Trước</a>
+      {% endif %}
 
-  <h3>Bình luận</h3>
+      <a href="#" id="open-toc-btn" data-toc-url="{{ site.toc_url }}">Mục lục</a> {% if page.next.url %}
+        <a href="{{ page.next.url }}">Chương Sau &raquo;</a>
+      {% else %}
+        <a href="#" class="disabled">Chương Sau &raquo;</a>
+      {% endif %}
+    </div>
+  {% endif %}
 
- <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://nuabuocthanhtho.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <div class='post-footer'>
+    {% if page.tags.size > 0 %}
+    <div class='post-labels'>
+      Tags:
+      {% for tag in page.tags %}
+        <a href='/tags/{{ tag | slugify }}/'>{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div style='clear: both;'></div>
+  </div>
+
+  </div> ```
