@@ -2295,3 +2295,47 @@ div#HTML1 .widget-content {
   }
 }
 /* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
+/* --- CSS CHO BẢNG MỤC LỤC TRUYỆN --- */
+
+/* 1. MÀU CHUNG: Màu vàng cho link đã update */
+#chapter-list-container td a {
+  color: #b39e49 !important;
+}
+#chapter-list-container td a:hover {
+  color: #d499c8 !important;
+}
+
+/* 2. MÀU RIÊNG: Màu xám cho link chưa update (PHẢI ĐẶT SAU) */
+#chapter-list-container td a[href^="LINK-CHƯƠNG"] {
+  color: #999999 !important; /* Màu xám mờ */
+  pointer-events: none;      /* Vô hiệu hóa click */
+  cursor: default;
+}
+
+/* 3. CSS CHO DI ĐỘNG */
+@media screen and (max-width: 500px) {
+  #chapter-list-container table {
+    width: 100% !important;
+    border-spacing: 4px 4px;
+    border-collapse: separate; 
+  }
+  #chapter-list-container tr {
+    display: flex;
+  }
+  #chapter-list-container td {
+    flex: 1;
+    border: 1px solid #ddd !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+  #chapter-list-container td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px !important;
+  }
+}
+/* --- HẾT CSS MỤC LỤC --- */
