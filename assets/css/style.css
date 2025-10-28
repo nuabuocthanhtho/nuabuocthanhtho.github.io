@@ -831,42 +831,41 @@ Homepage Posts
   font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
   /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
 }
+/* --- Mã sửa lỗi cho nút "Xem Tiếp" --- */
 .home-button {
-  font-family: 'Karla', sans-serif; /* Font gốc */
+  display: block;        /* Đổi thành block để margin: auto hoạt động */
+  width: fit-content;    /* Giúp khối chỉ rộng vừa đủ nội dung */
+  margin: 30px auto 0;   /* Căn giữa khối nút */
+  background: #e3c9bf;   /* Màu nền */
+  transform: skewX(-20deg); /* << NGHIÊNG KHỐI NỀN */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+}
+
+.home-button a {
+  display: inline-block;   /* Quan trọng để 'a' nhận padding */
+  padding: 9px 15px;     /* Có thể điều chỉnh khoảng đệm cho vừa ý */
+  color: #000000 !important;
+  text-decoration: none;
+  /* KHÔNG CÓ transform ở thẻ <a> */
+}
+
+.home-button span {
+  display: inline-block;   /* Quan trọng để 'span' nhận transform */
+  transform: skewX(20deg); /* << LÀM THẲNG CHỮ LẠI */
+  font-family: 'Karla', sans-serif; /* Giữ font gốc của theme */
   font-weight: 400;
   font-size: 11px;
   letter-spacing: .5px;
   text-transform: uppercase;
-  text-align: center; /* Căn giữa nội dung bên trong (nếu là inline-block) */
-  margin: 30px auto 0; /* <<< CĂN GIỮA KHỐI NÚT */
-  display: block;      /* <<< ĐỔI THÀNH BLOCK ĐỂ MARGIN AUTO HOẠT ĐỘNG */
-  width: fit-content;  /* <<< GIÚP BLOCK CHỈ RỘNG VỪA ĐỦ */
-  transform: skewX(-20deg); /* Hiệu ứng nghiêng cho div cha */
-  background: #e3c9bf; /* Màu nền gốc */
-  padding: 0px 7px; /* Padding ngang ở div cha */
-  transition: background-color 0.3s ease;
 }
 
-.home-button a {
-  display: inline-block;
-  color: #000000 !important; /* Ép màu chữ đen */
-  padding: 9px 8px; /* Padding dọc + ngang điều chỉnh */
-  text-decoration: none;
-  /* Không cần transform ở thẻ a nữa */
-}
-
-.home-button span {
-   display: inline-block; /* Quan trọng cho span */
-   transform: skewX(20deg); /* <<< NGHIÊNG NGƯỢC LẠI Ở SPAN */
-   font-family: sans-serif !important; /* Font gốc cho nút là sans-serif */
-}
-
+/* Hiệu ứng khi di chuột */
 .home-button:hover {
-   background: #000000; /* Màu nền hover */
+  background: #000000;
 }
 
-.home-button:hover a { /* Đổi màu chữ khi hover div cha */
-  color: #ffffff !important; /* Ép màu chữ trắng */
+.home-button:hover a {
+  color: #ffffff !important;
 }
 @media screen and (max-width: 850px) {
 	.postthumb, .post1 {width: 100%;}
