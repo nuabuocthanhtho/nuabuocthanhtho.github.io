@@ -831,42 +831,41 @@ Homepage Posts
   font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
   /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
 }
-/* --- CSS CHO NÚT MỚI ĐỂ TRÁNH SCRIPT CỦA THEME --- */
-
-.my-readmore-button {
-  display: block !important;
-  width: fit-content !important;
-  margin: 30px auto 0 !important;
-  background: #e3c9bf !important; /* Màu nền gốc */
-  transform: skewX(-20deg) !important; /* Nghiêng khối nền */
-  padding: 0 !important;
+/* --- MÃ SỬA LỖI CUỐI CÙNG CHO NÚT "XEM TIẾP" --- */
+.home-button {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+  background: #e3c9bf;
+  transform: skewX(-20deg); /* Nghiêng khối nền */
+  padding: 0;
   transition: background-color 0.3s ease;
 }
 
-.my-readmore-button a {
-  display: inline-block !important;
-  padding: 9px 15px !important;
+.home-button a {
+  display: inline-block;
+  padding: 9px 15px;
   color: #000000 !important;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
-.my-readmore-button span {
-  display: inline-block !important;
-  transform: skewX(20deg) !important; /* Làm thẳng chữ lại */
-  font-family: 'Karla', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 11px !important;
-  letter-spacing: .5px !important;
-  text-transform: uppercase !important;
-  font-style: normal !important;
+.home-button span {
+  display: inline-block;
+  transform: skewX(20deg); /* Làm thẳng chữ lại */
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-style: normal; /* Đảm bảo chữ không bị nghiêng */
 }
 
 /* Hiệu ứng khi di chuột */
-.my-readmore-button:hover {
-  background: #000000 !important;
+.home-button:hover {
+  background: #000000;
 }
 
-.my-readmore-button:hover a {
+.home-button:hover a {
   color: #ffffff !important;
 }
 @media screen and (max-width: 850px) {
@@ -2296,16 +2295,3 @@ div#HTML1 .widget-content {
   }
 }
 /* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
-/* --- MÃ SỬA LỖI DỨT ĐIỂM BẰNG !IMPORTANT --- */
-
-/* Dùng selector có độ ưu tiên cao hơn */
-div.post1 .home-button {
-  transform: skewX(-20deg) !important; /* Ép nghiêng khối nền */
-}
-
-/* Ép chữ bên trong phải thẳng lại */
-div.post1 .home-button a {
-  display: inline-block !important; /* Bắt buộc */
-  transform: skewX(20deg) !important; /* Ép chữ thẳng lại */
-  font-style: normal !important; /* Đảm bảo chữ không bị nghiêng kiểu 'italic' */
-}
