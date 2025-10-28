@@ -22,9 +22,9 @@ title: Trang chủ # Tiêu đề cho trang chủ
         </div>
         <div class='home-summary'>
           {{ post.excerpt }} </div>
-        <div class='home-button'>
-          <a href="{{ post.url | relative_url }}"><span>Xem tiếp</span></a>
-        </div>
+<div class='home-button'>
+  <a href="{{ post.url | relative_url }}"><span>Xem tiếp</span></a>
+</div>
       </div>
       <div class='clear'></div>
 
