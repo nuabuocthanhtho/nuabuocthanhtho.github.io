@@ -831,28 +831,29 @@ Homepage Posts
   font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
   /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
 }
-/* --- Mã sửa lỗi cho nút "Xem Tiếp" --- */
+/* --- Mã sửa lỗi dứt điểm cho nút "Xem Tiếp" --- */
 .home-button {
   display: block;        /* Đổi thành block để margin: auto hoạt động */
   width: fit-content;    /* Giúp khối chỉ rộng vừa đủ nội dung */
   margin: 30px auto 0;   /* Căn giữa khối nút */
   background: #e3c9bf;   /* Màu nền */
   transform: skewX(-20deg); /* << NGHIÊNG KHỐI NỀN */
-  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+  padding: 0;            /* Bỏ padding ở đây để kiểm soát ở thẻ <a> */
+  transition: background-color 0.3s ease;
 }
 
 .home-button a {
-  display: inline-block;   /* Quan trọng để 'a' nhận padding */
-  padding: 9px 15px;     /* Có thể điều chỉnh khoảng đệm cho vừa ý */
+  display: inline-block;
+  padding: 9px 15px;      /* Tăng padding ngang cho đẹp hơn */
   color: #000000 !important;
   text-decoration: none;
-  /* KHÔNG CÓ transform ở thẻ <a> */
+  /* Không được có transform ở thẻ a */
 }
 
 .home-button span {
-  display: inline-block;   /* Quan trọng để 'span' nhận transform */
+  display: inline-block;
   transform: skewX(20deg); /* << LÀM THẲNG CHỮ LẠI */
-  font-family: 'Karla', sans-serif; /* Giữ font gốc của theme */
+  font-family: 'Karla', sans-serif;
   font-weight: 400;
   font-size: 11px;
   letter-spacing: .5px;
@@ -1520,28 +1521,6 @@ Additional
 	-ms-transition: all 0.1s ease;
 	-o-transition: all 0.1s ease;
 	transition: all 0.1s ease;}
-
-
-
-
-
-
-
-.home-button {
-  transform: skewX(-20deg);
-    padding: 0px 7px;
-    margin: 20px auto;
-    transition: background-color 0.3s ease;
-}
-
-.home-button a {
-  transform: skewX(20deg);
-    font-family: sans-serif;
-}
-.home-button span {
-    transform: skewX(20deg);
-    display: inline-block;
-}
 
 
 
