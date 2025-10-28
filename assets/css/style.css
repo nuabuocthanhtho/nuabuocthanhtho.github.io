@@ -2301,3 +2301,16 @@ div#HTML1 .widget-content {
   }
 }
 /* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
+/* --- MÃ SỬA LỖI DỨT ĐIỂM BẰNG !IMPORTANT --- */
+
+/* Dùng selector có độ ưu tiên cao hơn */
+div.post1 .home-button {
+  transform: skewX(-20deg) !important; /* Ép nghiêng khối nền */
+}
+
+/* Ép chữ bên trong phải thẳng lại */
+div.post1 .home-button a {
+  display: inline-block !important; /* Bắt buộc */
+  transform: skewX(20deg) !important; /* Ép chữ thẳng lại */
+  font-style: normal !important; /* Đảm bảo chữ không bị nghiêng kiểu 'italic' */
+}
