@@ -9,3 +9,6 @@ permalink: /:year/:month/:day/:title.html # Cấu trúc link bài viết
 
 # Cấu hình excerpt (đoạn trích)
 excerpt_separator: ""
+collections:
+  stories:
+    output: true
