@@ -831,33 +831,39 @@ Homepage Posts
   font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
   /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
 }
-/* --- Mã sửa lỗi dứt điểm cho nút "Xem Tiếp" --- */
+/* --- MÃ SỬA LỖI CUỐI CÙNG CHO NÚT "XEM TIẾP" --- */
+
 .home-button {
-  display: block;        /* Đổi thành block để margin: auto hoạt động */
-  width: fit-content;    /* Giúp khối chỉ rộng vừa đủ nội dung */
-  margin: 30px auto 0;   /* Căn giữa khối nút */
-  background: #e3c9bf;   /* Màu nền */
-  transform: skewX(-20deg); /* << NGHIÊNG KHỐI NỀN */
-  padding: 0;            /* Bỏ padding ở đây để kiểm soát ở thẻ <a> */
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+  background: #e3c9bf;
+  transform: skewX(-20deg); /* Nghiêng khối nền */
+  padding: 0;
   transition: background-color 0.3s ease;
 }
 
+/* Áp dụng style chung cho thẻ <a> */
 .home-button a {
   display: inline-block;
-  padding: 9px 15px;      /* Tăng padding ngang cho đẹp hơn */
+  padding: 9px 15px;
   color: #000000 !important;
   text-decoration: none;
-  /* Không được có transform ở thẻ a */
-}
-
-.home-button span {
-  display: inline-block;
-  transform: skewX(20deg); /* << LÀM THẲNG CHỮ LẠI */
   font-family: 'Karla', sans-serif;
   font-weight: 400;
   font-size: 11px;
   letter-spacing: .5px;
   text-transform: uppercase;
+}
+
+/* LÀM THẲNG CHỮ:
+  - Nếu có <span>, thì làm thẳng <span>.
+  - Nếu không có <span>, thì làm thẳng trực tiếp <a>.
+*/
+.home-button a, 
+.home-button a span {
+  transform: skewX(20deg);
+  display: inline-block; /* Bắt buộc phải có để transform hoạt động */
 }
 
 /* Hiệu ứng khi di chuột */
