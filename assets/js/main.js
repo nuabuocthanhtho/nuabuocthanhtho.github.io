@@ -160,12 +160,3 @@ $(document).ready(function() {
   });
 
 }); // Kết thúc $(document).ready()
-
-/* --- SCRIPT HIỂN THỊ MENU (NẾU CÓ) --- */
-function showIt() {
-    var navWrap = document.getElementById("nav-wrap");
-    if (navWrap) {
-        navWrap.style.visibility = "visible";
-    }
-}
-setTimeout("showIt()", 300);
