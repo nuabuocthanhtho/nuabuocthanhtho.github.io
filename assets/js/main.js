@@ -132,24 +132,25 @@ $(document).ready(function() {
   function closeModalToc() { $('.modal-overlay, .modal-content').fadeOut(200); }
   $('body').on('click', '.modal-close, .modal-overlay', closeModalToc);
 
-  /* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN (QUAN TRỌNG) --- */
-  $('.categories-box .Image a').on('click', function(e) {
-      e.preventDefault(); // Ngăn chuyển trang
-      var tocPageUrl = $(this).attr('href');
-      var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện'; // Lấy chữ từ thẻ h2
+/* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN (QUAN TRỌNG) --- */
+$('.categories-box .Image a').on('click', function(e) {
+    e.preventDefault(); // Ngăn chuyển trang
+    console.log("Category button clicked!"); // Dòng kiểm tra
+    var tocPageUrl = $(this).attr('href');
+    var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện'; // Lấy chữ từ thẻ h2
 
-      $('#popup-title').text(categoryTitle);
-      $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
-      $('.story-popup-overlay, .story-popup-content').fadeIn(200);
+    $('#popup-title').text(categoryTitle);
+    $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
+    $('.story-popup-overlay, .story-popup-content').fadeIn(200);
 
-      $('#popup-story-list').load(tocPageUrl + ' .post-body', function(response, status, xhr) {
-          if (status == "error") {
-              $(this).html('<div class="no-stories-text">Lỗi: Không thể tải được danh sách.</div>');
-          }
-      });
-  });
-  function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
-  $('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
+    $('#popup-story-list').load(tocPageUrl + ' .post-body', function(response, status, xhr) {
+        if (status == "error") {
+            $(this).html('<div class="no-stories-text">Lỗi: Không thể tải được danh sách.</div>');
+        }
+    });
+});
+function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
+$('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
 
   /* --- Xử lý nút Escape để đóng cả 2 loại pop-up --- */
   $(document).on('keydown', function(e) {
