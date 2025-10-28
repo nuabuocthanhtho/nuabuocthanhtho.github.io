@@ -3,6 +3,62 @@ layout: default
 title: "[MẪN NHƯỢC] Kiếm phi vạn nhân địch"
 genre: fanfic
 ---
+<div class="post-header">
+  <h1 class="post-title entry-title" style="text-align: center; margin-bottom: 25px;" itemprop="name">
+    [MẪN NHƯỢC] Kiếm phi vạn nhân địch
+  </h1>
+</div>
+
+<style>
+/* --- PHIÊN BẢN SỬA LỖI CUỐI CÙNG (Ổn định hơn) --- */
+@media screen and (max-width: 500px) {
+  /* Bắt buộc bảng chiếm 100% chiều rộng */
+  #chapter-list-container table {
+    width: 100% !important;
+    border-spacing: 4px 4px; /* Tạo khoảng cách giữa các ô */
+    border-collapse: separate; 
+  }
+
+  /* Biến mỗi HÀNG (tr) thành một flex container */
+  #chapter-list-container tr {
+    display: flex;
+  }
+
+  /* Mỗi Ô (td) là một flex item, co giãn bằng nhau */
+  #chapter-list-container td {
+    flex: 1; /* Chia đều chiều rộng cho các ô trong hàng */
+    border: 1px solid #ddd !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  #chapter-list-container td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px !important;
+    color: #b39e49 !important;
+  }
+}
+  /* --- MÃ VÔ HIỆU HÓA LINK CHƯƠNG CHƯA CẬP NHẬT --- */
+#chapter-list-container a[href^="LINK-CHƯƠNG"] {
+  color: #999999 !important; /* Đổi màu chữ thành màu xám mờ */
+  pointer-events: none;     /* Vô hiệu hóa hoàn toàn việc click chuột */
+  cursor: default;          /* Biến con trỏ chuột thành dạng mặc định (mũi tên) */
+}
+/* --- MÃ TÙY CHỈNH MÀU SẮC LINK CHƯƠNG --- */
+#chapter-list-container a {
+  color: #b39e49 !important;
+}
+
+#chapter-list-container a:hover {
+  color: #d499c8 !important;
+}
+</style>
+
 <div align="center">
 &nbsp; &nbsp; <div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgp4aMzGeu8eFVVpxXyevERiCnj7vTcvDVdMEkSAcindRlOkgICyPlAGdZhnXtw0JX3qGZyOKCH_OJpzANaLmFg7Lje3ZyHN1OeI_IwsFsN44Q0eMn_8lE6Mzi6oaGv8v0Q1bw0XSY0_k09jSn2t3p4CYizCwccoBulP1sYMF2xnpt7Wn5aK77NxCDw8XM/s400/359086254-256-k306504.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="400" data-original-width="256" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgp4aMzGeu8eFVVpxXyevERiCnj7vTcvDVdMEkSAcindRlOkgICyPlAGdZhnXtw0JX3qGZyOKCH_OJpzANaLmFg7Lje3ZyHN1OeI_IwsFsN44Q0eMn_8lE6Mzi6oaGv8v0Q1bw0XSY0_k09jSn2t3p4CYizCwccoBulP1sYMF2xnpt7Wn5aK77NxCDw8XM/s320/359086254-256-k306504.jpg" width="205" /></a></div><p style="text-align: center;">Tác phẩm: Kiếm phi vạn nhân địch</p><p style="text-align: center;">CP: Triệu Mẫn x Chu Chỉ Nhược (Ỷ Thiên Đồ Long Ký)</p><p style="text-align: center;">Tác giả: Cơ Giới Điểu</p><p style="text-align: center;">Độ dài: 44 chương</p>
 
