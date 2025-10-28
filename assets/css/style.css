@@ -837,32 +837,36 @@ Homepage Posts
   font-size: 11px;
   letter-spacing: .5px;
   text-transform: uppercase;
-  text-align: center;
-  margin: 30px auto 0; /* Căn giữa nút */
-  display: inline-block; /* Quan trọng để transform và căn giữa hoạt động */
+  text-align: center; /* Căn giữa nội dung bên trong (nếu là inline-block) */
+  margin: 30px auto 0; /* <<< CĂN GIỮA KHỐI NÚT */
+  display: block;      /* <<< ĐỔI THÀNH BLOCK ĐỂ MARGIN AUTO HOẠT ĐỘNG */
+  width: fit-content;  /* <<< GIÚP BLOCK CHỈ RỘNG VỪA ĐỦ */
   transform: skewX(-20deg); /* Hiệu ứng nghiêng cho div cha */
-  background: #e3c9bf; /* Màu nền gốc $(home.button.background) - Chuyển sang div cha */
-  padding: 0px 7px; /* Padding ngang từ CSS gốc */
-  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+  background: #e3c9bf; /* Màu nền gốc */
+  padding: 0px 7px; /* Padding ngang ở div cha */
+  transition: background-color 0.3s ease;
 }
 
 .home-button a {
-  display: inline-block; /* Quan trọng */
-  color: #000000; /* Màu chữ gốc $(home.button.color) */
-  padding: 9px 8px; /* Padding gốc là 9px 15px, nhưng do skew nên cần điều chỉnh padding ngang ở đây (8px) và ở div cha (7px) */
-  text-decoration: none; /* Bỏ gạch chân */
-  transform: skewX(20deg); /* Hiệu ứng nghiêng ngược lại cho link con */
-  /* Không cần background ở đây nữa */
+  display: inline-block;
+  color: #000000 !important; /* Ép màu chữ đen */
+  padding: 9px 8px; /* Padding dọc + ngang điều chỉnh */
+  text-decoration: none;
+  /* Không cần transform ở thẻ a nữa */
 }
 
-/* Bỏ qua CSS cho span vì HTML hiện tại không có span */
+.home-button span {
+   display: inline-block; /* Quan trọng cho span */
+   transform: skewX(20deg); /* <<< NGHIÊNG NGƯỢC LẠI Ở SPAN */
+   font-family: sans-serif !important; /* Font gốc cho nút là sans-serif */
+}
 
-.home-button:hover { /* Áp dụng hover cho div cha */
-   background: #000000; /* Màu nền hover gốc $(home.button.background.hover) */
+.home-button:hover {
+   background: #000000; /* Màu nền hover */
 }
 
 .home-button:hover a { /* Đổi màu chữ khi hover div cha */
-  color: #ffffff; /* Màu chữ hover gốc $(home.button.color.hover) */
+  color: #ffffff !important; /* Ép màu chữ trắng */
 }
 @media screen and (max-width: 850px) {
 	.postthumb, .post1 {width: 100%;}
