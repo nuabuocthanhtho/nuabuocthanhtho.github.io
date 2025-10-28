@@ -1,6 +1,6 @@
 ---
-layout: post
-title: "Kiếm phi vạn nhân địch"
+layout: default
+title: "[MẪN NHƯỢC] Kiếm phi vạn nhân địch"
 genre: fanfic
 ---
 <div align="center">
