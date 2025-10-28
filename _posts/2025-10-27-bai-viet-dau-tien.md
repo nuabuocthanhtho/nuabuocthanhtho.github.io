@@ -2,6 +2,7 @@
 layout: post
 title: "Đây là Tiêu đề Bài viết Đầu tiên"
 date: 2025-10-27 13:10:00 +0700
+categories: fanfic
 ---
 
 Chào thế giới! 
