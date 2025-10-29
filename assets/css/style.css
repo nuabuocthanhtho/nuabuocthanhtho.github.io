@@ -1608,7 +1608,7 @@ div#Text1 {
 #Text1 h2.title {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 400 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 10 !important;
 }
 
 #Text1 .widget-content {
@@ -1641,7 +1641,7 @@ div#HTML1 {
 /* Đổi font và căn giữa cho chữ "THỂ LOẠI" */
 div#HTML1 .widget-content {
     font-family: 'Sigmar', cursive !important; /* Đã đổi sang font Sigmar */
-	font-size: 25px !important;
+	font-size: 20px !important;
     text-align: center !important;
 color: #453f30 !important; /* Thêm dòng này để đổi màu xám nhạt hơn */
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này để tạo bóng */
