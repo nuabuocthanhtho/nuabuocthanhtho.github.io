@@ -406,6 +406,7 @@ thoáng đi".</p><p data-p-id="c240e4bd3ead03ba1ab856406e703565"> "Thiệt chứ
 
 <p>Câu <i>"cát trắng trên bãi sông không nhìn thấy rõ"</i> trong bài thơ mang ý nghĩa ánh trăng sáng đến mức bao trùm và xóa nhòa mọi thứ, khiến cho cát trắng trên bãi sông hòa một màu với ánh trăng, không thể phân biệt được.</p><p>Vì vậy tiêu đề của chương 3 là để ẩn dụ con đường tương lai của Triệu Mẫn trở nên mơ hồ, không rõ ràng, tuy tạm thời rời bỏ Trương Vô Kỵ, quay về với gia đình nhưng cũng chưa biết sau này con đường chính trị phía trước sẽ đi về đâu, mọi thứ đều mờ ảo như cảnh vật dưới ánh trăng trong bài thơ, kể cả cuộc chia ly với Trương Vô Kỵ cũng không rõ ràng và khá vô hình, không biết khi nào tái hợp hay sẽ không bao giờ tái hợp.</p>
 
+</div>
 <div class="chapter-nav">
     <a href="/2025/10/29/kiem-phi-van-nhan-dich-chuong-2.html">« Chương trước</a>
     
