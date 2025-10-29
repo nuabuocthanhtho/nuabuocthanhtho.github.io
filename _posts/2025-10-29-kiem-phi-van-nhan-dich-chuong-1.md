@@ -1,0 +1,1236 @@
+---
+layout: post # Sử dụng layout bài đăng bạn đã thiết lập
+title: "[MẪN NHƯỢC] KIẾM PHI VẠN NHÂN ĐỊCH • Chương 1"
+---
+<p style="text-align: center;">
+
+  <span class="color-change-effect" style="font-size: 140%;font-family: 'Oswald';">Chương 1: Băng hỏa bất dung</span><span class="tooltip" tabindex="0">
+
+    ✶
+
+    <span class="tooltiptext">Băng lửa không thể dung hòa. Tức nói về mối quan hệ giữa Triệu Mẫn và Chu Chỉ Nhược.</span>
+
+</span><p data-p-id="984ebe007dd2d39c9137da6151965f46" style="text-align: center;"><i><br /></i></p><p data-p-id="984ebe007dd2d39c9137da6151965f46" style="text-align: center;"><i>Hạo tí tự ngọc mai hoa trang</i></p><p data-p-id="e391c57124794f3fd64773950cecafe6" style="text-align: center;"><i>Phù tra bắc minh hải mang mang</i></p><p data-p-id="b8d33ec45349abf749c26000155c202d" style="text-align: center;"><i>Thùy tống băng khả lai tiên hương</i></p><p data-p-id="68b0306df59afe00f307addb84c9f234" style="text-align: center;"><i>Cùng phát thập tái phiếm quy hàng<span class="tooltip" tabindex="0">
+
+    ✶
+
+    <span class="tooltiptext"> 4 câu trên lần lượt là tiêu đề của các chương 5, 6, 7, 8 trong tiểu 
+
+thuyết gốc, liên quan đến chuyện tình của cha mẹ Trương Vô Kỵ từ khi lên
+
+ Băng Hỏa Đảo đến khi trở về Trung Nguyên. Bản dịch của Lê Khánh Trường 
+
+và Lê Việt Anh cho 4 câu này như sau:<br />"Cánh tay ngọc trúng mai hoa tiêu<br />Dập dềnh biển tối mênh mang<br />Ai đẩy núi băng tới đảo tiên<br />Mười năm Bắc cực đáp bè về xuôi"<br />4 câu này đặt vào fic là muốn mượn chuyện đời trước mở ra chuyện đời sau.</span></span></i></p><p data-p-id="611776f7b6c5a72f8eba7919ce65e609"><i></i></p><p data-p-id="b8c2a0e3ff001c825d8faa964c2f3c77">Sóng
+
+ dữ trùng trùng vỗ đá, cột sóng dày nghìn lớp gầm rú vẫn vẹn nguyên như 
+
+hai mươi năm trước, chỉ là người hẹn ước bạc đầu trong sóng gió đã thay 
+
+khác.</p><p data-p-id="85a77c70fd1f939dfce04126cb5ca41e">"Hoàng thiên tại thượng, Trương Vô Kỵ ta hôm nay cùng Triệu Mẫn kết nghĩa phu thê, đồng cam cộng khổ, trọn kiếp không phụ nhau".</p><p data-p-id="7494d90554924df3e6fa46c5a5661996">"Trời cao chứng giám, ta nguyện cùng Trương Vô Kỵ đời đời kiếp kiếp mãi là phu thê, năm tháng xoay vần vẫn bạc đầu răng long".</p><p data-p-id="18f9167c6cf7c299088c0b81dea99687">Triệu
+
+ Mẫn cất cao giọng, lúc quay đầu nhìn Trương Vô Kỵ đã toát ra mấy phần 
+
+dịu dàng, rạng rỡ hơn nắng phương bắc óng ánh trong mắt. Trương Vô Kỵ 
+
+xúc động quá đỗi, ôm chầm lấy nàng đầy thâm tình. Triệu Mẫn cũng thở 
+
+phào như trút sạch gánh nặng.</p><p data-p-id="383a551f21a7059dfb137985cff2346d">Khổ
+
+ tận cam lai, tất cả đã qua, không còn thù nhà nợ nước, không còn kẻ nào
+
+ cản trở, từ nay về sau chỉ có đôi phu thê ở chốn tận cùng của thế gian 
+
+giữ ấm duyên cầm sắt, bầu bạn đến già.</p><p data-p-id="1a77fcac84c2949d48d7a52c0786ba83">Họ
+
+ tựa sát nhau, tình ý nồng nàn, tận khi trời nhá nhem. Trương Vô Kỵ và 
+
+Triệu Mẫn hãy còn trẻ tuổi, tháng ngày sau ẩn dật dằng dặc không tưởng 
+
+nổi, vì vậy ai cũng không cho là hoang phí. Gió đêm chợt sa vào mắt 
+
+Triệu Mẫn khô khốc, gò má ê ẩm. Trương Vô Kỵ nắm tay nàng nói - "Phải 
+
+rồi, Mẫn Mẫn, huynh còn chưa đưa muội đến nơi ở của chúng ta sau này".</p><p data-p-id="f38f085c1b938f2edbdd66de2f73e709"><br /></p><p data-p-id="1f7cdf788f714778039f9e6c4f71a6a1"><br /></p><p data-p-id="fd28fa46e51d32fdcf8be80b3f7acb6b"><br /></p><p data-p-id="e81c4089d015a1bae69523aa902bfc63">Triệu
+
+ Mẫn dĩ nhiên từng nghĩ điều kiện sống trên đảo hoang sẽ kém xa trước 
+
+kia, chỉ là nàng chưa bao giờ coi đó là khó khăn. Dưới núi Thiếu Thất, 
+
+cả hai cùng ăn một bát cơm cháy đã thấy hạnh phúc viên mãn, dường như 
+
+chỉ cần với Trương Vô Kỵ mắt đối mắt nàng liền chấp nhận hết thảy khổ 
+
+ải.</p><p data-p-id="f094781edde80dade697d6b2c8b57a5c">Nhưng mà giờ đây,
+
+ Trương Vô Kỵ dắt nàng vào động gấu mà năm xưa cha mẹ chàng chung sống,
+
+ mùi xú uế phả vô mũi thật khiến người ưa sạch sẽ như Triệu Mẫn muốn 
+
+manh động tẩu thoát.</p><p data-p-id="2c312b6c3913086584469ab50f7dee31">Cái
+
+ hang này có một thời gian được cả người lẫn thú chọn làm nơi cư ngụ. Dù
+
+ hoàn toàn bỏ hoang hơn mười năm, bởi vì bí gió lại thiếu nắng nên mùi 
+
+hôi khó mà tản, dễ dàng xộc vào cánh mũi nhạy cảm của Triệu Mẫn, huống 
+
+hồ Trương Thúy Sơn rời đi để chỗ này bị dã thú chiếm làm nơi tránh mưa 
+
+hoặc ngủ đông bất cứ lúc nào, lấm chấm vết phóng uế cũng là hiển nhiên. 
+
+Ban nãy Trương Vô Kỵ còn hào hứng nói ngày sau sẽ trú ngụ ở đây, giờ 
+
+Triệu Mẫn - vốn hưởng cuộc sống vương công quý tộc từ nhỏ - nghĩ tới 
+
+liền sa sầm mặt.</p><p data-p-id="9ce9c65c40266461b35785425e22a0cb">Hang
+
+ động uế tạp dĩ nhiên là trong dự liệu, nhưng Trương Vô Kỵ chỉ đoán được
+
+ mấy tấm mạng nhện giăng nhung nhúc và lớp bụi dày cộm. Chàng cười xấu 
+
+hổ, nắm tay Triệu Mẫn nói - "Không sao, ngày mai huynh xách nước đến rửa
+
+ kỹ. Đêm nay mình ngủ tạm trên cây".</p><p data-p-id="e074a3d40bbd8b8d654a23997221faeb">"Huynh sống ở đây từ nhỏ? Không ra ngoài dựng chòi hay nhà gỗ chẳng hạn?" - Triệu Mẫn mắt tròn mắt dẹt mà hỏi.</p><p data-p-id="aa79ebd93a08d03ddb8ea2f68d841d08">Trong
+
+ hang ngủ một hai buổi không thành vấn đề, thậm chí hai tháng cũng chịu 
+
+được, nhưng cả đời thì nghĩ đến thôi đã thấy xương cốt rã rời. Mắt trông
+
+ tấm da thú cũ sờn, tơi tả của Ân Tố Tố phủ trên mớ cây cỏ chồng chất, 
+
+không khỏi gợi cho nàng nhớ tới cái giường tơ bông vừa mềm vừa dày của 
+
+nhà mình, mùa đông còn sai người trải thêm hai lớp.</p><p data-p-id="4de755df26326174c64a21ccf72c78b5">Mà
+
+ trước khi nàng tận mắt chứng kiến những gì bày ra đó, nàng cứ đinh ninh
+
+ rằng gian nan nhất trên đời cùng lắm chỉ là ngủ trên tấm phản cứng ngắc
+
+ tới già.</p><p data-p-id="5d3791c0a80959320e40105ca58e55ee">Trương Vô 
+
+Kỵ giải thích - "Nhà nào chịu được gió biển trên đảo này? Nhất là vào 
+
+đông, bão ập tới bất chợt. Muội đó, chớ xem thường cái hang này, đông ấm
+
+ hè mát, Đại Đô tìm đâu ra chỗ được trời ưu ái như vậy".</p><p data-p-id="203aae42da9d784c673b68d43b758a39">Triệu Mẫn thở dài, phản bác - "Một bát cơm cháy và bữa bữa đều là cơm cháy khác biệt rất lớn".</p><p data-p-id="76e2167261d51f6b6d3dcb2e7de9a8fe">Hiện
+
+ thực đấm cho nàng một cú điếng hồn cũng không nhen nhóm một mảy may hối
+
+ hận, chỉ là bất chợt cảm khái bản thân hy sinh vì Trương Vô Kỵ nhiều 
+
+hơn so với những gì trông thấy rất nhiều, thậm chí vượt xa những gì nàng
+
+ nghĩ nhiều lắm. Chẳng biết người ta có cảm được không.</p><p data-p-id="58c328cc243cfc601993357dcb5b51ba">"Muội
+
+ muốn ăn cơm cháy cũng không có mà ăn!" - Trương Vô Kỵ nong nả đùa - 
+
+"Khí hậu bên này làm sao trồng được lúa. Từ nay mình chỉ ăn được thịt cá
+
+ cháy, hươu cháy, chân gấu cháy, quả dại cháy mà thôi. Rồi sinh một đàn 
+
+con".</p><p data-p-id="ddbdb89d3df692179578aea9c2d4b876">Triệu Mẫn đỏ 
+
+bừng mặt, véo tay Trương Vô Kỵ hòng oán trách, vờ xẵng giọng - "Bịp bợm!
+
+ Đại Đô có nhiều món ngon của lạ muội còn chưa thử, huynh lại muốn mỗi 
+
+ngày làm món nướng cháy để lừa muội à!".</p><p data-p-id="1643e32a58f466121277548538ac058e">Trương
+
+ Vô Kỵ vẫn nô đùa không ngớt - "Huynh làm cháy cho muội ăn, muội cũng 
+
+làm cháy cho huynh ăn. Chỉ cần Mẫn muội làm, huynh đều thấy ngon, có thể
+
+ coi là món quý của lạ của nhân gian".</p><p data-p-id="c95440e50e3907eaad9894bd8c66b5e3">"Huynh ở đảo Linh Xà đã khen muội nửa câu bao giờ. Quỷ mới tin!".</p><p data-p-id="1b9a7fab0301e293e7c5e04dbf934441">Tấm
+
+ mặt chê bôi đến mức cường điệu của Trương Vô Kỵ lúc đó còn in sâu trong
+
+ trí nhớ Triệu Mẫn. Mà người duy nhất khen nàng "Canh ngon" lại là Chu 
+
+Chỉ Nhược. Chả biết ngon thật hay chỉ vì bỏ thuốc bên trong.</p><p data-p-id="931399f0a3b6c2440ae21d18f2fea804"><br /></p><p data-p-id="c7be9ab146d04d6b9a695847db6fd4e8"><br /></p><p data-p-id="391ebf420f14a30510c1762756cc906d"><br /></p><p data-p-id="96152baa7a4e707931af3ff111742843">Hai
+
+ người tay trong tay ra khỏi hang động, tìm khoảng đất bằng nhóm lửa. 
+
+Trương Vô Kỵ nướng mấy miếng thịt khô ăn dở trên thuyền, cười nói - "May
+
+ mà bây giờ không phải mùa đông, bằng không thì ngủ dưới tuyết suốt đêm 
+
+chẳng êm ấm gì. Huynh có Cửu Dương Thần Công hộ thân. Mẫn Mẫn, chỉ sợ 
+
+muội chịu không nổi. Mùa đông ở đây lạnh hơn Đại Đô gấp mấy lần. Huynh 
+
+sẽ dọn sạch hang gấu, tới mùa đông rét thì hai ta ẩn náu bên trong, làm 
+
+một đôi phu thê gấu".</p><p data-p-id="d5ad3f0774ae587a933d490c849e19e4">"Vô Kỵ, huynh dựng một cái nhà tranh đi. Muội nghĩ cái hang kia trông nhất thời không thể ở được".</p><p data-p-id="8253b14fb9bd1f7759830f17ebb8cff4">"Sao lại không thể? Cha mẹ huynh năm đó giết gấu xong, hôm sau đã quét dọn sạch sẽ, vào ở ngay".</p><p data-p-id="2e7896c20b6f609dc439625c689c6cd3">Đối
+
+ với Trương Vô Kỵ, cái hang này là nhà, là ý nghĩa thiêng liêng thai 
+
+nghén nên tính mạng của chàng, dù thế nào cũng là chốn dung thân hoàn 
+
+hảo, chưa kể tương lai sẽ chào đón hài nhi của chàng.</p><p data-p-id="dc99b50cf6a67f064eaf123912602124">"Mùa
+
+ hè ở nhà tranh, mùa đông trở vào động ngủ đông thì sao?" - Triệu Mẫn 
+
+chống nửa bên mặt được ngọn lửa vẩy sáng, cười nói với chàng - "Muội vẫn
+
+ thích nơi khô ráo, thoáng mát hơn, ban ngày có thể phơi nắng, ban đêm 
+
+ghé bên cửa sổ ngắm sao. Huynh xem, trời đêm ở cực bắc chẳng phải đẹp 
+
+lắm sao? Bầu trời hạ thấp, vì sao lại cực lớn, cực sáng, chỉ có lúc còn 
+
+rất nhỏ muội mới thấy được cảnh này, lúc đấy theo chân cha mẹ về biển Bộ
+
+ Ngư Nhi thăm hỏi ông ngoại đột nhiên ngã bệnh...".</p><p data-p-id="019d0fbaf5aa4c92ca305a68cedc41b3">Trương
+
+ Vô Kỵ ngầm đoán trong lời của Triệu Mẫn có ý chê bai, hơi không vui, 
+
+nhưng vẫn gật đầu theo ý - "Được thôi. Đừng nói là nhà, cả vương phủ 
+
+trên đảo huynh cũng xây cho muội".</p><p data-p-id="3ba678bb056e82f6a28b174dd63e019e">Triệu
+
+ Mẫn mừng rỡ dựa vào vai chàng. Trương Vô Kỵ đảo thịt, chằm chặp ánh lửa
+
+ lâu, đầu óc bỗng tự giác hiện lên khuôn mặt của Ân Ly. Năm đó chàng 
+
+và biểu muội trùng phùng ở xứ tuyết. Chàng té gãy chân, Ân Ly ngồi bên 
+
+đống lửa nướng cho chàng hai con gà, thịt mềm lại thơm, nước thịt lai 
+
+láng, đã thế còn dựng cho chàng mái nhà tranh dung thân, cạo râu cho 
+
+chàng sạch sẽ. Hễ nghĩ đến ngày sau đoạn tuyệt nhân thế tại trên đảo 
+
+này, không còn gặp Ân Ly nữa, và ký ức láng máng hình ảnh Ân Ly chập 
+
+choạng kéo lê chàng bằng xe trượt trên đất tuyết thì thắt hết ruột gan, 
+
+suýt rơi lệ, bụng thầm than thở - "Biểu muội vì sao vẫn một lòng một dạ 
+
+với Trương Vô Kỵ lúc nhỏ, còn đối với Trương Vô Kỵ khi lớn ta đây lại 
+
+trốn tránh chứ?".</p><p data-p-id="e5611fb82e74f59ccf0b6eef2ca4c601">"Huynh đang nghĩ gì?".</p><p data-p-id="49f5a78b9c3efcbab914569b9312e041">Triệu Mẫn trông Trương Vô Kỵ đâm ra thơ thẩn, lại còn rười rượi buồn, tức khắc ngồi thẳng dậy.</p><p data-p-id="61dc1e83cb2a2684f3faea4ba6042883">Ở
+
+ một số phương diện, chàng chưa bao giờ khiến Triệu Mẫn yên tâm. Trước 
+
+đây khi kiên quyết muốn có được Trương Vô Kỵ, Triệu Mẫn đâu suy xét quá 
+
+nhiều, thứ đã quyết thì phải mau tranh thủ, có vậy mới không ngậm ngùi 
+
+tiếc nuối. Nay, nàng đã có được Trương Vô Kỵ, tâm cảnh cũng tự nhiên 
+
+biến chuyển, mà bắt đầu là bằng việc không cam tâm rằng thứ mình giữ 
+
+được xưa nay chẳng phải là một tấm chân tình trọn vẹn. Nàng chỉ có 
+
+Trương Vô Kỵ, còn Trương Vô Kỵ lại ôm tiếc cả đời vì lỡ các cô gái khác.
+
+ Bản chất nàng vốn là quận chúa được cưng chiều, từ bé đến lớn, những 
+
+thứ thuộc về nàng chỉ có thể là của nàng.</p><p data-p-id="6555dc5aad2150275b0e4ce09fe6c8e6">"À, không có gì. Huynh đang nghĩ...".</p><p data-p-id="797f3265e1057b3d1dc387d8f2a3c867">"Lại đang nghĩ tới Chu cô nương mà huynh suýt cưới tới tay rồi phải không?".</p><p data-p-id="293a1160104cf21a1aa442046f5b3fea">Trương Vô Kỵ cúi đầu tìm lý do, song câu chiếu lệ còn chưa dứt đuôi thì Triệu Mẫn đã cướp lời.</p><p data-p-id="f793fc7c49bfc4de5586fbc980f5d23b">Thế
+
+ là chàng thừ ra, rồi cười phá lên - "Đều đã là chuyện bên kia biển, 
+
+cách nhau cả vạn dặm, sao muội còn nhớ nhung Chu chưởng môn người ta làm
+
+ gì?".</p><p data-p-id="babfdd21bbf9a2dfd56347ce412a2a16">"Cái gì mà 
+
+muội nhớ nhung Chu chưởng môn! Rõ ràng là trước khi đi huynh còn đập tay
+
+ hứa hẹn với người ta, giờ huynh định thực hiện thế nào?".</p><p data-p-id="9bff5ee082be775d5b0ec9c19063e5dc">"Đợi nàng ta lên được đảo rồi hẵng tính chuyện thực hiện sau".</p><p data-p-id="4ad8d7f303cc97d8c2371991734e3618">Trương
+
+ Vô Kỵ cười lém lỉnh, lộ hết nét khôn lanh, thổi bay bụi đặng đưa cho 
+
+Triệu Mẫn miếng thịt. Triệu Mẫn cầm lấy với vẻ mặt "thế còn nghe được".</p><p data-p-id="891fcfb0cbb69ae2485abbec1fd66a2e">"Có
+
+ lúc huynh thật không hiểu nổi hai người. Trước kia nàng ta luôn nhắc 
+
+đến muội, còn muội từ đầu chí cuối cũng luôn miệng gọi tên nàng ta trước
+
+ mặt huynh. Bao giờ cũng tìm cách chọc tức huynh vài câu mới hả dạ" - 
+
+Trương Vô Kỵ sòng phẳng trêu lại - "À, lẽ nào bọn muội thực ra vẫn còn 
+
+âm thầm để ý đối phương lắm đúng không?".</p><p data-p-id="71e620eefc41e4687cb518f8fc74b69a">Ân Ly hay Tiểu Chiêu đều rất hiếm khi được Triệu Mẫn và Chu Chỉ Nhược nhắc đến, nhưng Trương Vô Kỵ sao tiện nói ra lời này.</p><p data-p-id="ffe09a063b923e5d0cca5a2e877867fa">"Đó
+
+ là vì huynh để ý!" - Triệu Mẫn hậm hực - "Nói thế nào thì Chu cô nương 
+
+người ta được trời sinh cho tấm dung mạo hoa nhường nguyệt thẹn, võ công
+
+ trác tuyệt, lại còn một lòng nhớ nhung huynh...".</p><p data-p-id="2461cb7f30e34ebb16458825ca59051b">"Thôi
+
+ nào" - Trương Vô Kỵ vội ngắt lời - "Tân nương của huynh là muội, sao 
+
+huynh có thể ngay lúc này nhớ thương người khác được? Ban nãy thực ra 
+
+huynh đang nghĩ truyền cho muội chút nội công Cửu Dương Tâm Pháp. Đảo 
+
+này gió rét, luyện nội công rất có lợi, chí ít giữ ấm cơ thể".</p><p data-p-id="c6c3e167cef853b1a34174046d4b0e25">"Hay! Cái này dĩ nhiên là có lợi".</p><p data-p-id="ade08a73bb2ad07527c69f169b43a12a">Triệu
+
+ Mẫn liền vui vẻ đồng ý, tự thấy mình suy nghĩ quá nhiều. Quả thực đúng 
+
+như Trương Vô Kỵ nói, nàng luôn miệng nhắc Chu Chỉ Nhược, ngay bản thân 
+
+cũng lơ mơ khó hiểu, dường như bởi mối e ngại với Chu Chỉ Nhược sâu đậm 
+
+hơn chút. Nàng chỉ thích so sánh mình với Chu Chỉ Nhược, thích để Trương
+
+ Vô Kỵ hết lần này tới lần khác khẳng định chàng yêu Triệu Mẫn hơn Chu 
+
+Chỉ Nhược. Dù cho Trương Vô Kỵ đối đãi với Ân Ly và Tiểu Chiêu đều tốt 
+
+như với Chu Chỉ Nhược, thậm chí có phần hơn, nhưng từ lâu nàng đã nhè 
+
+Chu Chỉ Nhược ra mà hơn thua.</p><p data-p-id="0a9bb1ea3c49e12585cf548cfa5a275a">Nghĩ
+
+ vậy, đôi mày lá liễu cau lại, quyết truy gốc rễ tâm thái này: Năm đó 
+
+lần đầu gặp nhau ở quán trọ, ta đã thấy nàng xinh đẹp đến mức khiến 
+
+người phải thương tiếc, thậm chí còn gợi cái tên Chu Chỉ Nhược trong 
+
+lòng vô số lần. Giả sử ta là nam tử, ắt cũng bị si mê mất hồn. Vì vậy 
+
+khi Trương Vô Kỵ và Chu Chỉ Nhược liếc mắt đưa tình trên đỉnh Quang 
+
+Minh, ta liền lập tức suy bụng ta ra bụng người, đinh ninh chàng đã bị 
+
+Chu Chỉ Nhược hớp hồn, chắc chắn đã thích Chu Chỉ Nhược, hận không thể 
+
+cưới liền tay. Ân Ly và Tiểu Chiêu tuy cũng xinh đẹp, nhưng chưa tới độ 
+
+khiến người choáng ngợp như thế, vậy nên ta chẳng màng đến họ làm gì.</p><p data-p-id="782c67af6c01ab462060be11e160c0bd">Tới
+
+ đây, Triệu Mẫn giật mình nhận ra đó giờ mình không phải không vừa mắt 
+
+Chu Chỉ Nhược, mà vì quá vừa mắt mới luôn tranh cao thấp. Đối với Triệu 
+
+Mẫn, từ mắt, mũi, miệng, chân mày đến cả ngũ quan của Chu Chỉ Nhược đều 
+
+rất hài hòa, có điều lúc nào cũng trưng hết vẻ thù sâu oán nặng. Mà giữa
+
+ họ vốn có thù oán sâu nặng, trưng vẻ mặt đó cũng là thích hợp.</p><p data-p-id="8bf47b972fbe03d1ea0fa9500d41006f">Nàng
+
+ bắt đầu chậm rãi nhai thịt, nhưng tâm tư không hoàn toàn đặt vào ăn 
+
+uống. Trong điều kiện thiếu thốn gia vị, nguyên liệu lại chẳng phải đồ 
+
+tươi, Trương Vô Kỵ có nướng thịt chín vàng bên ngoài mềm mỏng bên trong 
+
+thì vị nhạt nhẽo rất khó khiến người ta chú ý. Lúc này, đối thủ cũ của 
+
+nàng càng dễ khiến nàng gặm nhấm mớ hồi ức hơn cả.</p><p data-p-id="0d913e1323309617c35cba75d04b5332">Thoạt
+
+ đầu, Triệu Mẫn chỉ thấy Chu Chỉ Nhược xinh đẹp, nhưng cũng khinh thường
+
+ cho rằng người này chỉ có vậy, một nữ tử người Hán dựa dẫm vào bề ngoài
+
+ đáng thương để cầu cạnh sự thương hại, loại người này ở vương phủ nàng 
+
+đã gặp nhiều. Tuy nhiên, sau khi bị Chu Chỉ Nhược đánh bại một lần trên 
+
+đảo Linh Xà, ánh mắt nàng nhìn nhận Chu Chỉ Nhược phức tạp hơn vạn lần. 
+
+Trí tuệ của Chu Chỉ Nhược không phải hạng xoàng, có thể coi là thâm tàng
+
+ bất lộ<span class="tooltip" tabindex="0">
+
+    ✶
+
+    <span class="tooltiptext">Thành ngữ chỉ người giấu kín tài năng, bản lĩnh hoặc suy nghĩ của mình, không để lộ ra bên ngoài.</span>
+
+</span>. Thành thật mà kể, chả phải nàng ác cảm gì cho cam, chỉ là Chu 
+
+Chỉ Nhược tại mọi phương diện đều đốt bừng cơn hiếu thắng trong nàng. 
+
+Nàng khăng khăng phải thắng Chu Chỉ Nhược bằng được, miễn là Chu Chỉ 
+
+Nhược không còn kiêu ngạo trước mặt nàng nữa!</p><p data-p-id="d386749fc0dd6a441fd11bc6203fc55e">Bữa ăn no nê xong, 
+
+Trương Vô Kỵ bắt tay vào truyền thụ Cửu Dương Tâm Pháp. Dưới dẫn dắt của
+
+ Trương Vô Kỵ, Triệu Mẫn tiếp xúc với nội công căn bản trước nhất, mà 
+
+đầu tiên lấy phương pháp điều tức hơi thở làm nền tảng.</p><p data-p-id="49366da2d7d116e7d942ec3dde36ebf1">
+
+ Ngày trước, Nhữ Dương Vương đã từng mời cao nhân chỉ điểm nàng luyện 
+
+nội công, ngặt nỗi nàng chê quá khô khan. Theo cá tính của nàng thì làm 
+
+sao chịu ngồi trơ cứng hàng canh giờ, lại còn phải kiểm soát hơi thở và 
+
+tư thế ngủ mỗi đêm. Đã là quận chúa có hộ vệ kè kè bên thân thì tội tình
+
+ gì như thế, thay vào đó, học lỏm các chiêu thức ngoại công của các môn 
+
+phái càng thú vị gấp bội. Ngứa tay thì thực chiến, chưa kể tận dụng được
+
+ biến ảo của chiêu số để tấn công đối thủ không kịp trở tay, vừa hoa mỹ 
+
+vừa hữu dụng, khi cần phiếm chuyện với giang hồ hào kiệt cũng có thể 
+
+luận bàn ưu nhược võ học của các môn phái.</p><p data-p-id="cc16a5100a8bc65900f2a3989df19422">Chung
+
+ quy, võ thuật chỉ có thể coi là sở thích nho nhỏ của Triệu Mẫn, hoặc 
+
+rèn luyện thân thể mà thôi. Với nàng, võ là trò chơi "một đấu một", 
+
+thành công của kẻ hữu dũng vô mưu<span class="tooltip" tabindex="0">
+
+   ✶
+
+    <span class="tooltiptext">Có sức nhưng không có mưu trí, chiến lược.</span>
+
+</span> luôn luôn có hạn, mà kẻ có bản 
+
+lĩnh "một địch vạn người" như Thành Cát Tư Hãn, Thác Lôi, Hốt Tất Liệt, 
+
+hoặc cha nàng - Nhữ Dương Vương - mới là đáng nể.</p><p data-p-id="5ddb0191874e3add419b89f0349ab836">Nhưng hiện tại, dù "một đấu một" hay "một địch vạn người" đều vô dụng, dùng dương lực chống rét mới là nhu cầu thực tế.</p><p data-p-id="0b10092f06085cb91b1e723146e49af8">"Khí
+
+ như xa luân, chu thân cụ yếu tương tùy, hữu bất tướng tùy khứ, thân 
+
+tiện tán loạn, kỳ bệnh ư yêu thoái lai chi<span class="tooltip" tabindex="0">
+
+    ✶
+
+    <span class="tooltiptext">Khí tựa như bánh xe, tùy chỗ nào trên cơ thể cần mà chạy đến, nếu không tới lui theo ý mình, thân sẽ tán loạn, ắt sẽ bị bệnh ở hông và đùi.</span>
+
+</span>..." - Trương Vô Kỵ ngồi 
+
+đối diện nàng, chầm chậm niệm.</p><p data-p-id="002274d087670aec715b496cd28d3eca">Triệu
+
+ Mẫn luyện một lúc, tĩnh mạch toàn thân thư thái rõ rệt, cơ thể trong 
+
+gió đêm quả nhiên tự tỏa nhiệt ấm, vui dạ thốt lên - "Nếu muội luyện tám
+
+ năm, mười năm, nội công thành tựu rồi, chẳng phải không còn sợ Cửu Âm 
+
+Bạch Cốt Trảo nữa sao?".</p><p data-p-id="68666e0f9878617172f334dcfebdd80b">Trương Vô Kỵ phì cười - "Trên đảo này lấy đâu ra Cửu Âm Bạch Cốt Trảo cho muội?".</p><p data-p-id="4b227665bd8c6dfe37fb0ad53a75fb1a">"Chậc,
+
+ thì muội bị cào ớn xương mà" - Triệu Mẫn cũng tự thấy buồn cười, rồi 
+
+hào hứng hạ nhiệt, trực cảm nửa đời sau không còn đối thủ thực thiếu đi 
+
+nhiều gia vị.</p><p data-p-id="d41d8cd98f00b204e9800998ecf8427e"><br /></p><p data-p-id="26478db11a74b3c8675f463fee30cba7"><br /></p><p data-p-id="cfe201de5943405c840233fec4378a45"><br /></p><p data-p-id="39603484df518b1cf5293c280fc6a08a">Cả
+
+ hai ngủ một đêm trên cây, sáng hôm sau Trương Vô Kỵ dậy sớm, kê cái nồi
+
+ sắt mang theo từ Trung Nguyên lên đống lửa đặng đun nước. Triệu Mẫn mở 
+
+mắt giữa làn hơi mù mịt, nhảy xuống, vươn dài tấm lưng mỏi rồi nói theo 
+
+thói quen - "Thêm nửa nồi nước lạnh đi, muội không thích rửa mặt bằng 
+
+nước quá sôi".</p><p data-p-id="f0551fea970a8435e9a41a19e213b834">Trương Vô Kỵ trân trân nhìn nàng một lát, rồi trả lời - "Đây là nước uống của hôm nay".</p><p data-p-id="5701b734f9aae95a9cb5910165ca8e1c">"Tí
+
+ nữa huynh đun thêm một nồi nữa là được chứ gì. Tuy ở đây ngày ngày chỉ 
+
+có huynh nhìn muội, muội nhìn huynh, nhưng cũng không đến mức không màng
+
+ vệ sinh cá nhân chứ".</p><p data-p-id="764a6750a23e73a03ae8a96dc4ae2bb3">Trương Vô Kỵ thở dài - "Tuân lệnh quận chúa, kẻ hèn này tới hầu hạ người đây!".</p><p data-p-id="5120d8d0d0127b9eb2e70bd8b08bd35f">Đợi
+
+ Triệu Mẫn được như nguyện, tinh thần phơi phới rửa mặt xong, Trương Vô 
+
+Kỵ ngắm da mặt nàng lấm tấm nước, trắng sứ rạng rỡ như hoa hồng đón 
+
+sương, những buồn bực tí hon liền tan chảy.</p><p data-p-id="4a23482b828a8539fc29f3c9187bad35">"Còn
+
+ ngơ đó làm gì? Đưa muội khăn tay đi chứ. Trong nhà muội nếu có ai ngơ 
+
+ngác giống huynh thì đã bị đánh một trận rồi" – Triệu Mẫn nhắm mắt, xẵng
+
+ giọng.</p><p data-p-id="24d4b0876ed826d80fd3cb3321dc56e3">Trương Vô Kỵ 
+
+hấp tấp tìm trong ngực áo một hồi, cuối cùng chìa tay ra nói - "Huynh 
+
+hiếm khi dùng khăn tay, muội cứ lau vào áo huynh đi".</p><p data-p-id="fba6bc253978d1a3278f59ed7299809d">"Thế chẳng phải muội rửa mặt công cốc rồi sao? Thiệt tình, hóa ra huynh ngốc thật".</p><p data-p-id="69cffdcac37d4501c19e267f1f14ea6f">Dứt
+
+ lời, Triệu Mẫn sờ soạng trong áo, sau moi ra tấm khăn mỏng. Nàng vội 
+
+lau khắp mặt mà không chú ý hai con tôm mực trên khăn, đợi khi phát hiện
+
+ thì trợn mắt, sững người.</p><p data-p-id="83265b255083266737064a60572ff8d0">Trương
+
+ Vô Kỵ thấy nét thêu liền ngẩn ra một lúc, tỉnh táo lại liền phân trần -
+
+ "Cái này không liên quan tới huynh, là muội tự mang theo".</p><p data-p-id="d2bfc40601305e14bda5bb487c65e861">Triệu
+
+ Mẫn sực nhớ lần trước giật tấm khăn này từ chỗ Trương Vô Kỵ đã tiện tay
+
+ cất vào áo, khi đó mặc vẫn là bộ y phục hiện tại...</p><p data-p-id="3423e149253ae74c78b6f9eb728d8455">"Tất nhiên không liên quan tới huynh" - Triệu Mẫn tránh ánh mắt chàng, nhét khăn về nơi cũ.</p><p data-p-id="a1cbcb0aca150ee039c05b80e45d6fbe">Lúc
+
+ đó nàng định không bao giờ trả lại "tín vật định tình" này cho Trương 
+
+Vô Kỵ, bất tiện là khó xử lý nó ngay trước mặt chàng nên tạm cất trong 
+
+người, ai ngờ sau đó quên béng. Lại nói, trước kia với thân phận quận 
+
+chúa, nàng rất ít khi mặc lại cùng một bộ y phục, lần này trời đất đưa 
+
+đẩy làm sao mới trùng hợp mang theo thứ mình không muốn nhìn thấy nhất 
+
+đi cả ngàn dặm.</p><p data-p-id="67bae6804cd450b03ee34e6092c8e2e4">"Muội
+
+ cứ giữ lại dùng, chớ vì một cái khăn mà gây gổ với ta đó nhé. Với lại, 
+
+từ nay về sau, đừng nói là khăn, ngay cả quần áo cũng chỉ mặc bằng da 
+
+thú. À đúng rồi, Mẫn Mẫn, muội biết khâu vá không?".</p><p data-p-id="4086504239d05f0432a6576bdd9c466e">Triệu Mẫn lắc đầu - "Lúc trước muội không có hứng thú với mấy môn này, cha muội cũng không thấy cần thiết để cho muội học".</p><p data-p-id="c15eaacb60c020744b1eca8b955ed4ea">Kết
+
+ quả y như dự đoán, Trương Vô Kỵ cũng không trách, thầm nghĩ: Nàng là 
+
+quận chúa, từ bỏ vinh hoa phú quý vì ta, lẽ dĩ nhiên ta phải chăm sóc 
+
+nàng nhiều hơn.</p><p data-p-id="95c03720394673f99a9e06359cfde443">Chả 
+
+là chàng khó mà kìm lòng nhớ tới Tiểu Chiêu luôn dậy sớm rửa mặt cho 
+
+chàng, trao khăn cho chàng, nhớ dáng vẻ yêu kiều đương khi đỏ hồng khuôn
+
+ trăng giấu giếm y phục do chính tay nàng may cho chàng sau lưng. Nay 
+
+Sâm Thương<span class="tooltip" tabindex="0">
+
+   ✶
+
+    <span class="tooltiptext">Sao Sâm và sao Thương, hai ngôi sao ở hai chòm khác nhau không bao giờ hiện ra một lúc trên vòm trời, dùng ví von tình trạng xa cách và không 
+
+bao giờ gặp nhau.</span>
+
+</span> cách biệt, đời này kiếp này vô duyên tương ngộ, hỏi mấy 
+
+ai đành tâm?</p><p data-p-id="3b9481e48ae2d5d4e2bb301e5936bdfe">Khoảng
+
+ thời gian ở bên Tiểu Chiêu, chuyện râu ria gì cũng không cần ta lưu ý, 
+
+cực kỳ thoải mái, thậm chí Tiểu Chiêu sẽ cân nhắc nhu cầu của ta trước 
+
+cả khi ta nghĩ tới. Thôi, chỉ trách ta phúc mỏng duyên cạn. Nghĩ đoạn, 
+
+Trương Vô Kỵ lại não nề vô cớ, thở dài.</p><p data-p-id="66b91edb8e4511f4fa82ece9f9e20672">"Huynh
+
+ lại nhớ thương ai nữa rồi?" - Triệu Mẫn dấm dẳng - "Thôi đi, đồ của cô 
+
+ta, muội sẽ cất kỹ, nhưng huynh đừng hòng lúc lưu luyến lại tìm cách 
+
+nhìn vật nhớ người".</p><p data-p-id="97f49c063137f829b15e02756f26fb83">"Huynh..." - Trương Vô Kỵ cười khổ - "Đang yên đang lành, muội lại nhắc Chu chưởng môn làm gì?".</p><p data-p-id="10db8e680e766cb6f74f511f938e8093">"Vì
+
+ muội thấy có người trong lòng còn ảo não thở dài cho người khác nên 
+
+không thuận mắt" - Triệu Mẫn kéo tay chàng nói - "Qua đây, bây giờ đến 
+
+lượt muội thực hiện nghĩa vụ của phu nhân hầu hạ huynh rửa mặt". </p><p data-p-id="73cbde06d9c4dbfe19854b614422095c">Trương
+
+ Vô Kỵ đã lười biện giải thêm - "Huynh rửa mặt bằng nước lạnh từ sớm 
+
+rồi. Nếu muội thấy chán thì đi hái quả dại trong rừng, còn huynh dọn dẹp
+
+ hang động, tối nay chúng ta động phòng hoa chúc, tránh khỏi đầu óc muội
+
+ nghĩ ngợi lung tung".</p><p data-p-id="3aea3cebf4e4e0606b1de97f529990a9">Triệu
+
+ Mẫn lập tức đỏ mặt, la vói theo bóng lưng Trương Vô Kỵ đang rời đi - 
+
+"Muội không có nghĩ ngợi lung tung!" - sau đó chợt nhớ mình đâu định 
+
+phản bác câu này, lại chêm - "Muội không muốn ở trong sơn động!".</p><p data-p-id="33085a3cfc9cc9a1587f2ad9d37d0634">"Động phòng, động phòng, không có động thì sao gọi là động phòng?" - Trương Vô Kỳ cười vang.</p><p data-p-id="e147d2c41556c2c02c385b46c8f64849">"Nhưng hoa chúc đâu?".</p><p data-p-id="2f8adbadc16127100d72bef54a5f2e99">"Đã ẩn dật còn đòi hoa chúc làm gì? Đốt lửa lên chẳng phải sáng sủa hơn nến nhiều sao?". </p><p data-p-id="055c5cf8fdaebd4b11b07e61f3203568">Triệu
+
+ Mẫn "hừ" một tiếng, bất mãn ngồi sụp tại chỗ. Bóng dáng Trương Vô Kỵ 
+
+dần xa khuất, nàng cũng dần tha thẩn. "Động phòng hoa chúc" của nàng 
+
+thật sự thắng được "thanh đăng cổ phật"<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Nghĩa là làm bạn với ngọn đèn xanh lập lòe cùng tượng Phật cổ, ý chỉ kiếp sống cô đơn lạnh lẽo nơi cửa Phật. Tác giả dùng hình ảnh này để đối lập với "động phòng hoa chúc": một bên đơn điệu, nhàm chán đối với rực rỡ, xán lạn; cô đơn, lẻ bóng đối với có đôi có cặp.</span>
+</span> sao? Trên đảo hoang này 
+
+chẳng có gì cả, nhưng ở núi Nga Mi cũng chưa chắc khá khẩm hơn, cơ mà 
+
+chí ít có cơm ăn áo mặc, có giường để ngủ, xung quanh lại có cả đống 
+
+người vây quanh. Trong khi Triệu Mẫn nàng có nhà không thể về, có người 
+
+thân tại thế đã hóa thành người dưng. Lấy tư duy dụng binh đánh giặc thì
+
+ tổn thất đến mức này để đổi lấy thắng lợi, căn bản không tính là thắng 
+
+lợi.</p><p data-p-id="f9c1a7898e2d9f55765e3e29cc679916">"Thôi, nếu đã chọn thì đừng hối hận" - Triệu Mẫn rút kiếm đứng dậy, đi thẳng vào rừng.</p><p data-p-id="b7d02b64f9e47354bf0b62bf4c2cd954"><br /></p><p data-p-id="714e797025a55e6b0e4a0fb86b5af67a"><br /></p><p data-p-id="f38f085c1b938f2edbdd66de2f73e709"><br /></p><p data-p-id="9bd740516298462c6a8799ff69c0a0ba">Giữa
+
+ trưa, khi mặt trời lên cao nhất, Trương Vô Kỵ đã xong phần lớn công 
+
+việc và quay về khu vực bóng râm dưới gốc cây nghỉ ngơi. Chàng tiện tay 
+
+vớ lấy một quả dại, lau sơ rồi há to mồm cắn. Tức khắc, mặt mũi chàng 
+
+nhăn nhó.</p><p data-p-id="d80febcc862f140d377d6541da0210df">"Muội không biết lựa thật sao, Mẫn Mẫn?".</p><p data-p-id="55f060de2c8c07c70195b35a4493d256">Nhả không được, nuốt không xong, Trương Vô Kỵ chỉ biết ngậm thứ quả chua loét với biểu cảm khó coi.</p><p data-p-id="91c3d4321b8f91c11e3e052dada498a3">"Muội, muội thấy màu nó rất tươi mà..." - Với vẻ chột dạ, Triệu Mẫn nói.</p><p data-p-id="f39b680fa236de7bcf6a3cd5eba68cc5">Rồi
+
+ nàng cũng cắn thử một cái, sau khi vào miệng thì kết luận chỉ hơi chua 
+
+kèm theo vị đắng mà thôi, đâu đến mức nhăn nhó ghê gớm thế kia. Thế là 
+
+nàng từ tự ti chuyển sang phẫn uất, rồi từ phẫn uất chuyển sang thất 
+
+vọng.</p><p data-p-id="e67464d168400b97046040c20b693a74">"Xin lỗi, muội chưa từng đi thu hoạch bao giờ, ngay cả đi chợ cũng vậy...".</p><p data-p-id="9ed9abdb70a8dd4a4acc54609e93192c">"Được
+
+ rồi, hơ một tẹo là thành mỹ vị ngay" - Trương Vô Kỵ cười an ủi - "Mẹ 
+
+huynh rất thạo việc này, bao giờ cũng tìm được trái ngọt nhất cho cha 
+
+con huynh. Chờ muội quen với cuộc sống trên đảo thì cũng thạo thôi".</p><p data-p-id="07a736ef10464f861d8d1e7b6db280b9">Mặt mày nàng hãy còn xám xịt, nghĩ thầm - "Tại sao không phải là cha con huynh tìm trái ngọt cho mẹ huynh?".</p><p data-p-id="a19801e975c8268e876450d3c81e8d15">Nàng
+
+ rủ mi mắt, vừa khéo đập vào đồng tử là mấy dấu răng cũ cực sâu lồ lộ 
+
+khi Trương Vô Kỵ vén ống quần, cái nào cái nấy sâu hoắm hơn vết cắn của 
+
+nàng trên tay chàng. Triệu Mẫn kéo giật lại hỏi - "Những vết này, những 
+
+vết này là của ai?" - Não bộ tự bật ra ý nghĩ - "Hóa ra Chu Chỉ Nhược 
+
+bạo như vậy?".</p><p data-p-id="dd222df8392aa97ef6cfa5f1df4c5a03">"Gì?" - Trương Vô Kỵ ngó theo vị trí tay nàng chỉ, cười nắc nẻ - "Là chó! Nè, đừng nói muội cũng muốn ghen với chó?".</p><p data-p-id="ca47cf60c27c79ac538df0226efc6934">"Chó?" - Triệu Mẫn nghệch mặt.</p><p data-p-id="30cc4c4c73096ba78507154f2da99d78">Do
+
+ đó, Trương Vô Kỵ tỉ mỉ kể hết thảy những gì trải qua ở Hồng Mai Sơn 
+
+Trang, kể cả việc bị Chu Cửu Chân lừa dối tình cảm, đau lòng đến độ suýt
+
+ nhảy núi. Nghĩ đã là nghĩa phu thê thì không nên giấu giếm nhau làm gì,
+
+ nào ngờ Triệu Mẫn nghe xong lại hổn hển đá một cước vào giá nướng đang 
+
+cháy trên đống lửa, mắng xối xả - "Sao huynh dễ động lòng với các cô 
+
+nương thế cơ chứ! Đúng là gặp ai yêu đó, bất chấp người ta chân tình hay
+
+ giả dối! Không công bằng!".</p><p data-p-id="be50ba804f1793d6eee15a7c60559d7a">"Ôi
+
+ dào, bây giờ huynh vừa mệt vừa đói, có chuyện từ từ nói, đừng trút giận
+
+ lên đồ ăn chứ" - Trương Vô Kỵ tức tốc nhặt lên đống quả vừa nướng, môi 
+
+lèm bèm - "Chuyện từ thời xa lắc xa lơ rồi...".</p><p data-p-id="8be4c1bc13e0adef3dfbbd6e1e32f20b">"Không công bằng, đối với muội thật bất công!" - Hai mắt Triệu Mẫn tức thì ngấn lệ.</p><p data-p-id="51ba8167357ca01058f6fb091eca12bf">"Cố tình gây sự" - Trương Vô Kỵ bất lực làu bàu.</p><p data-p-id="ea78918576fd383e8d41895b39704134">Nhìn
+
+ dấu răng trên chân mình, chàng cũng sầu não thay cho bản thân, nghĩ tới
+
+ đường tình duyên đúng là trắc trở, may mà ông trời rủ lòng thương, cho 
+
+chàng một nàng nương tử thật lòng thật dạ theo về đảo hoang. Mà thôi, 
+
+chút tính khí ấy nhượng bộ cho êm.</p><p data-p-id="dd5d8d48e6203abfe6a47d4dc44bb4fe">Lẽ
+
+ đó, Trương Vô Kỵ pha trò để Triệu Mẫn vui, đùa với nàng - "Nói tới, 
+
+huynh còn chưa cắn trả muội, huynh có nên lưu lại dấu vết gì trên người 
+
+muội, không thể xóa được?".</p><p data-p-id="c4c1754082998a6d44ef19beb412fd8d">Triệu
+
+ Mẫn phất tay, hờn dỗi - "Không cần, huynh cắn sâu bằng năm dấu tay Chu 
+
+Chỉ Nhược để lại cho muội sao? Móng tay của cô ta mang độc, báo hại muội
+
+ dùng thuốc gì cũng không mờ được sẹo!".</p><p data-p-id="b8e0c9ba35cc28086ecc324c142508d7">"Thảo nào... muội cứ nhớ thương người ta, thế thì có khi phải nhớ cả đời".</p><p data-p-id="72abddf2d590fec985d0ebd402682dd1">"Ai thèm nhớ thương Chu Chỉ Nhược!" - Nàng khoanh tay băm bổ, rồi kết thêm tiếng "hừ".</p><p data-p-id="afc94d386be3a2e33c1e7f1f0b000786">Lại
+
+ nhớ ngày hôm ấy Chu Chỉ Nhược đầu đội mũ phượng, váy cưới đỏ như quỷ mị
+
+ đột nhiên ra tay với mình, Triệu Mẫn không khỏi rùng mình. Võ công thâm
+
+ hậu của đối thủ là nhân tố duy nhất nàng tính sai trong cuộc phá đám 
+
+hôm đó, dẫn tới suýt phải bỏ mạng. Tuy nhiên, ngoài sợ hãi, Triệu Mẫn 
+
+không thể không thừa nhận bộ tân nương của Chu Chỉ Nhược đúng là khiến 
+
+người ta phải nao lòng. Lụa mỏng chẳng tài nào che hết nét mày kiều diễm
+
+ tựa như tranh, nhắm trúng con tim háo thắng của nàng. Nên là Triệu Mẫn 
+
+kể lể với chàng - "Huynh cùng người ta đã xong hết nghi thức thành hôn 
+
+rồi. Còn muội, váy cưới cũng chả có mà muốn muội kết hôn với huynh?".</p><p data-p-id="81c56c9599ec4295962eb4f5a0ede11e">"Thì..."
+
+ - Trương Vô Kỵ hơi cứng họng, thoáng chốc lại nói - "Huynh và muội đã 
+
+ẩn cư, xa lánh thế tục, cần gì phải bó mình vào nghi thức của thế tục?".</p><p data-p-id="efc8dd381949852d36976ad2fe8a883e">"Không
+
+ được! Tóm lại đây là đại sự cả đời của muội, không thể qua loa tới mức 
+
+này" - Triệu Mẫn hặm hực ngồi bó gối - "Vốn dĩ muội chả so đo làm chi, 
+
+nhưng huynh và Chu Chỉ Nhược kia lại mặc qua đồ cưới một lần. Nếu như 
+
+tới phiên muội chẳng có gì cả thì huynh lấy muội làm gì? Trương Vô Kỵ, 
+
+huynh đối với muội có tình yêu khắc cốt ghi tâm, muội đương nhiên rất 
+
+vui, nhưng nếu như tôn kính của huynh đều dành cho người khác, mà đối 
+
+với muội lại không có nửa phần thì tự trọng của muội gánh không nổi. Tóm
+
+ lại, không có đêm động phòng hoa chúc chân chính, muội sẽ không cùng 
+
+huynh làm lễ Chu Công<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Theo điển tích, Chu Công (một vị quan thời nhà Chu) đã đặt ra các quy định về lễ nghi, hôn nhân. Người đời sau dùng cụm từ "lễ Chu Công" để nói tránh chuyện chăn gối vợ chồng.</span>
+</span>. Muội không phải là người tùy tiện!"</p><p data-p-id="01865470febe1dc073e97f08123915da">"Chậc,
+
+ hai người chúng ta chung sống, muội còn hơn thua với người ta làm gì?" -
+
+ Trương Vô Kỵ nghe xong, đâm ra não ruột, nhiệt tình bớt hơn nửa, song 
+
+suy xét kỹ thì Triệu Mẫn cũng có mấy phần lý, vậy là gật đầu - "Được 
+
+rồi, nghe muội vậy. Đợi gió bấc lên, chúng ta về Trung Nguyên một 
+
+chuyến, mua cho muội bộ váy cưới vừa đẹp vừa xứng với muội". </p><p data-p-id="8fed3c659797312ce549a961ca6ea866">"Còn
+
+ có nến và giấy hoa, với cả rượu ngon thịt ngon" - Triệu Mẫn hớn hở reo,
+
+ tâm thái khoan khoái hẳn - "Vô Kỵ ca, muội chỉ&nbsp;muốn có nhiêu đó thôi".</p><p data-p-id="bf83302bd624d9048adf71a5bcc0e959">"Mua
+
+ hết, mua hết. Nhân tiện mua thêm nhu phẩm yếu. Chỉ là đi thêm một 
+
+chuyến, chả to tát gì. Chúng ta thiên trường địa cửu<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Bên nhau lâu dài.</span>
+</span>, không vội nhất
+
+ thời" - Trương Vô Kỵ an ủi.</p><p data-p-id="1f7cdf788f714778039f9e6c4f71a6a1"><br /></p><p data-p-id="fd28fa46e51d32fdcf8be80b3f7acb6b"><br /></p><p data-p-id="931399f0a3b6c2440ae21d18f2fea804"><br /></p><p data-p-id="6089d99263a962a57997c4a090516a04">Duyên
+
+ cớ đó, thời gian chờ đợi kéo dài ba bốn tháng, Băng Hỏa Đảo đã chuyển 
+
+đông, tuyết bay mù trời, cả hai buộc trú vào hang gấu. Trong những đêm 
+
+cực quang dài dằng dặc, chả một ai có thể ra ngoài, sự nhạt nhẽo vô tận 
+
+dẫn tới khao khát của Trương Vô Kỵ ngọ nguậy, song đều bị Triệu Mẫn 
+
+quyết liệt ngăn cản. Nàng biết rõ, nếu giờ đây để Trương Vô Kỵ đạt được 
+
+mục đích thì lời hứa về Trung Nguyên sắm đồ cưới e rằng khó giữ. Rốt 
+
+cuộc, cả hai đành nhờ vào việc tu luyện Cửu Dương nội công để giết thời 
+
+gian. Trương Vô Kỵ nào nhớ toàn bộ tâm pháp, chỉ truyền đạt theo cách 
+
+hiểu của mình, may mà Triệu Mẫn thông minh, từ mấy lời rời rạc của chàng
+
+ rút ra được phần lớn nội dung chính. Dẫu không thành tuyệt thế cao thủ 
+
+thì nền tảng nội công này chắc chắn được cải thiện kha khá, ít nhất
+
+ chống cự được cái rét của chốn đất trời trắng xóa.</p><p data-p-id="46847148f5f363f831ac92817e4f25ff">Khoảng
+
+ thời gian ấy, núi lửa trên đảo rục rịch thức tỉnh, mấy lần rung chuyển.
+
+ Vốn đã quen như chuyện thường nhật, Trương Vô Kỵ bình chân như vại, 
+
+nhưng Triệu Mẫn kinh hồn bạt vía, âm thầm cân nhắc liệu nơi đây có thích
+
+ hợp sống lâu dài hay không. Nếu ngày nào đó núi lửa phun trào thì dù là
+
+ nàng hay Trương Vô Kỵ sở hữu thần công tuyệt thế cũng vô dụng. Tuy nhiên quan
+
+ điểm của Trương Vô Kỵ là núi lửa chưa từng hoạt động trong suốt mười 
+
+năm thơ ấu của chàng, có nghĩa nó sẽ không bao giờ hoạt động.</p><p data-p-id="396e67c8ac679984c3b13ecec0be1f28">Mặt
+
+ khác, sống trên đảo chỉ có hai người, mọi thứ dần dà đơn điệu, dẫu cho 
+
+Triệu Mẫn lanh mồm lẻo mép cũng bị ép tới tình trạng bí bách chủ đề. 
+
+Trương Vô Kỵ lắm lúc nhớ khoảng thời gian trên đảo Linh Xà, có nghĩa phụ
+
+ và Tử Sam Long Vương Đại Ỷ Ty ngồi bên đống lửa kể chuyện thâu đêm, 
+
+những chuyện ân oán đời trước, bốn người con gái vẫn còn ở cạnh chàng, 
+
+cùng lắng nghe, thi thoảng Triệu Mẫn chọc vào mấy câu dí dỏm, Chỉ Nhược,
+
+ Tiểu Chiêu yên lặng, Ân Ly bởi vì bị thương mà ngủ rất say, nhưng da dẻ
+
+ dần hồng hào... Nếu có thể mãi dừng ở khoảnh khắc đó thì còn gì bằng.</p><p data-p-id="1caef65894f3a26641b698ecdd819160">Không
+
+ chỉ Trương Vô Kỵ, Triệu Mẫn cũng thường nhớ quãng thời gian ấy. Nàng 
+
+vẫn không sao hiểu được Thập Hương Nhuyễn Cân Tán lọt vào tay Chu Chỉ 
+
+Nhược bằng cách nào, và Chu Chỉ Nhược - kẻ bề ngoài hiền lành, nhu mì - 
+
+đã vạch ra kế hoạch từ bao giờ. Có phải khi mọi người đang chuyện phiếm,
+
+ cô ta đã tập trung suy tính việc cướp đao? Cô ta chẳng có chút hiếu kỳ 
+
+nào sao? Nhắc tới lại ấm ức, Triệu Mẫn nàng khi đó cũng chủ tâm đến để 
+
+khám phá bí mật của Đồ Long Đao, Thập Hương Nhuyễn Cân Tán mang theo bên
+
+ người là vì thế, vả lại còn xuất tiền, xuất thuyền, xuất nhân lực, kết 
+
+quả vừa lên bờ, tâm trí lạc hướng, tự tay dâng hết quả ngọt cho người 
+
+thì thôi, còn phải gánh tội giết người trộm đao thay Chu Chỉ Nhược cả 
+
+thời gian dài. Thất bại lớn nhất đời này của nàng toàn hội tụ tại thời 
+
+khắc đó cả. Nếu ông trời ban thêm một cơ hội nữa để rửa mối hận này, 
+
+nàng chắc chắn sẽ tập trung đấu với Chu Chỉ Nhược long trời lở đất, tới 
+
+khi thiên địa điên đảo mới thôi! </p><p data-p-id="b1f1a103b46c07ed7b23d7fe46fbef9e">Cứ thế nghĩ miên miên, con cá nằm dưới lưỡi dao bị băm nát nhừ, khi chợt nhận ra thì đã muộn màng.</p><p data-p-id="3d266b9a1ebc17dfe876ad8f8e4e97b5">"Tiêu rồi, tiêu rồi, thế này phải nói với Trương Vô Kỵ sao đây?".</p><p data-p-id="7f84ebed8c5e8dd36614f0b94606dfe3">Đêm đó, hai người lấy 
+
+quả lạnh chống đói, Trương Vô Kỵ quả thực chẳng cằn nhằn nàng cái gì, 
+
+thay vào đấy là đối diện với ánh lửa và chìm vào tâm sự của chính mình.</p><p data-p-id="ee79cf944f3bf41ff065943b4439bbb6">Cuối
+
+ cùng, tại canh giờ tối như bưng cùng ngày, Trương Vô Kỵ lay Triệu Mẫn 
+
+dậy, mau mồm nói cho nàng biết gió bấc tới rồi, thế là hai người thông 
+
+thốc nhảy lên con thuyền chất đầy thịt khô và nước ngọt, hướng về đại 
+
+địa Trung Nguyên - nơi ngập tràn ân oán, chém giết nhưng rực rỡ muôn 
+
+phần. </p><p data-p-id="c8492e1b8a6cc84459fb8094f6730d36">Mặt trời lại 
+
+mọc đằng đông rồi lặn đằng tây, sao Bắc Cực bầu bạn với đêm dài, hướng 
+
+gió sớm hôm không đổi, buồm trắng căng phồng suốt chặng hành trình. Dưng
+
+ nhanh đến mấy thì sau những lượt đi đi về về cộng thêm mấy tháng đợi 
+
+gió trên đảo, khi thuyền cập bờ đã cách ngày cùng nhau náo nức quy ẩn 
+
+một năm có thừa. Hiện tại là cuối tháng sáu năm Chí Chính&nbsp;thứ mười bảy 
+
+(1357).</p><p data-p-id="31c1f61ca08422af1112c4bee514999a">Lúc đi sâu 
+
+vào con duềnh nội địa, hai người bỗng gặp phải hai đoàn thuyền binh giao
+
+ chiến, hỏa lực nổ rung trời, đôi bên tàn sát ác liệt, thuyền bè vỡ nát,
+
+ từng mảnh thi thể khuyết trôi nổi trên mặt nước đỏ lòm. Trương Vô Kỵ và
+
+ Triệu Mẫn buộc bỏ thuyền lên bờ, cuộc lang bạt gian nan ấy rốt cục kết 
+
+thúc khi họ đặt chân lên đất liền.</p><p data-p-id="2dc3fc155297cb8a764f15212029f477">Trương
+
+ Vô Kỵ dõi về chỗ giao chiến xa xa, lòng cuộn lên nỗi niềm thương xót 
+
+cho muôn dân trăm họ, than thở mà rằng - "Những người này đều có cha 
+
+mẹ, vợ con, mong sao khi quân Nguyên bị đánh đuổi, thế gian ai ai cũng 
+
+được hưởng thái bình vĩnh cửu".</p><p data-p-id="b9e971c4386bdab1048db85e51649f88">"Quân
+
+ Nguyên?" - Triệu Mẫn vặn lại - "Ở đây có tên nào là quân Nguyên? Huynh 
+
+xem cho kỹ, rõ ràng là một đám người Hán đánh một đám người Hán khác!".</p><p data-p-id="155e41ba89f253531fabf971b8ee0357">
+
+ "Cái gì?" - Trương Vô Kỵ trừng mắt khó tin - "Muội nói là người Hán 
+
+đang đánh người Hán? Sao thế được, mặc dù mấy phe nghĩa quân có bất hòa 
+
+nhưng tuyệt đối sẽ không sai lầm đến mức triều Nguyên chưa diệt mà chĩa 
+
+kiếm vào nhau".</p><p data-p-id="61c797ac2d9a2e4cde6f9736848590a1"> "Vậy
+
+ huynh tự xem đi" - Triệu Mẫn trỏ về mấy thi thể dạt gần bờ - "Trong số 
+
+này không có tên nào mặc quân phục Mông Cổ, muội chắc chắn không nhìn 
+
+lầm".</p><p data-p-id="a15b5f253ffbc5a5299f67b903cd319a">Nghe vậy, 
+
+Trương Vô Kỵ lập tức bối rối, thảng thốt đi quanh một vòng, cuối cùng 
+
+đứng trơ như thổ địa, toát ra trăm mối ngổn ngang trong lòng - "Mẫn Mẫn,
+
+ chuyện của chúng ta tạm thời gác lại mấy hôm được chứ? Huynh phải tìm 
+
+hiểu ngọn nguồn, ngăn họ tiếp tục tương tàn".</p><p data-p-id="eccf18b1183be398b1e3eb7a3bdff1ca">Điều này nằm trong dự đoán của nàng, nàng vô cùng hào sảng nói - "Đi đi, tạm thời không vội". </p><p data-p-id="897d8b8f1726ce0cfd814618e2d5391e">Trên thực tế, Triệu Mẫn càng muốn biết sự thể hơn cả, nhất là sự an toàn của cha và ca.</p><p data-p-id="481caa6721b9e297f260bfde9de65cc5">Trương
+
+ Vô Kỵ lấy làm an ủi, cho rằng Triệu Mẫn nhượng bộ đến nước này chính là
+
+ thật lòng thật dạ với chàng, nếu đổi thành Chỉ Nhược, có lẽ đã trách 
+
+chàng một phen rồi tìm cách tổn thương tim chàng, nhưng rồi lập tức phản
+
+ biện: Tình huống lúc đó khác biệt, đó là trên hỉ đường ngày đại hôn. 
+
+Thôi, suy cho cùng vẫn là ta có lỗi với nàng ấy nhiều hơn.</p><p data-p-id="0647df5c87c3b45767a44b58850ff45d">Đi
+
+ được một đoạn đường, họ tìm thấy một quán trọ, lại cẩn thận chỉnh trang
+
+ diện mạo và y phục. Trương Vô Kỵ để lại ký hiệu của Minh Giáo ở mặt 
+
+tường bên ngoài, không bao lâu đã thấy Trương Trung - một trong năm vị 
+
+Ngũ Tản Nhân - mang theo vài người vào cửa.</p><p data-p-id="31998145739c9268f0d8cfcca2e65389">Dù
+
+ quen tính trầm ổn, mặt mũi hiếm khi xao động nhưng vừa trông thấy 
+
+Trương Vô Kỵ, Thiết Quan Đạo Nhân Trương Trung tỏ rõ kinh ngạc, hấp tấp 
+
+quỳ xuống hành lễ - "Giáo chủ, ngài đã về!".</p><p data-p-id="1aff70a09f0c9996b3ec44e46a658a76">Trương Vô Kỵ vội đáp lễ - "Tiên sinh, ta đã truyền chức vị cho Dương Tiêu, nay không còn là giáo chủ, đừng hành lễ như thế".</p><p data-p-id="452850d40e7959652df481adfb2cf857">"Tóm
+
+ lại, Trương giáo chủ trở về thì quá tốt rồi. Từ khi giáo chủ đi, xảy ra
+
+ quá nhiều chuyện..." - Trương Trung ngó sang Triệu Mẫn ngồi bên tay 
+
+phải Trương Vô Kỵ một cách khinh bỉ. </p><p data-p-id="57ffbc0e7e91715e15dbd3568292fed5">"Đó là điều ta muốn hỏi. Rốt cuộc là như thế nào, vì sao trên sông có hai phe nghĩa quân giao chiến?".</p><p data-p-id="2f8da78ee4a821fc56f358121ceead3e">Đúng
+
+ lúc này, trong quán trọ bỗng chạy ngang một đôi đồng tử<span class="tooltip" tabindex="0">
+    ✶
+    <span class="tooltiptext">Trẻ con.</span>
+</span>;cất giọng 
+
+ca lanh lảnh mà hát khúc "Túy Thái Bình" đang thịnh thời bấy giờ.</p><p data-p-id="61deb5d323106246470d0cc3ab9ec57d"><i>"Đường đường Đại Nguyên</i></p><p data-p-id="e36a68d2e591e9a3e5ac52b0e5fd015c"><i>Gian nịnh chuyên quyền</i></p><p data-p-id="acca04a34eec8d010aee2e604debd18d"><i>Đào sông<span class="tooltip" tabindex="0">
+    ✶
+    <span class="tooltiptext">Chỉ việc triều đình nhà Nguyên ép buộc hàng chục vạn dân phu đi trị thủy sông Hoàng Hà. Công việc cực khổ, tham quan bóc lột khiến dân chúng vô cùng khốn cùng và phẫn nộ.
+
+</span>
+</span>, đổi tiền<span class="tooltip" tabindex="0">
+  ✶
+    <span class="tooltiptext">Chỉ việc triều đình cho phát hành tiền giấy mới một cách vô tội vạ để vơ vét của cải, gây ra lạm phát phi mã, khiến tiền giấy cũ trở thành giấy lộn và tài sản của người dân tan thành mây khói.</span>
+</span> họa khôn lường</i></p><p data-p-id="a54bb0cb0fe0c82345a4577f337df97a"><i>Đoàn quân Khăn Đỏ<span class="tooltip" tabindex="0">
+    ✶
+    <span class="tooltiptext">Hồng Cân (Khăn Đỏ) là tên của cuộc khởi nghĩa nông dân lớn nhất cuối thời nhà Nguyên.</span>
+</span> nghìn vạn dậy sóng</i></p><p data-p-id="5465a3a9ee59b4c4db37dca1a2df6967"><i>Quan lạm hình pháp</i></p><p data-p-id="10bd916956990a10d57169572fbc4482"><i>Chúng dân oán hờn</i></p><p data-p-id="941dcb737cfc487c42a3d27f631ec8cc"><i>Người ăn người</i></p><p data-p-id="f8a03e43d3a33c621af16053a6e811cb"><i>Tiền mua tiền</i></p><p data-p-id="eb01ec0a6f98590267cceaa18b05c241"><i>Vô tiền khoáng hậu</i></p><p data-p-id="97d42ab6990a1a2e732026667633a85f"><i>Trộm làm quan</i></p><p data-p-id="04737b8e44ff6b0d4e7711cff24d841a"><i>Quan thành trộm</i></p><p data-p-id="8c57a33a2e35c1771c85f5ab3755aff0"><i>Dốt tài hổ lốn</i></p><p data-p-id="bdf8cb54e85d7e0e87bdaf934c06e8c0"><i>Bi ai thay, thảm thương thay"</i></p><p data-p-id="7f4fae62497a503b5bd98a4749569c0f"> Bên bậc cửa, tên đệ tử Cái Bang vừa xin cái bánh bao, cắn ngấu nghiến, sau cầm đũa gõ bát phụ xướng:</p><p data-p-id="91a5597622c7f6804567e6078675cb7c"><i>"Thiên khiển ma quân sát bất bình</i></p><p data-p-id="c6decb91b24e002511906f2fe711b976"><i>Bất bình nhân sát bất bình nhân </i></p><p data-p-id="9545619325b31acfb08d9db25fe162f7"><i>Bất bình nhân sát bất bình giả</i></p><p data-p-id="814041fc8603deed4212121cf4bd6ee9"><i>Sát tẫn bất bình phương thái bình<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Dịch nghĩa:<br />"Trời sai ma quân giết sự bất bình,<br />Người bất bình giết người bất bình.<br />Người bất bình lại giết những kẻ bất bình,<br />Giết hết bất bình rồi mới thái bình."<br /><br />"Ma quân":<br />▫️Từ góc nhìn của triều đình: Họ coi quân khởi nghĩa là lũ "yêu ma", "phản tặc", là đội quân của quỷ dữ (ma quân) đến để tàn phá trật tự xã hội.<br />▫️Từ góc nhìn của quân khởi nghĩa: Họ tự coi mình là đội quân do trời sai xuống để trừng phạt sự bất công mang hàm ý một sức mạnh khủng khiếp, tàn bạo, không gì cản nổi, cần thiết để quét sạch cái xã hội cũ đã thối rữa đến tận gốc rễ.<br /><br />"Người bất bình giết người bất bình", câu này có thể hiểu theo nhiều lớp nghĩa:<br />▫️Những người phải chịu sự bất công (người dân bị áp bức) đứng lên giết những kẻ gây ra sự bất công (quan lại, địa chủ).<br />▫️Trong xã hội loạn lạc, ai cũng cảm thấy mình "bất bình", bị đối xử không công bằng, và họ quay sang tàn sát lẫn nhau.</span>
+</span>".</i></p><p data-p-id="37a73ef0ba1070a787cf94f80a84232b">Triệu
+
+ Mẫn biết những gì họ nghêu ngao đều là thật, nhưng để lọt vô tai nàng 
+
+thì chướng chói vô cùng. Nếu không có người của Minh Giáo và Trương Vô 
+
+Kỵ ở đây, nàng chắc chắn sẽ khiến cho tất cả bọn họ im hơi lặng tiếng, 
+
+chí ít đừng hát trước mặt nàng.</p><p data-p-id="ec6609089f3f4d2353c4fde45be92a2a">Bỗng
+
+ lúc này, Trương Trung tiếp tục lên tiếng - "Là Phương Quốc Trân đang 
+
+đánh Trương Sĩ Thành. Phương Quốc Trân năm ngoái đã quy hàng quân 
+
+Nguyên, được phong làm Hải Đạo Vận Lương Tào Vận Vạn Hộ<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Một chức quan cao cấp thời nhà Nguyên, chịu trách nhiệm quản lý hệ thống vận tải lương thực của triều đình bằng đường biển, chủ yếu để chở lương thực và hàng hóa từ nơi sản xuất đến kinh đô hoặc các khu vực trọng yếu.<br />Vạn hộ là cấp bậc hành chính và quân sự thời Nguyên, chỉ người đứng đầu một đơn vị quản lý 10,000 hộ dân. Tức để thực hiện việc vận chuyển này, chức quan này có quyền tuyển quân, thu thuế hoặc huy động tài nguyên và lao dịch từ 10,000 hộ dân.</span>
+</span>, sau đó Trương 
+
+Sĩ Thành cũng cầu hàng triều Nguyên, bọn Thát Tử bèn lợi dụng hai bên để
+
+ chúng đánh nhau. Chúng nó hăng máu, tiếc còn chưa nuốt chửng được đối 
+
+phương".</p><p data-p-id="2809a72abe6514b67f4e54ab13a6db21">"Lý nào lại 
+
+vậy! Bọn Nguyên tàn bạo, ngang ngược, xa hoa, dâm đãng, dân chúng mòn 
+
+mỏi chờ ngày lửa nghĩa quân lan tràn, thế mà chúng tàn sát lẫn nhau, để 
+
+giặc dữ ngư ông đắc lợi" - Trương Vô Kỵ cất giọng đau xót.</p><p data-p-id="53776ea1315def9fcd2530dda404b52a">Triệu
+
+ Mẫn nghe vậy, bụng chỉ biết thầm niệm: Thôi, thôi! Từ đầu đã nói, hắn 
+
+là người Hán, từ nay ta cũng là người Hán. Lấy chồng theo chồng, gả chó 
+
+theo chó, tranh chấp Hán - Mông không liên quan gì đến ta nữa, không 
+
+liên quan nữa...</p><p data-p-id="9b581f58d2b238b6bfbf72d1d84e389b"> 
+
+"Phải! Kẻ nào cũng thèm xưng vương một phương, ngay cả khi triều Nguyên 
+
+chưa tận. Nội bộ Minh Giáo cũng chẳng khá hơn. Hiện chỉ có Lưu Phúc 
+
+Thông còn lãnh đạo nghĩa quân Bắc phạt, quân của Từ Thọ Huy bị Trần Hữu 
+
+Lượng nắm giữ, cũng đang bận xưng hùng phương Nam. Chu Nguyên Chương vừa
+
+ phải phòng Trần Hữu Lượng, vừa lo đánh Trương Sĩ Thành. Một đám người 
+
+vốn êm đẹp, nay chia năm xẻ bảy, đạp đổ đạo nghĩa, mỗi người một ý, 
+
+không ai phục ai" - Trương Trung kể. </p><p data-p-id="dd3ef30804b5d6ecb1018cf3ce44c3d5">"Mới
+
+ một năm đã thành như vậy..." - Ngũ quan Trương Vô Kỵ bấy giờ dúm dó, tự
+
+ thâm tâm hối hận vì quyết định trao Vũ Mục Di Thư cho Chu Nguyên Chương
+
+ quá hấp tấp. Nếu người chàng giao phó thiếu đức độ thì chỉ biết lấy cái
+
+ chết để tạ tội mà thôi.</p><p data-p-id="491f292bbb75eaef61a021028cd30e59">"Thuộc
+
+ hạ có lời muốn nói thẳng, dù sẽ đắc tội với Trương giáo chủ" - Trương 
+
+Trung lại liếc sang Triệu Mẫn, sau cúi đầu tiếp tục - "Ngày trước, giáo 
+
+chủ từ hôn trước mặt mọi người trong ngày đại hôn để theo yêu nữ Thát 
+
+Tử, việc này ảnh hưởng rất nghiêm trọng. Nội bộ Minh Giáo, đặc biệt là 
+
+bậc Đà Chủ trở xuống, không hiểu rõ sự tình, chỉ cảm thấy tất cả anh em 
+
+trong giáo đều bị bội phản, tiếng bất bình khắp nơi, thậm chí có kẻ căm 
+
+phẫn quá độ mà ngửa mặt lên trời nguyền rủa tổ tiên của Trương giáo 
+
+chủ...".</p><p data-p-id="c051d03998da86a0e41bf8e4ebc0e7fd"> Trương Vô 
+
+Kỵ sững sốt, buông tiếng thở chất đầy khổ tâm - "Đều do ta sơ suất. Tình
+
+ cảnh lúc đó phức tạp, nhưng người ngoài trông vào thì quả thực ta hành 
+
+động quá đáng, khó trách mọi người hiểu lầm... Chuyện này ta khó lòng mà
+
+ giãi bày".</p><p data-p-id="056383cd2a2aad449a5aa6510bf40e03">Triệu Mẫn
+
+ nghe xong cũng cảm thấy hổ thẹn. Vì thực tế, nhân vật chính trong vở 
+
+kịch đó lại chính là nàng và Chu Chỉ Nhược, Trương Vô Kỵ từ đầu chí cuối
+
+ chỉ là người bị động mắc kẹt trong đó.</p><p data-p-id="c02754c106f32f91679b23a79e86afc6">Cụ
+
+ thể hơn là Triệu Mẫn đã cố tình chọn thời điểm làm lễ bái đường, cầm 
+
+theo tóc của Tạ Tốn mà xuất hiện trước mặt quan khách, mục đích để đánh 
+
+liều một phen, ai cũng đừng hòng níu kéo chút tí ti thể diện nào, có như
+
+ vậy mới chặt đứt khả năng của Trương Vô Kỵ và Chu Chỉ Nhược bên nhau. 
+
+Đối với Trương Vô Kỵ, manh mối về Tạ Tốn vô cùng quan trọng, mà với Chu 
+
+Chỉ Nhược cũng không kém là bao. Tạ Tốn biết tất cả mọi chuyện trên đảo,
+
+ bị Triệu Mẫn đi trước một bước, bí mật sắp lộ, tình thế mất kiểm soát, 
+
+người thực sự hủy hôn trước mặt đám quan khách dĩ nhiên là Chu Chỉ 
+
+Nhược. Trương Vô Kỵ chỉ muốn kế hòa hoãn nhất, dời đám cưới lại mấy 
+
+ngày, song Chu Chỉ Nhược quyết đoán hơn cả, đổ cho Trương Vô Kỵ bị mê 
+
+hoặc mới thành kẻ phụ bạc, nhờ đó nhận được sự đồng cảm tuyệt đối của 
+
+mọi người. Đường đường là chưởng môn phái Nga Mi lại đột nhiên trở thành
+
+ cô gái bị hôn phu ruồng bỏ, dù có tạm thời mất mặt một tí nhưng bước kế
+
+ tiếp là thành hay bại thì chỉ bằng lý do đó có thể chừa cho mình một 
+
+đường lui, không thể không nói rất cao minh.</p><p data-p-id="fb661132a1a082220ebb51cffebefb90">Vậy
+
+ nên, chuyện cho tới bây giờ, những kẻ chưa tường tận luôn cho rằng mọi 
+
+căn nguyên đều ở chỗ Trương Vô Kỵ hồ đồ, mê muội, còn bản thân Trương Vô
+
+ Kỵ lại cứ ngỡ hai nữ nhân đã vì yêu chàng mà nhất thời nông nổi.</p><p data-p-id="6c456e990a3a533d17bb6643d3dc88a3">"Từ
+
+ hôm đó, các vị lãnh đạo cấp cao bao gồm giáo chủ, Quang Minh Tả Hữu Sứ 
+
+và Hộ Giáo Pháp Vương đều đánh mất lòng tin trong binh sĩ, họ chỉ còn 
+
+ủng hộ các Đà Chủ, Hương Chủ mà họ thường xuyên tiếp xúc. Sau khi Trương
+
+ giáo chủ thoái vị, ngay cả những người đứng đầu trong giáo cũng không 
+
+thể đoàn kết lại được. Hiện tại Dương giáo chủ gần như mất đi thực 
+
+quyền, mệnh lệnh truyền xuống đều bị các Đà Chủ làm lơ" - Trương Trung 
+
+cũng ngại thẳng thừng trách móc Trương Vô Kỵ, thế là lấy giọng điệu bình
+
+ tĩnh tiếp tục kể.</p><p data-p-id="cb380168a8b04b172db7f046492cd9f3">Trương
+
+ Vô Kỵ càng nghe càng hổ thẹn. Chàng không ngờ quyết định khi xưa của 
+
+mình gây tổn hại tới đại nghiệp kháng Nguyên vốn đang cuồn cuộn như vũ 
+
+bão đến thế, liên tục lắc đầu tự trách - "Trương Vô Kỵ ơi Trương Vô Kỵ, 
+
+trọng trách của giáo chủ Minh Giáo quan trọng bao nhiêu, ngươi xem như 
+
+trò đùa. Đáng hận! Thật đáng hận!".</p><p data-p-id="ad05a8751d22a647b44b589816a29c24">Triệu
+
+ Mẫn lên tiếng bất bình thay - "Quyền chỉ huy nghĩa quân của Minh Giáo 
+
+xưa nay đều tập trung trong tay Đà Chủ của các phân đà, xảy ra chuyện 
+
+như vậy chẳng phải là chuyện sớm muộn sao?".</p><p data-p-id="c4bde7877c83a91fc1587478088a7fd9">Dù
+
+ hợp lý hay vô lý, chỉ cần nàng mở miệng thì cái nhận được trước nhất là
+
+ cặp mắt sắt lẻm của đám người đối diện. Triệu Mẫn coi như không, nói 
+
+tiếp - "Đúng, ta thừa nhận triều đình mục nát, vô phương cứu chữa. Xuất 
+
+thân quý tộc như ta từ nhỏ đã quen xa hoa hưởng lạc, có lẽ chúng ta nên 
+
+lập tức diệt vong. Nhưng mà, bản chất của việc thay đổi chính quyền này 
+
+bằng chính quyền khác, suy cho cùng chỉ là sự tranh quyền đoạt lợi giữa 
+
+một số người mà thôi. Người Hán hay người Mông Cổ, Minh Tôn<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Nghĩa là "Đấng sáng suốt được tôn kính", là danh xưng được các tín đồ Minh Giáo dùng để gọi vị thần tối cao của họ.
+</span>
+</span> hay Phật Tổ,
+
+ cũng như đại nghĩa cứu đời đều chỉ là cái cớ. Trương Sĩ Thành,  Trần 
+
+Hữu Lượng,  Chu Nguyên Chương, cuối cùng đều là một đám người khao khát 
+
+làm chủ nhân thiên hạ. Vô Kỵ, huynh đừng tự trách, bởi vì dù huynh có 
+
+ngồi ở vị trí giáo chủ kia hay không, hoặc là ngày đại hôn đó huynh có 
+
+theo muội hay không thì những chuyện này chắc chắn vẫn xảy ra. Chúng ta 
+
+đi thôi, mặc bọn họ tranh giành lẫn nhau đi!".</p><p data-p-id="a70ccf9330abd56e98fef81a9477f680">"Được
+
+ rồi, đừng nói nữa, Mẫn Mẫn" - Trương Vô Kỵ bối rối kéo tay áo nàng, cho
+
+ rằng nàng đang cố giúp mình giải vây, nhưng thật sự không phải lúc.</p><p data-p-id="35a67296a4183bb4240a2b446cba13c7">"Hiện
+
+ giờ Dương giáo chủ, Phạm Hữu Sứ và  hai vị Thanh Bạch Hộ Giáo Pháp 
+
+Vương đang ở đâu? Mọi người đã tính bước tiếp theo hay chưa?"- Chàng hỏi
+
+ tiếp Trương Trung.</p><p data-p-id="2fc455ec5ba8bf769cd90ec9b7b28a98">Đám
+
+ người Minh Giáo đều lộ vẻ khó xử, Trương Vô Kỵ liền biết họ e dè điều 
+
+gì, bèn nói – "Đừng ngại, cứ nói thẳng, Triệu Mẫn đã là thê tử của ta, 
+
+đã từ bỏ thân phận Mông Cổ, không còn là người ngoài, tuyệt đối sẽ không
+
+ tiết lộ".</p><p data-p-id="bb7c565c7782e2235324d38445f427a7">Bấy giờ, 
+
+một vị giáo đồ đáp - "Lão Ưng Vương đã nhường ngôi, nay Bạch Mi Ưng 
+
+Vương do cậu của Trương giáo chủ -  Ân Dã Vương - kế nhiệm, cùng với 
+
+Thanh Dực Bức Vương Vi Nhất Tiếu và Phạm Hữu Sứ chạy tới Lạc Dương tiếp 
+
+ứng quân Tây lộ, chiến sự nơi đó cam go. Hầu hết Ngũ Tản Nhân đã đến 
+
+tiền tuyến của Đông lộ và Trung lộ, mấy người chúng ta ở lại Giang Chiết<span class="tooltip" tabindex="0">
+   ✶
+    <span class="tooltiptext">Giang Tô và Chiết Giang.</span>
+</span>
+
+ chủ yếu để thuyết phục Trương Sĩ Thành, Phương Quốc Trân và Chu Nguyên 
+
+Chương đình chiến, cùng hợp lực trợ giúp Bắc phạt, lấy đuổi Thát Tử làm 
+
+mục tiêu chính. Dương giáo chủ hiện vì sức khỏe không tốt nên ở lại Quang Minh Đỉnh". </p><p data-p-id="95aa6a2d6cdb1211b99720a06ceb9cec">"Cánh 
+
+quân của Thát Tử thủ Lạc Dương đúng là khó giải quyết, Chu Nguyên Chương
+
+ không chịu xuất binh Bắc phạt cũng một phần vì kỵ lão, ngại đối đầu 
+
+trực diện. Nếu quân Tây lộ thất bại, quân Đông lộ và quân Trung lộ cũng 
+
+lập tức vào thế trứng chọi đá" - Trương Trung nói.</p><p data-p-id="41c11f06e752e85924e82d9341b8305c">"Tướng Thát Tử kia là nhân vật phương nào?".</p><p data-p-id="8d3da893c21153b0ba30dea7a1f7834c">Thoạt
+
+ nghe Trương Vô Kỵ hùa theo bọn họ Thát Tử này Thát Tử nọ, Triệu Mẫn có 
+
+hơi không vui, nhưng miễn cưỡng tự an ủi: Có lẽ chỉ quen miệng gọi chung
+
+ chung vậy thôi, không cố ý nhằm vào cá nhân cụ thể nào.</p><p data-p-id="35c16bdafe1f676891e4421e1f34e107">Rồi ai ngờ, chỉ chốc sau Trương Trung liền đáp - "Lão Thát Tử kia chính là Nhữ Dương Vương của triều đình, Sát Hãn Đặc Mục Nhĩ!"</p><p data-p-id="57fe288d71554b5b74fd61c6f4c79997">Tức thì, Triệu Mẫn cứ ngỡ mình đã rớt vào hầm băng đau điếng.</p><p data-p-id="d41d8cd98f00b204e9800998ecf8427e"><br /></p><p data-p-id="26478db11a74b3c8675f463fee30cba7"><br /></p><p data-p-id="cfe201de5943405c840233fec4378a45"><br /></p><p data-p-id="dc859868b55df6a252bb659afb9ca66f">Sau
+
+ khi từ biệt nhóm Minh Giáo, hai người ra khỏi quán trọ, chả ai thiết 
+
+nói năng gì. Vẻ rối ruột rối gan đè trĩu lên mi mày Trương Vô Kỵ, còn 
+
+Triệu Mẫn thì như vụt hồn mất vía. Cuối cùng cả hai đi đến chỗ buôn ngựa
+
+ mà không biết tự lúc nào. Triệu Mẫn vừa nghe tiếng vó ngựa, bất giác 
+
+hai hàng lệ tuôn, rồi hỏi Trương Vô Kỵ - "Huynh định giết cha muội, có 
+
+đúng không?".</p><p data-p-id="6adf2036e7ea3e5e766dd95f6cc2b2c2">"Huynh..."
+
+ - Trương Vô Kỵ ấp úng, nhiều hơn nữa là cái ý muốn né tránh ánh mắt của
+
+ nàng - "Nếu nói, một mạng của cha muội đổi lấy thiên hạ thái bình, muội
+
+ sẽ chọn thế nào?".</p><p data-p-id="7b97a0f7b91349c56db25cfe2fd7ccc4">"Mặc kệ, đó là cha muội!" - Nàng cắn răng quát, đồng thời lui mấy bước, như muốn dùng câu này rạch ròi ranh giới với chàng.</p><p data-p-id="a55fe7973638a9b2bfd00120a4d9bd0d">Thế
+
+ là Trương Vô Kỵ vội vàng giải thích - "Huynh hy vọng Nhữ Dương Vương 
+
+bại trận, nhưng huynh không muốn lấy mạng ông ta. Mẫn Mẫn, huynh cam 
+
+đoan với muội, khi Nhữ Dương Vương thất bại, huynh nhất định sẽ tìm cách
+
+ bảo toàn mạng sống của ông ta".</p><p data-p-id="623eba2c6749f6ce912b96315b205352">Triệu
+
+ Mẫn lắc đầu. Ấy không phải là nghi ngờ thành ý của Trương Vô Kỵ, mà là 
+
+nàng quá rõ nhược điểm của chàng. Hễ vấn đề nằm ngoài phạm vi có thể 
+
+giải quyết bằng vũ lực, chàng không thể nắm quyền chủ động trong bất cứ 
+
+việc gì. Triệu Mẫn đâu thể đánh cược mạng sống của cha mình. Bây giờ, 
+
+việc duy nhất cần làm là kéo Trương Vô Kỵ rời khỏi Trung Nguyên, ngăn 
+
+chàng đi hỗ trợ đám quân Khăn đỏ ở Tây lộ.</p><p data-p-id="b141c356ce449d06c944fa89334bc1da">"Muội không cần đồ cưới nữa. Chúng ta quay về Băng Hỏa Đảo ngay, có được không?".</p><p data-p-id="9523bccbee6f78d2d2c8710d0ca319ad">Dưới
+
+ sự nài nỉ của Triệu Mẫn, Trương Vô Kỵ lập tức thấy lòng không nỡ, thâm 
+
+tâm nghĩ: Vì Mẫn Mẫn, lương tâm cả đời của ta khó yên thì đã sao?</p><p data-p-id="6ab162a97179e8a0efa4e6acb1d2c12f">"Được, chúng ta đi".</p><p data-p-id="d456bc2b93aba7e2d84059838f3792b9">"Có Phạm Hữu Sứ, Bức Vương và cậu ruột của huynh, huynh cứ yên tâm".</p><p data-p-id="50d0b09a7036d8ea23524dafdcdfabd2">Rồi
+
+ thoáng chốc, nàng ý thức được tính nghiêm trọng của vấn đề, tim chợt 
+
+khựng nhịp, tứ chi run khẽ. Phạm Dao kia từng ẩn náu bên họ nhiều năm, 
+
+nắm rõ bố trí doanh trại của cha nàng như lòng bàn tay. Bức Vương khinh 
+
+công xuất quỷ nhập thần, khó mà cản nổi. Cả hai hợp sức, rõ ràng là chạy
+
+ đi ám sát cha!</p><p data-p-id="4ffb05d2a9a4927a77d9f65b16194593">Nàng 
+
+ép mình tỉnh táo đặng tiếp tục phân tích: A Đại, A Nhị, A Tam, mấy tên 
+
+thủ hạ này tuy bản lĩnh không tệ nhưng chỉ là phận tôi tớ, sao trông cậy
+
+ được sẽ tận chức tận trách. Thần Tiễn Bát Hùng đi theo cha, trung 
+
+thành, tận tụy, sẵn sàng lấy mạng hộ chủ, nhưng bọn họ chỉ am hiểu cưỡi 
+
+ngựa chinh chiến, đối phó với nhân sĩ giang hồ e rằng có lòng mà không 
+
+có lực. Hơn nữa cha ta không thích mang theo hộ vệ bên mình, làm sao 
+
+phòng được Khổ sư phụ và Bức Vương liên thủ?  Muốn ngăn họ, phải chủ 
+
+động, không thể bị động.</p><p data-p-id="26b8a73472135bfa23cb6948f532f665">"Mẫn Mẫn..." - Trương Vô Kỵ đột nhiên mở miệng với ý định dọ ý.</p><p data-p-id="0f5406e01282ac24dad9a34544646c83">"Huynh muốn lên bắc xem tình hình có đúng không?" - Triệu Mẫn đột nhiên hỏi với vẻ không vui.</p><p data-p-id="3a8672004ebd3ba3cdb917734f3fc956">"Minh
+
+ Giáo chia năm xẻ bảy, thực tình huynh khó ngồi yên được. Huynh muốn gặp
+
+ nhóm người Phạm Hữu Sứ, dặn dò mấy câu, tuyệt đối sẽ không làm chuyện 
+
+khiến muội khó xử" - Trương Vô Kỵ cam đoan chắc nịch.</p><p data-p-id="0fa4719876d28770481d2acb98c28261">Triệu Mẫn vì thế cũng hạ quyết tâm - "Được, muội và huynh cùng lên bắc".</p><p data-p-id="db9aa9ce553497469cce7e58f79dda16">"Vậy thì tốt quá!" - Chàng vui mừng khôn xiết - "Muội khéo hiểu lòng người, có được thê tử như thế, còn mong cầu gì hơn".</p><p data-p-id="56ab5de2cbf68949ec0b7515c5fd1e7d"> Triệu Mẫn khẽ cười, không nói gì thêm.</p><p data-p-id="58c09957bdfec8ef3edaf49f3c3d3cde">Vì
+
+ lẽ đó, cả hai mau chóng chuẩn bị ngựa và lương khô, gấp gáp phi về phía
+
+ bắc. Lúc đi qua cung đường hẹp và hẻo lánh, không làng mạc, không khách
+
+ điếm, Triệu Mẫn đột nhiên ngã ngựa, liên tục kêu đau bụng, nói chắc 
+
+chắn thức ăn trong quán đã bị Trương Trung hạ độc. Trương Vô Kỵ bắt mạch
+
+ hồi lâu vẫn chưa tìm ra nguyên do, song thấy Triệu Mẫn đau quá nên đành
+
+ thăm dò xung quanh một ít thảo dược giảm đau đem về.</p><p data-p-id="903d9966da4351a7ac651e1994c1809e">Rừng
+
+ núi hoang vu, tìm thuốc gian nan. Khi Trương Vô Kỵ tắm gió hè âm ẩm 
+
+quay lại cùng thảo dược trên tay và mồ hôi nhễ nhại khắp trán thì Triệu 
+
+Mẫn đã cùng hai con ngựa mất tăm, còn sót lại chỉ là hàng dấu chân song 
+
+song hướng về phương xa tít tắp.</p><p><br /></p>
+<div class="chapter-nav">
+    « Chương trước
+    
+<a href="/p/man-nhuoc-kiem-phi-van-nhan-ich.html" id="open-toc-btn">MỤC LỤC</a>    
+    
+    <a href="https://nuabuocthanhtho.blogspot.com/2025/09/man-nhuoc-kiem-phi-van-nhan-ich-chuong-2.html">Chương sau »</a>
+</div>
