@@ -12,3 +12,10 @@ excerpt_separator: ""
 collections:
   stories:
     output: true
+# Cấu hình phân trang (Pagination)
+paginate: 10         # Số bài đăng trên mỗi trang
+paginate_path: "/page/:num/" # Đường dẫn cho các trang tiếp theo (ví dụ: /page/2/, /page/3/)
+
+# Thêm plugin phân trang
+plugins:
+  - jekyll-paginate
