@@ -13,23 +13,6 @@ layout: default # Kế thừa từ khung sườn default.html
   <div class='post-body entry-content' id='post-body-{{ page.id }}' itemprop='articleBody'>
     {{ content }} <div style='clear: both;'></div>
   </div>
-
-  {% if page.previous.url or page.next.url %}
-    <div class="chapter-nav">
-      {% if page.previous.url %}
-        <a href="{{ page.previous.url }}">&laquo; Chương Trước</a>
-      {% else %}
-        <a href="#" class="disabled">&laquo; Chương Trước</a>
-      {% endif %}
-
-      <a href="#" id="open-toc-btn" data-toc-url="{{ site.toc_url }}">Mục lục</a> {% if page.next.url %}
-        <a href="{{ page.next.url }}">Chương Sau &raquo;</a>
-      {% else %}
-        <a href="#" class="disabled">Chương Sau &raquo;</a>
-      {% endif %}
-    </div>
-  {% endif %}
-
   <div class='post-footer'>
     {% if page.tags.size > 0 %}
     <div class='post-labels'>
@@ -41,5 +24,3 @@ layout: default # Kế thừa từ khung sườn default.html
     {% endif %}
     <div style='clear: both;'></div>
   </div>
-
-  </div> ```
