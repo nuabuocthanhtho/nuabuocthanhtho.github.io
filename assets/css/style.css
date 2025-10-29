@@ -1,133 +1,12 @@
 /*
 -----------------------------------------------
-Template: Renique Blogger Template 
+Template: Renique Blogger Template
 Name:  Ceyron Louis
 Designer Url - https://www.oddthemes.com
 ----------------------------------------------- */
 
 /* Variables starting
-
-<Group description="Body" selector="body">
-	<Variable name="background" description="Background" type="color" default="#FDFCFB" value="#FDFCFB"/>
-	<Variable name="text" description="Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="link" description="Link" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="link.hover" description="Link Hover" type="color" default="#000000" value="#000000"/>
-</Group>
-
-<Group description="Social Media and Search Form" selector="menu">
-	<Variable name="social.color" description="Social Media Icons" type="color" default="#000000" value="#000000"/>
-	<Variable name="social.hover" description="Social Media Icons Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="search.border" description="Search Border" type="color" default="#000000" value="#000000"/>
-	<Variable name="search.color" description="Search Text and Submit" type="color" default="#000000" value="#000000"/>
-	<Variable name="search.submit.hover" description="Search Submit Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
-<Group description="Header" selector="header">
-	<Variable name="header" description="Title" type="color" default="#000000"  value="#000000"/>
-	<Variable name="description" description="Description" type="color" default="#000000"  value="#000000"/>
-</Group>
-
-<Group description="Navigation" selector="menu">
-	<Variable name="nav.color" description="Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="nav.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="nav.level.background" description="Drop Down Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="nav.level.background.hover" description="Drop Down Background Hover" type="color" default="#000" value="#000000"/>
-	<Variable name="nav.level.color" description="Drop Down Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="nav.level.color.hover" description="Drop Down Text Hover" type="color" default="#fff" value="#ffffff"/>
-</Group>
-
-<Group description="Slider" selector="slider">
-	<Variable name="slider.date" description="Date" type="color" default="#FFFFFF" value="#FFFFFF"/>
-	<Variable name="slider.title" description="Title" type="color" default="#FFFFFF" value="#FFFFFF"/>
-	<Variable name="slider.snippet" description="Snippet" type="color" default="#FFFFFF" value="#FFFFFF"/>
-	<Variable name="slider.button.background" description="Button Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="slider.button.background.hover" description="Button Background Hover" type="color" default="#000" value="#000000"/>
-	<Variable name="slider.button.color" description="Button Colour" type="color" default="#000" value="#000000"/>
-	<Variable name="slider.button.color.hover" description="Button Colour Hover" type="color" default="#fff" value="#ffffff"/>
-	<Variable name="slider.dots" description="Dots" type="color" default="#ffffff" value="#ffffff"/>
-	<Variable name="slider.dots.h" description="Dots Hover And Current" type="color" default="#000000" value="#000000"/>
-</Group>
-
-<Group description="Categories" selector="categories">
-	<Variable name="categories.heading" description="Heading" type="color" default="#000000"  value="#000000"/>
-	<Variable name="categories.title" description="Title" type="color" default="#000000"  value="#000000"/>
-	<Variable name="categories.title.hover" description="Title Hover" type="color" default="#e3c9bf"  value="#e3c9bf"/>
-	<Variable name="categories.caption" description="Caption" type="color" default="#000000"  value="#000000"/>
-</Group>
-
-<Group description="Posts Homepage" selector="main-wrap">
-	<Variable name="home.date" description="Date" type="color" default="#000000" value="#000000"/>
-	<Variable name="home.title" description="Title" type="color" default="#000000" value="#000000"/>
-	<Variable name="home.title.hover" description="Title Hover" type="color" default="#000000" value="#000000"/>
-	<Variable name="home.summary" description="Snippet" type="color" default="#000000" value="#000000"/>
-	<Variable name="home.button.background" description="Button Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="home.button.background.hover" description="Button Background Hover" type="color" default="#000" value="#000000"/>
-	<Variable name="home.button.color" description="Button Text" type="color" default="#000" value="#000000"/>
-	<Variable name="home.button.color.hover" description="Button Text Hover" type="color" default="#fff" value="#ffffff"/>
-</Group>
-
-<Group description="Posts Main" selector="main-wrap">
-	<Variable name="post.header" description="Date And Location" type="color" default="#000000" value="#000000"/>
-	<Variable name="post.title" description="Title" type="color" default="#000000" value="#000000"/>
-	<Variable name="post.footer.color" description="Post Footer" type="color" default="#000000" value="#000000"/>
-	<Variable name="post.footer.color.hover" description="Post Footer Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
-<Group description="Post Pager" selector="main-wrap">
-	<Variable name="postpager.title" description="Post Title" type="color" default="#000000" value="#000000"/>
-	<Variable name="postpager.title.hover" description="Post Title Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="postpager.color" description="Text" type="color" default="#000000" value="#000000"/>
-</Group>
-
- <Group description="Related Posts" selector="relatedposts">
-	<Variable name="related.heading" description="Heading" type="color" default="#000000" value="#000000"/>
-	<Variable name="related.title" description="Post Title" type="color" default="#000000" value="#000000"/>
-	<Variable name="related.title.hover" description="Post Title Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
- <Group description="Comment Section" selector="comments">
-	<Variable name="comments.heading" description="Heading" type="color" default="#000000" value="#000000"/>
-	<Variable name="comments.user" description="User" type="color" default="#000000" value="#000000"/>
-	<Variable name="comments.date" description="Date" type="color" default="#000000" value="#000000"/>
-	<Variable name="comments.actions" description="Actions" type="color" default="#000000" value="#000000"/>
-</Group>
-
-<Group description="Newsletter" selector="newsletter-wrap">
-	<Variable name="follow.background" description="Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="follow.heading" description="Heading" type="color" default="#000" value="#000000"/>
-	<Variable name="follow.caption" description="Caption" type="color" default="#444" value="#444444"/>
-	<Variable name="follow.border" description="Border" type="color" default="#000000" value="#000000"/>
-	<Variable name="follow.text" description="Text" type="color" default="#000" value="#000000"/>
-	<Variable name="follow.submit.background" description="Submit Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="follow.submit.background.hover" description="Submit Background Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="follow.submit" description="Submit Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="follow.submit.hover" description="Submit Text Hover" type="color" default="#000000" value="#000000"/>
-</Group>
-
-<Group description="Blog Pager" selector="main-wrap">
-	<Variable name="pager.color" description="Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="pager.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
-<Group description="Footer" selector="footer-wrap">
-	<Variable name="footer.links" description="Links" type="color" default="#000000" value="#000000"/>
-	<Variable name="footer.links.hover" description="Links Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
-<Group description="Credits" selector="credits">
-	<Variable name="credits.color" description="Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="credits.color.hover" description="Text Hover" type="color" default="#e3c9bf" value="#e3c9bf"/>
-</Group>
-
-<Group description="Additional" selector="body">
-	<Variable name="selection.background" description="Selection Background" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="selection.color" description="Selection Text" type="color" default="#000000" value="#000000"/>
-	<Variable name="scrollbar.background" description="Scrollbar Background" type="color" default="#FDFCFB" value="#FDFCFB"/>
-	<Variable name="scrollbar.thumb" description="Scrollbar Thumb" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="top.color" description="Back To Top Icon" type="color" default="#e3c9bf" value="#e3c9bf"/>
-	<Variable name="top.color.hover" description="Back To Top Button Hover" type="color" default="#000000" value="#000000"/>
-</Group>
-
+(Removed for standard CSS)
 */
 
 /*-------------------------
@@ -144,7 +23,7 @@ Page
 
 .site-wrap {
 	width: 100%;
-	background: $(background);}
+	background: #FDFCFB;}
 
 .outer-wrap {
 	width: 1000px;
@@ -204,7 +83,7 @@ body {
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
-	color: $(text);
+	color: #000000;
 	letter-spacing: 0px;
 	overflow-x: hidden;}
 
@@ -223,11 +102,11 @@ a:hover {
 .post-body a {
 	font-weight: 400;
 	text-decoration: none;
-	color: $(link);
+	color: #e3c9bf;
 	position: relative;}
 
 .post-body a:hover {
-	color: $(link.hover);
+	color: #000000;
 	text-decoration: none;}
 
 .separator a {
@@ -278,7 +157,7 @@ a img {
 	padding-bottom: 56%;
 	padding-top: 0px;
 	height: 0;
-	background-color: $(background) !important;}
+	background-color: #FDFCFB !important;}
 
 .video_wrap iframe,
 .video_wrap object,
@@ -298,7 +177,7 @@ input, textarea {
 	-webkit-border-radius: 0;}
 
 input:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0 1000px $(background) inset;}
+	-webkit-box-shadow: 0 0 0 1000px #FDFCFB inset;}
 
 .widget-item-control {
 	height: 0px;}
@@ -346,10 +225,10 @@ Social & Search
 	font-size: 9.5px;
 	margin: 0 5px !important;
 	display: inline-block;
-	color: $(social.color);}
+	color: #000000;}
 
 .top-socialmedia a:hover {
-	color: $(social.hover);}
+	color: #e3c9bf;}
 
 .search {
 	width: 130px;
@@ -368,8 +247,8 @@ Social & Search
 	float: left;
 	background: transparent;
 	border: 0;
-	border-bottom: 1px solid $(search.border);
-	color: $(search.color);
+	border-bottom: 1px solid #000000;
+	color: #000000;
 	font-family: 'Karla', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -386,7 +265,7 @@ Social & Search
 	float: right;
 	font-size: 9.5px;
 	text-align: right;
-	color: $(search.color);
+	color: #000000;
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
 	-ms-transition: all 0.2s ease;
@@ -394,10 +273,10 @@ Social & Search
 	transition: all 0.2s ease;}
 
 .searchsubmit:hover {
-	color: $(search.submit.hover);}
+	color: #e3c9bf;}
 
 .search input:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0 1000px $(background) inset !important;}
+	-webkit-box-shadow: 0 0 0 1000px #FDFCFB inset !important;}
 
 @media screen and (max-width: 1000px) {
 	.top-wrap {position: relative;}}
@@ -413,7 +292,7 @@ Header
 	margin: 0 auto 20px;
 	padding: 50px 5% 0;
 	position: relative;
-	background: $(background);
+	background: #FDFCFB;
 	border: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -431,13 +310,13 @@ Header
 	font-weight: 400;
 	font-size: 60px;
 	letter-spacing: -1px;
-	color: $(header);
+	color: #000000;
 	margin: 0;}
 
 .Header h1 a,
 .Header h1 a:visited,
 .Header h1 a:hover {
-	color: $(header);}
+	color: #000000;}
 
 .Header img {
 	text-align: center;
@@ -450,7 +329,7 @@ Header
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(description);
+	color: #000000;
 	margin: 0;}
 
 @media screen and (max-width: 1000px) {
@@ -474,12 +353,12 @@ Navigation
 
 .menu-wrap a,
 .menu-wrap a:visited {
-	color: $(nav.color);
+	color: #000000;
 	margin: 0;
 	padding: 0;}
 
 .menu-wrap a:hover {
-	color: $(nav.color.hover);}
+	color: #e3c9bf;}
 
 .menu-wrap h2 {
 	display: none !important;}
@@ -545,15 +424,15 @@ Navigation
 
 .menu-wrap .level-two li a,
 .menu-wrap .level-three li a {
-	background: $(nav.level.background);
-	color: $(nav.level.color);
+	background: #e3c9bf;
+	color: #000000;
 	padding: 9px 10px;
 	display: block;}
 
 .menu-wrap .level-two li a:hover,
 .menu-wrap .level-three li a:hover {
-	background: $(nav.level.background.hover);
-	color: $(nav.level.color.hover);}
+	background: #000000;
+	color: #ffffff;}
 
 .menu-wrap li.parent:hover .level-two,
 .menu-wrap .child-item.sharewidth:hover .level-three {
@@ -576,7 +455,7 @@ Navigation
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 	font-size: 8px;
-	margin: 0 0 0 5px;} 
+	margin: 0 0 0 5px;}
 
 .menu-wrap li > a:only-child:after {
 	content: '';
@@ -587,12 +466,12 @@ Navigation
         visibility: hidden;
     }
 	.sidemenu {display: none;}
-	} 
+	}
 
 @media screen and (max-width: 900px) {
 	.sidemenu {margin: 0 auto !important; padding: 0; width: auto; height: 50px; overflow: hidden; display: block;
 		appearence: none; font-size: 12px; box-shadow: none; border: none; cursor: pointer; transition: background 0.3s;
-		position: relative; background: transparent; color: $(nav.color);}
+		position: relative; background: transparent; color: #000000;}
 	.sidemenu span {font-family: 'Karla', sans-serif; font-weight: 400; font-size: 12px; letter-spacing: 0px; text-transform: uppercase;}
 	.sidemenu i {font-size: 9.5px; margin-left: 7px;}
 .sidemenu {
@@ -678,7 +557,7 @@ li.slide-post {
 	font-style: italic;
 	font-size: 12px;
 	letter-spacing: 1px;
-	color: $(slider.date);
+	color: #FFFFFF;
 	margin-bottom: 4px;
 	position: relative;
 	z-index: 5;}
@@ -688,7 +567,7 @@ li.slide-post {
 	font-weight: 400;
 	font-size: 35px;
 	letter-spacing: -1px;
-	color: $(slider.title);
+	color: #FFFFFF;
 	position: relative;
 	margin: 0 0 20px;
 	z-index: 5;}
@@ -698,7 +577,7 @@ li.slide-post {
 	font-weight: 400;
 	font-size: 14px;
 	letter-spacing: 0px;
-	color: $(slider.snippet);
+	color: #FFFFFF;
 	line-height: 20px;
 	position: relative;
 	margin: 0 0 30px;
@@ -716,12 +595,12 @@ li.slide-post {
 	z-index: 5;}
 
 .slide-button span {
-	background: $(slider.button.background);
-	color: $(slider.button.color);
+	background: #e3c9bf;
+	color: #000000;
 	padding: 8px 12px;}
 
 .slide-button span:hover {
-	color: $(slider.button.color.hover);
+	color: #ffffff;
 }
 
 .slick-dots {
@@ -738,15 +617,15 @@ li.slide-post {
 
 .slick-dots li.slick-active button:before {
 	opacity: 1 !important;
-	color: $(slider.dots.h) !important;}
+	color: #000000 !important;}
 
 .slick-dots li button:before {
 	opacity: 1 !important;
-	color: $(slider.dots) !important;}
+	color: #ffffff !important;}
 
 .slick-dots li button:hover:before,
 .slick-dots li button:focus:before {
-	color: $(slider.dots.h) !important;}
+	color: #000000 !important;}
 
 @media screen and (max-width: 500px) {
 	.slide4 {max-width: 85% !important; margin: 0 auto 13%;}}
@@ -784,7 +663,7 @@ Homepage Posts
 	font-style: italic;
 	font-size: 12px;
 	letter-spacing: 1px;
-	color: $(home.date);
+	color: #000000;
 	text-align: center;}
 .home-comments {
   font-family: 'Bodoni Moda', serif;
@@ -792,7 +671,7 @@ Homepage Posts
   font-style: italic;
   font-size: 12px;
   letter-spacing: 1px;
-  color: $(home.date);
+  color: #000000;
   text-align: center;
   margin-bottom: 15px; /* Tạo khoảng cách với tiêu đề bên dưới */
 }
@@ -800,74 +679,47 @@ Homepage Posts
   color: inherit;
 }
 .home-comments a:hover {
-  color: $(link.hover);
+  color: #000000;
 }
 .home-title {
-  font-family: 'Source Serif 4', serif !important; /* Đổi thành Source Serif 4 */
-  font-weight: 400;
-  font-size: 35px; /* Giữ nguyên size gốc */
-  letter-spacing: -1px;
-  text-align: center;
-  margin: 3px 0 20px;
-}
+	font-family: 'Bodoni Moda', serif;
+	font-weight: 400;
+	font-size: 35px;
+	letter-spacing: -1px;
+	color: #000000;
+	text-align: center;
+	margin: 3px 0 20px;}
 
 .home-title a,
-.home-title a:visited { /* Áp dụng cho cả link thường và link đã click */
-  color: #000000 !important; /* Ép màu đen */
-}
+.home-title a:visited {
+	color: #000000 !important;}
 
 .home-title a:hover {
-  color: #000000 !important; /* Màu hover gốc cũng là đen */
-}
+	color: #000000 !important;}
 
 .home-summary {
-	color: $(home.summary);
+	color: #000000;
 	text-align: justify;
     text-align-last: center;}
-.home-summary {
-  color: #000000; /* Lấy màu từ biến $(home.summary) gốc */
-  text-align: justify;
-  text-align-last: center; /* Căn giữa dòng cuối */
-  font-family: 'Cormorant Upright', serif !important; /* Đảm bảo đúng font */
-  /* Thêm các thuộc tính khác nếu cần (ví dụ: font-size, line-height) */
-}
-/* --- MÃ SỬA LỖI CUỐI CÙNG CHO NÚT "XEM TIẾP" --- */
+
 .home-button {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-  background: #e3c9bf;
-  transform: skewX(-20deg); /* Nghiêng khối nền */
-  padding: 0;
-  transition: background-color 0.3s ease;
-}
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-size: 11px;
+	letter-spacing: .5px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 30px 0 0;}
 
 .home-button a {
-  display: inline-block;
-  padding: 9px 15px;
-  color: #000000 !important;
-  text-decoration: none;
-}
+	color: #000000;
+    background: #e3c9bf;
+    padding: 9px 15px;}
 
-.home-button span {
-  display: inline-block;
-  transform: skewX(20deg); /* Làm thẳng chữ lại */
-  font-family: 'Karla', sans-serif;
-  font-weight: 400;
-  font-size: 11px;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  font-style: normal; /* Đảm bảo chữ không bị nghiêng */
-}
+.home-button a:hover {
+	background: #000000;
+	color: #ffffff;}
 
-/* Hiệu ứng khi di chuột */
-.home-button:hover {
-  background: #000000;
-}
-
-.home-button:hover a {
-  color: #ffffff !important;
-}
 @media screen and (max-width: 850px) {
 	.postthumb, .post1 {width: 100%;}
 	.post1 {padding: 30px 5% 40px;}}
@@ -887,7 +739,7 @@ Blog Posts
 	font-style: italic;
 	font-size: 12px;
 	letter-spacing: 1px;
-	color: $(post.header);}
+	color: #000000;}
 
 .post-header .post-title {
 	font-family: 'Bodoni Moda', serif;
@@ -895,7 +747,7 @@ Blog Posts
 	font-size: 35px;
 	line-height: 35px;
 	letter-spacing: -1px;
-	color: $(post.title);
+	color: #000000;
 	margin: 10px 20px !important;}
 
 .post-location {
@@ -904,7 +756,7 @@ Blog Posts
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(post.header);}
+	color: #000000;}
 
 .post-footer {
 	font-family: 'Karla', sans-serif;
@@ -912,15 +764,15 @@ Blog Posts
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(post.footer.color);
+	color: #000000;
 	text-align: center;
 	margin: 50px auto 20px;}
 
 .post-footer a {
-	color: $(post.footer.color);}
+	color: #000000;}
 
 .post-footer a:hover {
-	color: $(post.footer.color.hover);}
+	color: #e3c9bf;}
 
 .post-share {
 	margin-top: 10px;}
@@ -934,10 +786,10 @@ Blog Posts
 	display: inline-block;}
 
 .post-labels a {
-	color: $(post.footer.color);}
+	color: #000000;}
 
 .post-labels a:hover {
-	color: $(post.footer.color.hover);}
+	color: #e3c9bf;}
 
 blockquote {
 	font-family: 'Bodoni Moda', serif;
@@ -956,7 +808,7 @@ blockquote {
 	font-weight: 400;
 	font-size: 25px;
 	letter-spacing: -1px;
-	color: $(text);
+	color: #000000;
 	text-align: center;
 	width: auto;
 	margin: 0 auto 30px;
@@ -999,7 +851,7 @@ Post Pager
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(postpager.color);
+	color: #000000;
 	text-shadow: none;}
 
 .next .pager-title {
@@ -1031,10 +883,10 @@ Post Pager
 
 .post-pager a,
 .post-pager a:visited {
-	color: $(postpager.title);}
+	color: #000000;}
 
 .post-pager a:hover {
-	color: $(postpager.title.hover);}
+	color: #e3c9bf;}
 
 @media screen and (max-width: 700px) {
 	.previous .pager-title {margin: 0px 0 0 10px;}
@@ -1049,7 +901,7 @@ Related Posts
 	width: 104%;
 	margin: 0 0 0 -2% !important;
 	padding-bottom: 0!important;
-	background: $(background);}
+	background: #FDFCFB;}
 
 .relatedtitle {
 	font-family: 'Karla', sans-serif;
@@ -1057,7 +909,7 @@ Related Posts
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(related.heading);
+	color: #000000;
 	text-align: center;
 	margin: 0 auto 20px;}
 
@@ -1078,12 +930,12 @@ Related Posts
 	font-weight: 400;
 	font-size: 23px;
 	letter-spacing: -1px;
-	color: $(related.title);
+	color: #000000;
 	text-align: center;
 	margin: 15px 0 0;}
 
 .related-wrap .related-title:hover {
-	color: $(related.title.hover);
+	color: #e3c9bf;
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
 	-ms-transition: all 0.2s ease;
@@ -1108,7 +960,7 @@ Comments
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(comments.heading);
+	color: #000000;
 	text-align: center;
 	margin: 0 5px;
 	padding-bottom: 10px;}
@@ -1131,13 +983,13 @@ Comments
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(comments.user);
+	color: #000000;
 	margin-bottom: 0px;
 	display: block;}
 
 .comments .comments-content p.comment-content a {
 	text-decoration: none;
-	color: $(link);}
+	color: #e3c9bf;}
 
 .comments .thread-count,
 .comments .comment-actions,
@@ -1156,7 +1008,7 @@ Comments
 	margin-top: 0px;}
 
 .comments .comments-content .datetime a {
-	color: $(comments.date);}
+	color: #000000;}
 
 .comments .comment-actions a:hover {
 	text-decoration: none!important;}
@@ -1175,7 +1027,7 @@ Comments
 .comments .thread-count a,
 .comments .comment .comment-actions a,
 .comments .continue a {
-    color: $(comments.actions) !important;}
+    color: #000000 !important;}
 
 .comment-replies .comment {
     margin: 20px 0 0 !important;
@@ -1194,7 +1046,7 @@ Newsletter
 	height: auto;
 	margin: 0px auto 50px;
 	padding: 50px;
-	background: $(follow.background);
+	background: #e3c9bf;
 	text-align: center;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -1205,14 +1057,14 @@ Newsletter
 	font-weight: 400;
 	font-size: 25px;
 	letter-spacing: -1px;
-	color: $(follow.heading);}
+	color: #000000;}
 
 .newsletter-caption {
 	font-family: 'Karla', sans-serif;
     font-weight: 400;
     font-size: 14px;
 	letter-spacing: 0px;
-	color: $(follow.caption);}
+	color: #444444;}
 
 #HTML3 h2 {
 	display: none;}
@@ -1242,7 +1094,7 @@ Newsletter
 	color:#fff;
 	float: left;
 	background: transparent;
-	border: 1px solid $(follow.border);
+	border: 1px solid #000000;
     font-family: 'Karla', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -1261,7 +1113,7 @@ Newsletter
 	padding: 0 0 0 5px;
 	float: left;
 	background: transparent;
-	border: 1px solid $(follow.border);
+	border: 1px solid #000000;
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
 	font-size: 12px;
@@ -1278,8 +1130,8 @@ Newsletter
 	margin: 0;
 	padding: 0;
 	float: right;
-	background: $(follow.submit.background);
-	border: 1px solid $(follow.border);
+	background: #e3c9bf;
+	border: 1px solid #000000;
 	border-radius: 0;
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
@@ -1287,7 +1139,7 @@ Newsletter
 	letter-spacing: 0px;
 	text-transform: uppercase;
 	text-align: center;
-	color: $(follow.submit);
+	color: #000000;
 	text-align: center;
 	-webkit-transition: all 0.1s ease;
 	-moz-transition: all 0.1s ease;
@@ -1302,19 +1154,19 @@ Newsletter
     font-weight: 400 !important;
 }
 #mc_embed_signup .button:hover {
-	background: $(follow.submit.background.hover);
-	color: $(follow.submit.hover);
+	background: #e3c9bf;
+	color: #000000;
 	cursor: pointer;}
 
 #mc_embed_signup ::placeholder {
-	color: $(follow.submit) !important;
+	color: #000000 !important;
 	opacity: 1 !important;}
 
 #mc_embed_signup :-ms-input-placeholder {
-	color: $(follow.submit) !important;}
+	color: #000000 !important;}
 
 #mc_embed_signup ::-ms-input-placeholder {
-	color: $(follow.submit) !important;}
+	color: #000000 !important;}
 
 @media screen and (max-width: 950px) {
 	.newsletter-wrap {width: 85%;}}
@@ -1344,10 +1196,10 @@ Pager
 #blog-pager a,
 #blog-pager a:visited {
 	display: inline-block;
-	color: $(pager.color);}
+	color: #000000;}
 
 #blog-pager a:hover {
-	color: $(pager.color.hover);}
+	color: #e3c9bf;}
 
 
 /*-------------------
@@ -1414,10 +1266,10 @@ Footer
     position: relative;}
 
 #LinkList2 a {
-	color: $(footer.links);}
+	color: #000000;}
 
 #LinkList2 a:hover {
-	color: $(footer.links.hover);}
+	color: #e3c9bf;}
 
 @media screen and (max-width: 1050px) {
 	.footerbox {width: 90%;}}
@@ -1433,7 +1285,7 @@ Credits
 	font-size: 12px;
 	letter-spacing: 0px;
 	text-transform: uppercase;
-	color: $(credits.color);
+	color: #000000;
 	text-align: center;
 	width: 100% !important;
 	height: 50px;
@@ -1444,10 +1296,10 @@ Credits
 
 .credit a,
 .credit a:visited {
-	color: $(credits.color);}
+	color: #000000;}
 
 .credit a:hover {
-	color: $(credits.color.hover);}
+	color: #e3c9bf;}
 
 .credit i {
 	font-size: 9px;
@@ -1462,47 +1314,47 @@ Additional
 	display: none !important;}
 
 ::-moz-selection {
-	background: $(selection.background);
-	color: $(selection.color);}
+	background: #e3c9bf;
+	color: #000000;}
 
 ::selection {
-	background: $(selection.background);
-	color: $(selection.color);}
+	background: #e3c9bf;
+	color: #000000;}
 
 ::-webkit-scrollbar {
 	width: 7px;}
 
 ::-webkit-scrollbar-track {
-	background: $(scrollbar.background);}
+	background: #FDFCFB;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: $(scrollbar.thumb);}
+	background: #e3c9bf;}
 
 .cookie-choices-info {
-	background: $(background) !important;
-	border-bottom: 1px solid $(link);}
+	background: #FDFCFB !important;
+	border-bottom: 1px solid #e3c9bf;}
 
 .cookie-choices-info .cookie-choices-text {
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
 	font-size: 14px !important;
 	letter-spacing: 0px;
-	color: $(text) !important;}
+	color: #000000 !important;}
 
 .cookie-choices-info .cookie-choices-button {
 	font-family: 'Karla', sans-serif;
 	font-weight: 400 !important;
 	font-size: 12px !important;
 	letter-spacing: 0px;
-	color: $(text) !important;}
+	color: #000000 !important;}
 
 .cookie-choices-info #cookieChoiceDismiss {
 	font-family: 'Karla', sans-serif;
 	font-weight: 400;
 	font-size: 12px !important;
 	letter-spacing: 0px;
-	color: $(text) !important;}
+	color: #000000 !important;}
 
 .scroll {
 	right: 20px;
@@ -1511,11 +1363,11 @@ Additional
 	position: fixed;
 	border: 0;
 	font-size: 25px;
-	color: $(top.color);
+	color: #e3c9bf;
 	cursor: pointer;}
 
 .scroll:hover {
-	color: $(top.color.hover);
+	color: #000000;
 	-webkit-transition: all 0.1s ease;
 	-moz-transition: all 0.1s ease;
 	-ms-transition: all 0.1s ease;
@@ -1524,9 +1376,31 @@ Additional
 
 
 
+
+
+
+
+.home-button {
+  transform: skewX(-20deg);
+    padding: 0px 7px;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+.home-button a {
+  transform: skewX(20deg);
+    font-family: sans-serif;
+}
+.home-button span {
+    transform: skewX(20deg);
+    display: inline-block;
+}
+
+
+
 .slide-button {
     display: inline-block;
-    background: $(slider.button.background);
+    background: #e3c9bf;
     transform: skewX(-20deg);
     padding: 0 6px;
 }
@@ -1535,14 +1409,14 @@ Additional
     transform: skewX(20deg);
 }
 .slide-button:hover{
-	background: $(slider.button.background.hover);
+	background: #000000;
 }
 .slide-button:hover span {
-    background: $(slider.button.background.hover);
+    background: #000000;
 }
 
 .categories-wrap {
-  	padding: 1px 0px 30px 0px;
+  	padding: 30px 0px;
     max-width: 1000px;
     text-align: center;
     margin: 0 auto;
@@ -1552,7 +1426,7 @@ Additional
 .categories-wrap .widget.Image a {
   display: inline-flex;
   align-items: center;
-  
+
   border-radius: 50px;
   text-decoration: none;
   padding: 5px 15px 5px 5px;
@@ -1582,7 +1456,7 @@ div#categorytitle {
     font-size: 26px;
 }
 .categories-wrap .widget.Image a:hover {
-    background-color: $(categories.title.hover);
+    background-color: #e3c9bf;
 }
 
 
@@ -1648,10 +1522,10 @@ div#categorytitle {
   /* Trạng thái ẩn */
   visibility: hidden;
   opacity: 0;
-  
+
   /* Định vị */
   position: absolute; /* Quan trọng để không làm xô lệch văn bản */
-  
+
   /* Định dạng */
   width: 380px;
   background-color: #333;
@@ -1663,7 +1537,7 @@ div#categorytitle {
   transition: opacity 0.2s, visibility 0.2s;
   font-size: 20px;
   line-height: 1.5;
-  max-height: 450px; 
+  max-height: 450px;
   overflow-y: auto;
 }
 
@@ -1688,20 +1562,20 @@ div#categorytitle {
 @media screen and (max-width: 480px) {
   .tooltiptext {
     /* Chiếm 90% chiều rộng màn hình thay vì 380px cố định */
-    width: 90vw; 
+    width: 90vw;
 
     /* Giảm kích thước chữ một chút cho dễ đọc */
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
 /* Áp dụng cho màn hình có chiều rộng tối đa là 768px (máy tính bảng và điện thoại) */
 @media screen and (max-width: 768px) {
   .post-body.entry-content {
     /* Giữ lại dòng này để font chữ dễ đọc trên di động */
-    font-family: Verdana, Tahoma, sans-serif; 
+    font-family: Verdana, Tahoma, sans-serif;
 
     /* Chỉ sửa dòng này */
-    font-size: 17px !important; 
+    font-size: 17px !important;
   }
 }
 /* Tùy chỉnh font cho tiêu đề và categories box */
@@ -1726,36 +1600,34 @@ div#Text1 {
 /* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
 #Text1 .widget-content {
     position: relative !important;
-    top: -10px !important; /* Dịch chuyển khối đi lên 15px */
+    top: -15px !important; /* Dịch chuyển khối đi lên 15px */
 }
 
 /* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
 
-/* --- Sửa khoảng cách cho Widget Giới thiệu --- */
-
 #Text1 h2.title {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 400 !important;
-    margin-bottom: 10px !important; /* << TẠO KHOẢNG CÁCH DƯỚI TIÊU ĐỀ */
-    /* Bỏ margin-top ở đây nếu có */
+    margin-bottom: 0 !important;
 }
 
 #Text1 .widget-content {
+    /* Các tùy chỉnh cũ */
     font-family: 'Oswald', sans-serif !important;
     font-weight: 300 !important;
     font-size: 19px !important;
     white-space: pre-line !important;
-    line-height: 1.0 !important; /* << Bạn có thể thử lại 1.5, 1.6, 1.7, 1.8 xem cái nào vừa mắt */
-    margin-top: -5px !important; /* << BỎ margin-top âm */
-    position: static !important; /* << TRẢ LẠI vị trí tĩnh bình thường */
-    /* Không cần 'top' nữa */
+    margin-top: -10px !important;
+
+    /* Dòng mới để tăng khoảng cách giữa các dòng */
+    line-height: 1.8 !important;
 }
 
-/* Các quy tắc cho link bên trong .widget-content giữ nguyên */
 #Text1 .widget-content a {
     color: #FFA500 !important;
     font-weight: 400 !important;
 }
+
 #Text1 .widget-content a:hover {
     color: #E69500 !important;
 }
@@ -1763,20 +1635,19 @@ div#Text1 {
 
 /* Giảm khoảng cách bên trên của cả khối "THỂ LOẠI" */
 div#HTML1 {
-    margin-top: 30px !important;
+    margin-top: 15px !important;
 }
 
-/* Đổi font, căn giữa, màu, bóng cho chữ "THỂ LOẠI" */
+/* Đổi font và căn giữa cho chữ "THỂ LOẠI" */
 div#HTML1 .widget-content {
-    font-family: 'Sigmar', cursive !important; /* Đảm bảo font Sigmar */
+    font-family: 'Sigmar', cursive !important; /* Đã đổi sang font Sigmar */
     text-align: center !important;
-    color: #453f30 !important; /* Màu xám nhạt hơn */
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Tạo bóng */
-    font-size: 26px; /* Kích thước font gốc là 26px */
+color: #453f30 !important; /* Thêm dòng này để đổi màu xám nhạt hơn */
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này để tạo bóng */
 }
 /* Tăng khoảng cách dưới khu vực Thể Loại */
 .categories-wrap {
-  margin-bottom: 20px !important;
+  margin-bottom: 40px !important;
 }
 /* --- CSS CHO THANH ĐIỀU HƯỚNG CHƯƠNG (PHIÊN BẢN HOÀN CHỈNH) --- */
 .chapter-nav {
@@ -1852,7 +1723,7 @@ div#HTML1 .widget-content {
   border: 1px solid rgba(255, 255, 255, 0.2);
 
   /* --- Phần hiệu ứng nền bạch kim --- */
-  background: linear-gradient(135deg, 
+  background: linear-gradient(135deg,
       rgba(220, 220, 220, 0.9),  /* Xám bạc nhạt */
       rgba(245, 245, 245, 0.95), /* Trắng khói */
       rgba(229, 228, 226, 0.9),  /* Màu bạch kim */
@@ -1950,7 +1821,7 @@ div#HTML1 .widget-content {
   text-align: center; /* <<< THÊM DÒNG NÀY ĐỂ CANH GIỮA */
 
   /* --- Phần hiệu ứng nền bạch kim --- */
-  background: linear-gradient(135deg, 
+  background: linear-gradient(135deg,
       rgba(220, 220, 220, 0.9),
       rgba(245, 245, 245, 0.95),
       rgba(229, 228, 226, 0.9),
@@ -2001,8 +1872,8 @@ div#HTML1 .widget-content {
   transition: all 0.2s ease;
 }
 #popup-story-list a:hover {
-  color: #000000 !important;
-  padding-left: 10px;
+  color: #000000 !important;
+  padding-left: 10px;
 }
 #popup-story-list .loading-text,
 #popup-story-list .no-stories-text {
@@ -2049,7 +1920,7 @@ div#HTML1 .widget-content {
 /* --- TÙY CHỈNH FONT CHỮ CHO NỘI DUNG BÌNH LUẬN (PHIÊN BẢN SỬA LỖI) --- */
 
 /* Áp dụng cho cả bình luận ngắn (không có thẻ p) và bình luận dài */
-#comments .comment-content, 
+#comments .comment-content,
 #comments .comment-body p {
     font-family: 'Niramit', serif !important;
     font-size: 18px !important; /* <-- BẠN CÓ THỂ THAY ĐỔI CỠ CHỮ Ở ĐÂY */
@@ -2059,7 +1930,7 @@ div#HTML1 .widget-content {
 
 /* Áp dụng cho màn hình nhỏ (di động, máy tính bảng) */
 @media screen and (max-width: 768px) {
-    #comments .comment-content, 
+    #comments .comment-content,
     #comments .comment-body p {
         font-size: 15px !important; /* <-- BẠN CÓ THỂ THAY ĐỔI CỠ CHỮ CHO DI ĐỘNG Ở ĐÂY */
     }
@@ -2069,36 +1940,36 @@ div#HTML1 .widget-content {
 #comments .comment-actions span {
     font-family: 'Niramit', serif !important;
     text-transform: none !important; /* Bỏ viết hoa chữ "TRẢ LỜI" */
-    font-size: 15px !important;      /* Chỉnh lại cỡ chữ cho phù hợp */
+    font-size: 15px !important;     /* Chỉnh lại cỡ chữ cho phù hợp */
     font-weight: 500 !important;
-    color: #fca400 !important; 
+    color: #fca400 !important;
 }
 /* --- Khung ghi chú cho Editor (Đã sửa lỗi canh lề) --- */
 
 /* 1. Kiểu dáng chung của cái khung */
 .khung-ghi-chu {
-  background-color: #F8F7F7;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 80%; 
-  padding: 15px 50px; /* Tạo khoảng đệm bên trong khung */
-  margin: 20px auto;
-  box-sizing: border-box; 
+  background-color: #F8F7F7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 80%;
+  padding: 15px 50px; /* Tạo khoảng đệm bên trong khung */
+  margin: 20px auto;
+  box-sizing: border-box;
 }
 
 /* 2. Ghi đè margin mặc định và căn đều cho các đoạn văn bên trong */
 .khung-ghi-chu p {
-  text-align: justify !important;
-  margin-left: 0 !important; /* Bỏ khoảng lề trái mặc định */
-  margin-right: 0 !important; /* Bỏ khoảng lề phải mặc định */
+  text-align: justify !important;
+  margin-left: 0 !important; /* Bỏ khoảng lề trái mặc định */
+  margin-right: 0 !important; /* Bỏ khoảng lề phải mặc định */
 }
 
 /* 3. Giữ cho tiêu đề "Editor" luôn ở giữa */
 .khung-ghi-chu .tieu-de-editor {
-  text-align: center !important; 
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  text-align: center !important;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 /* --- Hết phần Khung ghi chú --- */
 /* --- Mã sửa lỗi khung ghi chú trên di động --- */
@@ -2116,7 +1987,7 @@ div#HTML1 .widget-content {
 
   /* Tạo màu nền kim loại dạng gradient */
   background: linear-gradient(to right, #f0c34d, #d8a011, #b6860a, #d8a011, #f0c34d);
-  
+
   /* Kích thước nền lớn hơn để có không gian cho hiệu ứng chạy */
   background-size: 200% auto;
 
@@ -2159,7 +2030,7 @@ div#HTML1 .widget-content {
   font-style: normal !important;
   transition: opacity 0.3s ease;
   display: inline-block;
-  
+
   background: linear-gradient(to right, #6B0000, #FF7B7B, #E01111, #6B0000);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -2182,7 +2053,7 @@ div#HTML1 .widget-content {
   font-style: normal !important;
   transition: opacity 0.3s ease;
   display: inline-block;
-  
+
   /* Màu gradient XANH ĐEN mới của bạn */
   background: linear-gradient(to right, #3A3A3A, #B0B0B0, #888888, #3A3A3A);
   background-size: 200% auto;
@@ -2202,9 +2073,9 @@ div#HTML1 .widget-content {
 /* 1. Tạo khung bao quanh cho mỗi bình luận */
 .comments .comment {
     background-color: #f9f9f9;  /* Màu nền hơi xám nhẹ */
-    border: 1px solid #e0e0e0;      /* Đường viền mỏng */
-    border-radius: 8px;             /* Bo góc cho mềm mại */
-    padding: 15px 20px;             /* Khoảng đệm bên trong */
+    border: 1px solid #e0e0e0;     /* Đường viền mỏng */
+    border-radius: 8px;           /* Bo góc cho mềm mại */
+    padding: 15px 20px;           /* Khoảng đệm bên trong */
     margin-bottom: 20px !important; /* Khoảng cách giữa các bình luận */
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Bóng đổ nhẹ tạo chiều sâu */
 }
@@ -2226,7 +2097,7 @@ div#HTML1 .widget-content {
 }
 
 /* 4. Nội dung bình luận - Quan trọng nhất để sửa lỗi font */
-#comments .comment-content, 
+#comments .comment-content,
 #comments .comment-body p {
     font-family: 'Niramit', serif !important; /* Áp dụng font Niramit hỗ trợ tiếng Việt */
     font-size: 18px !important;
@@ -2254,50 +2125,44 @@ div#HTML1 .widget-content {
 }
 
 /* --- KẾT THÚC MÃ LÀM ĐẸP KHUNG BÌNH LUẬN --- */
-/* --- BẮT ĐẦU CODE SỬA MÀU LINK --- */
-/* CSS này sẽ ghi đè lên file style.css chung */
-
-/* 1. MÀU VÀNG (Màu chung cho các link đã update) */
-/* Phải đặt quy tắc chung này LÊN TRÊN */
-#chapter-list-container a {
-  color: #b39e49 !important;
-}
-#chapter-list-container a:hover {
-  color: #d499c8 !important;
-}
-
-/* 2. MÀU XÁM (Cho link chưa update) */
-/* Phải đặt quy tắc cụ thể này Ở DƯỚI để nó đè lên quy tắc VÀNG ở trên */
-#chapter-list-container a[href^="LINK-CHƯƠNG"] {
-  color: #999999 !important; /* Đổi màu chữ thành màu xám mờ */
-  pointer-events: none;      /* Vô hiệu hóa hoàn toàn việc click chuột */
-  cursor: default;           /* Biến con trỏ chuột thành dạng mặc định (mũi tên) */
+/* --- BẮT ĐẦU: Khung ghi chú cho Tác giả --- */
+.khung-tac-gia {
+  background-color: #fdf5e6; /* Màu nền be (Old Lace) */
+  border-left: 5px solid #a0522d; /* Đường viền trái màu nâu (Sienna) */
+  border-radius: 0 8px 8px 0; /* Bo góc ở bên phải cho mềm mại */
+  width: 80%;
+  padding: 15px 20px 15px 25px; /* Khoảng đệm bên trong */
+  margin: 25px auto; /* Khoảng cách trên dưới với nội dung chính */
+  box-sizing: border-box;
+  color: #444; /* Màu chữ tối hơn một chút */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05); /* Thêm bóng đổ nhẹ */
 }
 
-/* 3. CSS CHO DI ĐỘNG (Giữ nguyên từ file cũ của bạn) */
-@media screen and (max-width: 500px) {
-  #chapter-list-container table {
-    width: 100% !important;
-    border-spacing: 4px 4px;
-    border-collapse: separate; 
-  }
-  #chapter-list-container tr {
-    display: flex;
-  }
-  #chapter-list-container td {
-    flex: 1;
-    border: 1px solid #ddd !important;
-    padding: 0 !important;
-    text-align: center;
-  }
-  #chapter-list-container td a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    text-decoration: none;
-    font-size: 14px !important;
-  }
+/* Ghi đè các định dạng mặc định cho đoạn văn bên trong khung */
+.khung-tac-gia p {
+  text-align: justify !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  line-height: 1.7 !important; /* Giãn dòng cho dễ đọc */
 }
-/* --- KẾT THÚC CODE SỬA MÀU LINK --- */
+
+/* Định dạng cho tiêu đề "Lời tác giả" */
+.khung-tac-gia .tieu-de-tac-gia {
+  text-align: left !important; /* Canh trái tiêu đề */
+  font-weight: bold;
+  font-style: normal; /* Tiêu đề không bị in nghiêng */
+  font-family: 'Bodoni Moda', serif; /* Dùng font khác cho tiêu đề */
+  font-size: 110%;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #a0522d; /* Màu tiêu đề trùng màu viền */
+}
+
+/* Tùy chỉnh cho màn hình di động */
+@media screen and (max-width: 768px) {
+  .khung-tac-gia {
+    width: 95%;
+    padding: 15px 15px 15px 20px;
+  }
+}
+/* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
