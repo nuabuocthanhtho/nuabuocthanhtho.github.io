@@ -1594,7 +1594,7 @@ h1.title {
 
 /* 1. TĂNG khoảng cách bằng cách ĐẨY CẢ WIDGET đi xuống */
 div#Text1 {
-    margin-top: 10px !important;
+    margin-top: 20px !important;
 }
 
 /* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
@@ -1608,8 +1608,7 @@ div#Text1 {
 #Text1 h2.title {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 400 !important;
-    margin-bottom: 10px !important; /* << TẠO KHOẢNG CÁCH DƯỚI TIÊU ĐỀ */
-    /* Bỏ margin-top ở đây nếu có */
+    margin-bottom: 5px !important; /* << TẠO KHOẢNG CÁCH DƯỚI TIÊU ĐỀ */
 }
 
 #Text1 .widget-content {
