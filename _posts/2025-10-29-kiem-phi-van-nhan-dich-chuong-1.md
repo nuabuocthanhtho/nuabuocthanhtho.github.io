@@ -1230,7 +1230,6 @@ song hướng về phương xa tít tắp.</p><p><br /></p>
 <div class="chapter-nav">
     « Chương trước
     
-<a href="/p/man-nhuoc-kiem-phi-van-nhan-ich.html" id="open-toc-btn">MỤC LỤC</a>    
-    
+<a href="{{ '/stories/kiem-phi-van-nhan-dich' | relative_url }}" id="open-toc-btn">MỤC LỤC</a>    
     <a href="https://nuabuocthanhtho.blogspot.com/2025/09/man-nhuoc-kiem-phi-van-nhan-ich-chuong-2.html">Chương sau »</a>
 </div>
