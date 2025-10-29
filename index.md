@@ -3,7 +3,7 @@ layout: default # Kế thừa từ khung sườn default.html
 title: Trang chủ # Tiêu đề cho trang chủ
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <div class='post-outer'>
     <div class='post hentry uncustomized-post-template'> <div class='postthumb'>
         <a href="{{ post.url | relative_url }}">
