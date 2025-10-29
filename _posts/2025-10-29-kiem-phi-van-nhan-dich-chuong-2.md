@@ -1,3 +1,7 @@
+---
+layout: post # Sử dụng layout bài đăng bạn đã thiết lập
+title: "[MẪN NHƯỢC] KIẾM PHI VẠN NHÂN ĐỊCH • Chương 2"
+---
 <p style="text-align: center;">
 
 &nbsp; <span class="color-change-effect" style="font-family: 'Oswald'; font-size: 140%;">Chương 2: Duy trướng quỷ ảnh</span><span class="tooltip" tabindex="0">
