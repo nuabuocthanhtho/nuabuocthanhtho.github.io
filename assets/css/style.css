@@ -1597,11 +1597,6 @@ div#Text1 {
     margin-top: 20px !important;
 }
 
-/* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
-#Text1 .widget-content {
-    position: relative !important;
-    top: -10px !important; /* Dịch chuyển khối đi lên 15px */
-}
 
 /* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
 /* --- Sửa khoảng cách cho Widget Giới thiệu --- */
