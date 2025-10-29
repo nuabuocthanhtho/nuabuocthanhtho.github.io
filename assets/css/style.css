@@ -2166,3 +2166,50 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
   }
 }
 /* --- KẾT THÚC: Khung ghi chú cho Tác giả --- */
+/* --- BẮT ĐẦU CODE SỬA MÀU LINK --- */
+/* CSS này sẽ ghi đè lên file style.css chung */
+
+/* 1. MÀU VÀNG (Màu chung cho các link đã update) */
+/* Phải đặt quy tắc chung này LÊN TRÊN */
+#chapter-list-container a {
+  color: #b39e49 !important;
+}
+#chapter-list-container a:hover {
+  color: #d499c8 !important;
+}
+
+/* 2. MÀU XÁM (Cho link chưa update) */
+/* Phải đặt quy tắc cụ thể này Ở DƯỚI để nó đè lên quy tắc VÀNG ở trên */
+#chapter-list-container a[href^="LINK-CHƯƠNG"] {
+  color: #999999 !important; /* Đổi màu chữ thành màu xám mờ */
+  pointer-events: none;      /* Vô hiệu hóa hoàn toàn việc click chuột */
+  cursor: default;           /* Biến con trỏ chuột thành dạng mặc định (mũi tên) */
+}
+
+/* 3. CSS CHO DI ĐỘNG (Giữ nguyên từ file cũ của bạn) */
+@media screen and (max-width: 500px) {
+  #chapter-list-container table {
+    width: 100% !important;
+    border-spacing: 4px 4px;
+    border-collapse: separate; 
+  }
+  #chapter-list-container tr {
+    display: flex;
+  }
+  #chapter-list-container td {
+    flex: 1;
+    border: 1px solid #ddd !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+  #chapter-list-container td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px !important;
+  }
+}
+/* --- KẾT THÚC CODE SỬA MÀU LINK --- */
