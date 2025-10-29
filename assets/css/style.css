@@ -1453,7 +1453,7 @@ div#categorytitle {
     justify-content: center;
 }
 #categorytitle .widget-content {
-    font-size: 26px;
+    font-size: 30px;
 }
 .categories-wrap .widget.Image a:hover {
     background-color: #e3c9bf;
@@ -1648,7 +1648,7 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
 }
 /* Tăng khoảng cách dưới khu vực Thể Loại */
 .categories-wrap {
-  margin-bottom: 40px !important;
+  margin-bottom: 20px !important;
 }
 /* --- CSS CHO THANH ĐIỀU HƯỚNG CHƯƠNG (PHIÊN BẢN HOÀN CHỈNH) --- */
 .chapter-nav {
