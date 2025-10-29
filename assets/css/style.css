@@ -1600,27 +1600,27 @@ div#Text1 {
 /* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
 #Text1 .widget-content {
     position: relative !important;
-    top: -15px !important; /* Dịch chuyển khối đi lên 15px */
+    top: -10px !important; /* Dịch chuyển khối đi lên 15px */
 }
 
 /* 2. TÙY CHỈNH CHO TOÀN BỘ WIDGET GIỚI THIỆU */
-
+/* --- Sửa khoảng cách cho Widget Giới thiệu --- */
 #Text1 h2.title {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 400 !important;
-    margin-bottom: 10 !important;
+    margin-bottom: 10px !important; /* << TẠO KHOẢNG CÁCH DƯỚI TIÊU ĐỀ */
+    /* Bỏ margin-top ở đây nếu có */
 }
 
 #Text1 .widget-content {
-    /* Các tùy chỉnh cũ */
     font-family: 'Oswald', sans-serif !important;
     font-weight: 300 !important;
     font-size: 19px !important;
     white-space: pre-line !important;
-    margin-top: -10px !important;
-
-    /* Dòng mới để tăng khoảng cách giữa các dòng */
-    line-height: 1.2 !important;
+    line-height: 1.0 !important; /* << Bạn có thể thử lại 1.5, 1.6, 1.7, 1.8 xem cái nào vừa mắt */
+    margin-top: -5px !important; /* << BỎ margin-top âm */
+    position: static !important; /* << TRẢ LẠI vị trí tĩnh bình thường */
+    /* Không cần 'top' nữa */
 }
 
 #Text1 .widget-content a {
