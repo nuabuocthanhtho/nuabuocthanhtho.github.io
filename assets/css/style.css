@@ -1416,7 +1416,7 @@ Additional
 }
 
 .categories-wrap {
-  	padding: 30px 0px;
+  	padding: 10px 0px 30px 0px;
     max-width: 1000px;
     text-align: center;
     margin: 0 auto;
@@ -1635,13 +1635,13 @@ div#Text1 {
 
 /* Giảm khoảng cách bên trên của cả khối "THỂ LOẠI" */
 div#HTML1 {
-    margin-top: 15px !important;
+    margin-top: 25px !important;
 }
 
 /* Đổi font và căn giữa cho chữ "THỂ LOẠI" */
 div#HTML1 .widget-content {
     font-family: 'Sigmar', cursive !important; /* Đã đổi sang font Sigmar */
-	font-size: 20px !important;
+	font-size: 25px !important;
     text-align: center !important;
 color: #453f30 !important; /* Thêm dòng này để đổi màu xám nhạt hơn */
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này để tạo bóng */
