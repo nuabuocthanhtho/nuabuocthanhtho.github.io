@@ -1594,7 +1594,7 @@ h1.title {
 
 /* 1. TĂNG khoảng cách bằng cách ĐẨY CẢ WIDGET đi xuống */
 div#Text1 {
-    margin-top: 20px !important;
+    margin-top: 0px !important;
 }
 
 /* 2. GIẢM khoảng cách bằng cách DỊCH CHUYỂN CƯỠNG ÉP khối nội dung */
@@ -1620,7 +1620,7 @@ div#Text1 {
     margin-top: -10px !important;
 
     /* Dòng mới để tăng khoảng cách giữa các dòng */
-    line-height: 1.2 !important;
+    line-height: 1 !important;
 }
 
 #Text1 .widget-content a {
