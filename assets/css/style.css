@@ -2213,3 +2213,86 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
   }
 }
 /* --- KẾT THÚC CODE SỬA MÀU LINK --- */
+/* --- BẮT ĐẦU CSS CHO LAYOUT THẺ TRANG CHỦ --- */
+
+/* 1. Container cho toàn bộ lưới bài đăng */
+.post-grid-container {
+  display: flex; /* Dùng Flexbox để chia cột */
+  flex-wrap: wrap; /* Cho phép các thẻ rớt hàng */
+  justify-content: space-between; /* Tạo khoảng cách đều giữa 2 thẻ */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 2. Style cho từng thẻ (card) */
+.post-card {
+  width: 48.5%; /* Mỗi thẻ chiếm gần 50% để có khoảng hở ở giữa */
+  margin-bottom: 30px; /* Khoảng cách giữa các hàng */
+  background: #ffffff; /* Màu nền trắng cho thẻ */
+  border: 1px solid #eee; /* Viền mỏng */
+  border-radius: 12px; /* << YÊU CẦU GÓC BO TRÒN >> */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Đổ bóng nhẹ */
+  overflow: hidden; /* Bắt buộc để bo góc cả hình ảnh bên trong */
+  display: flex; /* Giúp thẻ co giãn theo nội dung */
+  flex-direction: column; /* Xếp hình ảnh bên trên, nội dung bên dưới */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột vào thẻ */
+.post-card:hover {
+  transform: translateY(-5px); /* Nhấc thẻ lên một chút */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* 3. Style cho hình ảnh của thẻ */
+/* Ghi đè style .post-thumb cũ (500px) bằng tỉ lệ 16:9 */
+.post-card .postthumb .post-thumb {
+  width: 100%;
+  padding-bottom: 56.25% !important; /* Tỉ lệ 16:9 */
+  height: 0; /* Cần thiết khi dùng padding-bottom % */
+  background-size: cover;
+  background-position: center;
+}
+
+/* 4. Style cho nội dung bên dưới ảnh */
+.card-content {
+  padding: 20px 25px 25px 25px; /* Khoảng đệm cho nội dung */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Giúp các thẻ trên cùng 1 hàng cao bằng nhau */
+}
+
+/* 5. Tùy chỉnh các thành phần bên trong thẻ */
+.card-content .home-date {
+  font-size: 11px; /* Cho ngày tháng nhỏ lại */
+}
+
+.card-content .home-title {
+  font-size: 24px; /* Có thể chỉnh cỡ chữ tiêu đề ở đây */
+  letter-spacing: -0.5px;
+}
+
+.card-content .home-summary {
+  font-family: 'Karla', sans-serif; /* Dùng font dễ đọc hơn cho trích đoạn */
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1; /* Đẩy nút "Xem tiếp" xuống dưới cùng */
+  margin-top: 15px;
+  margin-bottom: 25px; /* Khoảng cách trước nút */
+}
+
+.card-content .home-button {
+  margin-top: auto; /* Đảm bảo nút "Xem tiếp" luôn ở cuối thẻ */
+  text-align: left; /* Bỏ căn giữa của style gốc */
+}
+
+/* 6. Responsive: Hiển thị 1 cột trên di động (ví dụ: dưới 768px) */
+@media screen and (max-width: 768px) {
+  .post-card {
+    width: 100%; /* Mỗi thẻ chiếm 100% chiều rộng */
+    margin-bottom: 25px;
+  }
+}
+
+/* --- KẾT THÚC CSS CHO LAYOUT THẺ --- */
