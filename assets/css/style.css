@@ -2228,7 +2228,7 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
 .post-card {
   width: 48.5%; /* Mỗi thẻ chiếm gần 50% để có khoảng hở ở giữa */
   margin-bottom: 30px; /* Khoảng cách giữa các hàng */
-  background: #fffafa; /* Màu nền trắng cho thẻ */
+  background: #f9f9f9; /* Màu nền trắng cho thẻ */
   border: 1px solid #eee; /* Viền mỏng */
   border-radius: 12px; /* << YÊU CẦU GÓC BO TRÒN >> */
   box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Đổ bóng nhẹ */
