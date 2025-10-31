@@ -24,19 +24,19 @@ layout: default # Kế thừa từ khung sườn default.html
     {% endif %}
     <div style='clear: both;'></div>
   </div>
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="3718facb-6435-4eb9-a3ec-512c7f20bd0c"
+<div id="cusdis_thread"></div>
+
+<script>
+  // Cấu hình Cusdis bằng JavaScript trước khi script chính được tải
+  window.CUSDIS_CONFIG = {
+    host: 'https://cusdis.com',
+    appId: '3718facb-6435-4eb9-a3ec-512c7f20bd0c',
+    lang: 'vi' // <<< ÉP NGÔN NGỮ TIẾNG VIỆT TẠI ĐÂY
+  }
+</script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"
+  // Các thuộc tính của trang vẫn đặt ở đây để Cusdis nhận diện đúng bài viết
   data-page-id="{{ page.url }}"
   data-page-url="{{ page.url }}"
   data-page-title="{{ page.title }}"
-></div>
-
-<script>
-  window.CUSDIS = {
-    config: {
-      lang: 'vi'
-    }
-  }
-</script>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+></script>
