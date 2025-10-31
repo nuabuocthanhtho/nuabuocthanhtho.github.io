@@ -2299,5 +2299,5 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
 /* --- SỬA LỖI CHIỀU CAO KHUNG BÌNH LUẬN CUSDIS --- */
 #cusdis_thread iframe {
   width: 100% !important;
-  min-height: 400px !important; /* Đặt chiều cao tối thiểu cho khung */
+  min-height: 350px !important; /* Đặt chiều cao tối thiểu cho khung */
 }
