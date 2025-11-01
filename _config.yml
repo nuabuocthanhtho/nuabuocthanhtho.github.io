@@ -19,3 +19,5 @@ paginate_path: "/page/:num/" # Đường dẫn cho các trang tiếp theo (ví d
 # Thêm plugin phân trang
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag         # <-- THÊM DÒNG NÀY
+  - jekyll-sitemap-generator # <-- THÊM DÒNG NÀY
