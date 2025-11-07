@@ -1,23 +1,26 @@
-title: Nửa Bước Thành Thơ # Tiêu đề blog của bạn
-description: Sao Thủy là vì sao gần Mặt Trời nhất, nhưng làm sao để thoát khỏi quỹ đạo để đến gần Mặt Trời? # Mô tả blog
-# toc_url: /link-den-trang-muc-luc.html # THÊM DÒNG NÀY VÀ THAY LINK KHI BẠN CÓ TRANG MỤC LỤC TỔNG
+# Trong file _config.yml
 
-# Cấu hình Jekyll cơ bản (có thể đã có sẵn)
-theme: jekyll-theme-minimal # Hoặc bỏ dòng này nếu bạn không dùng theme gốc nữa
+title: Nửa Bước Thành Thơ
+description: Sao Thủy là vì sao gần Mặt Trời nhất...
+theme: jekyll-theme-minimal
 markdown: kramdown
-permalink: /:year/:month/:day/:title.html # Cấu trúc link bài viết
+permalink: /:year/:month/:day/:title.html
+
+# THÊM DÒNG NÀY, RẤT QUAN TRỌNG
+url: "https://nuabuocthanhtho.github.io"
 
 # Cấu hình excerpt (đoạn trích)
 excerpt_separator: ""
 collections:
   stories:
     output: true
-# Cấu hình phân trang (Pagination)
-paginate: 10         # Số bài đăng trên mỗi trang
-paginate_path: "/page/:num/" # Đường dẫn cho các trang tiếp theo (ví dụ: /page/2/, /page/3/)
 
-# Thêm plugin phân trang
+# Cấu hình phân trang (Pagination)
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Cấu hình plugin
 plugins:
   - jekyll-paginate
-  - jekyll-seo-tag         # <-- THÊM DÒNG NÀY
-  - jekyll-sitemap-generator # <-- THÊM DÒNG NÀY
+  - jekyll-seo-tag
+  - jekyll-sitemap  # <-- SỬA TÊN PLUGIN CHO ĐÚNG
