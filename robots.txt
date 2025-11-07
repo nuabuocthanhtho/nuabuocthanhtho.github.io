@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://nuabuocthanhtho.github.io/sitemap_main.xml
