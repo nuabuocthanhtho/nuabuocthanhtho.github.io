@@ -5,35 +5,36 @@ title: Trang chủ # Tiêu đề cho trang chủ
 
 <div class="post-grid-container">
 
-  {% for post in paginator.posts %}
-    {% unless post.hidden %} <article class="post-card">
-      
-        {% if post.image %}
-        <div class="postthumb">
-          <a href="{{ post.url | relative_url }}">
-              <div class='post-thumb' style='background-image: url("{{ post.image | relative_url }}");'></div>
-          </a>
+  {% assign visible_posts = paginator.posts | where_exp: "post", "post.hidden != true" %}
+
+  {% for post in visible_posts %}
+    <article class="post-card">
+    
+      {% if post.image %}
+      <div class="postthumb">
+        <a href="{{ post.url | relative_url }}">
+            <div class='post-thumb' style='background-image: url("{{ post.image | relative_url }}");'></div>
+        </a>
+      </div>
+      {% endif %}
+
+      <div class="card-content">
+        <h2 class='home-date'>{{ post.date | date: "Ngày %d tháng %m năm %Y" }}</h2>
+        
+        <div class='home-title' itemprop='name'>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
-        {% endif %}
-
-        <div class="card-content">
-          <h2 class='home-date'>{{ post.date | date: "Ngày %d tháng %m năm %Y" }}</h2>
-          
-          <div class='home-title' itemprop='name'>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </div>
-          
-          <div class='home-summary'>
-            {{ post.excerpt | strip_html | truncatewords: 30 }} </div>
-          
-          <div class='home-button'>
-            <a href="{{ post.url | relative_url }}"><span>Xem tiếp</span></a>
-          </div>
+        
+        <div class='home-summary'>
+          {{ post.excerpt | strip_html | truncatewords: 30 }} </div>
+        
+        <div class='home-button'>
+          <a href="{{ post.url | relative_url }}"><span>Xem tiếp</span></a>
         </div>
+      </div>
 
-      </article>
-
-    {% endunless %} {% endfor %}
+    </article>
+  {% endfor %}
 
 </div>
 
