@@ -2174,7 +2174,7 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3) !important; /* Thêm dòng này đ�
 
 /* 2. MÀU KHI HOVER (cho link ĐÃ UPDATE) - Hồng nhạt */
 #chapter-list-container table tbody tr td a:hover {
-  color: #ec6c6c !important; /* Hồng nhạt */
+  color: #c13f3f !important; /* Hồng nhạt */
 }
 
 /* 3. MÀU VÀ TRẠNG THÁI (cho link CHƯA UPDATE) - Xám, không bấm được */
