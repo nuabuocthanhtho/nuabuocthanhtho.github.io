@@ -1,337 +1,280 @@
-/* --- SCRIPT CHO NÚT CUỘN LÊN ĐẦU TRANG --- */
-jQuery(function($){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html,body").animate({scrollTop:0},"slow")})}});jQuery(function($){$(".scroll").scrollToTop()});
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta name="google-site-verification" content="mAWVAl43d6zxbg88NR_jk39xGj2Ukt15uN2TZu0ZTyk" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* --- CÁC SCRIPT CHẠY KHI TÀI LIỆU SẴN SÀNG --- */
-$(document).ready(function() {
+{% seo %}
 
-  /* --- SCRIPT SỬA LỖI HIỂN THỊ WIDGET HÌNH ẢNH CATEGORIES --- */
-  document.querySelectorAll(".widget.Image").forEach(function (widget) {
-    const a = widget.querySelector("a");
-    const h2 = widget.querySelector("h2");
-    if (a && h2 && !a.contains(h2)) {
-      const wrapper = document.createElement("a");
-      wrapper.href = a.href;
-      wrapper.className = a.className;
-      wrapper.innerHTML = h2.outerHTML + a.innerHTML;
-      widget.innerHTML = "";
-      widget.appendChild(wrapper);
-    }
-  });
+  <link href='https://fonts.googleapis.com/css2?family=Bungee&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Sigmar&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&amp;family=Xanh+Mono:ital@0;1&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com/css?family=Bodoni+Moda:400,400i|Karla:400' rel='stylesheet' type='text/css'/>
+  <link href='https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&amp;family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com/css2?family=Bungee+Inline&amp;display=swap' rel='stylesheet'/>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'/>
 
-  /* --- SCRIPT CHO CÁC MENU --- */
-  jQuery('.BlogArchive .form').click(function() {
-    jQuery('.BlogArchive .widget-content').slideToggle('slow');
-    return true;
-  });
-  jQuery('.BlogArchive .form').click(function(){
-    jQuery('.BlogArchive .form').toggleClass('open');
-  });
-  $(".menu-toggle").click(function(){
-    $(".menu").slideToggle('slow');
-  });
-  jQuery('.sidemenu').click(function() {
-    jQuery('.menu').slideToggle('slow');
-    return false;
-  });
-  jQuery('.sidemenu').click(function(){
-    jQuery('.sidemenu').toggleClass('open');
-  });
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  /* --- SCRIPT 1: XỬ LÝ TOOLTIP CHÚ THÍCH --- */
-  const tooltips = document.querySelectorAll('.tooltip');
-  const hideAllTooltips = () => {
-      document.querySelectorAll('.tooltiptext.show').forEach(visibleTooltip => {
-          visibleTooltip.classList.remove('show');
-          if (visibleTooltip.originalParent) {
-              visibleTooltip.originalParent.appendChild(visibleTooltip);
-              visibleTooltip.style.cssText = '';
-          }
-      });
-  };
-  tooltips.forEach(tooltip => {
-      const tooltipText = tooltip.querySelector('.tooltiptext');
-      if (!tooltipText) return;
-      tooltipText.originalParent = tooltipText.parentNode;
-      const positionTooltip = () => {
-          const triggerRect = tooltip.getBoundingClientRect();
-          tooltipText.style.visibility = 'hidden';
-          tooltipText.classList.add('show');
-          const tooltipRect = tooltipText.getBoundingClientRect();
-          tooltipText.style.visibility = '';
-          let top = triggerRect.top + window.scrollY - tooltipRect.height - 10;
-          let left = triggerRect.left + window.scrollX + (triggerRect.width / 2) - (tooltipRect.width / 2);
-          if (top < window.scrollY) { top = triggerRect.bottom + window.scrollY + 10; }
-          if (left < 5) left = 5;
-          if (left + tooltipRect.width > document.documentElement.clientWidth) { left = document.documentElement.clientWidth - tooltipRect.width - 5; }
-          tooltipText.style.left = `${left}px`;
-          tooltipText.style.top = `${top}px`;
-          tooltipText.style.transform = 'none';
-          tooltipText.style.bottom = 'auto';
-          tooltipText.style.position = 'absolute';
-      };
-      const showTooltip = () => {
-          document.body.appendChild(tooltipText);
-          positionTooltip();
-          tooltipText.classList.add('show');
-      };
-      tooltip.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const isCurrentlyVisible = tooltipText.classList.contains('show');
-          hideAllTooltips();
-          if (!isCurrentlyVisible) { showTooltip(); }
-      });
-  });
-  document.addEventListener('click', function(e) {
-      if (!e.target.closest('.tooltip') && !e.target.closest('.tooltiptext')) {
-          hideAllTooltips();
-      }
-  });
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+</head>
 
-  /* --- SCRIPT 2: XỬ LÝ POP-UP MỤC LỤC CHƯƠNG --- */
-  var tocCache = {};
-  $('body').on('click', '#open-toc-btn', function(e) {
-      e.preventDefault();
-      var tocUrl = $(this).attr('href');
-      var tocContainer = $('.modal-toc-list');
-      var popupTitle = $('.modal-content h3');
-      if (popupTitle.length > 0 && popupTitle.find('a').length === 0) {
-          popupTitle.html('<a href="' + tocUrl + '">' + popupTitle.text() + '</a>');
-      }
-      if (!tocUrl || tocUrl === "#") {
-          tocContainer.html('Lỗi: Nút "Mục lục" này chưa được gán URL.');
-          $('.modal-overlay, .modal-content').fadeIn(200);
-          return;
-      }
-      $('.modal-overlay, .modal-content').fadeIn(200);
-      if (tocCache[tocUrl]) {
-          tocContainer.html(tocCache[tocUrl]);
-      } else {
-          tocContainer.html('Đang tải...');
-          $.get(tocUrl, function(data) {
-              var sourceContainer = $(data).find('#chapter-list-container');
-              if (sourceContainer.length > 0) {
-                  var chapterLinks = sourceContainer.find('a');
-                  if (chapterLinks.length > 0) {
-                      var newListHtml = '<ul>';
-                      chapterLinks.each(function() {
-                          var linkUrl = $(this).attr('href');
-                          var linkText = $(this).text();
-                          if (linkUrl && !linkUrl.startsWith('LINK-CHƯƠNG')) {
-                              newListHtml += '<li><a href="' + linkUrl + '">' + linkText + '</a></li>';
-                          }
-                      });
-                      newListHtml += '</ul>';
-                      tocCache[tocUrl] = newListHtml;
-                      tocContainer.html(newListHtml);
-                  } else { tocContainer.html('Không tìm thấy link chương nào.'); }
-              } else { tocContainer.html('Không tìm thấy khu vực mục lục trong trang được liên kết.'); }
-          }).fail(function() { tocContainer.html('Lỗi: Không thể tải trang mục lục.'); });
-      }
-  });
-  function closeModalToc() { $('.modal-overlay, .modal-content').fadeOut(200); }
-  $('body').on('click', '.modal-close, .modal-overlay', closeModalToc);
+<body>
+  <div class='site-wrap'>
 
-  /* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN --- */
-  $('.categories-box .Image a').on('click', function(e) {
-      e.preventDefault();
-      var tocPageUrl = $(this).attr('href');
-      var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện';
+<div class='header-wrap'>
+    <div class='header section' id='header'> <div class='widget Header' id='Header1'>
+            <div id='header-inner'>
+                <div class='titlewrapper'>
+                    <h1 class='title' style='color: $(header);'> {% if page.url != "/" %}
+                            <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
+                        {% else %}
+                            {{ site.title }}
+                        {% endif %}
+                    </h1>
+                </div>
+                {% if site.description %}
+                <div class='descriptionwrapper'>
+                    <p class='description' style='color: $(description);'><span>{{ site.description }}</span></p> </div>
+                {% endif %}
+            </div>
+        </div> <div id='Text1' class='widget Text'>
+           <h2 class='title'>Chủ nhà có điều muốn nói với bà con:</h2>
+           <div class='widget-content'>
+            1. Blog chỉ đăng những bộ BHTT (tiểu thuyết bách hợp) đã edit hoàn tất ở wattpad <a href="https://www.wattpad.com/user/luoilelet" target="_blank">@luoilelet</a><br/>
+            2. Bản edit có sự hỗ trợ của AI.<br/>
+            3. Để xem chú thích chỉ cần click vào <span style="color: #f73e05;">✶</span><br/>
+            4. Bình luận không yêu cầu đăng nhập (chỉ cần điền Nickname) nên mong nhận được sự ồn ào của bà con.
+           </div>
+        </div>
 
-      $('#popup-title').text(categoryTitle);
-      $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
-      $('.story-popup-overlay, .story-popup-content').fadeIn(200);
+        <div id='HTML1' class='widget HTML'>
+             <div class='widget-content'>THỂ LOẠI</div>
+         </div>
+    </div> </div>
+    <div class='categories-wrap'>
+      <div class='categories-box'>
+        <div id='categorytitle'> </div>
+        <div id='categories'> <div class='widget Image' id='Image4'>
+             <a href="/p/co-dai.html">
+               <img alt='CỔ ĐẠI' height='1600' id='Image4_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEhVk1EKasgv_eJ-yZshZHl13SIyMLCaVF8BMLx3gvLw8IAqWZDG3eCCM_U3aW8IkoLyW3phgZLvZ3U_XOiK0FYlgiOgbgjZHJuIOEHmcxRQ4Ft0Ljqf4ghtL7at91RsYZZv9Yb6-x053WN8lovk8V4OKGn_vYJG-JrHhB2S-4vgKA-DwjBZtmUw2h9dlwY=s1600' width='1600'/>
+               <h2>CỔ ĐẠI</h2>
+             </a>
+           </div>
+           <div class='widget Image' id='Image1'>
+             <a href="/p/hien-dai.html">
+               <img alt='HIỆN ĐẠI' height='1024' id='Image1_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEjsxHIV1Ra23Adi_ym94VmkaUXTgEF7SFpn0anDeNGJw5YLyPjQmfZ_1TF-V9MILTYcVGYaKA9L5TgUnfWoTnbSs2-OCfKlNCasIZLlazgVESE8JN9drEMvfbf26mys829DzqAkJohQDdjkWpRHkJkKfrBdz9rjeWhi5XRWhiOgNBMzSbIhhefGUdRIg3E=s1024' width='1024'/>
+                <h2>HIỆN ĐẠI</h2>
+             </a>
+           </div>
+           <div class='widget Image' id='Image8'>
+              <a href="/p/fanfic.html">
+               <img alt='FANFIC' height='800' id='Image8_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEgIlnWvpoYsF9wjgJedCM8YHVKDVc5UjxzbVb4lyVZftxVXHja6DMW4KiS3VHMRqivEBxxfzEmOX2e4BcmoSK3rQPQQMsskmVDD3pHZkqh6DUGmnqHQsp6Ob1AzldlphCkZ9graSIKH7BCo0LmT_iuOqCuv8D1ueKMDE4GXHTf12FkJnXRGfUvPEyUXZIQ=s800' width='800'/>
+               <h2>FANFIC</h2>
+              </a>
+           </div>
+        </div>
+        <div style='clear: both;'></div>
+      </div>
+    </div>
 
-      $('#popup-story-list').load(tocPageUrl + ' .post-body', function(response, status, xhr) {
-          if (status == "error") {
-              $(this).html('<div class="no-stories-text">Lỗi: Không thể tải được danh sách.</div>');
-          }
-      });
-  });
-  function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
-  $('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
+    <div class='outer-wrap'>
+      <div class='clearfix' id='inner-wrap'>
+<div class='main-wrap'>
 
-  $(document).on('keydown', function(e) {
-      if (e.key === "Escape") {
-          closeModalToc();
-          closeModalStory();
-          $('.settings-overlay, .settings-popup').fadeOut();
-          $('.history-overlay, .history-popup').fadeOut();
-      }
-  });
+    <div style="max-width: 500px; margin: 0 auto 30px auto; padding: 10px; background-color: #fff; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <p style="margin: 0 0 8px 0; font-family: 'Oswald', sans-serif; font-size: 15px; color: #d35400; text-align: center;">
+            <i class="fas fa-music"></i> <strong>Góc Chill:</strong> Bấm nút Play (▶) để thưởng nhạc nhé!
+        </p>
+        
+        <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2216610062%3Fsecret_token%3Ds-nElSd8OAZxK&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        
+        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100; text-align: center; margin-top: 5px;">
+            <a href="https://soundcloud.com/n-a-b-c-th-nh-th" title="Nửa Bước Thành Thơ" target="_blank" style="color: #cccccc; text-decoration: none;">Nửa Bước Thành Thơ</a> · 
+            <a href="https://soundcloud.com/n-a-b-c-th-nh-th/bat-nha-tam-kinh/s-nElSd8OAZxK" title="Bát Nhã Tâm Kinh" target="_blank" style="color: #cccccc; text-decoration: none;">Bát Nhã Tâm Kinh</a>
+        </div>
+    </div>
+    <div class='blog-posts hfeed'>
+        {{ content }}
+    </div>
+          <div class='clear'></div>
 
-  // ==============================================================
-  //       CODE XỬ LÝ NÚT FAB & CÀI ĐẶT (ĐÃ FIX LỖI)
-  // ==============================================================
-  
-  // 1. Xử lý nút chính (Xòe/Thu menu)
-  $('.fab-main-btn').click(function(){
-      $('.fab-container').toggleClass('active');
-  });
+          {% if paginator.total_pages > 1 %}
+          <div class='blog-pager' id='blog-pager'>
+            
+            {% if paginator.previous_page %}
+                <a class='blog-pager-link prev' href="{{ paginator.previous_page_path | relative_url }}" title="Trang trước">
+                  <i class="fas fa-angle-left"></i>
+                </a>
+            {% else %}
+                <span class='blog-pager-link disabled'><i class="fas fa-angle-left"></i></span>
+            {% endif %}
 
-  // 2. Tự động lấy link chương trước/sau (ĐÃ NÂNG CẤP LOGIC)
-  // Ưu tiên 1: Link bài viết (Chapter)
-  var postPrev = $('#data-prev-link').data('url');
-  var postNext = $('#data-next-link').data('url');
-  
-  // Ưu tiên 2: Link phân trang (Pagination ở trang chủ)
-  var pagePrev = $('.blog-pager-link.prev').attr('href');
-  var pageNext = $('.blog-pager-link.next').attr('href');
+            <div class="page-input-container">
+                <span class="text">Trang</span>
+                <input type="number" id="jump-to-page" 
+                       value="{{ paginator.page }}" 
+                       min="1" max="{{ paginator.total_pages }}"
+                       onkeydown="if(event.key === 'Enter'){ jumpToPage(this.value, {{ paginator.total_pages }}); }"
+                >
+                <span class="text">/ {{ paginator.total_pages }}</span>
+            </div>
 
-  // Xử lý nút PREV
-  if (postPrev) {
-      $('.fab-prev-chapter').attr('href', postPrev).removeClass('disabled');
-  } else if (pagePrev) {
-      $('.fab-prev-chapter').attr('href', pagePrev).removeClass('disabled');
-  } else {
-      $('.fab-prev-chapter').addClass('disabled');
-  }
+            {% if paginator.next_page %}
+                <a class='blog-pager-link next' href="{{ paginator.next_page_path | relative_url }}" title="Trang sau">
+                  <i class="fas fa-angle-right"></i>
+                </a>
+            {% else %}
+                 <span class='blog-pager-link disabled'><i class="fas fa-angle-right"></i></span>
+            {% endif %}
+          </div>
+          
+          <script>
+            function jumpToPage(pageNum, total) {
+                // Chuyển về số nguyên để kiểm tra
+                var p = parseInt(pageNum);
+                
+                // Nếu số nhập vào không hợp lệ hoặc lớn hơn tổng số trang thì không làm gì
+                if (isNaN(p) || p < 1 || p > total) {
+                    alert('Số trang không hợp lệ! Vui lòng nhập từ 1 đến ' + total);
+                    return;
+                }
 
-  // Xử lý nút NEXT
-  if (postNext) {
-      $('.fab-next-chapter').attr('href', postNext).removeClass('disabled');
-  } else if (pageNext) {
-      $('.fab-next-chapter').attr('href', pageNext).removeClass('disabled');
-  } else {
-      $('.fab-next-chapter').addClass('disabled');
-  }
+                // Xử lý chuyển hướng
+                var baseUrl = "{{ site.url }}"; // Lấy URL gốc
+                if (p === 1) {
+                    // Trang 1 là trang chủ
+                    window.location.href = baseUrl + "/";
+                } else {
+                    // Các trang khác theo cấu trúc /page/số-trang/
+                    window.location.href = baseUrl + "/page/" + p + "/";
+                }
+            }
+          </script>
+          
+          <div style='clear: both;'></div>
+          {% endif %}
 
-  // 3. Nút lên đầu trang
-  $('.scroll-to-top').click(function(){
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-  });
+        </div>
+      </div>
+    </div>
 
-  // 4. Kết nối nút Mục lục trong FAB
-  $('#fab-toc-btn').click(function(e){
-      e.preventDefault();
-      $('#open-toc-btn').click(); 
-  });
+    <div style='clear: both;'></div>
 
-  /* --- LOGIC CÀI ĐẶT (SETTINGS) --- */
-  $('#open-settings-btn').click(function(){
-      $('.settings-overlay, .settings-popup').fadeIn();
-      $('.fab-container').removeClass('active');
-  });
-  $('.settings-close, .settings-overlay').click(function(){
-      $('.settings-overlay, .settings-popup').fadeOut();
-  });
+  </div> <a class='scroll' href='#' style='display: none;'><i class='fas fa-angle-up'></i></a>
 
-  function applyTheme(themeName) {
-      $('body').removeClass('mode-light mode-sepia mode-dark').addClass('mode-' + themeName);
-      $('.theme-btn').removeClass('active');
-      $('.theme-btn[data-theme="' + themeName + '"]').addClass('active');
-      localStorage.setItem('nbtt_theme', themeName);
-  }
-  $('.theme-btn').click(function(){
-      var theme = $(this).data('theme');
-      applyTheme(theme);
-  });
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
-  function applyFontFamily(fontStack) {
-      $('.post-body').css('font-family', fontStack);
-      $('.font-btn').removeClass('active');
-      $('.font-btn').each(function(){
-           if($(this).data('font') === fontStack) $(this).addClass('active');
-      });
-      localStorage.setItem('nbtt_fontFamily', fontStack);
-  }
-  $('.font-btn').click(function(){
-      var font = $(this).data('font');
-      applyFontFamily(font);
-  });
+  <div class='story-popup-overlay' style="display:none;"></div>
+  <div class='story-popup-content' style="display:none;">
+    <span class='story-popup-close'>&#215;</span>
+    <h3 id='popup-title'></h3>
+    <div id='popup-story-list'></div>
+  </div>
 
-  var currentFontSize = parseInt(localStorage.getItem('nbtt_fontSize')) || 18;
-  function applyFontSize(size) {
-      $('.post-body, .post-body p').css('font-size', size + 'px');
-      $('#current-font-size').text(size + 'px');
-      localStorage.setItem('nbtt_fontSize', size);
-      currentFontSize = size;
-  }
-  $('#font-increase').click(function(){
-      if(currentFontSize < 30) applyFontSize(currentFontSize + 1);
-  });
-  $('#font-decrease').click(function(){
-      if(currentFontSize > 12) applyFontSize(currentFontSize - 1);
-  });
+  <div class="modal-overlay" style="display:none;"></div>
+  <div class="modal-content" style="display:none;">
+      <span class="modal-close">&times;</span>
+      <h3>Mục lục</h3>
+      <div class="modal-toc-list"></div>
+  </div>
 
-  var savedTheme = localStorage.getItem('nbtt_theme') || 'light';
-  applyTheme(savedTheme);
-  var savedFontFamily = localStorage.getItem('nbtt_fontFamily');
-  if(savedFontFamily) applyFontFamily(savedFontFamily);
-  applyFontSize(currentFontSize);
-  
-  // ==============================================================
-  //       CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF)
-  // ==============================================================
-  
-  const HISTORY_KEY = 'nbtt_reading_history';
-  const MAX_HISTORY_ITEMS = 20;
+<div class="fab-container">
+  <div class="fab-options">
+    <a href="javascript:;" class="fab-btn scroll-to-top" title="Lên đầu trang">
+       <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <a href="javascript:;" class="fab-btn" id="fab-toc-btn" title="Mục lục">
+       <i class="fas fa-list-ul"></i>
+    </a>
 
-  // 1. Hàm lưu lịch sử (CHỈ LƯU, KHÔNG HIỂN THỊ)
-  function saveHistory() {
-      if ($('.post-body').length > 0) {
-          var postTitle = $('.post-title').text().trim() || document.title;
-          var postUrl = window.location.pathname;
-          var currentTime = new Date().toLocaleString('vi-VN');
+    <a href="javascript:;" class="fab-btn" id="open-history-btn" title="Lịch sử đọc">
+       <i class="fas fa-history"></i>
+    </a>
 
-          var history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-          history = history.filter(item => item.url !== postUrl);
-          history.unshift({
-              title: postTitle,
-              url: postUrl,
-              time: currentTime
-          });
-          if (history.length > MAX_HISTORY_ITEMS) {
-              history = history.slice(0, MAX_HISTORY_ITEMS);
-          }
-          localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-      }
-  }
-  // Chạy hàm lưu ngầm khi vào trang
-  saveHistory();
+    <a href="javascript:;" class="fab-btn" id="open-settings-btn" title="Cài đặt hiển thị">
+       <i class="fas fa-font"></i>
+    </a>
 
-  // 2. Hàm hiển thị lịch sử
-  function renderHistory() {
-      var history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-      var listHtml = '';
+    <a href="#" class="fab-btn fab-prev-chapter" title="Chương trước">
+       <i class="fas fa-angle-left"></i>
+    </a>
 
-      if (history.length === 0) {
-          $('#history-list').html('');
-          $('#no-history-msg').show();
-      } else {
-          $('#no-history-msg').hide();
-          history.forEach(function(item) {
-              listHtml += `
-                  <li>
-                      <a href="${item.url}">
-                          <span class="history-title">${item.title}</span>
-                          <span class="history-time"><i class="far fa-clock"></i> Đọc lúc: ${item.time}</span>
-                      </a>
-                  </li>
-              `;
-          });
-          $('#history-list').html(listHtml);
-      }
-  }
+    <a href="#" class="fab-btn fab-next-chapter" title="Chương sau">
+       <i class="fas fa-angle-right"></i>
+    </a>
+  </div>
 
-  // 3. Xử lý sự kiện mở Popup (CHỈ MỞ KHI CLICK)
-  $('#open-history-btn').click(function(){
-      renderHistory(); // Vẽ lại danh sách
-      $('.history-overlay, .history-popup').fadeIn(); // Lúc này mới hiện popup
-      $('.fab-container').removeClass('active');
-  });
+  <div class="fab-main-btn">
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
 
-  // 4. Đóng Popup
-  $('.history-close, .history-overlay').click(function(){
-      $('.history-overlay, .history-popup').fadeOut();
-  });
+<div class="settings-overlay" style="display:none;"></div>
+<div class="settings-popup" style="display:none;">
+    <div class="settings-header">
+        <h3>Tùy chỉnh đọc</h3>
+        <span class="settings-close">&times;</span>
+    </div>
+    
+    <div class="settings-row">
+        <label>Màu nền</label>
+        <div class="theme-options">
+            <button class="theme-btn theme-light active" data-theme="light">Sáng</button>
+            <button class="theme-btn theme-sepia" data-theme="sepia">Giấy cũ</button>
+            <button class="theme-btn theme-dark" data-theme="dark">Tối</button>
+        </div>
+    </div>
 
-  // 5. Xóa lịch sử
-  $('#clear-history-btn').click(function(){
-      if(confirm('Bạn có chắc muốn xóa toàn bộ lịch sử đọc không?')) {
-          localStorage.removeItem(HISTORY_KEY);
-          renderHistory();
-      }
-  });
+    <div class="settings-row">
+        <label>Font chữ</label>
+        <div class="font-family-options">
+            <button class="font-btn active" data-font="'Niramit', serif">Có chân</button>
+            <button class="font-btn" data-font="Verdana, sans-serif">Không chân</button>
+        </div>
+    </div>
 
-}); // Kết thúc $(document).ready()
+    <div class="settings-row">
+        <label>Cỡ chữ</label>
+        <div class="font-size-controls">
+            <button id="font-decrease">-</button>
+            <span id="current-font-size">18px</span>
+            <button id="font-increase">+</button>
+        </div>
+    </div>
+</div>
+
+<div class="history-overlay" style="display:none;"></div>
+<div class="history-popup" style="display:none;">
+    <div class="history-header">
+        <h3>Tủ sách cá nhân</h3>
+        <span class="history-close">&times;</span>
+    </div>
+    
+    <div class="history-content">
+        <ul id="history-list">
+            </ul>
+        <div id="no-history-msg" style="display:none; text-align:center; color:#888; margin-top:20px;">
+            Bạn chưa đọc truyện nào.
+        </div>
+    </div>
+
+    <div class="history-footer">
+        <button id="clear-history-btn">Xóa lịch sử</button>
+    </div>
+</div>
+
+{% if page.previous %}
+  <div id="data-prev-link" data-url="{{ page.previous.url | relative_url }}" style="display:none;"></div>
+{% endif %}
+{% if page.next %}
+  <div id="data-next-link" data-url="{{ page.next.url | relative_url }}" style="display:none;"></div>
+{% endif %}
+
+</body>
+</html>
