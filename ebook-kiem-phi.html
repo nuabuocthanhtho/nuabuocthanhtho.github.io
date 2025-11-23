@@ -14,7 +14,7 @@ permalink: /ebook-kiem-phi.html
     <style>
         /* === CẤU HÌNH IN ẤN === */
         @page { size: A4; margin: 2cm; }
-        html { scroll-behavior: smooth; } /* Hiệu ứng cuộn mượt */
+        html { scroll-behavior: smooth; }
         body {
             font-family: "Times New Roman", serif; font-size: 13pt; line-height: 1.5;
             color: #000; background: #fff; max-width: 210mm; margin: 0 auto; padding: 20px;
@@ -48,18 +48,18 @@ permalink: /ebook-kiem-phi.html
 
         /* === CHÚ THÍCH LIÊN KẾT (LINKED ENDNOTES) === */
         
-        /* Số mũ trong bài [1] */
+        /* 1. Số mũ trong bài viết [1] */
         .note-ref { 
             font-size: 0.8em; 
             vertical-align: super; 
             font-weight: bold; 
-            color: #0056b3; /* Màu xanh để biết là link bấm được */
+            color: #0056b3; 
             text-decoration: none;
             cursor: pointer;
             margin-left: 2px;
         }
         
-        /* Khu vực danh sách chú thích cuối chương */
+        /* 2. Khu vực danh sách chú thích cuối chương */
         .chapter-notes { 
             margin-top: 50px; 
             padding-top: 20px; 
@@ -69,21 +69,30 @@ permalink: /ebook-kiem-phi.html
         }
         .chapter-notes h4 { margin: 0 0 15px 0; font-style: italic; font-weight: bold; }
         
-        /* Từng dòng chú thích trong danh sách */
-        .notes-list { padding-left: 20px; }
-        .notes-list li { margin-bottom: 15px; } /* Cách nhau ra cho dễ đọc nếu dài */
+        /* 3. Từng dòng chú thích */
+        .notes-list { 
+            list-style: none; /* Bỏ đánh số tự động 1. 2. 3. mặc định */
+            padding: 0; 
+        }
+        .notes-list li { 
+            margin-bottom: 12px; 
+            text-align: justify;
+            display: block;
+        } 
         .notes-list img { max-width: 50% !important; border: 1px solid #ddd; display: block; margin: 5px 0; }
         
-        /* Nút quay lại (Return link) */
-        .back-link {
-            text-decoration: none;
-            color: #0056b3;
+        /* 4. Số thứ tự ở đầu dòng chú thích (Nút quay lại) */
+        .back-link-number {
             font-weight: bold;
-            margin-left: 5px;
-            font-family: sans-serif;
+            color: #0056b3;
+            text-decoration: none;
+            margin-right: 5px;
             cursor: pointer;
         }
-        .back-link:hover { color: #d63384; }
+        .back-link-number:hover {
+            text-decoration: underline;
+            color: #d63384;
+        }
 
         /* Ẩn tooltip gốc */
         .post-body .tooltip .tooltiptext, .post-body iframe { display: none !important; }
@@ -186,7 +195,7 @@ permalink: /ebook-kiem-phi.html
                         $chapterDiv.append('<h1 class="chapter-title">' + chapter.title + '</h1>');
                         $chapterDiv.append('<div class="post-body">' + content + '</div>');
                         // Thêm khung chứa chú thích cuối chương
-                        $chapterDiv.append('<div class="chapter-notes" style="display:none;"><h4>Chú thích chương này:</h4><ol class="notes-list"></ol></div>');
+                        $chapterDiv.append('<div class="chapter-notes" style="display:none;"><h4>Chú thích chương này:</h4><ul class="notes-list"></ul></div>');
                     }
 
                     $('#ebook-content').append($chapterDiv);
@@ -195,32 +204,32 @@ permalink: /ebook-kiem-phi.html
                 });
             }
 
-            // BƯỚC 3: Xử lý chú thích (LIÊN KẾT 2 CHIỀU)
+            // BƯỚC 3: Xử lý chú thích (LIÊN KẾT 2 CHIỀU - DÙNG SỐ ĐỂ QUAY LẠI)
             function processLinkedNotes() {
                 $('.chapter-container').each(function(chapterIndex) {
                     var $chapter = $(this);
                     var $notesContainer = $chapter.find('.chapter-notes');
                     var $notesList = $chapter.find('.notes-list');
                     var noteCount = 0;
-                    var chapterId = $chapter.attr('id'); // Ví dụ: chap-0
+                    var chapterId = $chapter.attr('id');
 
                     $chapter.find('.tooltip').each(function(noteIndex) {
                         noteCount++;
                         var $tooltip = $(this);
                         var contentHtml = $tooltip.find('.tooltiptext').html();
                         
-                        // Tạo ID duy nhất cho mối liên kết
-                        var refId = 'ref-' + chapterId + '-' + noteCount; // Nơi bấm đi
+                        // Tạo ID duy nhất
+                        var refId = 'ref-' + chapterId + '-' + noteCount; // Nơi đi
                         var noteId = 'note-' + chapterId + '-' + noteCount; // Nơi đến
                         
-                        // 1. Tạo số mũ trong văn bản (Bấm vào đây -> Nhảy xuống dưới)
+                        // 1. Tạo số mũ trong văn bản (Bấm vào -> nhảy xuống noteId)
                         var $refLink = $('<a href="#' + noteId + '" id="' + refId + '" class="note-ref">[' + noteCount + ']</a>');
                         $tooltip.after($refLink);
                         
-                        // 2. Tạo nội dung chú thích ở cuối chương (Bấm nút quay lại -> Nhảy lên trên)
+                        // 2. Tạo nội dung chú thích (Đặt số [1] lên đầu làm nút quay lại)
                         var noteItemHtml = '<li id="' + noteId + '">' + 
+                                           '<a href="#' + refId + '" class="back-link-number" title="Quay lại vị trí đọc">[' + noteCount + ']</a> ' +
                                            contentHtml + 
-                                           ' <a href="#' + refId + '" class="back-link" title="Quay lại vị trí đọc">↩</a>' +
                                            '</li>';
                         $notesList.append(noteItemHtml);
 
