@@ -18,7 +18,7 @@ $(document).ready(function() {
     }
   });
 
-  /* --- SCRIPT CHO CÁC MENU (NẾU CÓ) --- */
+  /* --- SCRIPT CHO CÁC MENU --- */
   jQuery('.BlogArchive .form').click(function() {
     jQuery('.BlogArchive .widget-content').slideToggle('slow');
     return true;
@@ -132,12 +132,11 @@ $(document).ready(function() {
   function closeModalToc() { $('.modal-overlay, .modal-content').fadeOut(200); }
   $('body').on('click', '.modal-close, .modal-overlay', closeModalToc);
 
-  /* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN (QUAN TRỌNG) --- */
+  /* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN --- */
   $('.categories-box .Image a').on('click', function(e) {
-      e.preventDefault(); // Ngăn chuyển trang
-      console.log("Category button clicked!"); // Dòng kiểm tra
+      e.preventDefault();
       var tocPageUrl = $(this).attr('href');
-      var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện'; // Lấy chữ từ thẻ h2
+      var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện';
 
       $('#popup-title').text(categoryTitle);
       $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
@@ -152,16 +151,17 @@ $(document).ready(function() {
   function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
   $('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
 
-  /* --- Xử lý nút Escape để đóng cả 2 loại pop-up --- */
   $(document).on('keydown', function(e) {
       if (e.key === "Escape") {
           closeModalToc();
           closeModalStory();
+          $('.settings-overlay, .settings-popup').fadeOut();
+          $('.history-overlay, .history-popup').fadeOut();
       }
   });
 
   // ==============================================================
-  //       CODE XỬ LÝ NÚT FAB & CÀI ĐẶT
+  //       CODE XỬ LÝ NÚT FAB & CÀI ĐẶT (ĐÃ FIX LỖI)
   // ==============================================================
   
   // 1. Xử lý nút chính (Xòe/Thu menu)
@@ -169,86 +169,84 @@ $(document).ready(function() {
       $('.fab-container').toggleClass('active');
   });
 
-  // 2. Tự động lấy link chương trước/sau từ phân trang có sẵn
-  var prevLink = $('.blog-pager-link.prev').attr('href');
-  var nextLink = $('.blog-pager-link.next').attr('href');
+  // 2. Tự động lấy link chương trước/sau (ĐÃ NÂNG CẤP LOGIC)
+  // Ưu tiên 1: Link bài viết (Chapter)
+  var postPrev = $('#data-prev-link').data('url');
+  var postNext = $('#data-next-link').data('url');
   
-  if(prevLink) { 
-      $('.fab-prev-chapter').attr('href', prevLink); 
-  } else { 
-      $('.fab-prev-chapter').addClass('disabled'); // Ẩn nếu không có
-  }
-  
-  if(nextLink) { 
-      $('.fab-next-chapter').attr('href', nextLink); 
-  } else { 
-      $('.fab-next-chapter').addClass('disabled'); // Ẩn nếu không có
+  // Ưu tiên 2: Link phân trang (Pagination ở trang chủ)
+  var pagePrev = $('.blog-pager-link.prev').attr('href');
+  var pageNext = $('.blog-pager-link.next').attr('href');
+
+  // Xử lý nút PREV
+  if (postPrev) {
+      $('.fab-prev-chapter').attr('href', postPrev).removeClass('disabled');
+  } else if (pagePrev) {
+      $('.fab-prev-chapter').attr('href', pagePrev).removeClass('disabled');
+  } else {
+      $('.fab-prev-chapter').addClass('disabled');
   }
 
-  // 3. Nút lên đầu trang (trong FAB)
+  // Xử lý nút NEXT
+  if (postNext) {
+      $('.fab-next-chapter').attr('href', postNext).removeClass('disabled');
+  } else if (pageNext) {
+      $('.fab-next-chapter').attr('href', pageNext).removeClass('disabled');
+  } else {
+      $('.fab-next-chapter').addClass('disabled');
+  }
+
+  // 3. Nút lên đầu trang
   $('.scroll-to-top').click(function(){
       $("html, body").animate({ scrollTop: 0 }, "slow");
   });
 
-  // 4. Kết nối nút Mục lục trong FAB với Popup Mục lục cũ
+  // 4. Kết nối nút Mục lục trong FAB
   $('#fab-toc-btn').click(function(e){
       e.preventDefault();
-      // Kích hoạt click vào nút mục lục gốc (nếu có) để tái sử dụng logic
       $('#open-toc-btn').click(); 
   });
 
   /* --- LOGIC CÀI ĐẶT (SETTINGS) --- */
-  
-  // Mở/Đóng Popup
   $('#open-settings-btn').click(function(){
       $('.settings-overlay, .settings-popup').fadeIn();
-      $('.fab-container').removeClass('active'); // Thu gọn nút FAB
+      $('.fab-container').removeClass('active');
   });
   $('.settings-close, .settings-overlay').click(function(){
       $('.settings-overlay, .settings-popup').fadeOut();
   });
 
-  // --- A. XỬ LÝ GIAO DIỆN (THEME) ---
   function applyTheme(themeName) {
       $('body').removeClass('mode-light mode-sepia mode-dark').addClass('mode-' + themeName);
       $('.theme-btn').removeClass('active');
       $('.theme-btn[data-theme="' + themeName + '"]').addClass('active');
-      localStorage.setItem('nbtt_theme', themeName); // Lưu lại
+      localStorage.setItem('nbtt_theme', themeName);
   }
-  
-  // Sự kiện click nút theme
   $('.theme-btn').click(function(){
       var theme = $(this).data('theme');
       applyTheme(theme);
   });
 
-  // --- B. XỬ LÝ FONT CHỮ (FONT FAMILY) ---
   function applyFontFamily(fontStack) {
-      // Áp dụng trực tiếp style inline để độ ưu tiên cao nhất
       $('.post-body').css('font-family', fontStack);
       $('.font-btn').removeClass('active');
-      // Tìm nút tương ứng để active
       $('.font-btn').each(function(){
            if($(this).data('font') === fontStack) $(this).addClass('active');
       });
       localStorage.setItem('nbtt_fontFamily', fontStack);
   }
-
   $('.font-btn').click(function(){
       var font = $(this).data('font');
       applyFontFamily(font);
   });
 
-  // --- C. XỬ LÝ CỠ CHỮ (FONT SIZE) ---
-  var currentFontSize = parseInt(localStorage.getItem('nbtt_fontSize')) || 18; // Mặc định 18
-  
+  var currentFontSize = parseInt(localStorage.getItem('nbtt_fontSize')) || 18;
   function applyFontSize(size) {
-      $('.post-body, .post-body p').css('font-size', size + 'px'); // Áp dụng cho cả p
+      $('.post-body, .post-body p').css('font-size', size + 'px');
       $('#current-font-size').text(size + 'px');
       localStorage.setItem('nbtt_fontSize', size);
       currentFontSize = size;
   }
-
   $('#font-increase').click(function(){
       if(currentFontSize < 30) applyFontSize(currentFontSize + 1);
   });
@@ -256,54 +254,40 @@ $(document).ready(function() {
       if(currentFontSize > 12) applyFontSize(currentFontSize - 1);
   });
 
-  /* --- KHỞI TẠO: ÁP DỤNG CÀI ĐẶT ĐÃ LƯU KHI LOAD TRANG --- */
   var savedTheme = localStorage.getItem('nbtt_theme') || 'light';
   applyTheme(savedTheme);
-
   var savedFontFamily = localStorage.getItem('nbtt_fontFamily');
   if(savedFontFamily) applyFontFamily(savedFontFamily);
-
   applyFontSize(currentFontSize);
   
   // ==============================================================
-  //       CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF) - MỚI THÊM
+  //       CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF)
   // ==============================================================
   
   const HISTORY_KEY = 'nbtt_reading_history';
-  const MAX_HISTORY_ITEMS = 20; // Chỉ lưu 20 bài gần nhất
+  const MAX_HISTORY_ITEMS = 20;
 
-  // 1. Hàm lưu lịch sử (Tự động chạy khi vào bài viết)
+  // 1. Hàm lưu lịch sử (CHỈ LƯU, KHÔNG HIỂN THỊ)
   function saveHistory() {
-      // Chỉ lưu nếu trang hiện tại có nội dung bài viết (class .post-body)
       if ($('.post-body').length > 0) {
           var postTitle = $('.post-title').text().trim() || document.title;
           var postUrl = window.location.pathname;
-          var currentTime = new Date().toLocaleString('vi-VN'); // Ngày giờ Việt Nam
+          var currentTime = new Date().toLocaleString('vi-VN');
 
-          // Lấy lịch sử cũ
           var history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-
-          // Xóa bài này nếu đã có trong lịch sử (để đưa nó lên đầu)
           history = history.filter(item => item.url !== postUrl);
-
-          // Thêm bài mới vào đầu danh sách
           history.unshift({
               title: postTitle,
               url: postUrl,
               time: currentTime
           });
-
-          // Cắt bớt nếu quá dài
           if (history.length > MAX_HISTORY_ITEMS) {
               history = history.slice(0, MAX_HISTORY_ITEMS);
           }
-
-          // Lưu lại
           localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
       }
   }
-
-  // Gọi hàm lưu ngay khi tải trang
+  // Chạy hàm lưu ngầm khi vào trang
   saveHistory();
 
   // 2. Hàm hiển thị lịch sử
@@ -330,11 +314,11 @@ $(document).ready(function() {
       }
   }
 
-  // 3. Xử lý sự kiện mở Popup
+  // 3. Xử lý sự kiện mở Popup (CHỈ MỞ KHI CLICK)
   $('#open-history-btn').click(function(){
-      renderHistory(); // Vẽ lại danh sách mới nhất
-      $('.history-overlay, .history-popup').fadeIn();
-      $('.fab-container').removeClass('active'); // Thu gọn FAB
+      renderHistory(); // Vẽ lại danh sách
+      $('.history-overlay, .history-popup').fadeIn(); // Lúc này mới hiện popup
+      $('.fab-container').removeClass('active');
   });
 
   // 4. Đóng Popup
@@ -346,7 +330,7 @@ $(document).ready(function() {
   $('#clear-history-btn').click(function(){
       if(confirm('Bạn có chắc muốn xóa toàn bộ lịch sử đọc không?')) {
           localStorage.removeItem(HISTORY_KEY);
-          renderHistory(); // Vẽ lại (sẽ hiện thông báo trống)
+          renderHistory();
       }
   });
 
