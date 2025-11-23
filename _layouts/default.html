@@ -181,6 +181,65 @@
       <h3>Mục lục</h3>
       <div class="modal-toc-list"></div>
   </div>
+<div class="fab-container">
+  <div class="fab-options">
+    <a href="javascript:;" class="fab-btn scroll-to-top" title="Lên đầu trang">
+       <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <a href="javascript:;" class="fab-btn" id="fab-toc-btn" title="Mục lục">
+       <i class="fas fa-list-ul"></i>
+    </a>
 
+    <a href="javascript:;" class="fab-btn" id="open-settings-btn" title="Cài đặt hiển thị">
+       <i class="fas fa-font"></i>
+    </a>
+
+    <a href="#" class="fab-btn fab-prev-chapter" title="Chương trước">
+       <i class="fas fa-angle-left"></i>
+    </a>
+
+    <a href="#" class="fab-btn fab-next-chapter" title="Chương sau">
+       <i class="fas fa-angle-right"></i>
+    </a>
+  </div>
+
+  <div class="fab-main-btn">
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
+<div class="settings-overlay"></div>
+<div class="settings-popup">
+    <div class="settings-header">
+        <h3>Tùy chỉnh đọc</h3>
+        <span class="settings-close">&times;</span>
+    </div>
+    
+    <div class="settings-row">
+        <label>Màu nền</label>
+        <div class="theme-options">
+            <button class="theme-btn theme-light active" data-theme="light">Sáng</button>
+            <button class="theme-btn theme-sepia" data-theme="sepia">Giấy cũ</button>
+            <button class="theme-btn theme-dark" data-theme="dark">Tối</button>
+        </div>
+    </div>
+
+    <div class="settings-row">
+        <label>Font chữ</label>
+        <div class="font-family-options">
+            <button class="font-btn active" data-font="'Niramit', serif">Có chân</button>
+            <button class="font-btn" data-font="Verdana, sans-serif">Không chân</button>
+        </div>
+    </div>
+
+    <div class="settings-row">
+        <label>Cỡ chữ</label>
+        <div class="font-size-controls">
+            <button id="font-decrease">-</button>
+            <span id="current-font-size">18px</span>
+            <button id="font-increase">+</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
