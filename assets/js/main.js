@@ -227,19 +227,6 @@ $(document).ready(function() {
       applyTheme(theme);
   });
 
-  function applyFontFamily(fontStack) {
-      $('.post-body').css('font-family', fontStack);
-      $('.font-btn').removeClass('active');
-      $('.font-btn').each(function(){
-           if($(this).data('font') === fontStack) $(this).addClass('active');
-      });
-      localStorage.setItem('nbtt_fontFamily', fontStack);
-  }
-  $('.font-btn').click(function(){
-      var font = $(this).data('font');
-      applyFontFamily(font);
-  });
-
   var currentFontSize = parseInt(localStorage.getItem('nbtt_fontSize')) || 18;
   function applyFontSize(size) {
       $('.post-body, .post-body p').css('font-size', size + 'px');
@@ -256,8 +243,6 @@ $(document).ready(function() {
 
   var savedTheme = localStorage.getItem('nbtt_theme') || 'light';
   applyTheme(savedTheme);
-  var savedFontFamily = localStorage.getItem('nbtt_fontFamily');
-  if(savedFontFamily) applyFontFamily(savedFontFamily);
   applyFontSize(currentFontSize);
   
   // ==============================================================
