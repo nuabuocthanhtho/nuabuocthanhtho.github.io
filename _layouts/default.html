@@ -266,6 +266,11 @@
         <button id="clear-history-btn">Xóa lịch sử</button>
     </div>
 </div>
-
+{% if page.previous %}
+  <div id="data-prev-link" data-url="{{ page.previous.url | relative_url }}" style="display:none;"></div>
+{% endif %}
+{% if page.next %}
+  <div id="data-next-link" data-url="{{ page.next.url | relative_url }}" style="display:none;"></div>
+{% endif %}
 </body>
 </html>
