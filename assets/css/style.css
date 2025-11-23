@@ -1240,7 +1240,44 @@ Pager (New Design)
     margin: 0 10px;
 }
 
+/* --- CSS CHO Ô NHẬP SỐ TRANG --- */
 
+.page-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-family: 'Bodoni Moda', serif; /* Dùng font này cho sang trọng */
+    font-size: 16px;
+    color: #555;
+}
+
+/* Tùy chỉnh ô input */
+#jump-to-page {
+    width: 40px; /* Chiều rộng nhỏ gọn */
+    border: none;
+    border-bottom: 1px solid #ccc; /* Chỉ gạch chân dưới */
+    background: transparent;
+    text-align: center;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    padding: 0;
+    outline: none; /* Bỏ viền xanh khi click vào */
+    -moz-appearance: textfield; /* Ẩn nút tăng giảm mặc định của browser */
+}
+
+#jump-to-page:focus {
+    border-bottom-color: #e3c9bf; /* Đổi màu gạch chân khi đang nhập */
+}
+
+/* Ẩn nút mũi tên tăng giảm mặc định trong ô input number của Chrome/Safari */
+#jump-to-page::-webkit-outer-spin-button,
+#jump-to-page::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 /*-------------------
 Instagram
 -------------------*/
