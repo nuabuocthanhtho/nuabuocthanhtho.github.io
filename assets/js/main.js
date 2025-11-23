@@ -159,12 +159,10 @@ $(document).ready(function() {
           closeModalStory();
       }
   });
-  
-  // ==============================================================
-  //       BẮT ĐẦU ĐOẠN CODE MỚI DÁN VÀO TỪ ĐÂY
-  // ==============================================================
 
-  /* --- CODE XỬ LÝ NÚT FAB & CÀI ĐẶT --- */
+  // ==============================================================
+  //       CODE XỬ LÝ NÚT FAB & CÀI ĐẶT
+  // ==============================================================
   
   // 1. Xử lý nút chính (Xòe/Thu menu)
   $('.fab-main-btn').click(function(){
@@ -268,7 +266,88 @@ $(document).ready(function() {
   applyFontSize(currentFontSize);
   
   // ==============================================================
-  //       KẾT THÚC ĐOẠN CODE MỚI
+  //       CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF) - MỚI THÊM
   // ==============================================================
+  
+  const HISTORY_KEY = 'nbtt_reading_history';
+  const MAX_HISTORY_ITEMS = 20; // Chỉ lưu 20 bài gần nhất
+
+  // 1. Hàm lưu lịch sử (Tự động chạy khi vào bài viết)
+  function saveHistory() {
+      // Chỉ lưu nếu trang hiện tại có nội dung bài viết (class .post-body)
+      if ($('.post-body').length > 0) {
+          var postTitle = $('.post-title').text().trim() || document.title;
+          var postUrl = window.location.pathname;
+          var currentTime = new Date().toLocaleString('vi-VN'); // Ngày giờ Việt Nam
+
+          // Lấy lịch sử cũ
+          var history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+
+          // Xóa bài này nếu đã có trong lịch sử (để đưa nó lên đầu)
+          history = history.filter(item => item.url !== postUrl);
+
+          // Thêm bài mới vào đầu danh sách
+          history.unshift({
+              title: postTitle,
+              url: postUrl,
+              time: currentTime
+          });
+
+          // Cắt bớt nếu quá dài
+          if (history.length > MAX_HISTORY_ITEMS) {
+              history = history.slice(0, MAX_HISTORY_ITEMS);
+          }
+
+          // Lưu lại
+          localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+      }
+  }
+
+  // Gọi hàm lưu ngay khi tải trang
+  saveHistory();
+
+  // 2. Hàm hiển thị lịch sử
+  function renderHistory() {
+      var history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+      var listHtml = '';
+
+      if (history.length === 0) {
+          $('#history-list').html('');
+          $('#no-history-msg').show();
+      } else {
+          $('#no-history-msg').hide();
+          history.forEach(function(item) {
+              listHtml += `
+                  <li>
+                      <a href="${item.url}">
+                          <span class="history-title">${item.title}</span>
+                          <span class="history-time"><i class="far fa-clock"></i> Đọc lúc: ${item.time}</span>
+                      </a>
+                  </li>
+              `;
+          });
+          $('#history-list').html(listHtml);
+      }
+  }
+
+  // 3. Xử lý sự kiện mở Popup
+  $('#open-history-btn').click(function(){
+      renderHistory(); // Vẽ lại danh sách mới nhất
+      $('.history-overlay, .history-popup').fadeIn();
+      $('.fab-container').removeClass('active'); // Thu gọn FAB
+  });
+
+  // 4. Đóng Popup
+  $('.history-close, .history-overlay').click(function(){
+      $('.history-overlay, .history-popup').fadeOut();
+  });
+
+  // 5. Xóa lịch sử
+  $('#clear-history-btn').click(function(){
+      if(confirm('Bạn có chắc muốn xóa toàn bộ lịch sử đọc không?')) {
+          localStorage.removeItem(HISTORY_KEY);
+          renderHistory(); // Vẽ lại (sẽ hiện thông báo trống)
+      }
+  });
 
 }); // Kết thúc $(document).ready()
