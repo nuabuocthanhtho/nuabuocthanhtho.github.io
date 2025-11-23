@@ -105,6 +105,7 @@
 
           {% if paginator.total_pages > 1 %}
           <div class='blog-pager' id='blog-pager'>
+            
             {% if paginator.previous_page %}
                 <a class='blog-pager-link prev' href="{{ paginator.previous_page_path | relative_url }}" title="Trang trước">
                   <i class="fas fa-angle-left"></i>
@@ -113,7 +114,15 @@
                 <span class='blog-pager-link disabled'><i class="fas fa-angle-left"></i></span>
             {% endif %}
 
-            <span class='page-number'>Trang {{ paginator.page }} / {{ paginator.total_pages }}</span>
+            <div class="page-input-container">
+                <span class="text">Trang</span>
+                <input type="number" id="jump-to-page" 
+                       value="{{ paginator.page }}" 
+                       min="1" max="{{ paginator.total_pages }}"
+                       onkeydown="if(event.key === 'Enter'){ jumpToPage(this.value, {{ paginator.total_pages }}); }"
+                >
+                <span class="text">/ {{ paginator.total_pages }}</span>
+            </div>
 
             {% if paginator.next_page %}
                 <a class='blog-pager-link next' href="{{ paginator.next_page_path | relative_url }}" title="Trang sau">
@@ -123,6 +132,30 @@
                  <span class='blog-pager-link disabled'><i class="fas fa-angle-right"></i></span>
             {% endif %}
           </div>
+          
+          <script>
+            function jumpToPage(pageNum, total) {
+                // Chuyển về số nguyên để kiểm tra
+                var p = parseInt(pageNum);
+                
+                // Nếu số nhập vào không hợp lệ hoặc lớn hơn tổng số trang thì không làm gì
+                if (isNaN(p) || p < 1 || p > total) {
+                    alert('Số trang không hợp lệ! Vui lòng nhập từ 1 đến ' + total);
+                    return;
+                }
+
+                // Xử lý chuyển hướng
+                var baseUrl = "{{ site.url }}"; // Lấy URL gốc
+                if (p === 1) {
+                    // Trang 1 là trang chủ
+                    window.location.href = baseUrl + "/";
+                } else {
+                    // Các trang khác theo cấu trúc /page/số-trang/
+                    window.location.href = baseUrl + "/page/" + p + "/";
+                }
+            }
+          </script>
+          
           <div style='clear: both;'></div>
           {% endif %}
 
