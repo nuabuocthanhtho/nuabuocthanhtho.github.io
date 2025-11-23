@@ -106,14 +106,21 @@
           {% if paginator.total_pages > 1 %}
           <div class='blog-pager' id='blog-pager'>
             {% if paginator.previous_page %}
-              <span id='blog-pager-newer-link'>
-                <a class='blog-pager-newer-link' href="{{ paginator.previous_page_path | relative_url }}">Bài đăng mới nhất</a>
-              </span>
+                <a class='blog-pager-link prev' href="{{ paginator.previous_page_path | relative_url }}" title="Trang trước">
+                  <i class="fas fa-angle-left"></i>
+                </a>
+            {% else %}
+                <span class='blog-pager-link disabled'><i class="fas fa-angle-left"></i></span>
             {% endif %}
+
+            <span class='page-number'>Trang {{ paginator.page }} / {{ paginator.total_pages }}</span>
+
             {% if paginator.next_page %}
-              <span id='blog-pager-older-link'>
-                <a class='blog-pager-older-link' href="{{ paginator.next_page_path | relative_url }}">Bài đăng cũ hơn</a>
-              </span>
+                <a class='blog-pager-link next' href="{{ paginator.next_page_path | relative_url }}" title="Trang sau">
+                  <i class="fas fa-angle-right"></i>
+                </a>
+            {% else %}
+                 <span class='blog-pager-link disabled'><i class="fas fa-angle-right"></i></span>
             {% endif %}
           </div>
           <div style='clear: both;'></div>
