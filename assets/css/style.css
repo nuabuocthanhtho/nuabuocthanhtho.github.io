@@ -1181,25 +1181,64 @@ Newsletter
 
 
 /*-------------------
-Pager
+Pager (New Design)
 -------------------*/
 
 #blog-pager {
-	font-family: 'Bodoni Moda', serif;
-	font-weight: 400;
-	font-style: italic;
-	font-size: 12px;
-	letter-spacing: 1px;
-	text-align: center;
-	margin: 0;}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa các nút */
+    margin: 40px auto 60px; /* Canh lề trên dưới */
+    font-family: 'Karla', sans-serif;
+}
 
-#blog-pager a,
-#blog-pager a:visited {
-	display: inline-block;
-	color: #000000;}
+/* Style chung cho nút tròn */
+.blog-pager-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;  /* Chiều rộng nút */
+    height: 45px; /* Chiều cao nút */
+    border-radius: 50%; /* Bo tròn 50% để thành hình tròn */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333 !important;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-#blog-pager a:hover {
-	color: #e3c9bf;}
+/* Hiệu ứng khi di chuột vào */
+.blog-pager-link:hover {
+    background-color: #e3c9bf; /* Màu theme của bạn */
+    color: #fff !important;
+    border-color: #e3c9bf;
+    transform: translateY(-2px); /* Nhấc nhẹ nút lên */
+}
+
+/* Nút bị vô hiệu hóa (khi ở trang đầu hoặc trang cuối) */
+.blog-pager-link.disabled {
+    background-color: #f9f9f9;
+    color: #ccc !important;
+    border-color: #eee;
+    cursor: default;
+    box-shadow: none;
+}
+.blog-pager-link.disabled:hover {
+    transform: none;
+    background-color: #f9f9f9;
+}
+
+/* Số trang ở giữa */
+.page-number {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 1px;
+    margin: 0 10px;
+}
 
 
 /*-------------------
