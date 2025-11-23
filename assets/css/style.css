@@ -2522,3 +2522,80 @@ body.mode-dark a:hover {
 }
 /* Giảm độ sáng ảnh trong chế độ tối cho đỡ chói */
 body.mode-dark img { opacity: 0.8; }
+/* --- CSS CHO POPUP LỊCH SỬ --- */
+.history-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 9995; display: none;
+}
+.history-popup {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    max-height: 80vh; /* Giới hạn chiều cao */
+    background: #fff;
+    border-radius: 10px;
+    z-index: 9996;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-family: 'Karla', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.history-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.history-header h3 { margin: 0; font-size: 18px; font-weight: bold; font-family: 'Bodoni Moda', serif; }
+.history-close { font-size: 24px; cursor: pointer; }
+
+/* Content List */
+.history-content {
+    flex: 1;
+    overflow-y: auto; /* Cho phép cuộn nếu danh sách dài */
+    padding: 10px 0;
+}
+#history-list {
+    list-style: none; padding: 0; margin: 0;
+}
+#history-list li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.2s;
+}
+#history-list li:last-child { border-bottom: none; }
+#history-list li:hover { background-color: #fafafa; }
+
+#history-list a {
+    text-decoration: none;
+    display: block;
+}
+.history-title {
+    color: #333; font-weight: bold; font-size: 14px; display: block;
+    margin-bottom: 4px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.history-time {
+    color: #888; font-size: 11px; font-style: italic;
+}
+
+/* Footer & Button */
+.history-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+#clear-history-btn {
+    background: #ff7b7b; color: #fff; border: none;
+    padding: 5px 15px; border-radius: 4px; cursor: pointer;
+    font-size: 12px; font-family: 'Karla', sans-serif;
+}
+#clear-history-btn:hover { background: #e01111; }
+
+/* Dark Mode Support cho History */
+body.mode-dark .history-popup { background: #252525; color: #ccc; }
+body.mode-dark .history-header, body.mode-dark .history-footer, body.mode-dark #history-list li { border-color: #333; }
+body.mode-dark #history-list li:hover { background-color: #333; }
+body.mode-dark .history-title { color: #e3c9bf; }
