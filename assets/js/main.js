@@ -132,25 +132,25 @@ $(document).ready(function() {
   function closeModalToc() { $('.modal-overlay, .modal-content').fadeOut(200); }
   $('body').on('click', '.modal-close, .modal-overlay', closeModalToc);
 
-/* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN (QUAN TRỌNG) --- */
-$('.categories-box .Image a').on('click', function(e) {
-    e.preventDefault(); // Ngăn chuyển trang
-    console.log("Category button clicked!"); // Dòng kiểm tra
-    var tocPageUrl = $(this).attr('href');
-    var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện'; // Lấy chữ từ thẻ h2
+  /* --- SCRIPT 3: XỬ LÝ POP-UP DANH MỤC TRUYỆN (QUAN TRỌNG) --- */
+  $('.categories-box .Image a').on('click', function(e) {
+      e.preventDefault(); // Ngăn chuyển trang
+      console.log("Category button clicked!"); // Dòng kiểm tra
+      var tocPageUrl = $(this).attr('href');
+      var categoryTitle = $(this).find('h2').text() || 'Danh sách truyện'; // Lấy chữ từ thẻ h2
 
-    $('#popup-title').text(categoryTitle);
-    $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
-    $('.story-popup-overlay, .story-popup-content').fadeIn(200);
+      $('#popup-title').text(categoryTitle);
+      $('#popup-story-list').html('<div class="loading-text">Đang tải danh sách truyện...</div>');
+      $('.story-popup-overlay, .story-popup-content').fadeIn(200);
 
-    $('#popup-story-list').load(tocPageUrl + ' .post-body', function(response, status, xhr) {
-        if (status == "error") {
-            $(this).html('<div class="no-stories-text">Lỗi: Không thể tải được danh sách.</div>');
-        }
-    });
-});
-function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
-$('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
+      $('#popup-story-list').load(tocPageUrl + ' .post-body', function(response, status, xhr) {
+          if (status == "error") {
+              $(this).html('<div class="no-stories-text">Lỗi: Không thể tải được danh sách.</div>');
+          }
+      });
+  });
+  function closeModalStory() { $('.story-popup-overlay, .story-popup-content').fadeOut(200); }
+  $('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStory);
 
   /* --- Xử lý nút Escape để đóng cả 2 loại pop-up --- */
   $(document).on('keydown', function(e) {
@@ -159,5 +159,116 @@ $('body').on('click', '.story-popup-close, .story-popup-overlay', closeModalStor
           closeModalStory();
       }
   });
+  
+  // ==============================================================
+  //       BẮT ĐẦU ĐOẠN CODE MỚI DÁN VÀO TỪ ĐÂY
+  // ==============================================================
+
+  /* --- CODE XỬ LÝ NÚT FAB & CÀI ĐẶT --- */
+  
+  // 1. Xử lý nút chính (Xòe/Thu menu)
+  $('.fab-main-btn').click(function(){
+      $('.fab-container').toggleClass('active');
+  });
+
+  // 2. Tự động lấy link chương trước/sau từ phân trang có sẵn
+  var prevLink = $('.blog-pager-link.prev').attr('href');
+  var nextLink = $('.blog-pager-link.next').attr('href');
+  
+  if(prevLink) { 
+      $('.fab-prev-chapter').attr('href', prevLink); 
+  } else { 
+      $('.fab-prev-chapter').addClass('disabled'); // Ẩn nếu không có
+  }
+  
+  if(nextLink) { 
+      $('.fab-next-chapter').attr('href', nextLink); 
+  } else { 
+      $('.fab-next-chapter').addClass('disabled'); // Ẩn nếu không có
+  }
+
+  // 3. Nút lên đầu trang (trong FAB)
+  $('.scroll-to-top').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+  });
+
+  // 4. Kết nối nút Mục lục trong FAB với Popup Mục lục cũ
+  $('#fab-toc-btn').click(function(e){
+      e.preventDefault();
+      // Kích hoạt click vào nút mục lục gốc (nếu có) để tái sử dụng logic
+      $('#open-toc-btn').click(); 
+  });
+
+  /* --- LOGIC CÀI ĐẶT (SETTINGS) --- */
+  
+  // Mở/Đóng Popup
+  $('#open-settings-btn').click(function(){
+      $('.settings-overlay, .settings-popup').fadeIn();
+      $('.fab-container').removeClass('active'); // Thu gọn nút FAB
+  });
+  $('.settings-close, .settings-overlay').click(function(){
+      $('.settings-overlay, .settings-popup').fadeOut();
+  });
+
+  // --- A. XỬ LÝ GIAO DIỆN (THEME) ---
+  function applyTheme(themeName) {
+      $('body').removeClass('mode-light mode-sepia mode-dark').addClass('mode-' + themeName);
+      $('.theme-btn').removeClass('active');
+      $('.theme-btn[data-theme="' + themeName + '"]').addClass('active');
+      localStorage.setItem('nbtt_theme', themeName); // Lưu lại
+  }
+  
+  // Sự kiện click nút theme
+  $('.theme-btn').click(function(){
+      var theme = $(this).data('theme');
+      applyTheme(theme);
+  });
+
+  // --- B. XỬ LÝ FONT CHỮ (FONT FAMILY) ---
+  function applyFontFamily(fontStack) {
+      // Áp dụng trực tiếp style inline để độ ưu tiên cao nhất
+      $('.post-body').css('font-family', fontStack);
+      $('.font-btn').removeClass('active');
+      // Tìm nút tương ứng để active
+      $('.font-btn').each(function(){
+           if($(this).data('font') === fontStack) $(this).addClass('active');
+      });
+      localStorage.setItem('nbtt_fontFamily', fontStack);
+  }
+
+  $('.font-btn').click(function(){
+      var font = $(this).data('font');
+      applyFontFamily(font);
+  });
+
+  // --- C. XỬ LÝ CỠ CHỮ (FONT SIZE) ---
+  var currentFontSize = parseInt(localStorage.getItem('nbtt_fontSize')) || 18; // Mặc định 18
+  
+  function applyFontSize(size) {
+      $('.post-body, .post-body p').css('font-size', size + 'px'); // Áp dụng cho cả p
+      $('#current-font-size').text(size + 'px');
+      localStorage.setItem('nbtt_fontSize', size);
+      currentFontSize = size;
+  }
+
+  $('#font-increase').click(function(){
+      if(currentFontSize < 30) applyFontSize(currentFontSize + 1);
+  });
+  $('#font-decrease').click(function(){
+      if(currentFontSize > 12) applyFontSize(currentFontSize - 1);
+  });
+
+  /* --- KHỞI TẠO: ÁP DỤNG CÀI ĐẶT ĐÃ LƯU KHI LOAD TRANG --- */
+  var savedTheme = localStorage.getItem('nbtt_theme') || 'light';
+  applyTheme(savedTheme);
+
+  var savedFontFamily = localStorage.getItem('nbtt_fontFamily');
+  if(savedFontFamily) applyFontFamily(savedFontFamily);
+
+  applyFontSize(currentFontSize);
+  
+  // ==============================================================
+  //       KẾT THÚC ĐOẠN CODE MỚI
+  // ==============================================================
 
 }); // Kết thúc $(document).ready()
