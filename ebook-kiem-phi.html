@@ -1,0 +1,282 @@
+---
+layout: null
+permalink: /ebook-kiem-phi.html
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ebook - Kiếm Phi Vạn Nhân Địch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Bungee&family=Niramit:wght@400;500&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'/>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
+    <style>
+        /* === 1. CẤU HÌNH IN ẤN === */
+        @page { size: A4; margin: 2cm; }
+        
+        /* Bắt buộc in màu y hệt web (Quan trọng để hiện màu Gradient) */
+        html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+        
+        body {
+            /* Dùng font Niramit/Karla giống web, KHÔNG DÙNG Times New Roman nữa */
+            font-family: 'Niramit', 'Karla', sans-serif; 
+            font-size: 13pt; 
+            line-height: 1.6;
+            color: #000; 
+            background: #fff; 
+            max-width: 210mm; 
+            margin: 0 auto; 
+            padding: 20px;
+        }
+
+        /* === 2. COPY Y NGUYÊN STYLE CỦA WEB VÀO === */
+        
+        /* Tiêu đề chương (Màu vàng nghệ + Font Bungee) */
+        .color-change-effect, h1, h2, .ebook-title, .chapter-title {
+            font-family: 'Bungee', cursive !important; /* Font mập */
+            text-transform: uppercase;
+            text-align: center;
+            margin: 30px 0;
+            
+            /* Hiệu ứng màu Gradient y hệt web */
+            background: linear-gradient(to right, #f0c34d, #d8a011, #b6860a, #d8a011, #f0c34d) !important;
+            background-size: 200% auto !important;
+            color: #d8a011 !important; /* Màu dự phòng */
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            text-shadow: none !important; /* Bỏ bóng đen gây nhoè */
+        }
+
+        /* Tiêu đề Lời tác giả (Màu hồng) */
+        .tieu-de-editor span, .tieu-de-editor .color-change-effect {
+            background: linear-gradient(to right, #B76E79, #F2D4D4, #E8A1A4, #B76E79) !important;
+            background-size: 200% auto !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            font-family: 'Bungee', cursive !important;
+        }
+
+        /* Nội dung bài viết */
+        .post-body { 
+            text-align: justify; 
+            font-family: 'Niramit', sans-serif; /* Font nội dung chuẩn của web */
+        }
+        .post-body p { margin-bottom: 15px; }
+        .post-body img { max-width: 70%; height: auto; display: block; margin: 15px auto; }
+
+        /* Khung ghi chú (Tác giả/Editor) */
+        .khung-ghi-chu {
+            background-color: #F8F7F7 !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px;
+            padding: 15px 25px; margin: 20px auto;
+            width: 90%;
+            page-break-inside: avoid;
+        }
+        .khung-tac-gia {
+            background-color: #fdf5e6 !important;
+            border-left: 5px solid #a0522d !important;
+            padding: 15px 25px; margin: 20px auto;
+            width: 90%;
+            page-break-inside: avoid;
+        }
+        .tieu-de-editor { text-align: center; margin-bottom: 15px; display: block; }
+
+        /* === 3. CẤU TRÚC EBOOK (BÌA, MỤC LỤC...) === */
+        .ebook-cover {
+            text-align: center; page-break-after: always; display: flex; flex-direction: column;
+            justify-content: center; height: 90vh; border: 5px double #000; padding: 20px;
+        }
+        .ebook-title { 
+            font-size: 32pt; margin-bottom: 10px; 
+            -webkit-text-fill-color: #000 !important; /* Bìa để màu đen cho rõ */
+            background: none !important;
+        }
+        .ebook-cover img { max-width: 300px; margin: 20px auto; border-radius: 10px; }
+
+        .ebook-toc { page-break-after: always; }
+        .ebook-toc h2 { 
+            font-family: 'Bodoni Moda', serif !important; 
+            text-align: center; border-bottom: 2px solid #000; 
+            -webkit-text-fill-color: #000 !important; background: none !important;
+        }
+        .ebook-toc ul { list-style: none; padding: 0; }
+        .ebook-toc li { margin-bottom: 8px; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+        .ebook-toc a { text-decoration: none; color: #000; font-weight: bold; width: 100%; }
+
+        .chapter-container { page-break-after: always; margin-top: 20px; }
+
+        /* === 4. CHÚ THÍCH LIÊN KẾT === */
+        .note-ref { font-size: 0.7em; vertical-align: super; font-weight: bold; color: #0056b3; text-decoration: none; cursor: pointer; margin-left: 2px; }
+        .chapter-notes { margin-top: 50px; padding-top: 20px; border-top: 1px solid #000; font-size: 11pt; page-break-inside: avoid; }
+        .chapter-notes h4 { margin: 0 0 10px 0; font-style: italic; font-weight: bold; font-family: 'Bodoni Moda', serif; }
+        .notes-list { list-style: none; padding: 0; }
+        .notes-list li { margin-bottom: 10px; text-align: justify; display: block; }
+        .back-link-number { font-weight: bold; color: #0056b3; text-decoration: none; margin-right: 5px; }
+
+        /* Ẩn rác */
+        .post-body .tooltip .tooltiptext, .post-body iframe { display: none !important; }
+
+        /* Loading Screen */
+        #loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .loader { border: 5px solid #f3f3f3; border-top: 5px solid #e3c9bf; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .print-btn-container { position: fixed; top: 20px; right: 20px; background: #e3c9bf; padding: 15px 30px; border-radius: 50px; cursor: pointer; color: #000; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .print-btn-container:hover { transform: scale(1.05); }
+        @media print { .print-btn-container, #loading-screen { display: none !important; } }
+    </style>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <h2 id="loading-text" style="margin-top: 20px; font-family: sans-serif;">Đang tải sách...</h2>
+    </div>
+
+    <div class="print-btn-container" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> TẢI PDF / IN SÁCH
+    </div>
+
+    <div class="ebook-cover">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgp4aMzGeu8eFVVpxXyevERiCnj7vTcvDVdMEkSAcindRlOkgICyPlAGdZhnXtw0JX3qGZyOKCH_OJpzANaLmFg7Lje3ZyHN1OeI_IwsFsN44Q0eMn_8lE6Mzi6oaGv8v0Q1bw0XSY0_k09jSn2t3p4CYizCwccoBulP1sYMF2xnpt7Wn5aK77NxCDw8XM/s400/359086254-256-k306504.jpg" />
+        <div class="ebook-title">KIẾM PHI VẠN NHÂN ĐỊCH</div>
+        <div class="ebook-author">Tác giả: Cơ Giới Điểu</div>
+        <div style="margin-top: 20px; font-size: 14pt;">CP: Triệu Mẫn x Chu Chỉ Nhược (Ỷ Thiên Đồ Long Ký)</div>
+        <div style="margin-top: auto; font-size: 12pt;">Ebook cập nhật tự động từ Nửa Bước Thành Thơ</div>
+    </div>
+
+    <div class="ebook-toc">
+        <h2>Mục lục</h2>
+        <ul id="toc-list"></ul>
+    </div>
+
+    <div id="ebook-content"></div>
+
+    <script>
+        $(document).ready(function() {
+            
+            // CẤU HÌNH LINK GỐC
+            var tocUrl = "/stories/kiem-phi-van-nhan-dich.html"; 
+
+            console.log("Bắt đầu lấy dữ liệu từ: " + tocUrl);
+            var linksToFetch = [];
+
+            // BƯỚC 1: Lấy mục lục
+            $('<div>').load(tocUrl + ' #chapter-list-container', function(response, status, xhr) {
+                if (status == "error") {
+                    $('#loading-text').text("Lỗi! Không tìm thấy trang mục lục gốc.");
+                    return;
+                }
+                $(this).find('a').each(function() {
+                    var href = $(this).attr('href');
+                    var text = $(this).text();
+                    if(href && !href.includes('LINK-CHƯƠNG')) {
+                        linksToFetch.push({ url: href, title: text });
+                    }
+                });
+
+                if(linksToFetch.length === 0) {
+                    $('#loading-text').text("Chưa có chương nào."); return;
+                }
+
+                $('#loading-text').text("Tìm thấy " + linksToFetch.length + " chương. Đang tải...");
+                loadChaptersRecursively(0);
+            });
+
+            // BƯỚC 2: Tải nội dung
+            function loadChaptersRecursively(index) {
+                if (index >= linksToFetch.length) {
+                    $('#loading-screen').fadeOut();
+                    processLinkedNotes();
+                    cleanUpContent();
+                    return;
+                }
+
+                var chapter = linksToFetch[index];
+                $('#loading-text').text("Đang tải: " + chapter.title + " (" + (index+1) + "/" + linksToFetch.length + ")");
+
+                var chapterId = "chap-" + index;
+                var $chapterDiv = $('<div class="chapter-container" id="' + chapterId + '"></div>');
+                
+                $('<div>').load(chapter.url + ' .post-body', function(response, status, xhr) {
+                    if (status == "error") {
+                        $chapterDiv.html('<h1>' + chapter.title + '</h1><p>[Lỗi tải chương]</p>');
+                    } else {
+                        var content = $(this).find('.post-body').html();
+                        if (!content || content.trim() === "") {
+                             content = $(this).find('.entry-content').html();
+                        }
+
+                        // Chỉ chèn nội dung (vì trong nội dung đã có tiêu đề đẹp rồi)
+                        $chapterDiv.append('<div class="post-body">' + content + '</div>');
+                        
+                        $chapterDiv.append('<div class="chapter-notes" style="display:none;"><h4>Chú thích chương này:</h4><ul class="notes-list"></ul></div>');
+                    }
+
+                    $('#ebook-content').append($chapterDiv);
+                    $('#toc-list').append('<li><a href="#' + chapterId + '">' + chapter.title + '</a></li>');
+                    loadChaptersRecursively(index + 1);
+                });
+            }
+
+            // BƯỚC 3: Xử lý chú thích
+            function processLinkedNotes() {
+                $('.chapter-container').each(function(chapterIndex) {
+                    var $chapter = $(this);
+                    var $notesContainer = $chapter.find('.chapter-notes');
+                    var $notesList = $chapter.find('.notes-list');
+                    var noteCount = 0;
+                    var chapterId = $chapter.attr('id');
+
+                    $chapter.find('.tooltip').each(function(noteIndex) {
+                        noteCount++;
+                        var $tooltip = $(this);
+                        var contentHtml = $tooltip.find('.tooltiptext').html();
+                        var refId = 'ref-' + chapterId + '-' + noteCount;
+                        var noteId = 'note-' + chapterId + '-' + noteCount;
+                        
+                        var $refLink = $('<a href="#' + noteId + '" id="' + refId + '" class="note-ref">[' + noteCount + ']</a>');
+                        $tooltip.after($refLink);
+                        
+                        var noteItemHtml = '<li id="' + noteId + '">' + 
+                                           '<a href="#' + refId + '" class="back-link-number" title="Quay lại">[' + noteCount + ']</a> ' +
+                                           contentHtml + '</li>';
+                        $notesList.append(noteItemHtml);
+                        $tooltip.hide();
+                    });
+
+                    if (noteCount > 0) {
+                        $notesContainer.show();
+                    }
+                });
+            }
+
+            // BƯỚC 4: Dọn dẹp rác
+            function cleanUpContent() {
+                $('.post-body p, .post-body div').each(function() {
+                    var text = $(this).text().toLowerCase();
+                    if ((text.includes("chương trước") || text.includes("chương sau") || text.includes("mục lục")) && text.length < 200) {
+                        $(this).remove();
+                    }
+                    if (text.includes("đọc tại") || text.includes("re-up")) {
+                        $(this).remove();
+                    }
+                });
+                $('.post-body a').each(function() {
+                    var text = $(this).text().toLowerCase();
+                    if(text.includes('chương trước') || text.includes('chương sau') || text.includes('mục lục')) {
+                        $(this).remove();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
