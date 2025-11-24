@@ -1,0 +1,158 @@
+---
+layout: null
+permalink: /ebook-kiem-phi.html
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trình tạo Ebook</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <style>
+        body { font-family: sans-serif; padding: 50px; text-align: center; background: #f0f0f0; }
+        #status { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; }
+        .btn { background: #27ae60; color: white; padding: 15px 30px; border: none; font-size: 18px; cursor: pointer; display: none; margin-top: 20px; border-radius: 5px; }
+        .log { color: #666; font-size: 14px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="status">
+        <h2>ĐANG XỬ LÝ EBOOK...</h2>
+        <p class="log" id="msg">Vui lòng đợi chút...</p>
+        <button class="btn" id="downloadBtn" onclick="downloadStaticFile()">TẢI FILE HTML TĨNH</button>
+    </div>
+
+    <div id="processing-area" style="display:none;"></div>
+
+    <script>
+        var tocUrl = "/stories/kiem-phi-van-nhan-dich.html"; 
+        var finalHTML = "";
+        var chapterCount = 0;
+
+        $(document).ready(function() {
+            // 1. Lấy danh sách link
+            $('#msg').text("Đang đọc mục lục...");
+            $('<div>').load(tocUrl + ' #chapter-list-container', function(response, status) {
+                if (status == "error") { alert("Lỗi link mục lục!"); return; }
+                
+                var links = [];
+                $(this).find('a').each(function() {
+                    var href = $(this).attr('href');
+                    if(href && !href.includes('LINK-CHƯƠNG')) {
+                        links.push({ url: href, title: $(this).text() });
+                    }
+                });
+
+                // 2. Bắt đầu tạo khung HTML chuẩn cho Word
+                startBuildingHTML(links);
+            });
+        });
+
+        function startBuildingHTML(links) {
+            // Header của file HTML tĩnh (CSS nhúng trực tiếp)
+            finalHTML = `
+            <!DOCTYPE html>
+            <html><head><meta charset='utf-8'>
+            <style>
+                body { font-family: 'Times New Roman', serif; font-size: 14pt; line-height: 1.5; }
+                h1 { font-family: Arial, sans-serif; color: #d8a011; text-align: center; page-break-before: always; font-size: 24pt; text-transform: uppercase; }
+                h2 { text-align: center; border-bottom: 2px solid #000; }
+                p { text-align: justify; text-indent: 2em; margin-bottom: 10pt; }
+                a { text-decoration: none; color: blue; }
+                .toc-item { margin-bottom: 5pt; border-bottom: 1px dotted #ccc; display: block; color: black; }
+                .note-ref { vertical-align: super; font-size: 10pt; font-weight: bold; color: blue; }
+                .notes-area { border-top: 1px solid #000; margin-top: 30pt; padding-top: 10pt; font-size: 11pt; }
+                .img-center { display: block; margin: 10pt auto; max-width: 70%; }
+                .box-note { background: #f9f9f9; border: 1px solid #ccc; padding: 10pt; margin: 10pt; }
+            </style>
+            </head><body>
+            
+            <div style="text-align:center; height:800px; padding-top:100px;">
+                <h1 style="font-size:36pt; color:black; page-break-before: auto;">KIẾM PHI VẠN NHÂN ĐỊCH</h1>
+                <p style="text-align:center; font-style:italic;">Tác giả: Cơ Giới Điểu | Editor: Mẫn Nhược</p>
+            </div>
+
+            <h2 id="toc_top">MỤC LỤC</h2>
+            `;
+
+            // Tạo Mục lục (Dùng Anchor Link cổ điển)
+            links.forEach((link, index) => {
+                finalHTML += `<a class="toc-item" href="#chap${index}">${link.title}</a><br/>`;
+            });
+
+            // Tải nội dung từng chương
+            loadChapter(links, 0);
+        }
+
+        function loadChapter(links, index) {
+            if (index >= links.length) {
+                finalHTML += "</body></html>";
+                $('#msg').text("Hoàn tất! Hãy bấm nút tải về.");
+                $('#downloadBtn').show();
+                return;
+            }
+
+            var chap = links[index];
+            $('#msg').text("Đang đóng gói: " + chap.title);
+
+            $('<div>').load(chap.url + ' .post-body', function(response, status) {
+                if(status == "success") {
+                    var content = $(this).find('.post-body').html() || $(this).find('.entry-content').html();
+                    
+                    // --- XỬ LÝ NỘI DUNG (CLEANING) ---
+                    var $temp = $('<div>').html(content);
+                    
+                    // 1. Xóa rác
+                    $temp.find('script, iframe, button').remove();
+                    $temp.find('p, div').each(function() {
+                        var t = $(this).text().toLowerCase();
+                        if((t.includes("chương trước") || t.includes("mục lục")) && t.length < 200) $(this).remove();
+                    });
+                    $temp.find('a').each(function() {
+                        if($(this).text().toLowerCase().includes('chương')) $(this).remove();
+                    });
+
+                    // 2. Xử lý ảnh (Thêm class để căn giữa)
+                    $temp.find('img').addClass('img-center').css({'max-width':'300px', 'height':'auto'});
+
+                    // 3. Xử lý Chú thích (Chuyển thành Link nội bộ thuần túy)
+                    var notesHTML = "";
+                    var noteCount = 0;
+                    $temp.find('.tooltip').each(function() {
+                        noteCount++;
+                        var noteContent = $(this).find('.tooltiptext').html();
+                        var refID = `ref_${index}_${noteCount}`; // ID chỗ số mũ
+                        var noteID = `note_${index}_${noteCount}`; // ID chỗ giải thích
+                        
+                        // Thay thế popup bằng số mũ có link
+                        $(this).replaceWith(`<a id="${refID}" href="#${noteID}" class="note-ref">[${noteCount}]</a>`);
+                        
+                        // Tạo nội dung giải thích ở cuối
+                        notesHTML += `<p id="${noteID}"><a href="#${refID}" style="font-weight:bold;">[${noteCount}]</a> ${noteContent}</p>`;
+                    });
+
+                    // 4. Ghép vào HTML tổng
+                    finalHTML += `
+                        <h1 id="chap${index}" style="page-break-before: always;">${chap.title}</h1>
+                        <div>${$temp.html()}</div>
+                    `;
+
+                    if(noteCount > 0) {
+                        finalHTML += `<div class="notes-area"><b>CHÚ THÍCH:</b>${notesHTML}</div>`;
+                    }
+                }
+                loadChapter(links, index + 1);
+            });
+        }
+
+        function downloadStaticFile() {
+            var blob = new Blob([finalHTML], {type: "text/html;charset=utf-8"});
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Kiem-Phi-Van-Nhan-Dich-Full.html";
+            a.click();
+        }
+    </script>
+</body>
+</html>
