@@ -8,21 +8,23 @@ permalink: /ebook-kiem-phi.html
     <meta charset="UTF-8">
     <title>Ebook - Kiếm Phi Vạn Nhân Địch</title>
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Bungee&family=Niramit:wght@400;500&family=Times+New+Roman&display=swap');
-    </style>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Bungee&family=Niramit:wght@400;500&family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 
     <style>
         /* === 1. CẤU HÌNH IN ẤN === */
         @page { size: A4; margin: 2cm; }
+        
+        /* Bắt buộc in màu y hệt web (Quan trọng để hiện màu Gradient) */
         html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
         
         body {
-            font-family: "Times New Roman", serif; 
-            font-size: 14pt; 
+            /* Dùng font Niramit/Karla giống web, KHÔNG DÙNG Times New Roman nữa */
+            font-family: 'Niramit', 'Karla', sans-serif; 
+            font-size: 13pt; 
             line-height: 1.6;
             color: #000; 
             background: #fff; 
@@ -31,73 +33,86 @@ permalink: /ebook-kiem-phi.html
             padding: 20px;
         }
 
-        /* === 2. KHÔI PHỤC GIAO DIỆN GIỐNG WEB NHẤT CÓ THỂ === */
+        /* === 2. COPY Y NGUYÊN STYLE CỦA WEB VÀO === */
         
-        /* Font Bungee cho các tiêu đề */
-        .color-change-effect, .tieu-de-editor, h1, h2, .ebook-title {
-            font-family: 'Bungee', cursive !important; /* Bắt buộc dùng font này */
-            font-weight: normal !important;
+        /* Tiêu đề chương (Màu vàng nghệ + Font Bungee) */
+        .color-change-effect, h1, h2, .ebook-title, .chapter-title {
+            font-family: 'Bungee', cursive !important; /* Font mập */
             text-transform: uppercase;
             text-align: center;
-            letter-spacing: 1px;
+            margin: 30px 0;
+            
+            /* Hiệu ứng màu Gradient y hệt web */
+            background: linear-gradient(to right, #f0c34d, #d8a011, #b6860a, #d8a011, #f0c34d) !important;
+            background-size: 200% auto !important;
+            color: #d8a011 !important; /* Màu dự phòng */
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            text-shadow: none !important; /* Bỏ bóng đen gây nhoè */
         }
 
-        /* SỬA LỖI MẤT CHỮ "LỜI TÁC GIẢ" (QUAN TRỌNG) */
-        .color-change-effect, .tieu-de-editor span {
-            background: none !important;       /* Bỏ nền gradient */
-            -webkit-text-fill-color: #B76E79 !important; /* Tô màu HỒNG ĐẬM đặc */
-            color: #B76E79 !important;         /* Màu dự phòng */
-            text-shadow: 0px 0px 1px #B76E79;  /* Tạo độ dày giả cho giống web */
-            opacity: 1 !important;             /* Đảm bảo không bị mờ */
-            display: inline-block !important;
-        }
-
-        /* SỬA LỖI FONT TIÊU ĐỀ CHƯƠNG (MÀU VÀNG) */
-        .post-body h1, .post-body h2, .chapter-title {
+        /* Tiêu đề Lời tác giả (Màu hồng) */
+        .tieu-de-editor span, .tieu-de-editor .color-change-effect {
+            background: linear-gradient(to right, #B76E79, #F2D4D4, #E8A1A4, #B76E79) !important;
+            background-size: 200% auto !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
             font-family: 'Bungee', cursive !important;
-            color: #d8a011 !important;         /* Màu VÀNG NGHỆ đặc */
-            -webkit-text-fill-color: #d8a011 !important;
-            text-shadow: 0.5px 0.5px 0px #b6860a; /* Bóng nhẹ cho sắc nét */
-            margin: 40px 0 20px 0;
-            line-height: 1.3;
         }
-
-        /* Khung ghi chú (Editor/Tác giả) */
-        .khung-ghi-chu, .khung-tac-gia {
-            border: 1px solid #ddd !important;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin: 20px auto;
-            width: 90%;
-            page-break-inside: avoid;
-            box-shadow: none !important; /* Bỏ bóng đổ khi in */
-        }
-        /* Màu nền cho khung (Cần bật "Background graphics" khi in) */
-        .khung-ghi-chu { background-color: #f9f9f9 !important; }
-        .khung-tac-gia { background-color: #fff5e6 !important; border-left: 5px solid #a0522d !important; }
 
         /* Nội dung bài viết */
-        .post-body { text-align: justify; }
-        .post-body p { margin-bottom: 15px; text-indent: 2em; }
+        .post-body { 
+            text-align: justify; 
+            font-family: 'Niramit', sans-serif; /* Font nội dung chuẩn của web */
+        }
+        .post-body p { margin-bottom: 15px; }
         .post-body img { max-width: 70%; height: auto; display: block; margin: 15px auto; }
+
+        /* Khung ghi chú (Tác giả/Editor) */
+        .khung-ghi-chu {
+            background-color: #F8F7F7 !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px;
+            padding: 15px 25px; margin: 20px auto;
+            width: 90%;
+            page-break-inside: avoid;
+        }
+        .khung-tac-gia {
+            background-color: #fdf5e6 !important;
+            border-left: 5px solid #a0522d !important;
+            padding: 15px 25px; margin: 20px auto;
+            width: 90%;
+            page-break-inside: avoid;
+        }
+        .tieu-de-editor { text-align: center; margin-bottom: 15px; display: block; }
 
         /* === 3. CẤU TRÚC EBOOK (BÌA, MỤC LỤC...) === */
         .ebook-cover {
             text-align: center; page-break-after: always; display: flex; flex-direction: column;
             justify-content: center; height: 90vh; border: 5px double #000; padding: 20px;
         }
-        .ebook-title { font-size: 32pt; color: #000 !important; -webkit-text-fill-color: #000 !important; margin-bottom: 10px; }
+        .ebook-title { 
+            font-size: 32pt; margin-bottom: 10px; 
+            -webkit-text-fill-color: #000 !important; /* Bìa để màu đen cho rõ */
+            background: none !important;
+        }
         .ebook-cover img { max-width: 300px; margin: 20px auto; border-radius: 10px; }
 
         .ebook-toc { page-break-after: always; }
-        .ebook-toc h2 { font-family: 'Bodoni Moda', serif !important; border-bottom: 2px solid #000; color: #000 !important; -webkit-text-fill-color: #000 !important; }
+        .ebook-toc h2 { 
+            font-family: 'Bodoni Moda', serif !important; 
+            text-align: center; border-bottom: 2px solid #000; 
+            -webkit-text-fill-color: #000 !important; background: none !important;
+        }
         .ebook-toc ul { list-style: none; padding: 0; }
         .ebook-toc li { margin-bottom: 8px; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
         .ebook-toc a { text-decoration: none; color: #000; font-weight: bold; width: 100%; }
 
         .chapter-container { page-break-after: always; margin-top: 20px; }
 
-        /* === 4. CHÚ THÍCH LIÊN KẾT (GIỮ NGUYÊN) === */
+        /* === 4. CHÚ THÍCH LIÊN KẾT === */
         .note-ref { font-size: 0.7em; vertical-align: super; font-weight: bold; color: #0056b3; text-decoration: none; cursor: pointer; margin-left: 2px; }
         .chapter-notes { margin-top: 50px; padding-top: 20px; border-top: 1px solid #000; font-size: 11pt; page-break-inside: avoid; }
         .chapter-notes h4 { margin: 0 0 10px 0; font-style: italic; font-weight: bold; font-family: 'Bodoni Moda', serif; }
@@ -199,7 +214,7 @@ permalink: /ebook-kiem-phi.html
                              content = $(this).find('.entry-content').html();
                         }
 
-                        // Chỉ chèn nội dung (bỏ tiêu đề thừa)
+                        // Chỉ chèn nội dung (vì trong nội dung đã có tiêu đề đẹp rồi)
                         $chapterDiv.append('<div class="post-body">' + content + '</div>');
                         
                         $chapterDiv.append('<div class="chapter-notes" style="display:none;"><h4>Chú thích chương này:</h4><ul class="notes-list"></ul></div>');
