@@ -7,95 +7,96 @@ permalink: /ebook-kiem-phi.html
 <head>
     <meta charset="UTF-8">
     <title>Ebook - Kiếm Phi Vạn Nhân Địch</title>
-    <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@400;500&family=Times+New+Roman&family=Bodoni+Moda&family=Bungee&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Bungee&family=Bungee+Inline&family=Niramit:wght@400;500&family=Times+New+Roman&display=swap" rel="stylesheet">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 
     <style>
-        /* === 1. CẤU HÌNH IN ẤN CƠ BẢN === */
+        /* === 1. CẤU HÌNH IN ẤN === */
         @page { size: A4; margin: 2cm; }
-        html { scroll-behavior: smooth; }
+        html { -webkit-print-color-adjust: exact; } /* Bắt buộc in màu nền */
         body {
-            font-family: "Times New Roman", serif; font-size: 13pt; line-height: 1.5;
+            font-family: "Times New Roman", serif; font-size: 14pt; line-height: 1.6;
             color: #000; background: #fff; max-width: 210mm; margin: 0 auto; padding: 20px;
         }
 
-        /* === 2. ĐỊNH DẠNG CÁC KHUNG GHI CHÚ (LẤY TỪ STYLE.CSS) === */
+        /* === 2. SỬA LỖI FONT CHỮ ĐẸP (QUAN TRỌNG) === */
         
-        /* Khung Editor */
+        /* Các tiêu đề dùng font Bungee (Màu vàng/Hồng) */
+        .color-change-effect, .tieu-de-editor span, .home-title, h1, h2 {
+            font-family: 'Bungee', 'Arial Black', sans-serif !important;
+            text-transform: uppercase;
+            /* Sửa lỗi màu Gradient khi in (PDF thường không hiện gradient, ta dùng màu đơn sắc thay thế cho nét) */
+            background: none !important; 
+            -webkit-text-fill-color: initial !important;
+            color: #d8a011 !important; /* Màu vàng nghệ */
+            text-shadow: 1px 1px 0px #000; /* Tạo viền nhẹ cho dễ đọc */
+        }
+        
+        /* Riêng tiêu đề "Lời tác giả" / "Lời Editor" màu hồng */
+        .tieu-de-editor .color-change-effect {
+            color: #B76E79 !important; /* Màu hồng đất */
+            text-shadow: none !important;
+        }
+
+        /* Font cho tiêu đề chương trong nội dung */
+        .post-body h1, .post-body h2, .post-body h3 {
+            font-family: 'Bodoni Moda', serif !important;
+            font-weight: bold; text-align: center; margin: 30px 0;
+        }
+
+        /* === 3. KHUNG GHI CHÚ (ĐẬM ĐÀ HƠN ĐỂ IN RA THẤY RÕ) === */
         .khung-ghi-chu {
-            background-color: #F8F7F7; border: 1px solid #ddd; border-radius: 8px;
-            width: 90%; padding: 10px 20px; margin: 20px auto; box-sizing: border-box;
-            page-break-inside: avoid; /* Không bị cắt đôi khi sang trang */
+            background-color: #f5f5f5 !important; /* Màu xám nhẹ */
+            border: 2px solid #aaa !important; /* Viền đậm hơn */
+            border-radius: 8px;
+            padding: 15px 25px; margin: 20px auto;
+            page-break-inside: avoid;
         }
-        .khung-ghi-chu .tieu-de-editor { text-align: center; font-weight: bold; margin: 5px 0 15px 0; }
-        
-        /* Khung Tác Giả */
         .khung-tac-gia {
-            background-color: #fdf5e6; border-left: 5px solid #a0522d; border-radius: 0 8px 8px 0;
-            width: 90%; padding: 10px 20px; margin: 25px auto; box-sizing: border-box;
-            color: #444; page-break-inside: avoid;
+            background-color: #fff5e6 !important; /* Màu cam nhạt */
+            border-left: 5px solid #a0522d !important;
+            border: 1px solid #ddd; /* Thêm viền mỏng 3 cạnh còn lại */
+            padding: 15px 25px; margin: 20px auto;
+            page-break-inside: avoid;
         }
-        .khung-tac-gia .tieu-de-tac-gia {
-            text-align: left; font-weight: bold; font-family: 'Bodoni Moda', serif;
-            font-size: 110%; margin: 0 0 10px 0; color: #a0522d;
-        }
-
-        /* Hiệu ứng chữ màu (Gradient Text) */
-        .color-change-effect {
-            font-weight: bold;
-            background: linear-gradient(to right, #f0c34d, #d8a011, #b6860a, #d8a011, #f0c34d);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; color: #d8a011; /* Màu dự phòng khi in */
-        }
-
-        /* === 3. CẤU TRÚC EBOOK === */
-        /* Trang bìa */
+        
+        /* === 4. CẤU TRÚC EBOOK === */
         .ebook-cover {
             text-align: center; page-break-after: always; display: flex; flex-direction: column;
             justify-content: center; height: 90vh; border: 5px double #000; padding: 20px;
         }
-        .ebook-title { font-size: 32pt; font-weight: bold; margin-bottom: 10px; text-transform: uppercase;}
-        .ebook-author { font-size: 18pt; font-style: italic; margin-bottom: 30px; }
+        .ebook-title { font-family: 'Bungee', sans-serif; font-size: 32pt; color: #000 !important; margin-bottom: 10px;}
         .ebook-cover img { max-width: 300px; margin: 20px auto; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
 
-        /* Mục lục */
         .ebook-toc { page-break-after: always; }
-        .ebook-toc h2 { text-align: center; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 10px;}
+        .ebook-toc h2 { font-family: 'Bodoni Moda', serif; text-align: center; border-bottom: 2px solid #000; }
         .ebook-toc ul { list-style: none; padding: 0; }
         .ebook-toc li { margin-bottom: 8px; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
         .ebook-toc a { text-decoration: none; color: #000; font-weight: bold; width: 100%; }
 
-        /* Nội dung chương */
-        .chapter-container { page-break-after: always; margin-top: 30px; }
-        .chapter-title {
-            font-size: 24pt; font-weight: bold; text-align: center;
-            margin-bottom: 40px; margin-top: 50px; text-transform: uppercase;
-        }
+        .chapter-container { page-break-after: always; margin-top: 20px; }
+        
+        /* Nội dung bài viết */
         .post-body { text-align: justify; }
         .post-body p { margin-bottom: 15px; text-indent: 2em; }
-        .post-body img { max-width: 80%; height: auto; display: block; margin: 15px auto; }
+        .post-body img { max-width: 70%; height: auto; display: block; margin: 15px auto; }
 
-        /* === 4. CHÚ THÍCH LIÊN KẾT (FIXED) === */
+        /* === 5. CHÚ THÍCH LIÊN KẾT === */
         .note-ref { 
-            font-size: 0.8em; vertical-align: super; font-weight: bold; 
+            font-size: 0.7em; vertical-align: super; font-weight: bold; 
             color: #0056b3; text-decoration: none; cursor: pointer; margin-left: 2px;
         }
         .chapter-notes { 
             margin-top: 50px; padding-top: 20px; border-top: 1px solid #000; 
             font-size: 11pt; page-break-inside: avoid; 
         }
-        .chapter-notes h4 { margin: 0 0 15px 0; font-style: italic; font-weight: bold; }
+        .chapter-notes h4 { margin: 0 0 10px 0; font-style: italic; font-weight: bold; font-family: 'Bodoni Moda', serif; }
         .notes-list { list-style: none; padding: 0; }
-        .notes-list li { margin-bottom: 12px; text-align: justify; display: block; } 
-        .notes-list img { max-width: 50% !important; border: 1px solid #ddd; display: block; margin: 5px 0; }
-        
-        /* Số thứ tự ở đầu dòng chú thích (Nút quay lại) */
-        .back-link-number {
-            font-weight: bold; color: #0056b3; text-decoration: none;
-            margin-right: 5px; cursor: pointer;
-        }
-        .back-link-number:hover { text-decoration: underline; color: #d63384; }
+        .notes-list li { margin-bottom: 10px; text-align: justify; display: block; }
+        .back-link-number { font-weight: bold; color: #0056b3; text-decoration: none; margin-right: 5px; }
 
         /* Ẩn rác */
         .post-body .tooltip .tooltiptext, .post-body iframe { display: none !important; }
@@ -194,19 +195,18 @@ permalink: /ebook-kiem-phi.html
                     if (status == "error") {
                         $chapterDiv.html('<h1>' + chapter.title + '</h1><p>[Lỗi tải chương]</p>');
                     } else {
-                        // Lấy nội dung
                         var content = $(this).find('.post-body').html();
-                        
-                        // Kiểm tra nếu không lấy được nội dung .post-body
                         if (!content || content.trim() === "") {
-                             // Thử lấy entry-content (dự phòng)
                              content = $(this).find('.entry-content').html();
                         }
 
-                        $chapterDiv.append('<h1 class="chapter-title">' + chapter.title + '</h1>');
+                        // === SỬA LỖI: KHÔNG CHÈN THÊM H1 TIÊU ĐỀ NỮA ===
+                        // Dòng dưới đây đã bị xóa để tránh trùng lặp tiêu đề
+                        // $chapterDiv.append('<h1 class="chapter-title">' + chapter.title + '</h1>'); 
+                        
+                        // Chỉ chèn nội dung (vì trong nội dung đã có tiêu đề đẹp rồi)
                         $chapterDiv.append('<div class="post-body">' + content + '</div>');
                         
-                        // Thêm khung chú thích
                         $chapterDiv.append('<div class="chapter-notes" style="display:none;"><h4>Chú thích chương này:</h4><ul class="notes-list"></ul></div>');
                     }
 
@@ -216,7 +216,7 @@ permalink: /ebook-kiem-phi.html
                 });
             }
 
-            // BƯỚC 3: Xử lý chú thích (LIÊN KẾT 2 CHIỀU - SỐ ĐẦU DÒNG)
+            // BƯỚC 3: Xử lý chú thích
             function processLinkedNotes() {
                 $('.chapter-container').each(function(chapterIndex) {
                     var $chapter = $(this);
@@ -229,21 +229,16 @@ permalink: /ebook-kiem-phi.html
                         noteCount++;
                         var $tooltip = $(this);
                         var contentHtml = $tooltip.find('.tooltiptext').html();
-                        
                         var refId = 'ref-' + chapterId + '-' + noteCount;
                         var noteId = 'note-' + chapterId + '-' + noteCount;
                         
-                        // Tạo số mũ trong văn bản
                         var $refLink = $('<a href="#' + noteId + '" id="' + refId + '" class="note-ref">[' + noteCount + ']</a>');
                         $tooltip.after($refLink);
                         
-                        // Tạo dòng chú thích với số đầu dòng là link quay lại
                         var noteItemHtml = '<li id="' + noteId + '">' + 
-                                           '<a href="#' + refId + '" class="back-link-number" title="Quay lại vị trí đọc">[' + noteCount + ']</a> ' +
-                                           contentHtml + 
-                                           '</li>';
+                                           '<a href="#' + refId + '" class="back-link-number" title="Quay lại">[' + noteCount + ']</a> ' +
+                                           contentHtml + '</li>';
                         $notesList.append(noteItemHtml);
-
                         $tooltip.hide();
                     });
 
@@ -253,26 +248,17 @@ permalink: /ebook-kiem-phi.html
                 });
             }
 
-            // BƯỚC 4: Dọn dẹp rác (ĐÃ SỬA LỖI MẤT NỘI DUNG)
+            // BƯỚC 4: Dọn dẹp rác
             function cleanUpContent() {
-                // Xóa dòng link điều hướng (Chương trước/sau)
-                // CHỈ XÓA nếu dòng đó NGẮN (dưới 200 ký tự) để tránh xóa nhầm nội dung truyện
                 $('.post-body p, .post-body div').each(function() {
                     var text = $(this).text().toLowerCase();
-                    var htmlLength = $(this).html().length;
-
-                    // Điều kiện: Có chữ "chương trước/sau/mục lục" VÀ độ dài ngắn
                     if ((text.includes("chương trước") || text.includes("chương sau") || text.includes("mục lục")) && text.length < 200) {
                         $(this).remove();
                     }
-                    
-                    // Xóa các dòng chống trộm/re-up
                     if (text.includes("đọc tại") || text.includes("re-up")) {
                         $(this).remove();
                     }
                 });
-
-                // Xóa các thẻ link (a) điều hướng lẻ loi
                 $('.post-body a').each(function() {
                     var text = $(this).text().toLowerCase();
                     if(text.includes('chương trước') || text.includes('chương sau') || text.includes('mục lục')) {
