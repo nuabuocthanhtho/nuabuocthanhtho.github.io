@@ -1,3 +1,34 @@
+/* --- THÊM LOGIC TÌM KIẾM --- */
+// 1. Thêm thư viện Simple Jekyll Search từ CDN (chạy online)
+$.getScript("https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js", function() {
+    
+    // 2. Kích hoạt tìm kiếm sau khi tải thư viện xong
+    var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json', // Đường dẫn file json tạo ở bước 1
+        searchResultTemplate: '<li><a href="{url}">{title} <span class="search-result-date">{date}</span></a></li>',
+        noResultsText: '<li style="padding:10px;text-align:center;color:#888">Không tìm thấy truyện nào :(</li>',
+        limit: 10,
+        fuzzy: false
+    });
+
+    // 3. Logic ẩn/hiện kết quả
+    $('#search-input').on('keyup', function() {
+        if ($(this).val().length > 0) {
+            $('#results-container').show();
+        } else {
+            $('#results-container').hide();
+        }
+    });
+
+    // Click ra ngoài thì ẩn bảng kết quả
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.search-wrapper').length) {
+            $('#results-container').hide();
+        }
+    });
+});
 /* --- SCRIPT CHO NÚT CUỘN LÊN ĐẦU TRANG --- */
 jQuery(function($){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html,body").animate({scrollTop:0},"slow")})}});jQuery(function($){$(".scroll").scrollToTop()});
 
