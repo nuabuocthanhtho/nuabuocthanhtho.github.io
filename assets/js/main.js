@@ -6,9 +6,14 @@ $.getScript("https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-se
     var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/search.json', // Đường dẫn file json tạo ở bước 1
+        json: '/search.json',
         searchResultTemplate: '<li><a href="{url}">{title} <span class="search-result-date">{date}</span></a></li>',
         noResultsText: '<li style="padding:10px;text-align:center;color:#888">Không tìm thấy truyện nào :(</li>',
+        
+        // --- THÊM DÒNG NÀY ---
+        searchColumns: ['title', 'content'], 
+        // ---------------------
+        
         limit: 10,
         fuzzy: false
     });
