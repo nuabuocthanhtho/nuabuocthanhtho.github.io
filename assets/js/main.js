@@ -2,21 +2,22 @@
 // 1. Thêm thư viện Simple Jekyll Search từ CDN (chạy online)
 $.getScript("https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js", function() {
     
-    // 2. Kích hoạt tìm kiếm sau khi tải thư viện xong
+    // Kiểm tra xem trang web có ô tìm kiếm không mới chạy lệnh
+if (document.getElementById('search-input')) {
     var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}">{title} <span class="search-result-date">{date}</span></a></li>',
-        noResultsText: '<li style="padding:10px;text-align:center;color:#888">Không tìm thấy truyện nào :(</li>',
+        json: '/search.json', // Đường dẫn file json ở bước 1
+        searchResultTemplate: '<li><a href="{url}"><strong>{title}</strong><br><small>{date}</small></a></li>',
+        noResultsText: '<li>Không tìm thấy kết quả nào</li>',
         
-        // --- THÊM DÒNG NÀY ---
-        searchColumns: ['title', 'content'], 
-        // ---------------------
+        // QUAN TRỌNG: Tắt tìm kiếm mờ để tìm chính xác cụm từ trong nội dung
+        fuzzy: false,
         
-        limit: 10,
-        fuzzy: false
+        // Tùy chọn: Giới hạn kết quả hiển thị (ví dụ 10 bài)
+        limit: 10
     });
+}
 
     // 3. Logic ẩn/hiện kết quả
     $('#search-input').on('keyup', function() {
