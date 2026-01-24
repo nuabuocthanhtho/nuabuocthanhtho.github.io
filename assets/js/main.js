@@ -1,40 +1,73 @@
-/* --- THÊM LOGIC TÌM KIẾM --- */
-// 1. Thêm thư viện Simple Jekyll Search từ CDN (chạy online)
-$.getScript("https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js", function() {
-    
-    // Kiểm tra xem trang web có ô tìm kiếm không mới chạy lệnh
-if (document.getElementById('search-input')) {
-    var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json', // Đường dẫn file json ở bước 1
-        searchResultTemplate: '<li><a href="{url}"><strong>{title}</strong><br><small>{date}</small></a></li>',
-        noResultsText: '<li>Không tìm thấy kết quả nào</li>',
-        
-        // QUAN TRỌNG: Tắt tìm kiếm mờ để tìm chính xác cụm từ trong nội dung
-        fuzzy: false,
-        
-        // Tùy chọn: Giới hạn kết quả hiển thị (ví dụ 10 bài)
-        limit: 10
-    });
-}
+/* --- PHẦN 1: LOGIC TÌM KIẾM MỚI (TÌM CHÍNH XÁC CỤM TỪ TRONG NỘI DUNG) --- */
+document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('search-input');
+    var resultsContainer = document.getElementById('results-container');
+    var searchData = [];
 
-    // 3. Logic ẩn/hiện kết quả
-    $('#search-input').on('keyup', function() {
-        if ($(this).val().length > 0) {
-            $('#results-container').show();
-        } else {
-            $('#results-container').hide();
-        }
-    });
+    // Chỉ chạy nếu trang có ô tìm kiếm
+    if (searchInput && resultsContainer) {
+        
+        // 1. Tải dữ liệu search.json
+        fetch('/search.json')
+            .then(response => response.json())
+            .then(data => {
+                searchData = data;
+            })
+            .catch(err => console.error('Lỗi tải dữ liệu tìm kiếm:', err));
 
-    // Click ra ngoài thì ẩn bảng kết quả
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.search-wrapper').length) {
-            $('#results-container').hide();
-        }
-    });
+        // 2. Xử lý khi gõ phím
+        searchInput.addEventListener('input', function(e) {
+            var keyword = e.target.value.trim().toLowerCase();
+            resultsContainer.innerHTML = ''; // Xóa kết quả cũ
+
+            // Nếu ô tìm kiếm trống hoặc quá ngắn thì ẩn
+            if (keyword.length < 2) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+
+            // 3. Lọc bài viết chứa CHÍNH XÁC cụm từ khóa (Logic quan trọng nhất)
+            var results = searchData.filter(function(item) {
+                // Kiểm tra nội dung có chứa cụm từ không
+                if (item.content && item.content.toLowerCase().indexOf(keyword) !== -1) {
+                    return true;
+                }
+                // (Tùy chọn) Kiểm tra thêm tiêu đề
+                if (item.title && item.title.toLowerCase().indexOf(keyword) !== -1) {
+                    return true;
+                }
+                return false;
+            });
+
+            // 4. Hiển thị kết quả
+            if (results.length > 0) {
+                var html = '';
+                // Chỉ lấy tối đa 10 kết quả đầu để không bị lag
+                results.slice(0, 10).forEach(function(item) {
+                    html += '<li>';
+                    html += '<a href="' + item.url + '">';
+                    html += '<strong>' + item.title + '</strong>';
+                    html += '<br><small>' + item.date + '</small>';
+                    html += '</a>';
+                    html += '</li>';
+                });
+                resultsContainer.innerHTML = html;
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsContainer.innerHTML = '<li>Không tìm thấy cụm từ này</li>';
+                resultsContainer.style.display = 'block';
+            }
+        });
+
+        // 5. Click ra ngoài thì ẩn bảng kết quả
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+    }
 });
+
 /* --- SCRIPT CHO NÚT CUỘN LÊN ĐẦU TRANG --- */
 jQuery(function($){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html,body").animate({scrollTop:0},"slow")})}});jQuery(function($){$(".scroll").scrollToTop()});
 
@@ -198,9 +231,9 @@ $(document).ready(function() {
   });
 
   // ==============================================================
-  //       CODE XỬ LÝ NÚT FAB & CÀI ĐẶT (ĐÃ FIX LỖI)
+  //        CODE XỬ LÝ NÚT FAB & CÀI ĐẶT (ĐÃ FIX LỖI)
   // ==============================================================
-  
+   
   // 1. Xử lý nút chính (Xòe/Thu menu)
   $('.fab-main-btn').click(function(){
       $('.fab-container').toggleClass('active');
@@ -210,7 +243,7 @@ $(document).ready(function() {
   // Ưu tiên 1: Link bài viết (Chapter)
   var postPrev = $('#data-prev-link').data('url');
   var postNext = $('#data-next-link').data('url');
-  
+   
   // Ưu tiên 2: Link phân trang (Pagination ở trang chủ)
   var pagePrev = $('.blog-pager-link.prev').attr('href');
   var pageNext = $('.blog-pager-link.next').attr('href');
@@ -281,11 +314,11 @@ $(document).ready(function() {
   var savedTheme = localStorage.getItem('nbtt_theme') || 'light';
   applyTheme(savedTheme);
   applyFontSize(currentFontSize);
-  
+   
   // ==============================================================
-  //       CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF)
+  //        CODE LỊCH SỬ ĐỌC (PERSONAL BOOKSHELF)
   // ==============================================================
-  
+   
   const HISTORY_KEY = 'nbtt_reading_history';
   const MAX_HISTORY_ITEMS = 20;
 
