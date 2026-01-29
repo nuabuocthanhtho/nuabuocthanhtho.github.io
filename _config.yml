@@ -1,7 +1,7 @@
 # Trong file _config.yml
 
 title: Nửa Bước Thành Thơ
-description: Sao Thủy là vì sao gần Mặt Trời nhất...
+description: Sao Thủy là vì sao gần Mặt Trời nhất, nhưng làm sao để thoát khỏi quỹ đạo để đến gần Mặt Trời?
 theme: jekyll-theme-minimal
 markdown: kramdown
 permalink: /:year/:month/:day/:title.html
