@@ -2726,7 +2726,12 @@ body.mode-dark #results-container li a:hover {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
+/* --- ĐOẠN MỚI THÊM: TỰ ĐỘNG CĂN GIỮA KHI CÓ ÍT TRUYỆN --- */
+.works-slider::before,
+.works-slider::after {
+    content: '';
+    margin: auto;
+}
 .works-slider::-webkit-scrollbar { display: none; }
 .works-slider:active { cursor: grabbing; }
 
