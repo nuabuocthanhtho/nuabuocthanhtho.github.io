@@ -58,33 +58,29 @@
     </div>
     <ul id="results-container"></ul>
 </div>
-        <div id='HTML1' class='widget HTML'>
-             <div class='widget-content'>THỂ LOẠI</div>
-         </div>
-    </div> </div>
-    <div class='categories-wrap'>
-      <div class='categories-box'>
-        <div id='categorytitle'> </div>
-        <div id='categories'> <div class='widget Image' id='Image4'>
-             <a href="/p/co-dai.html">
-               <img alt='CỔ ĐẠI' height='1600' id='Image4_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEhVk1EKasgv_eJ-yZshZHl13SIyMLCaVF8BMLx3gvLw8IAqWZDG3eCCM_U3aW8IkoLyW3phgZLvZ3U_XOiK0FYlgiOgbgjZHJuIOEHmcxRQ4Ft0Ljqf4ghtL7at91RsYZZv9Yb6-x053WN8lovk8V4OKGn_vYJG-JrHhB2S-4vgKA-DwjBZtmUw2h9dlwY=s1600' width='1600'/>
-               <h2>CỔ ĐẠI</h2>
-             </a>
-           </div>
-           <div class='widget Image' id='Image1'>
-             <a href="/p/hien-dai.html">
-               <img alt='HIỆN ĐẠI' height='1024' id='Image1_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEjsxHIV1Ra23Adi_ym94VmkaUXTgEF7SFpn0anDeNGJw5YLyPjQmfZ_1TF-V9MILTYcVGYaKA9L5TgUnfWoTnbSs2-OCfKlNCasIZLlazgVESE8JN9drEMvfbf26mys829DzqAkJohQDdjkWpRHkJkKfrBdz9rjeWhi5XRWhiOgNBMzSbIhhefGUdRIg3E=s1024' width='1024'/>
-                <h2>HIỆN ĐẠI</h2>
-             </a>
-           </div>
-           <div class='widget Image' id='Image8'>
-              <a href="/p/fanfic.html">
-               <img alt='FANFIC' height='800' id='Image8_img' src='https://blogger.googleusercontent.com/img/a/AVvXsEgIlnWvpoYsF9wjgJedCM8YHVKDVc5UjxzbVb4lyVZftxVXHja6DMW4KiS3VHMRqivEBxxfzEmOX2e4BcmoSK3rQPQQMsskmVDD3pHZkqh6DUGmnqHQsp6Ob1AzldlphCkZ9graSIKH7BCo0LmT_iuOqCuv8D1ueKMDE4GXHTf12FkJnXRGfUvPEyUXZIQ=s800' width='800'/>
-               <h2>FANFIC</h2>
-              </a>
-           </div>
+<div id='HTML1' class='widget HTML'>
+             <div class='widget-content'>TÁC PHẨM</div>
         </div>
-        <div style='clear: both;'></div>
+    </div> </div>
+
+    <div class='works-wrap'>
+      <div class='works-slider' id='works-slider'>
+        
+        {% for story in site.stories %}
+        <a href="{{ story.url | relative_url }}" class='work-item'>
+          <div class='work-cover-wrap'>
+            <img src="{{ story.image | relative_url }}" alt="{{ story.title }}" class="work-cover">
+            
+            {% if story.status == 'completed' %}
+            <span class='work-status status-completed'><i class="fas fa-check-circle"></i> Hoàn thành</span>
+            {% else %}
+            <span class='work-status status-translating'><i class="fas fa-pen-nib"></i> Đang dịch</span>
+            {% endif %}
+          </div>
+          <h3 class='work-title'>{{ story.title }}</h3>
+        </a>
+        {% endfor %}
+
       </div>
     </div>
 
