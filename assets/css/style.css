@@ -2731,70 +2731,46 @@ body.mode-dark #results-container li a:hover {
 .works-slider:active { cursor: grabbing; }
 
 .work-item {
-    flex: 0 0 calc(33.333% - 17px); /* Mặc định 3 thẻ 1 hàng */
+    /* Chỉnh kích thước nho nhỏ lại (Ở đây cố định 180px, bạn có thể tự tăng/giảm) */
+    flex: 0 0 180px; 
     display: flex;
     flex-direction: column;
     text-decoration: none !important;
     transition: transform 0.3s ease;
-    user-select: none;
+    user-select: none; /* Chống bôi đen text khi kéo */
+    
+    /* Chuyển bóng đổ ra ngoài cùng để tương thích với viền tem */
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
-.work-item:hover { transform: translateY(-5px); }
+.work-item:hover {
+    transform: translateY(-5px);
+}
 
-/* Khung tem bìa truyện */
+/* --- Style Bộ Sưu Tập Tem ĐỤC LỖ XỊN SÒ --- */
 .work-cover-wrap {
     background: #fff;
-    padding: 10px;
-    border: 2px dashed #e3c9bf;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 10px; /* Độ dày của phần giấy trắng bao quanh */
     position: relative;
     aspect-ratio: 2 / 3;
     overflow: hidden;
+    
+    /* XÓA border cũ, thay bằng kỹ thuật MASK để đục lỗ mép tem */
+    -webkit-mask-image: radial-gradient(circle at 5px 5px, transparent 4px, black 4.5px), linear-gradient(black, black);
+    -webkit-mask-size: 14px 14px, calc(100% - 14px) calc(100% - 14px);
+    -webkit-mask-position: -5px -5px, center;
+    -webkit-mask-repeat: repeat, no-repeat;
+    
+    mask-image: radial-gradient(circle at 5px 5px, transparent 4px, black 4.5px), linear-gradient(black, black);
+    mask-size: 14px 14px, calc(100% - 14px) calc(100% - 14px);
+    mask-position: -5px -5px, center;
+    mask-repeat: repeat, no-repeat;
 }
 
-.work-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
-}
-
-/* Ruy băng trạng thái */
-.work-status {
-    position: absolute;
-    top: 15px;
-    left: -5px;
-    padding: 5px 12px;
-    font-family: 'Karla', sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.work-status::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    border-top: 5px solid transparent;
-    border-right: 5px solid transparent;
-    filter: brightness(0.7);
-}
-
-.status-completed { background-color: #4CAF50; }
-.status-completed::after { border-top-color: #4CAF50; }
-.status-translating { background-color: #e67e22; }
-.status-translating::after { border-top-color: #e67e22; }
-
-/* Tiêu đề truyện dưới ảnh */
+/* Vì thẻ nhỏ lại nên mình giảm cỡ chữ tiêu đề 1 xíu cho cân đối */
 .work-title {
     font-family: 'Source Serif 4', serif;
-    font-size: 18px;
+    font-size: 16px; /* Giảm từ 18px xuống 16px */
     text-align: center;
     color: #333;
     margin-top: 15px;
@@ -2802,6 +2778,10 @@ body.mode-dark #results-container li a:hover {
     line-height: 1.4;
 }
 
-/* Responsive hiển thị trên điện thoại */
-@media screen and (max-width: 768px) { .work-item { flex: 0 0 calc(50% - 12.5px); } }
-@media screen and (max-width: 480px) { .work-item { flex: 0 0 calc(70%); } }
+/* --- Responsive cho điện thoại --- */
+@media screen and (max-width: 768px) {
+    .work-item {
+        /* Thu nhỏ hơn chút nữa trên điện thoại/tablet */
+        flex: 0 0 140px; 
+    }
+}
