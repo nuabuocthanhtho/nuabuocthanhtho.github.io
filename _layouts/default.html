@@ -63,20 +63,23 @@
         </div>
     </div> </div>
 
-    <div class='works-wrap'>
+ <div class='works-wrap'>
       <div class='works-slider' id='works-slider'>
         
         {% for story in site.stories %}
+        {% assign current_status = story.status | default: "Đang dịch" %}
+        
         <a href="{{ story.url | relative_url }}" class='work-item'>
           <div class='work-cover-wrap'>
             <img src="{{ story.image | relative_url }}" alt="{{ story.title }}" class="work-cover">
             
-            {% if story.status == 'completed' %}
-            <span class='work-status status-completed'><i class="fas fa-check-circle"></i> Hoàn thành</span>
+            {% if current_status == 'Hoàn thành' or current_status == 'completed' %}
+            <span class='work-status status-completed'><i class="fas fa-check-circle"></i> {{ current_status }}</span>
             {% else %}
-            <span class='work-status status-translating'><i class="fas fa-pen-nib"></i> Đang dịch</span>
+            <span class='work-status status-translating'><i class="fas fa-pen-nib"></i> {{ current_status }}</span>
             {% endif %}
           </div>
+          
           <h3 class='work-title'>{{ story.title }}</h3>
         </a>
         {% endfor %}
