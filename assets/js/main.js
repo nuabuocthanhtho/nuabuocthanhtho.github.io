@@ -388,5 +388,46 @@ $(document).ready(function() {
           renderHistory();
       }
   });
+// --- CHỨC NĂNG DRAG TO SCROLL CHO DANH SÁCH TRUYỆN ---
+  const slider = document.querySelector('.works-slider');
+  
+  if (slider) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      let isDragging = false;
 
+      slider.addEventListener('mousedown', (e) => {
+          isDown = true;
+          isDragging = false;
+          slider.style.scrollBehavior = 'auto';
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+      });
+
+      slider.addEventListener('mouseleave', () => {
+          isDown = false;
+          slider.style.scrollBehavior = 'smooth';
+      });
+
+      slider.addEventListener('mouseup', () => {
+          isDown = false;
+          slider.style.scrollBehavior = 'smooth';
+      });
+
+      slider.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          isDragging = true;
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 1.5; // tốc độ vuốt
+          slider.scrollLeft = scrollLeft - walk;
+      });
+
+      slider.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+              if (isDragging) { e.preventDefault(); }
+          });
+      });
+  }
 }); // Kết thúc $(document).ready()
