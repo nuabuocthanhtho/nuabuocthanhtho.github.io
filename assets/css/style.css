@@ -2707,3 +2707,101 @@ body.mode-dark #results-container li a {
 body.mode-dark #results-container li a:hover {
     background-color: #333;
 }
+/* --- CSS CHO KHU VỰC TÁC PHẨM (DRAG SLIDER TỰ ĐỘNG) --- */
+.works-wrap {
+    width: 90%;
+    max-width: 1000px;
+    margin: 10px auto 40px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.works-slider {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+    padding-bottom: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.works-slider::-webkit-scrollbar { display: none; }
+.works-slider:active { cursor: grabbing; }
+
+.work-item {
+    flex: 0 0 calc(33.333% - 17px); /* Mặc định 3 thẻ 1 hàng */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.work-item:hover { transform: translateY(-5px); }
+
+/* Khung tem bìa truyện */
+.work-cover-wrap {
+    background: #fff;
+    padding: 10px;
+    border: 2px dashed #e3c9bf;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+}
+
+.work-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+}
+
+/* Ruy băng trạng thái */
+.work-status {
+    position: absolute;
+    top: 15px;
+    left: -5px;
+    padding: 5px 12px;
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.work-status::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    filter: brightness(0.7);
+}
+
+.status-completed { background-color: #4CAF50; }
+.status-completed::after { border-top-color: #4CAF50; }
+.status-translating { background-color: #e67e22; }
+.status-translating::after { border-top-color: #e67e22; }
+
+/* Tiêu đề truyện dưới ảnh */
+.work-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    margin-top: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Responsive hiển thị trên điện thoại */
+@media screen and (max-width: 768px) { .work-item { flex: 0 0 calc(50% - 12.5px); } }
+@media screen and (max-width: 480px) { .work-item { flex: 0 0 calc(70%); } }
