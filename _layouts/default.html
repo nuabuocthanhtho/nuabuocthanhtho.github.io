@@ -58,13 +58,40 @@
     </div>
     <ul id="results-container"></ul>
 </div>
+
+{% if page.url == "/" or page.url == "/index.html" %}
 <div id='HTML1' class='widget HTML'>
-             <div class='widget-content'>TÁC PHẨM</div>
-        </div>
+     <div class='widget-content'>TÁC PHẨM</div>
+</div>
+{% endif %}
+
     </div> </div>
 
+{% if page.url == "/" or page.url == "/index.html" %}
  <div class='works-wrap'>
       <div class='works-slider' id='works-slider'>
+        
+        {% for story in site.stories %}
+        {% assign current_status = story.status | default: "Đang dịch" %}
+        
+        <a href="{{ story.url | relative_url }}" class='work-item'>
+          <div class='work-cover-wrap'>
+            <img src="{{ story.image | relative_url }}" alt="{{ story.title }}" class="work-cover">
+            
+            {% if current_status == 'Hoàn thành' or current_status == 'completed' %}
+            <span class='work-status status-completed'><i class="fas fa-check-circle"></i> {{ current_status }}</span>
+            {% else %}
+            <span class='work-status status-translating'><i class="fas fa-pen-nib"></i> {{ current_status }}</span>
+            {% endif %}
+          </div>
+          
+          <h3 class='work-title'>{{ story.title }}</h3>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+{% endif %}
         
         {% for story in site.stories %}
         {% assign current_status = story.status | default: "Đang dịch" %}
