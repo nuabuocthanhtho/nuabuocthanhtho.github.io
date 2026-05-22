@@ -1,5 +1,5 @@
 ---
-layout: default # Kế thừa từ khung sườn default.html
+layout: default
 ---
 <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
 
@@ -11,8 +11,53 @@ layout: default # Kế thừa từ khung sườn default.html
     </div>
 
   <div class='post-body entry-content' id='post-body-{{ page.id }}' itemprop='articleBody'>
-    {{ content }} <div style='clear: both;'></div>
+    
+    {% if page.password %}
+        <div id="lock-screen" style="text-align: center; padding: 60px 20px; background: #fdfdfd; border-radius: 12px; border: 1px dashed #e3c9bf; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin: 20px 0;">
+            <i class="fas fa-lock" style="font-size: 50px; color: #d35400; margin-bottom: 20px;"></i>
+            <h3 style="font-family: 'Bodoni Moda', serif; font-size: 24px; color: #333; margin-bottom: 10px;">Nội dung đã được bảo mật</h3>
+            <p style="font-family: 'Karla', sans-serif; color: #666; margin-bottom: 25px; font-size: 15px;">Vui lòng nhập mật khẩu để mở khóa bài viết này.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 10px; max-width: 400px; margin: 0 auto;">
+                <input type="password" id="pass-input" placeholder="Nhập mật khẩu..." style="flex: 1; padding: 12px 15px; border: 1px solid #ccc; border-radius: 6px; font-family: sans-serif; font-size: 15px; outline: none; transition: 0.3s;">
+                <button onclick="checkPassword()" style="padding: 12px 25px; background: #e3c9bf; color: #000; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: 'Karla', sans-serif; transition: 0.2s;">MỞ KHÓA</button>
+            </div>
+            <p id="pass-error" style="color: #e50914; display: none; margin-top: 15px; font-size: 14px; font-weight: bold;"><i class="fas fa-exclamation-triangle"></i> Sai mật khẩu, thử lại nhé!</p>
+        </div>
+
+        <div id="real-content" style="display: none;">
+            {{ content }}
+        </div>
+
+        <script>
+            // Jekyll tự động chuyển mật khẩu má cài thành mã Base64
+            const correctPass = "{{ page.password | base64_encode | strip }}";
+            
+            function checkPassword() {
+                const input = document.getElementById('pass-input').value;
+                // Chuyển chữ người dùng nhập thành Base64 rồi đem đi so sánh
+                if (btoa(input) === correctPass) {
+                    document.getElementById('lock-screen').style.display = 'none';
+                    document.getElementById('real-content').style.display = 'block';
+                } else {
+                    document.getElementById('pass-error').style.display = 'block';
+                    document.getElementById('pass-input').style.borderColor = '#e50914';
+                }
+            }
+            
+            // Hỗ trợ bấm phím Enter để mở cho lẹ
+            document.getElementById('pass-input').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') checkPassword();
+            });
+        </script>
+
+    {% else %}
+        {{ content }}
+    {% endif %}
+
+    <div style='clear: both;'></div>
   </div>
+  
   <div class='post-footer'>
     {% if page.tags.size > 0 %}
     <div class='post-labels'>
@@ -24,6 +69,7 @@ layout: default # Kế thừa từ khung sườn default.html
     {% endif %}
     <div style='clear: both;'></div>
   </div>
+
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
   data-app-id="3718facb-6435-4eb9-a3ec-512c7f20bd0c"
@@ -32,3 +78,5 @@ layout: default # Kế thừa từ khung sườn default.html
   data-page-title="{{ page.title }}"
   data-lang="vi" ></div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+</div>
