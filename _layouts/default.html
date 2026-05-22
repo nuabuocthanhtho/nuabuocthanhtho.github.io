@@ -24,7 +24,16 @@
 </head>
 
 <body>
-  <div class='site-wrap'>
+
+{% if site.maintenance_mode %}
+    <div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #FDFCFB; font-family: 'Karla', sans-serif; text-align: center; padding: 20px;">
+        <i class="fas fa-paint-roller" style="font-size: 60px; color: #e3c9bf; margin-bottom: 20px;"></i>
+        <h1 style="font-family: 'Bodoni Moda', serif; font-size: 36px; color: #333; margin: 0 0 15px 0;">Blog đang được tân trang!</h1>
+        <p style="color: #666; font-size: 16px; max-width: 500px; line-height: 1.6;">Chủ nhà đang quét dọn và nâng cấp lại giao diện một chút để mang đến trải nghiệm xịn sò hơn. Bà con thông cảm quay lại sau nhé!</p>
+    </div>
+
+{% else %}
+    <div class='site-wrap'>
 
 <div class='header-wrap'>
     <div class='header section' id='header'> <div class='widget Header' id='Header1'>
@@ -277,6 +286,8 @@
 {% endif %}
 {% if page.next %}
   <div id="data-next-link" data-url="{{ page.next.url | relative_url }}" style="display:none;"></div>
+{% endif %}
+
 {% endif %}
 
 </body>
