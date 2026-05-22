@@ -30,13 +30,15 @@ layout: default
         </div>
 
         <script>
-            // Jekyll tự động chuyển mật khẩu má cài thành mã Base64
-            const correctPass = "{{ page.password | base64_encode | strip }}";
+            // Lấy trực tiếp mật khẩu từ cấu hình bài viết
+            const correctPass = "{{ page.password | strip }}";
             
             function checkPassword() {
-                const input = document.getElementById('pass-input').value;
-                // Chuyển chữ người dùng nhập thành Base64 rồi đem đi so sánh
-                if (btoa(input) === correctPass) {
+                // Lấy chữ người dùng nhập và xóa khoảng trắng 2 đầu (nếu họ lỡ bấm dư dấu cách)
+                const input = document.getElementById('pass-input').value.trim();
+                
+                // So sánh trực tiếp
+                if (input === correctPass) {
                     document.getElementById('lock-screen').style.display = 'none';
                     document.getElementById('real-content').style.display = 'block';
                 } else {
@@ -45,7 +47,7 @@ layout: default
                 }
             }
             
-            // Hỗ trợ bấm phím Enter để mở cho lẹ
+            // Hỗ trợ bấm phím Enter để mở
             document.getElementById('pass-input').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') checkPassword();
             });
