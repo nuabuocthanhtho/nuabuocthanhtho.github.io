@@ -289,10 +289,17 @@
   <div id="data-next-link" data-url="{{ page.next.url | relative_url }}" style="display:none;"></div>
 {% endif %}
 
-</div> {% if site.maintenance_mode %}
+{% if site.maintenance_mode %}
     <script>
         const urlParams = new URLSearchParams(window.location.search);
+        
+        // 1. Nếu trên link có chìa khóa, thì lưu ngay vào trí nhớ của trình duyệt
         if (urlParams.get('key') === 'momenay') {
+            sessionStorage.setItem('adminUnlocked', 'true');
+        }
+        
+        // 2. Kiểm tra xem trình duyệt có nhớ mặt chủ nhà không
+        if (sessionStorage.getItem('adminUnlocked') === 'true') {
             const mainScreen = document.getElementById('maintenance-screen');
             if (mainScreen) mainScreen.style.display = 'none';
             document.getElementById('real-blog-content').style.display = 'block';
