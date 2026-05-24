@@ -26,13 +26,14 @@
 <body>
 
 {% if site.maintenance_mode %}
-    <div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #FDFCFB; font-family: 'Karla', sans-serif; text-align: center; padding: 20px;">
+    <div id="maintenance-screen" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #FDFCFB; font-family: 'Karla', sans-serif; text-align: center; padding: 20px;">
         <i class="fas fa-paint-roller" style="font-size: 60px; color: #e3c9bf; margin-bottom: 20px;"></i>
         <h1 style="font-family: 'Bodoni Moda', serif; font-size: 36px; color: #333; margin: 0 0 15px 0;">Blog đang được tân trang!</h1>
         <p style="color: #666; font-size: 16px; max-width: 500px; line-height: 1.6;">Vui lòng quay lại sau nhé!</p>
     </div>
+{% endif %}
 
-{% else %}
+<div id="real-blog-content" {% if site.maintenance_mode %}style="display: none;"{% endif %}>
     <div class='site-wrap'>
 
 <div class='header-wrap'>
@@ -288,6 +289,15 @@
   <div id="data-next-link" data-url="{{ page.next.url | relative_url }}" style="display:none;"></div>
 {% endif %}
 
+</div> {% if site.maintenance_mode %}
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('key') === 'momenay') {
+            const mainScreen = document.getElementById('maintenance-screen');
+            if (mainScreen) mainScreen.style.display = 'none';
+            document.getElementById('real-blog-content').style.display = 'block';
+        }
+    </script>
 {% endif %}
 
 </body>
