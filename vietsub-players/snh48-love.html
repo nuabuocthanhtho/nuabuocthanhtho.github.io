@@ -1,0 +1,481 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản dịch thuộc về Nửa Bước Thành Thơ</title>
+    <style>
+        :root {
+            --primary-bg: rgba(20, 20, 20, 0.75); /* Làm nền trong suốt hơn */
+            --accent-color: #e50914; 
+            --text-color: #fff;
+            --label-color: #bbb;
+            --input-bg: rgba(0, 0, 0, 0.6); /* Ô chọn màu tối trong suốt */
+            --input-border: rgba(255, 255, 255, 0.15);
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+            --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+        }
+        body {
+            margin: 0; padding: 0;
+            background-color: #111; font-family: var(--font-family); 
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden; 
+        }
+        .video-container {
+            position: relative; width: 100%; max-width: 800px;
+            aspect-ratio: 16 / 9; background: #000;
+        }
+        .video-container.is-fullscreen {
+            position: fixed !important; top: 0 !important; left: 0 !important;
+            width: 100vw !important; height: 100vh !important;
+            max-width: none !important; z-index: 9999 !important;
+        }
+        iframe { width: 100%; height: 100%; border: none; pointer-events: auto; }
+        
+        .controls-group {
+            position: absolute; right: 15px; top: 50%;
+            transform: translateY(-50%); z-index: 20;
+            display: flex; flex-direction: column; gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .controls-group.is-hidden { opacity: 0; pointer-events: none; }
+        
+        .custom-btn {
+            background: rgba(0, 0, 0, 0.5); border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%; width: 44px; height: 44px;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .custom-btn:hover { background: rgba(0, 0, 0, 0.9); border-color: rgba(255, 255, 255, 0.9); transform: scale(1.1); }
+        .custom-btn svg { fill: white; width: 24px; height: 24px; }
+
+        /* NÂNG CẤP BẢNG CÀI ĐẶT: Hiệu ứng kính mờ (Glassmorphism) */
+        #settings-panel {
+            position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+            background: var(--primary-bg);
+            backdrop-filter: blur(12px); /* Hiệu ứng làm mờ nền phía sau */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; 
+            box-shadow: var(--box-shadow);
+            padding: 20px 24px; 
+            display: none; flex-direction: column; gap: 14px; 
+            z-index: 30; min-width: 240px; max-height: 80vh; overflow-y: auto;
+            color: var(--text-color);
+        }
+        #settings-panel::-webkit-scrollbar { width: 5px; }
+        #settings-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 5px; }
+        
+        .settings-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px; margin-bottom: 5px;
+        }
+        .settings-header h3 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
+        
+        /* Nút X Đóng Bảng */
+        #close-settings {
+            background: none; border: none; color: #888; font-size: 24px; 
+            line-height: 1; cursor: pointer; padding: 0; transition: 0.2s;
+        }
+        #close-settings:hover { color: #fff; transform: scale(1.1); }
+
+        .setting-row { display: flex; flex-direction: column; gap: 6px; } 
+        .setting-row label {
+            font-size: 13px; color: var(--label-color);
+            margin-bottom: 0; display: block; font-weight: 500;
+        }
+        
+        /* Ô thả xuống thiết kế lại mượt mà hơn */
+        .setting-row select {
+            appearance: none; -webkit-appearance: none; width: 100%;
+            background: var(--input-bg); color: var(--text-color);
+            border: 1px solid var(--input-border);
+            padding: 10px 35px 10px 12px; border-radius: 6px; 
+            font-size: 14px; cursor: pointer; outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center; background-size: 20px;
+            transition: all 0.2s ease;
+        }
+        .setting-row select:hover, .setting-row select:focus { 
+            border-color: var(--accent-color); 
+            background: rgba(0,0,0,0.8);
+        }
+        .setting-row select option { background: #222; color: var(--text-color); padding: 8px; }
+
+        /* Phụ đề */
+        #custom-subtitle {
+            position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%);
+            width: 90%; text-align: center; pointer-events: none; z-index: 10;
+        }
+        #subtitle-text {
+            --sub-font: "Segoe UI", Arial, sans-serif;
+            --sub-scale: 1;
+            --sub-color: #ffffff;
+            --sub-bg: rgba(0, 0, 0, 0.55);
+            --sub-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+
+            font-family: var(--sub-font);
+            font-size: calc(26px * var(--sub-scale));
+            color: var(--sub-color);
+            background: var(--sub-bg);
+            text-shadow: var(--sub-shadow);
+            
+            font-weight: 600; padding: 8px 18px; border-radius: 8px; line-height: 1.4;
+            display: inline-block; white-space: pre-line; transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            #subtitle-text { font-size: calc(16px * var(--sub-scale)); padding: 6px 12px; }
+            .custom-btn { width: 36px; height: 36px; }
+            .custom-btn svg { width: 20px; height: 20px; }
+            .controls-group { right: 10px; }
+            #settings-panel { min-width: 200px; padding: 15px; right: 55px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container" id="video-wrapper">
+        <div id="settings-panel">
+            <div class="settings-header">
+                <h3>Cài đặt Phụ đề</h3>
+                <button id="close-settings" title="Đóng">&times;</button>
+            </div>
+            
+            <div class="setting-row">
+                <label>Phông chữ:</label>
+                <select id="set-font">
+                    <option value='"Segoe UI", Arial, sans-serif' selected>Segoe UI</option>
+                    <option value='Tahoma, sans-serif'>Tahoma</option>
+                    <option value='Verdana, sans-serif'>Verdana</option>
+                    <option value='"Times New Roman", Georgia, serif'>Times New Roman</option>
+                    <option value='Consolas, "Courier New", monospace'>Consolas</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Kích thước chữ:</label>
+                <select id="set-size">
+                    <option value="0.5">Rất nhỏ</option>
+                    <option value="0.75">Nhỏ</option>
+                    <option value="1" selected>Vừa (Mặc định)</option>
+                    <option value="1.5">Lớn</option>
+                    <option value="2">Rất lớn</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Màu chữ:</label>
+                <select id="set-color">
+                    <option value="#ffffff" selected>Trắng</option>
+                    <option value="#cccccc">Xám nhạt</option>
+                    <option value="#000000">Đen</option>
+                    <option value="#ffeb3b">Vàng</option>
+                    <option value="#ff9800">Cam</option>
+                    <option value="#ff3d00">Đỏ</option>
+                    <option value="#ff4081">Hồng</option>
+                    <option value="#9c27b0">Tím</option>
+                    <option value="#2196f3">Xanh dương</option>
+                    <option value="#00e5ff">Xanh ngọc</option>
+                    <option value="#00e676">Xanh lá</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Phông nền:</label>
+                <select id="set-bg">
+                    <option value="rgba(0, 0, 0, 0.55)" selected>Đen mờ</option>
+                    <option value="rgba(0, 0, 0, 1)">Đen đặc</option>
+                    <option value="rgba(255, 255, 255, 0.2)">Trắng mờ</option>
+                    <option value="transparent">Trong suốt (Không nền)</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Kiểu viền / Đổ bóng:</label>
+                <select id="set-edge">
+                    <option value="2px 2px 4px rgba(0,0,0,0.9)" selected>Đổ bóng (Mặc định)</option>
+                    <option value="-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Viền đen đậm</option>
+                    <option value="-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff">Viền trắng đậm</option>
+                    <option value="3px 3px 0px rgba(0,0,0,1)">Đổ khối (Nổi)</option>
+                    <option value="none">Không viền</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="controls-group" id="controls-group">
+            <button class="custom-btn" id="custom-cc-btn" title="Tắt Phụ đề">
+                <svg id="cc-icon-on" viewBox="0 0 24 24"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>
+                <svg id="cc-icon-off" viewBox="0 0 24 24" style="display: none; fill: #888;"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/><line x1="3" y1="3" x2="21" y2="21" stroke="#888" stroke-width="2"/></svg>
+            </button>
+            <button class="custom-btn" id="custom-set-btn" title="Cài đặt">
+                <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            </button>
+            <button class="custom-btn" id="custom-fs-btn" title="Toàn màn hình">
+                <svg id="fs-icon-enter" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display: none;"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>
+            </button>
+        </div>
+
+        <div id="player"></div>
+        
+        <div id="custom-subtitle">
+            <span id="subtitle-text" style="display: none;"></span>
+        </div>
+    </div>
+
+    <script>
+        // MÁ COPY LẠI MẢNG SUB VÀO ĐÂY NHÉ
+        const subtitles = [
+            {"start":"00:00:01,180","end":"00:00:02,740","text":"《Love Ver.》 - SNH48"},
+            {"start":"00:00:10,940","end":"00:00:12,900","text":"Cố tình thả chậm bước chân"},
+            {"start":"00:00:12,900","end":"00:00:15,820","text":"Nóng bỏng thiêu đỏ má hồng"},
+            {"start":"00:00:15,820","end":"00:00:16,780","text":"Yeah"},
+            {"start":"00:00:16,780","end":"00:00:19,020","text":"Trái tim cứ rộn ràng tinh nghịch"},
+            {"start":"00:00:19,020","end":"00:00:20,780","text":"Eh liệu có crazy quá rồi không?"},
+            {"start":"00:00:20,780","end":"00:00:23,220","text":"Bất chợt mazy có ai ngờ"},
+            {"start":"00:00:23,220","end":"00:00:24,900","text":"Lỡ va vào ánh mắt ai kia"},
+            {"start":"00:00:24,900","end":"00:00:28,060","text":"Ôi thôi, lộ tẩy rồi"},
+            {"start":"00:00:28,060","end":"00:00:30,740","text":"So baby my my my baby"},
+            {"start":"00:00:30,740","end":"00:00:32,220","text":"Tell me true"},
+            {"start":"00:00:32,220","end":"00:00:33,780","text":"It must be ah ah"},
+            {"start":"00:00:33,780","end":"00:00:35,140","text":"You really really"},
+            {"start":"00:00:35,140","end":"00:00:37,140","text":"Mọi điều khoản bí mật, từ phút này say bye"},
+            {"start":"00:00:37,140","end":"00:00:39,060","text":"Chấp hết mọi xì xầm"},
+            {"start":"00:00:39,060","end":"00:00:42,860","text":"I want what you want"},
+            {"start":"00:00:42,860","end":"00:00:44,860","text":"Dubaduludu"},
+            {"start":"00:00:44,860","end":"00:00:47,020","text":"My lovey honey darling you"},
+            {"start":"00:00:47,020","end":"00:00:48,780","text":"Dubaduludu"},
+            {"start":"00:00:48,780","end":"00:00:51,060","text":"Thích là phải xích"},
+            {"start":"00:00:51,060","end":"00:00:52,660","text":"Dubaduludu"},
+            {"start":"00:00:52,660","end":"00:00:54,700","text":"My lovey honey darling you"},
+            {"start":"00:00:54,700","end":"00:00:56,940","text":"Còn ngại ngùng chi nữa"},
+            {"start":"00:00:56,940","end":"00:00:59,060","text":"Chuyển sang bản LOVE ver ngay thôi"},
+            {"start":"00:01:06,500","end":"00:01:08,500","text":"Just a hint I push you"},
+            {"start":"00:01:08,500","end":"00:01:11,060","text":"Đến biển xanh cũng hân hoan hô hào"},
+            {"start":"00:01:11,060","end":"00:01:15,340","text":"Sóng lòng đã dâng trào giữa hạ sao chờ được tới mai"},
+            {"start":"00:01:15,340","end":"00:01:17,620","text":"Eh còn chối bay chối biến?"},
+            {"start":"00:01:17,620","end":"00:01:19,380","text":"Lỡ say ai mất rồi thì biết phải làm sao?"},
+            {"start":"00:01:19,380","end":"00:01:21,580","text":"Hết sạch cớ giấu rồi"},
+            {"start":"00:01:21,580","end":"00:01:23,820","text":"Bởi vốn vốn vốn dĩ là love you"},
+            {"start":"00:01:23,820","end":"00:01:26,500","text":"Oh baby my my my baby"},
+            {"start":"00:01:26,500","end":"00:01:27,940","text":"Show your true"},
+            {"start":"00:01:27,940","end":"00:01:29,860","text":"It must be ah ah"},
+            {"start":"00:01:29,860","end":"00:01:31,420","text":"I really really"},
+            {"start":"00:01:31,420","end":"00:01:33,300","text":"Nào giữ kẽ, nào lánh mặt, giờ phút này chính thức vô hiệu"},
+            {"start":"00:01:33,300","end":"00:01:35,100","text":"Nào dị nghị, hay bàn tán, đâu cần bận tâm đến thế"},
+            {"start":"00:01:35,100","end":"00:01:38,900","text":"I do what you want"},
+            {"start":"00:01:38,900","end":"00:01:40,780","text":"Dubaduludu"},
+            {"start":"00:01:40,780","end":"00:01:42,940","text":"My lovey honey darling you"},
+            {"start":"00:01:42,940","end":"00:01:44,820","text":"Dubaduludu"},
+            {"start":"00:01:44,820","end":"00:01:47,180","text":"Thích là phải xích"},
+            {"start":"00:01:47,180","end":"00:01:48,900","text":"Dubaduludu"},
+            {"start":"00:01:48,900","end":"00:01:50,780","text":"My lovey honey darling you"},
+            {"start":"00:01:50,780","end":"00:01:52,900","text":"Còn ngại ngùng chi nữa"},
+            {"start":"00:01:52,900","end":"00:01:55,300","text":"Chuyển sang bản LOVE ver mau thôi"},
+            {"start":"00:01:55,980","end":"00:01:59,740","text":"Thần tiên cũng chúc phúc và ngóng trông kia kìa"},
+            {"start":"00:01:59,740","end":"00:02:03,380","text":"Tua nhanh đến đoạn công khai si mê thôi nào"},
+            {"start":"00:02:03,380","end":"00:02:06,740","text":"Sửa ngay câu dối lòng ấy đi my baby"},
+            {"start":"00:02:06,740","end":"00:02:09,420","text":"Please tell me the true and say"},
+            {"start":"00:02:09,420","end":"00:02:11,100","text":"Oh my love"},
+            {"start":"00:02:22,580","end":"00:02:25,340","text":"Em đã sẵn sàng rồi đây"},
+            {"start":"00:02:25,340","end":"00:02:26,220","text":"Nín thở và chờ lệnh"},
+            {"start":"00:02:26,220","end":"00:02:27,140","text":"Let me hear you say"},
+            {"start":"00:02:27,140","end":"00:02:28,820","text":"Dubaduludu"},
+            {"start":"00:02:28,820","end":"00:02:30,940","text":"My lovey honey darling you"},
+            {"start":"00:02:30,940","end":"00:02:32,740","text":"Dubaduludu"},
+            {"start":"00:02:32,740","end":"00:02:35,100","text":"Thích là phải xích"},
+            {"start":"00:02:35,100","end":"00:02:36,820","text":"Dubaduludu"},
+            {"start":"00:02:36,820","end":"00:02:38,620","text":"My lovey honey darling you"},
+            {"start":"00:02:38,620","end":"00:02:40,740","text":"Còn ngại ngùng chi nữa"},
+            {"start":"00:02:40,740","end":"00:02:43,220","text":"Chuyển sang bản LOVE ver ngay nào"}
+        ];
+
+        const youtubeVideoId = 'e4r185KsUmQ'; 
+        let player;
+        let isVideoPlaying = false; 
+        let isSubtitlesEnabled = true; 
+        const subtitleText = document.getElementById('subtitle-text');
+
+        function timeToSeconds(timeStr) {
+            if (!timeStr) return 0;
+            const parts = timeStr.replace(',', '.').split(':');
+            return (parseFloat(parts[0]) * 3600) + (parseFloat(parts[1]) * 60) + parseFloat(parts[2]);
+        }
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: youtubeVideoId, 
+                playerVars: { 'playsinline': 1, 'rel': 0, 'autoplay': 0, 'fs': 0, 'modestbranding': 1 },
+                events: { 
+                    'onReady': () => setInterval(updateSubtitles, 100),
+                    'onStateChange': onPlayerStateChange 
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                isVideoPlaying = true;
+                resetHideTimer(); 
+            } else {
+                isVideoPlaying = false;
+                controlsGroup.classList.remove('is-hidden');
+                clearTimeout(hideControlsTimeout);
+            }
+        }
+
+        function updateSubtitles() {
+            if (!isSubtitlesEnabled) return; 
+
+            if (!player || typeof player.getCurrentTime !== 'function') return;
+            const currentTime = player.getCurrentTime();
+            const currentSub = subtitles.find(sub => currentTime >= timeToSeconds(sub.start) && currentTime <= timeToSeconds(sub.end));
+            
+            if (currentSub) {
+                subtitleText.innerHTML = currentSub.text; // Đã đổi thành innerHTML để hỗ trợ tùy biến màu trong show
+                subtitleText.style.display = 'inline-block';
+            } else {
+                subtitleText.style.display = 'none';
+            }
+        }
+
+        let hideControlsTimeout;
+        const controlsGroup = document.getElementById('controls-group');
+        const videoWrapper = document.getElementById('video-wrapper');
+        const settingsPanel = document.getElementById('settings-panel');
+
+        function resetHideTimer() {
+            controlsGroup.classList.remove('is-hidden');
+            clearTimeout(hideControlsTimeout);
+            
+            if (settingsPanel.style.display === 'flex') return;
+            if (!isVideoPlaying) return; 
+
+            hideControlsTimeout = setTimeout(() => {
+                controlsGroup.classList.add('is-hidden');
+            }, 2500);
+        }
+
+        videoWrapper.addEventListener('mousemove', resetHideTimer);
+        videoWrapper.addEventListener('touchstart', resetHideTimer);
+        videoWrapper.addEventListener('click', resetHideTimer);
+        window.addEventListener('blur', resetHideTimer);
+        resetHideTimer();
+
+        // ---------- LOGIC NÚT CC ----------
+        const ccBtn = document.getElementById('custom-cc-btn');
+        const ccIconOn = document.getElementById('cc-icon-on');
+        const ccIconOff = document.getElementById('cc-icon-off');
+
+        function updateCCToggle() {
+            if (isSubtitlesEnabled) {
+                ccIconOn.style.display = 'block';
+                ccIconOff.style.display = 'none';
+                ccBtn.title = "Tắt Phụ đề";
+            } else {
+                ccIconOn.style.display = 'none';
+                ccIconOff.style.display = 'block';
+                ccBtn.title = "Bật Phụ đề";
+                subtitleText.style.display = 'none';
+            }
+        }
+
+        ccBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isSubtitlesEnabled = !isSubtitlesEnabled; 
+            updateCCToggle();
+            localStorage.setItem('subEnabled', isSubtitlesEnabled);
+            resetHideTimer();
+        });
+
+
+        // ---------- LOGIC BẢNG TÙY CHỈNH PHỤ ĐỀ ----------
+        const setBtn = document.getElementById('custom-set-btn');
+        const closeSetBtn = document.getElementById('close-settings');
+        
+        setBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            settingsPanel.style.display = settingsPanel.style.display === 'flex' ? 'none' : 'flex';
+            resetHideTimer();
+        });
+        closeSetBtn.addEventListener('click', () => { settingsPanel.style.display = 'none'; resetHideTimer(); });
+
+        const inFont = document.getElementById('set-font');
+        const inSize = document.getElementById('set-size');
+        const inColor = document.getElementById('set-color');
+        const inBg = document.getElementById('set-bg');
+        const inEdge = document.getElementById('set-edge');
+
+        function applySettings() {
+            subtitleText.style.setProperty('--sub-font', inFont.value);
+            subtitleText.style.setProperty('--sub-scale', inSize.value);
+            subtitleText.style.setProperty('--sub-color', inColor.value);
+            subtitleText.style.setProperty('--sub-bg', inBg.value);
+            subtitleText.style.setProperty('--sub-shadow', inEdge.value);
+
+            localStorage.setItem('subFont', inFont.value);
+            localStorage.setItem('subSize', inSize.value);
+            localStorage.setItem('subColor', inColor.value);
+            localStorage.setItem('subBg', inBg.value);
+            localStorage.setItem('subEdge', inEdge.value);
+        }
+
+        inFont.addEventListener('change', applySettings);
+        inSize.addEventListener('change', applySettings);
+        inColor.addEventListener('change', applySettings);
+        inBg.addEventListener('change', applySettings);
+        inEdge.addEventListener('change', applySettings);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('subEnabled') === 'false') {
+                isSubtitlesEnabled = false;
+            }
+            updateCCToggle(); 
+
+            if (localStorage.getItem('subFont')) inFont.value = localStorage.getItem('subFont');
+            if (localStorage.getItem('subSize')) inSize.value = localStorage.getItem('subSize');
+            if (localStorage.getItem('subColor')) inColor.value = localStorage.getItem('subColor');
+            if (localStorage.getItem('subBg')) inBg.value = localStorage.getItem('subBg');
+            if (localStorage.getItem('subEdge')) inEdge.value = localStorage.getItem('subEdge');
+            applySettings();
+        });
+
+        // ---------- LOGIC FULLSCREEN ----------
+        const fsBtn = document.getElementById('custom-fs-btn');
+        const iconEnter = document.getElementById('fs-icon-enter');
+        const iconExit = document.getElementById('fs-icon-exit');
+
+        function toggleFullscreen() {
+            settingsPanel.style.display = 'none'; 
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (videoWrapper.requestFullscreen) videoWrapper.requestFullscreen();
+                else if (videoWrapper.webkitRequestFullscreen) videoWrapper.webkitRequestFullscreen();
+                videoWrapper.classList.add('is-fullscreen');
+                iconEnter.style.display = 'none'; iconExit.style.display = 'block';
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                videoWrapper.classList.remove('is-fullscreen');
+                iconEnter.style.display = 'block'; iconExit.style.display = 'none';
+            }
+        }
+        fsBtn.addEventListener('click', toggleFullscreen);
+
+        function handleFsChange() {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                videoWrapper.classList.remove('is-fullscreen');
+                iconEnter.style.display = 'block'; iconExit.style.display = 'none';
+            }
+        }
+        document.addEventListener('fullscreenchange', handleFsChange);
+        document.addEventListener('webkitfullscreenchange', handleFsChange);
+    </script>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
