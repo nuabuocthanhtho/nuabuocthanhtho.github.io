@@ -101,14 +101,22 @@ layout: default
       serverURL: 'https://waline-comments-ten-orcin.vercel.app',
       path: '{{ page.url }}',
       lang: 'vi-VN',
-      dark: 'body.mode-dark', // Đồng bộ giao diện tối/sáng với blog
-      search: false, // Tắt chức năng tìm kiếm gif để nhẹ web
+      dark: 'body.mode-dark',
+      search: false, 
       emoji: [
-        'https://unpkg.com/@waline/emojis@1.2.0/bilibili', // Bộ icon ngầu
+        'https://unpkg.com/@waline/emojis@1.2.0/bilibili', 
       ],
-      requiredMeta: ['nick'], // Ép người ta phải nhập Tên (ẩn danh)
-      login: 'disable', // Tắt luôn nút đăng nhập
-      placeholder: 'Bình luận tại đây',
+      requiredMeta: ['nick'], 
+      login: 'disable', 
+      placeholder: 'Hãy bình luận!', 
+      locale: {
+        mail: 'Email (tùy chọn)',
+        link: 'Website (tùy chọn)',
+        comment: 'Bình luận',
+        latest: 'Mới nhất',
+        oldest: 'Cũ nhất',
+        hottest: 'Hàng đầu'
+      }
     });
   </script>
   </div>
