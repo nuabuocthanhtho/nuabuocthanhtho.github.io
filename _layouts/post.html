@@ -76,12 +76,13 @@ layout: default
     #waline * {
       font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
     }
+    
     .wl-panel {
       border: 1px solid #e5e7eb !important; 
       border-radius: 12px !important; 
       background: #ffffff !important;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
-      overflow: hidden;
+      /* ĐÃ XÓA LỆNH CHẶT CHÉM overflow Ở ĐÂY NHA MÁ */
     }
     
     .wl-header {
@@ -104,7 +105,6 @@ layout: default
       align-items: center !important;
     }
     
-    /* CANH CHỮ RA GIỮA VÀ CHO Ô THỞ XÍU NÈ MÁ */
     .wl-header input {
       background: #f9fafb !important;
       border-right: 1px solid #f3f4f6 !important;
@@ -114,7 +114,7 @@ layout: default
       line-height: normal !important;
       display: flex !important;
       align-items: center !important;
-      text-align: center !important; /* PHÉP MÀU LÀ ĐÂY */
+      text-align: center !important; 
       transition: all 0.3s ease;
     }
     
