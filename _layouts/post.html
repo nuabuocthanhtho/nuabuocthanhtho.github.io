@@ -34,7 +34,7 @@ layout: default
             const correctPass = "{{ page.password | strip }}";
             
             function checkPassword() {
-                // Lấy chữ người dùng nhập và xóa khoảng trắng 2 đầu (nếu họ lỡ bấm dư dấu cách)
+                // Lấy chữ người dùng nhập và xóa khoảng trắng 2 đầu
                 const input = document.getElementById('pass-input').value.trim();
                 
                 // So sánh trực tiếp
@@ -72,39 +72,23 @@ layout: default
     <div style='clear: both;'></div>
   </div>
 
-<div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  <div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#waline',
-    serverURL: 'LINK_VERCEL_CỦA_MÀY_SẼ_ĐIỀN_VÀO_ĐÂY', // Sẽ lấy ở Bước 2
-    path: '{{ page.url }}',
-    lang: 'vi-VN',
-    dark: 'body.mode-dark', // Đồng bộ giao diện tối/sáng với nút Cài đặt của mày
-    search: false, // Tắt chức năng tìm kiếm gif để nhẹ web
-    emoji: [
-      'https://unpkg.com/@waline/emojis@1.2.0/bilibili', // Thêm bộ icon cho ngầu
-    ],
-    requiredMeta: ['nick'], // Chỉ bắt buộc điền Tên (Nickname), Email là không bắt buộc
-    login: 'disable', // Tắt hoàn toàn nút Đăng nhập để ẩn danh 100%
-  });
-</script>
-<div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-
-  init({
-    el: '#waline',
-    serverURL: 'https://waline-comments-ten-orcin.vercel.app',
-    path: '{{ page.url }}',
-    lang: 'vi-VN',
-    dark: 'body.mode-dark', // Đồng bộ theme sáng/tối với blog của mày
-    search: false,
-    requiredMeta: ['nick'], // Ép người ta phải nhập Tên (ẩn danh)
-    login: 'disable', // Tắt luôn nút đăng nhập
-  });
-</script>
-</div>
+    init({
+      el: '#waline',
+      serverURL: 'https://waline-comments-ten-orcin.vercel.app',
+      path: '{{ page.url }}',
+      lang: 'vi-VN',
+      dark: 'body.mode-dark', // Đồng bộ giao diện tối/sáng với blog
+      search: false, // Tắt chức năng tìm kiếm gif để nhẹ web
+      emoji: [
+        'https://unpkg.com/@waline/emojis@1.2.0/bilibili', // Bộ icon ngầu
+      ],
+      requiredMeta: ['nick'], // Ép người ta phải nhập Tên (ẩn danh)
+      login: 'disable', // Tắt luôn nút đăng nhập
+    });
+  </script>
+  </div>
