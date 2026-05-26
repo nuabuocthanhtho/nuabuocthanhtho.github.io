@@ -130,10 +130,10 @@ layout: default
       login: 'disable', 
       
       locale: {
-        nick: 'Biệt danh', // Chỉ hiện chữ Biệt danh ở khung xám
-        mail: 'Email',     // Chỉ hiện chữ Email
-        link: 'Website',   // Chỉ hiện chữ Website
-        optional: '',      // Khóa họng cái tính năng chèn chữ của nó
+        nick: 'Biệt danh', 
+        mail: 'Email',     
+        link: 'Website',   
+        optional: '',      // Cứ để trống, lát JS quét dọn
         placeholder: 'Hãy bình luận!', 
         comment: 'Bình luận',
         latest: 'Mới nhất',
@@ -150,15 +150,24 @@ layout: default
       const mail = document.querySelector('input[name="mail"]');
       const link = document.querySelector('input[name="link"]');
       
-      // Đợi Waline load xong là tráo chữ mờ liền
       if (nick && mail && link) {
+        // 1. Tráo chữ mờ bên trong ô
         nick.placeholder = 'Bắt buộc';
         mail.placeholder = 'Không bắt buộc';
         link.placeholder = 'Không bắt buộc';
+        
+        // 2. Cầm chổi quét sạch cặp ngoặc () gớm ghiếc ở nhãn
+        document.querySelectorAll('.wl-header label').forEach(label => {
+          if (label.innerHTML.includes('()')) {
+            label.innerHTML = label.innerHTML.replace('()', '');
+          }
+        });
+        
+        // Hoàn thành nhiệm vụ thì tắt đồng hồ
         clearInterval(doiChuMo);
       }
       
-      // Tránh kẹt vòng lặp nếu có lỗi mạng
+      // Chốt an toàn
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
   </script>
