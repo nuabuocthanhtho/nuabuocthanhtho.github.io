@@ -72,13 +72,24 @@ layout: default
     <div style='clear: both;'></div>
   </div>
 
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="3718facb-6435-4eb9-a3ec-512c7f20bd0c"
-  data-page-id="{{ page.url }}"
-  data-page-url="{{ page.url }}"
-  data-page-title="{{ page.title }}"
-  data-lang="vi" ></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+  init({
+    el: '#waline',
+    serverURL: 'LINK_VERCEL_CỦA_MÀY_SẼ_ĐIỀN_VÀO_ĐÂY', // Sẽ lấy ở Bước 2
+    path: '{{ page.url }}',
+    lang: 'vi-VN',
+    dark: 'body.mode-dark', // Đồng bộ giao diện tối/sáng với nút Cài đặt của mày
+    search: false, // Tắt chức năng tìm kiếm gif để nhẹ web
+    emoji: [
+      'https://unpkg.com/@waline/emojis@1.2.0/bilibili', // Thêm bộ icon cho ngầu
+    ],
+    requiredMeta: ['nick'], // Chỉ bắt buộc điền Tên (Nickname), Email là không bắt buộc
+    login: 'disable', // Tắt hoàn toàn nút Đăng nhập để ẩn danh 100%
+  });
+</script>
 
 </div>
