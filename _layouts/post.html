@@ -91,5 +91,20 @@ layout: default
     login: 'disable', // Tắt hoàn toàn nút Đăng nhập để ẩn danh 100%
   });
 </script>
+<div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
+  init({
+    el: '#waline',
+    serverURL: 'https://waline-comments-ten-orcin.vercel.app',
+    path: '{{ page.url }}',
+    lang: 'vi-VN',
+    dark: 'body.mode-dark', // Đồng bộ theme sáng/tối với blog của mày
+    search: false,
+    requiredMeta: ['nick'], // Ép người ta phải nhập Tên (ẩn danh)
+    login: 'disable', // Tắt luôn nút đăng nhập
+  });
+</script>
 </div>
