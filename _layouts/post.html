@@ -84,7 +84,6 @@ layout: default
       overflow: hidden;
     }
     
-    /* Ép cột Nhãn và Cột nhập đứng chung 1 hàng ngang (cân bằng dọc) */
     .wl-header {
       border-bottom: 1px solid #f3f4f6 !important;
       display: flex !important;
@@ -95,7 +94,6 @@ layout: default
       align-items: center !important;
     }
     
-    /* Canh chỉnh Nhãn (Biệt danh, Email, Website) */
     .wl-header label {
       font-size: 14px !important;
       font-weight: 600 !important;
@@ -106,20 +104,20 @@ layout: default
       align-items: center !important;
     }
     
-    /* Canh chỉnh ô nhập (Bắt buộc, Không bắt buộc) */
+    /* CANH CHỮ RA GIỮA VÀ CHO Ô THỞ XÍU NÈ MÁ */
     .wl-header input {
       background: #f9fafb !important;
       border-right: 1px solid #f3f4f6 !important;
-      padding: 12px 15px 12px 0 !important;
+      padding: 12px !important; 
       font-size: 14px !important; 
       margin: 0 !important;
       line-height: normal !important;
       display: flex !important;
       align-items: center !important;
+      text-align: center !important; /* PHÉP MÀU LÀ ĐÂY */
       transition: all 0.3s ease;
     }
     
-    /* Đổi màu chữ mờ cho tinh tế */
     .wl-header input::placeholder {
       font-size: 14px !important;
       color: #9ca3af !important; 
