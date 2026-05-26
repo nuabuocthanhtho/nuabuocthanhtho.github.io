@@ -73,12 +73,9 @@ layout: default
   </div>
 
   <style>
-    /* Ép đồng bộ font chữ của toàn bộ Waline theo blog */
     #waline * {
       font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
     }
-
-    /* Bo góc, đổ bóng khung viền cho xịn xò */
     .wl-panel {
       border: 1px solid #e5e7eb !important; 
       border-radius: 12px !important; 
@@ -86,8 +83,6 @@ layout: default
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
       overflow: hidden;
     }
-    
-    /* Chỗ nhập Tên, Email */
     .wl-header {
       border-bottom: 1px solid #f3f4f6 !important;
     }
@@ -101,22 +96,16 @@ layout: default
     .wl-header input:focus {
       background: #ffffff !important;
     }
-
-    /* Khung gõ bình luận to rõ, thoáng hơn */
     .wl-editor {
       font-size: 15px !important;
       padding: 15px !important;
       line-height: 1.6 !important;
     }
-
-    /* Nút Gửi béo béo, bo góc mềm */
     .wl-btn {
       border-radius: 8px !important;
       font-weight: 600 !important;
       letter-spacing: 0.5px;
     }
-    
-    /* Chỉnh màu chữ các tab Mới nhất, Cũ nhất */
     .wl-sort li {
       font-size: 14px !important;
     }
@@ -141,10 +130,10 @@ layout: default
       login: 'disable', 
       
       locale: {
-        nick: 'Biệt danh (bắt buộc)', // Đổi chữ Tên thành Biệt danh
-        optional: 'không bắt buộc',   // Đổi chữ "tùy chọn" thành "không bắt buộc"
-        mail: 'Email ',               // Vẫn giữ khoảng trắng cuối cùng
-        link: 'Website ',             // Vẫn giữ khoảng trắng cuối cùng
+        nick: 'Biệt danh', // Chỉ hiện chữ Biệt danh ở khung xám
+        mail: 'Email',     // Chỉ hiện chữ Email
+        link: 'Website',   // Chỉ hiện chữ Website
+        optional: '',      // Khóa họng cái tính năng chèn chữ của nó
         placeholder: 'Hãy bình luận!', 
         comment: 'Bình luận',
         latest: 'Mới nhất',
@@ -152,5 +141,25 @@ layout: default
         hottest: 'Hàng đầu'
       }
     });
+  </script>
+
+  <script>
+    let count = 0;
+    const doiChuMo = setInterval(() => {
+      const nick = document.querySelector('input[name="nick"]');
+      const mail = document.querySelector('input[name="mail"]');
+      const link = document.querySelector('input[name="link"]');
+      
+      // Đợi Waline load xong là tráo chữ mờ liền
+      if (nick && mail && link) {
+        nick.placeholder = 'Bắt buộc';
+        mail.placeholder = 'Không bắt buộc';
+        link.placeholder = 'Không bắt buộc';
+        clearInterval(doiChuMo);
+      }
+      
+      // Tránh kẹt vòng lặp nếu có lỗi mạng
+      if (++count > 50) clearInterval(doiChuMo); 
+    }, 300);
   </script>
 </div>
