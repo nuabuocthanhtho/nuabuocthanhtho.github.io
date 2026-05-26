@@ -83,19 +83,52 @@ layout: default
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
       overflow: hidden;
     }
+    
+    /* Ép cột Nhãn và Cột nhập đứng chung 1 hàng ngang (cân bằng dọc) */
     .wl-header {
       border-bottom: 1px solid #f3f4f6 !important;
+      display: flex !important;
+      align-items: stretch !important;
     }
+    .wl-header-item {
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    /* Canh chỉnh Nhãn (Biệt danh, Email, Website) */
+    .wl-header label {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #4b5563 !important;
+      padding: 0 12px 0 15px !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    /* Canh chỉnh ô nhập (Bắt buộc, Không bắt buộc) */
     .wl-header input {
       background: #f9fafb !important;
       border-right: 1px solid #f3f4f6 !important;
-      padding: 12px 15px !important;
-      font-size: 14px !important;
+      padding: 12px 15px 12px 0 !important;
+      font-size: 14px !important; 
+      margin: 0 !important;
+      line-height: normal !important;
+      display: flex !important;
+      align-items: center !important;
       transition: all 0.3s ease;
     }
+    
+    /* Đổi màu chữ mờ cho tinh tế */
+    .wl-header input::placeholder {
+      font-size: 14px !important;
+      color: #9ca3af !important; 
+    }
+    
     .wl-header input:focus {
       background: #ffffff !important;
     }
+    
     .wl-editor {
       font-size: 15px !important;
       padding: 15px !important;
@@ -133,7 +166,7 @@ layout: default
         nick: 'Biệt danh', 
         mail: 'Email',     
         link: 'Website',   
-        optional: '',      // Cứ để trống, lát JS quét dọn
+        optional: '',      
         placeholder: 'Hãy bình luận!', 
         comment: 'Bình luận',
         latest: 'Mới nhất',
@@ -151,23 +184,21 @@ layout: default
       const link = document.querySelector('input[name="link"]');
       
       if (nick && mail && link) {
-        // 1. Tráo chữ mờ bên trong ô
+        // Tráo chữ mờ
         nick.placeholder = 'Bắt buộc';
         mail.placeholder = 'Không bắt buộc';
         link.placeholder = 'Không bắt buộc';
         
-        // 2. Cầm chổi quét sạch cặp ngoặc () gớm ghiếc ở nhãn
+        // Quét dấu ngoặc ()
         document.querySelectorAll('.wl-header label').forEach(label => {
           if (label.innerHTML.includes('()')) {
             label.innerHTML = label.innerHTML.replace('()', '');
           }
         });
         
-        // Hoàn thành nhiệm vụ thì tắt đồng hồ
         clearInterval(doiChuMo);
       }
       
-      // Chốt an toàn
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
   </script>
