@@ -73,21 +73,52 @@ layout: default
   </div>
 
   <style>
-    .wl-panel {
-      border: 1px solid #d1d5db !important; 
-      border-radius: 8px !important;
-      background: #ffffff !important;
+    /* Ép đồng bộ font chữ của toàn bộ Waline theo blog */
+    #waline * {
+      font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
     }
+
+    /* Bo góc, đổ bóng khung viền cho xịn xò */
+    .wl-panel {
+      border: 1px solid #e5e7eb !important; 
+      border-radius: 12px !important; 
+      background: #ffffff !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
+      overflow: hidden;
+    }
+    
+    /* Chỗ nhập Tên, Email */
     .wl-header {
-      border-bottom: 1px dashed #d1d5db !important;
+      border-bottom: 1px solid #f3f4f6 !important;
     }
     .wl-header input {
       background: #f9fafb !important;
-      border-right: 1px dashed #d1d5db !important;
-      padding: 10px !important;
+      border-right: 1px solid #f3f4f6 !important;
+      padding: 12px 15px !important;
+      font-size: 14px !important;
+      transition: all 0.3s ease;
     }
     .wl-header input:focus {
       background: #ffffff !important;
+    }
+
+    /* Khung gõ bình luận to rõ, thoáng hơn */
+    .wl-editor {
+      font-size: 15px !important;
+      padding: 15px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Nút Gửi béo béo, bo góc mềm */
+    .wl-btn {
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Chỉnh màu chữ các tab Mới nhất, Cũ nhất */
+    .wl-sort li {
+      font-size: 14px !important;
     }
   </style>
 
@@ -109,12 +140,12 @@ layout: default
       requiredMeta: ['nick'], 
       login: 'disable', 
       
-      // GOM HẾT VÀO CỤC LOCALE NÀY LÀ NÓ NGHE LỜI:
+      // CHIÊU HACK DẤU CÁCH VÀ VIỆT HÓA CHUẨN:
       locale: {
-        optional: 'tùy chọn', // Trả lại chữ tùy chọn viết thường cho nó
-        mail: 'Email ',       // <-- CÓ DẤU CÁCH Ở CUỐI (đừng xóa nha)
-        link: 'Website ',     // <-- CÓ DẤU CÁCH Ở CUỐI (đừng xóa nha)
-        placeholder: 'Hãy bình luận!', // Đem placeholder vào đây!
+        optional: 'tùy chọn', // Trả lại chữ tùy chọn viết thường
+        mail: 'Email ',       // Có dấu cách ở cuối
+        link: 'Website ',     // Có dấu cách ở cuối
+        placeholder: 'Hãy bình luận!', 
         comment: 'Bình luận',
         latest: 'Mới nhất',
         oldest: 'Cũ nhất',
@@ -122,4 +153,4 @@ layout: default
       }
     });
   </script>
-  </div>
+</div>
