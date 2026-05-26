@@ -108,10 +108,12 @@ layout: default
       ],
       requiredMeta: ['nick'], 
       login: 'disable', 
-      placeholder: 'Hãy bình luận!', 
+      
+      // GOM HẾT VÀO CỤC LOCALE NÀY LÀ NÓ NGHE LỜI:
       locale: {
-        mail: 'Email (tùy chọn)',
-        link: 'Website (tùy chọn)',
+        mail: 'Email',        // Bỏ chữ tùy chọn đi, Waline sẽ tự thêm
+        link: 'Website',      // Bỏ chữ tùy chọn đi
+        placeholder: 'Hãy bình luận!', // Đem placeholder vào đây!
         comment: 'Bình luận',
         latest: 'Mới nhất',
         oldest: 'Cũ nhất',
