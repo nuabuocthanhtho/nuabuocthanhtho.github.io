@@ -73,18 +73,18 @@ layout: default
   </div>
 
   <style>
+    /* Ép đồng bộ font toàn bộ Waline */
     #waline * {
       font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
     }
     
+    /* ------------- PHẦN KHUNG NHẬP LIỆU ------------- */
     .wl-panel {
       border: 1px solid #e5e7eb !important; 
       border-radius: 12px !important; 
       background: #ffffff !important;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
-      /* ĐÃ XÓA LỆNH CHẶT CHÉM overflow Ở ĐÂY NHA MÁ */
     }
-    
     .wl-header {
       border-bottom: 1px solid #f3f4f6 !important;
       display: flex !important;
@@ -94,7 +94,6 @@ layout: default
       display: flex !important;
       align-items: center !important;
     }
-    
     .wl-header label {
       font-size: 14px !important;
       font-weight: 600 !important;
@@ -104,7 +103,6 @@ layout: default
       display: flex !important;
       align-items: center !important;
     }
-    
     .wl-header input {
       background: #f9fafb !important;
       border-right: 1px solid #f3f4f6 !important;
@@ -117,16 +115,13 @@ layout: default
       text-align: center !important; 
       transition: all 0.3s ease;
     }
-    
     .wl-header input::placeholder {
       font-size: 14px !important;
       color: #9ca3af !important; 
     }
-    
     .wl-header input:focus {
       background: #ffffff !important;
     }
-    
     .wl-editor {
       font-size: 15px !important;
       padding: 15px !important;
@@ -137,6 +132,48 @@ layout: default
       font-weight: 600 !important;
       letter-spacing: 0.5px;
     }
+    
+    /* ------------- PHẦN HIỂN THỊ BÌNH LUẬN XUẤT RA ------------- */
+    /* Số đếm bình luận (VD: 1 Bình luận) */
+    .wl-count {
+      font-size: 22px !important;
+      font-weight: bold !important;
+      color: #111827 !important;
+    }
+    /* Tên người bình luận */
+    .wl-nick {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      color: #111827 !important;
+    }
+    /* Chữ hiển thị nội dung bình luận (Bự ra, dễ nhìn) */
+    .wl-content {
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+      color: #374151 !important;
+      margin-top: 8px !important;
+    }
+    /* Chỉnh cỡ chữ thẻ p bên trong nếu có */
+    .wl-content p {
+      font-size: inherit !important;
+      line-height: inherit !important;
+      margin: 0 !important;
+    }
+    /* Nhãn Windows, Chrome nhỏ xinh bo góc */
+    .wl-badge {
+      font-size: 12px !important;
+      padding: 2px 6px !important;
+      border-radius: 4px !important;
+      color: #6b7280 !important;
+      border: 1px solid #e5e7eb !important;
+      background: #f9fafb !important;
+    }
+    /* Chữ ngày giờ mờ tinh tế */
+    .wl-time {
+      font-size: 13px !important;
+      color: #9ca3af !important;
+    }
+    /* Các tab sắp xếp Mới nhất, Cũ nhất */
     .wl-sort li {
       font-size: 14px !important;
     }
