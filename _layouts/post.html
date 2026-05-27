@@ -66,8 +66,9 @@ layout: default
   </div>
 
   <style>
+    /* Lưới an toàn font chữ: Karla rớt thì có Roboto, Segoe UI đỡ ngay! */
     #waline * {
-      font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
+      font-family: 'Karla', 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
     }
     
     /* Khung ngoài */
@@ -89,7 +90,7 @@ layout: default
     .wl-header-item {
       display: flex !important;
       align-items: center !important;
-      flex: 1 !important; /* Chia đều không gian */
+      flex: 1 !important;
     }
     
     /* Nhãn (Biệt danh, Email, Website) */
@@ -101,7 +102,7 @@ layout: default
       margin: 0 !important;
       display: flex !important;
       align-items: center !important;
-      white-space: nowrap !important; /* CẤM RỚT DÒNG CHỮ BIỆT DANH */
+      white-space: nowrap !important; 
     }
     
     /* Khung nhập (Bắt buộc, Không bắt buộc) */
@@ -115,13 +116,14 @@ layout: default
       display: flex !important;
       align-items: center !important;
       text-align: center !important; 
-      width: 100% !important; /* Ép giãn đầy khoảng trống còn lại */
+      width: 100% !important; 
       transition: all 0.3s ease;
     }
     
     .wl-header input::placeholder {
       font-size: 14px !important;
       color: #9ca3af !important; 
+      opacity: 1 !important; /* Đảm bảo màu mờ hiển thị đều trên điện thoại */
     }
     
     .wl-header input:focus {
@@ -131,16 +133,16 @@ layout: default
     /* 📱 THẦN CHÚ CHUYÊN TRỊ ĐIỆN THOẠI 📱 */
     @media screen and (max-width: 768px) {
       .wl-header {
-        flex-direction: column !important; /* Điện thoại thì bẻ dọc xuống */
+        flex-direction: column !important; 
       }
       .wl-header-item {
-        border-bottom: 1px solid #f3f4f6 !important; /* Thêm vách ngăn ngang */
+        border-bottom: 1px solid #f3f4f6 !important; 
       }
       .wl-header-item:last-child {
-        border-bottom: none !important; /* Ô cuối cùng bỏ vách ngang */
+        border-bottom: none !important; 
       }
       .wl-header input {
-        border-right: none !important; /* Bỏ vách ngăn dọc đi */
+        border-right: none !important; 
       }
     }
     
