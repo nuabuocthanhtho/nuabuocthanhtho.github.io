@@ -30,14 +30,9 @@ layout: default
         </div>
 
         <script>
-            // Lấy trực tiếp mật khẩu từ cấu hình bài viết
             const correctPass = "{{ page.password | strip }}";
-            
             function checkPassword() {
-                // Lấy chữ người dùng nhập và xóa khoảng trắng 2 đầu
                 const input = document.getElementById('pass-input').value.trim();
-                
-                // So sánh trực tiếp
                 if (input === correctPass) {
                     document.getElementById('lock-screen').style.display = 'none';
                     document.getElementById('real-content').style.display = 'block';
@@ -46,8 +41,6 @@ layout: default
                     document.getElementById('pass-input').style.borderColor = '#e50914';
                 }
             }
-            
-            // Hỗ trợ bấm phím Enter để mở
             document.getElementById('pass-input').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') checkPassword();
             });
@@ -73,27 +66,33 @@ layout: default
   </div>
 
   <style>
-    /* Ép đồng bộ font toàn bộ Waline */
     #waline * {
       font-family: 'Karla', system-ui, -apple-system, sans-serif !important;
     }
     
-    /* ------------- PHẦN KHUNG NHẬP LIỆU ------------- */
+    /* Khung ngoài */
     .wl-panel {
       border: 1px solid #e5e7eb !important; 
       border-radius: 12px !important; 
       background: #ffffff !important;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
     }
+    
+    /* Header chứa 3 ô */
     .wl-header {
       border-bottom: 1px solid #f3f4f6 !important;
       display: flex !important;
       align-items: stretch !important;
     }
+    
+    /* Từng ô một */
     .wl-header-item {
       display: flex !important;
       align-items: center !important;
+      flex: 1 !important; /* Chia đều không gian */
     }
+    
+    /* Nhãn (Biệt danh, Email, Website) */
     .wl-header label {
       font-size: 14px !important;
       font-weight: 600 !important;
@@ -102,7 +101,10 @@ layout: default
       margin: 0 !important;
       display: flex !important;
       align-items: center !important;
+      white-space: nowrap !important; /* CẤM RỚT DÒNG CHỮ BIỆT DANH */
     }
+    
+    /* Khung nhập (Bắt buộc, Không bắt buộc) */
     .wl-header input {
       background: #f9fafb !important;
       border-right: 1px solid #f3f4f6 !important;
@@ -113,53 +115,70 @@ layout: default
       display: flex !important;
       align-items: center !important;
       text-align: center !important; 
+      width: 100% !important; /* Ép giãn đầy khoảng trống còn lại */
       transition: all 0.3s ease;
     }
+    
     .wl-header input::placeholder {
       font-size: 14px !important;
       color: #9ca3af !important; 
     }
+    
     .wl-header input:focus {
       background: #ffffff !important;
     }
+
+    /* 📱 THẦN CHÚ CHUYÊN TRỊ ĐIỆN THOẠI 📱 */
+    @media screen and (max-width: 768px) {
+      .wl-header {
+        flex-direction: column !important; /* Điện thoại thì bẻ dọc xuống */
+      }
+      .wl-header-item {
+        border-bottom: 1px solid #f3f4f6 !important; /* Thêm vách ngăn ngang */
+      }
+      .wl-header-item:last-child {
+        border-bottom: none !important; /* Ô cuối cùng bỏ vách ngang */
+      }
+      .wl-header input {
+        border-right: none !important; /* Bỏ vách ngăn dọc đi */
+      }
+    }
+    
+    /* Vùng gõ nội dung */
     .wl-editor {
       font-size: 15px !important;
       padding: 15px !important;
       line-height: 1.6 !important;
     }
+    
     .wl-btn {
       border-radius: 8px !important;
       font-weight: 600 !important;
       letter-spacing: 0.5px;
     }
     
-    /* ------------- PHẦN HIỂN THỊ BÌNH LUẬN XUẤT RA ------------- */
-    /* Số đếm bình luận (VD: 1 Bình luận) */
+    /* Phần hiển thị bình luận */
     .wl-count {
       font-size: 22px !important;
       font-weight: bold !important;
       color: #111827 !important;
     }
-    /* Tên người bình luận */
     .wl-nick {
       font-size: 16px !important;
       font-weight: 700 !important;
       color: #111827 !important;
     }
-    /* Chữ hiển thị nội dung bình luận (Bự ra, dễ nhìn) */
     .wl-content {
       font-size: 16px !important;
       line-height: 1.6 !important;
       color: #374151 !important;
       margin-top: 8px !important;
     }
-    /* Chỉnh cỡ chữ thẻ p bên trong nếu có */
     .wl-content p {
       font-size: inherit !important;
       line-height: inherit !important;
       margin: 0 !important;
     }
-    /* Nhãn Windows, Chrome nhỏ xinh bo góc */
     .wl-badge {
       font-size: 12px !important;
       padding: 2px 6px !important;
@@ -168,12 +187,10 @@ layout: default
       border: 1px solid #e5e7eb !important;
       background: #f9fafb !important;
     }
-    /* Chữ ngày giờ mờ tinh tế */
     .wl-time {
       font-size: 13px !important;
       color: #9ca3af !important;
     }
-    /* Các tab sắp xếp Mới nhất, Cũ nhất */
     .wl-sort li {
       font-size: 14px !important;
     }
@@ -219,12 +236,10 @@ layout: default
       const link = document.querySelector('input[name="link"]');
       
       if (nick && mail && link) {
-        // Tráo chữ mờ
         nick.placeholder = 'Bắt buộc';
         mail.placeholder = 'Không bắt buộc';
         link.placeholder = 'Không bắt buộc';
         
-        // Quét dấu ngoặc ()
         document.querySelectorAll('.wl-header label').forEach(label => {
           if (label.innerHTML.includes('()')) {
             label.innerHTML = label.innerHTML.replace('()', '');
