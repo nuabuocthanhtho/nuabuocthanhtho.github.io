@@ -853,11 +853,11 @@ layout: null
   },
   {
     "start": "01:04:13,000",
-    "end": "01:04:15,660",
+    "end": "01:04:14,992",
     "text": "Bởi vì mình học nhảy cực kỳ chậm"
   },
   {
-    "start": "01:04:15,660",
+    "start": "01:04:14,990",
     "end": "01:04:17,400",
     "text": "Lại còn chả hiểu sao đang học thì lơ đễnh"
   },
@@ -3840,5 +3840,17 @@ layout: null
     </script>
     
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // HỆ THỐNG LẮNG NGHE LỆNH TUA VIDEO TỪ BÀI VIẾT
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.command === 'seekTo') {
+                if (player && typeof player.seekTo === 'function') {
+                    // Tua đến số giây được yêu cầu và tự động phát
+                    player.seekTo(event.data.time, true);
+                    player.playVideo(); 
+                }
+            }
+        });
+    </script>
 </body>
 </html>
