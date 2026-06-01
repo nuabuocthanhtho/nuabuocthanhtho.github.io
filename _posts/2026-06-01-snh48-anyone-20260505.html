@@ -1,5 +1,5 @@
 ---
-layout: post # Sử dụng layout bài đăng bạn đã thiết lập
+layout: post 
 title: "[VIETSUB] SNH48 MC1 Công diễn 《 1&1 Anyone》 05-05-2026"
 youtube_id: "LaWD3Pf1Z3M"
 ---
@@ -7,8 +7,32 @@ youtube_id: "LaWD3Pf1Z3M"
   <strong>💡 Lưu ý:</strong> Vietsub với mục đích luyện dịch, không đảm bảo chính xác 100%
 </div>
 
+<style>
+    .timestamp-box { margin-bottom: 20px; padding: 15px; background: #fafafa; border: 1px dashed #ccc; border-radius: 8px; }
+    .timestamp-box h4 { margin: 0 0 10px 0; font-family: 'Bodoni Moda', serif; font-size: 18px; color: #333; }
+    .timestamp-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .time-btn { 
+        background: #fff; border: 1px solid #e3c9bf; border-radius: 20px; 
+        padding: 6px 15px; cursor: pointer; font-family: 'Oswald', sans-serif; 
+        color: #d35400; font-size: 15px; transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .time-btn:hover { background: #e3c9bf; color: #000; transform: translateY(-2px); }
+    .time-btn i { margin-right: 5px; font-size: 13px; }
+</style>
+
+<div class="timestamp-box">
+    <h4><i class="fas fa-list-ul"></i> Các đoạn đã được Vietsub:</h4>
+    <div class="timestamp-list">
+        <button class="time-btn" onclick="jumpToVideoTime('01:15')"><i class="fas fa-play"></i> 01:15 - Mở đầu</button>
+        <button class="time-btn" onclick="jumpToVideoTime('15:30')"><i class="fas fa-play"></i> 15:30 - MC1 trêu đùa</button>
+        <button class="time-btn" onclick="jumpToVideoTime('54:20')"><i class="fas fa-play"></i> 54:20 - Đoạn đáng chú ý nhất</button>
+    </div>
+</div>
+
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
     <iframe 
+        id="vietsub-iframe"
         src="/vietsub-players/snh48-anyone-20260505.html" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
         allowfullscreen="true" 
@@ -17,3 +41,21 @@ youtube_id: "LaWD3Pf1Z3M"
         allow="autoplay; encrypted-media; picture-in-picture">
     </iframe>
 </div>
+
+<script>
+    function jumpToVideoTime(timeStr) {
+        let seconds = 0;
+        let parts = timeStr.split(':');
+        
+        // Tính toán đổi Phút:Giây (VD: 54:20) hoặc Giờ:Phút:Giây (VD: 1:02:15) ra giây
+        if (parts.length === 2) {
+            seconds = parseInt(parts[0]) * 60 + parseInt(parts[1]);
+        } else if (parts.length === 3) {
+            seconds = parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseInt(parts[2]);
+        }
+
+        // Bắn tín hiệu vào trong iframe
+        const iframe = document.getElementById('vietsub-iframe').contentWindow;
+        iframe.postMessage({ command: 'seekTo', time: seconds }, '*');
+    }
+</script>
