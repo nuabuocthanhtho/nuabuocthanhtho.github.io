@@ -307,4 +307,42 @@
 {% endif %}
 
 </body>
+
+<script>
+    // Gọi trạm kiểm tra của Cloudflare (Siêu nhanh, 100% Free, Không giới hạn)
+    fetch('https://1.1.1.1/cdn-cgi/trace')
+        .then(res => res.text())
+        .then(data => {
+            // Phân tích dữ liệu Cloudflare trả về để tìm dòng "loc=..." (Location)
+            let lines = data.split('\n');
+            let locLine = lines.find(line => line.startsWith('loc='));
+            
+            if(locLine) {
+                let country = locLine.split('=')[1]; // Lấy mã quốc gia (Ví dụ: VN, CN, TW)
+                
+                // DANH SÁCH QUỐC GIA BỊ CHẶN: CN (Trung), TW (Đài), HK (Hồng Kông)
+                let blockedCountries = ['CN', 'TW', 'HK'];
+                
+                if(blockedCountries.includes(country)) {
+                    // Nếu dính IP bị chặn -> Xóa sạch sành sanh web và hiện bảng Lỗi 403 giả
+                    document.documentElement.innerHTML = `
+                        <head>
+                            <title>403 Forbidden</title>
+                            <style>
+                                body { background-color: #f1f1f1; color: #333; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+                                h1 { font-size: 50px; margin-bottom: 10px; color: #d32f2f; }
+                                p { font-size: 18px; color: #666; }
+                            </style>
+                        </head>
+                        <body>
+                            <h1>403 Forbidden</h1>
+                            <p>Access to this resource on the server is denied.</p>
+                            <p style="font-size: 12px; margin-top: 30px; color: #aaa;">Ray ID: ` + Math.random().toString(36).substr(2, 15) + ` &bull; Your IP is blocked by site owner.</p>
+                        </body>
+                    `;
+                }
+            }
+        })
+        .catch(err => console.log("Không thể kiểm tra IP"));
+</script>
 </html>
