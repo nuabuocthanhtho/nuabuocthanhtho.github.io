@@ -1,0 +1,3844 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản dịch thuộc về Nửa Bước Thành Thơ</title>
+    <style>
+        :root {
+            --primary-bg: rgba(20, 20, 20, 0.75); /* Làm nền trong suốt hơn */
+            --accent-color: #e50914; 
+            --text-color: #fff;
+            --label-color: #bbb;
+            --input-bg: rgba(0, 0, 0, 0.6); /* Ô chọn màu tối trong suốt */
+            --input-border: rgba(255, 255, 255, 0.15);
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+            --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+        }
+        body {
+            margin: 0; padding: 0;
+            background-color: #111; font-family: var(--font-family); 
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden; 
+        }
+        .video-container {
+            position: relative; width: 100%; max-width: 800px;
+            aspect-ratio: 16 / 9; background: #000;
+        }
+        .video-container.is-fullscreen {
+            position: fixed !important; top: 0 !important; left: 0 !important;
+            width: 100vw !important; height: 100vh !important;
+            max-width: none !important; z-index: 9999 !important;
+        }
+        iframe { width: 100%; height: 100%; border: none; pointer-events: auto; }
+        
+        .controls-group {
+            position: absolute; right: 15px; top: 50%;
+            transform: translateY(-50%); z-index: 20;
+            display: flex; flex-direction: column; gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .controls-group.is-hidden { opacity: 0; pointer-events: none; }
+        
+        .custom-btn {
+            background: rgba(0, 0, 0, 0.5); border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%; width: 44px; height: 44px;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .custom-btn:hover { background: rgba(0, 0, 0, 0.9); border-color: rgba(255, 255, 255, 0.9); transform: scale(1.1); }
+        .custom-btn svg { fill: white; width: 24px; height: 24px; }
+
+        /* NÂNG CẤP BẢNG CÀI ĐẶT: Hiệu ứng kính mờ (Glassmorphism) */
+        #settings-panel {
+            position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+            background: var(--primary-bg);
+            backdrop-filter: blur(12px); /* Hiệu ứng làm mờ nền phía sau */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; 
+            box-shadow: var(--box-shadow);
+            padding: 20px 24px; 
+            display: none; flex-direction: column; gap: 14px; 
+            z-index: 30; min-width: 240px; max-height: 80vh; overflow-y: auto;
+            color: var(--text-color);
+        }
+        #settings-panel::-webkit-scrollbar { width: 5px; }
+        #settings-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 5px; }
+        
+        .settings-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px; margin-bottom: 5px;
+        }
+        .settings-header h3 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
+        
+        /* Nút X Đóng Bảng */
+        #close-settings {
+            background: none; border: none; color: #888; font-size: 24px; 
+            line-height: 1; cursor: pointer; padding: 0; transition: 0.2s;
+        }
+        #close-settings:hover { color: #fff; transform: scale(1.1); }
+
+        .setting-row { display: flex; flex-direction: column; gap: 6px; } 
+        .setting-row label {
+            font-size: 13px; color: var(--label-color);
+            margin-bottom: 0; display: block; font-weight: 500;
+        }
+        
+        /* Ô thả xuống thiết kế lại mượt mà hơn */
+        .setting-row select {
+            appearance: none; -webkit-appearance: none; width: 100%;
+            background: var(--input-bg); color: var(--text-color);
+            border: 1px solid var(--input-border);
+            padding: 10px 35px 10px 12px; border-radius: 6px; 
+            font-size: 14px; cursor: pointer; outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center; background-size: 20px;
+            transition: all 0.2s ease;
+        }
+        .setting-row select:hover, .setting-row select:focus { 
+            border-color: var(--accent-color); 
+            background: rgba(0,0,0,0.8);
+        }
+        .setting-row select option { background: #222; color: var(--text-color); padding: 8px; }
+
+        /* Phụ đề */
+        #custom-subtitle {
+            position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%);
+            width: 90%; text-align: center; pointer-events: none; z-index: 10;
+        }
+        #subtitle-text {
+            --sub-font: "Segoe UI", Arial, sans-serif;
+            --sub-scale: 1;
+            --sub-color: #ffffff;
+            --sub-bg: rgba(0, 0, 0, 0.55);
+            --sub-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+
+            font-family: var(--sub-font);
+            font-size: calc(26px * var(--sub-scale));
+            color: var(--sub-color);
+            background: var(--sub-bg);
+            text-shadow: var(--sub-shadow);
+            
+            font-weight: 600; padding: 8px 18px; border-radius: 8px; line-height: 1.4;
+            display: inline-block; white-space: pre-line; transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            #subtitle-text { font-size: calc(16px * var(--sub-scale)); padding: 6px 12px; }
+            .custom-btn { width: 36px; height: 36px; }
+            .custom-btn svg { width: 20px; height: 20px; }
+            .controls-group { right: 10px; }
+            #settings-panel { min-width: 200px; padding: 15px; right: 55px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container" id="video-wrapper">
+        <div id="settings-panel">
+            <div class="settings-header">
+                <h3>Cài đặt Phụ đề</h3>
+                <button id="close-settings" title="Đóng">&times;</button>
+            </div>
+            
+            <div class="setting-row">
+                <label>Phông chữ:</label>
+                <select id="set-font">
+                    <option value='"Segoe UI", Arial, sans-serif' selected>Segoe UI</option>
+                    <option value='Tahoma, sans-serif'>Tahoma</option>
+                    <option value='Verdana, sans-serif'>Verdana</option>
+                    <option value='"Times New Roman", Georgia, serif'>Times New Roman</option>
+                    <option value='Consolas, "Courier New", monospace'>Consolas</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Kích thước chữ:</label>
+                <select id="set-size">
+                    <option value="0.5">Rất nhỏ</option>
+                    <option value="0.75">Nhỏ</option>
+                    <option value="1" selected>Vừa (Mặc định)</option>
+                    <option value="1.5">Lớn</option>
+                    <option value="2">Rất lớn</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Màu chữ:</label>
+                <select id="set-color">
+                    <option value="#ffffff" selected>Trắng</option>
+                    <option value="#cccccc">Xám nhạt</option>
+                    <option value="#000000">Đen</option>
+                    <option value="#ffeb3b">Vàng</option>
+                    <option value="#ff9800">Cam</option>
+                    <option value="#ff3d00">Đỏ</option>
+                    <option value="#ff4081">Hồng</option>
+                    <option value="#9c27b0">Tím</option>
+                    <option value="#2196f3">Xanh dương</option>
+                    <option value="#00e5ff">Xanh ngọc</option>
+                    <option value="#00e676">Xanh lá</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Phông nền:</label>
+                <select id="set-bg">
+                    <option value="rgba(0, 0, 0, 0.55)" selected>Đen mờ</option>
+                    <option value="rgba(0, 0, 0, 1)">Đen đặc</option>
+                    <option value="rgba(255, 255, 255, 0.2)">Trắng mờ</option>
+                    <option value="transparent">Trong suốt (Không nền)</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Kiểu viền / Đổ bóng:</label>
+                <select id="set-edge">
+                    <option value="2px 2px 4px rgba(0,0,0,0.9)" selected>Đổ bóng (Mặc định)</option>
+                    <option value="-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Viền đen đậm</option>
+                    <option value="-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff">Viền trắng đậm</option>
+                    <option value="3px 3px 0px rgba(0,0,0,1)">Đổ khối (Nổi)</option>
+                    <option value="none">Không viền</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="controls-group" id="controls-group">
+            <button class="custom-btn" id="custom-cc-btn" title="Tắt Phụ đề">
+                <svg id="cc-icon-on" viewBox="0 0 24 24"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg>
+                <svg id="cc-icon-off" viewBox="0 0 24 24" style="display: none; fill: #888;"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/><line x1="3" y1="3" x2="21" y2="21" stroke="#888" stroke-width="2"/></svg>
+            </button>
+            <button class="custom-btn" id="custom-set-btn" title="Cài đặt">
+                <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            </button>
+            <button class="custom-btn" id="custom-fs-btn" title="Toàn màn hình">
+                <svg id="fs-icon-enter" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display: none;"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>
+            </button>
+        </div>
+
+        <div id="player"></div>
+        
+        <div id="custom-subtitle">
+            <span id="subtitle-text" style="display: none;"></span>
+        </div>
+    </div>
+
+    <script>
+        // MÁ COPY LẠI MẢNG SUB VÀO ĐÂY NHÉ
+        const subtitles = [
+  {
+    "start": "00:54:25,966",
+    "end": "00:54:32,600",
+    "text": "Xin chào mọi người, chúng mình là SNH48 1&1 Anyone"
+  },
+  {
+    "start": "00:54:46,533",
+    "end": "00:54:48,966",
+    "text": "Chào mừng mọi người đã đến với đêm diễn thứ hai của buổi công diễn ra mắt mang tên \"1&1 Anyone\""
+  },
+  {
+    "start": "00:54:50,700",
+    "end": "00:54:52,900",
+    "text": "Chào mọi người mình là Vũ Giai Úy SNH48 team X"
+  },
+  {
+    "start": "00:54:52,900",
+    "end": "00:54:57,633",
+    "text": "Chào mừng mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone của chúng mình, cảm ơn mọi người rất nhiều"
+  },
+  {
+    "start": "00:55:29,660",
+    "end": "00:55:31,200",
+    "text": "Hình như tụi mình có chủ đề mc nữa đúng không?"
+  },
+  {
+    "start": "00:55:31,200",
+    "end": "00:55:32,166",
+    "text": "Đúng rồi! Đúng rồi!"
+  },
+  {
+    "start": "00:55:32,166",
+    "end": "00:55:33,266",
+    "text": "Là gì ấy nhỉ?"
+  },
+  {
+    "start": "00:55:33,266",
+    "end": "00:55:37,166",
+    "text": "Khoảnh khắc khiến mình suy sụp nhất lúc luyện tập"
+  },
+  {
+    "start": "00:55:37,166",
+    "end": "00:55:37,330",
+    "text": "Thật ra \"suy sụp\" thì cũng không hẳn, nhưng có những lúc áp lực kinh khủng khiếp\nKhoảnh khắc khiến mình suy sụp nhất lúc luyện tập"
+  },
+  {
+    "start": "00:55:37,330",
+    "end": "00:55:40,466",
+    "text": "Thật ra \"suy sụp\" thì cũng không hẳn, nhưng có những lúc áp lực kinh khủng khiếp"
+  },
+  {
+    "start": "00:55:40,466",
+    "end": "00:55:45,500",
+    "text": "Bởi vì nhiều part của mình đều nhảy ở phần đầu của điệp khúc"
+  },
+  {
+    "start": "00:55:45,500",
+    "end": "00:55:48,000",
+    "text": "mà đôi khi người cứ bị đuối sức, không ra lực được"
+  },
+  {
+    "start": "00:55:48,000",
+    "end": "00:55:51,566",
+    "text": "Những lúc thế này, đầu mình chỉ vang lên đúng hai chữ mà cô Mã nói với mình"
+  },
+  {
+    "start": "00:55:51,566",
+    "end": "00:55:52,500",
+    "text": "\"(Nhảy) chắc vào!\""
+  },
+  {
+    "start": "00:55:52,500",
+    "end": "00:55:53,333",
+    "text": "\"Chưa được!\""
+  },
+  {
+    "start": "00:55:53,333",
+    "end": "00:55:55,300",
+    "text": "Tức là mình có nhảy thế nào thì cô vẫn bảo là chưa được"
+  },
+  {
+    "start": "00:55:55,300",
+    "end": "00:55:57,133",
+    "text": "Mình có nhảy thế nào cô vẫn bảo là động tác bị lỏng"
+  },
+  {
+    "start": "00:55:57,133",
+    "end": "00:56:02,566",
+    "text": "Thành ra cứ mỗi lần chuẩn bị vào đoạn điệp khúc là mình lại phải gồng tích lực để chuẩn bị tinh thần nhảy luôn"
+  },
+  {
+    "start": "00:56:02,566",
+    "end": "00:56:04,966",
+    "text": "Đó là những lúc mình căng thẳng nhất"
+  },
+  {
+    "start": "00:56:04,966",
+    "end": "00:56:07,733",
+    "text": "Nhưng nhìn chung vẫn ổn, không đến mức suy sụp đâu"
+  },
+  {
+    "start": "00:56:07,733",
+    "end": "00:56:09,733",
+    "text": "vì được tập chung với mọi người lúc nào cũng vui lắm"
+  },
+  {
+    "start": "00:56:09,733",
+    "end": "00:56:11,633",
+    "text": "Tập với mọi người tiến độ rất nhanh"
+  },
+  {
+    "start": "00:56:12,233",
+    "end": "00:56:14,400",
+    "text": "Nên hạnh phúc lắm"
+  },
+  {
+    "start": "00:56:14,400",
+    "end": "00:56:17,466",
+    "text": "Tiểu Vũ bình thường nhảy chuẩn lắm"
+  },
+  {
+    "start": "00:56:17,733",
+    "end": "00:56:19,766",
+    "text": "Rất hiếm khi bị nhắc"
+  },
+  {
+    "start": "00:56:19,866",
+    "end": "00:56:21,133",
+    "text": "Nhưng thật ra vẫn căng thẳng lắm"
+  },
+  {
+    "start": "00:56:21,133",
+    "end": "00:56:22,466",
+    "text": "Những lúc như thế vẫn là sẽ..."
+  },
+  {
+    "start": "00:56:22,466",
+    "end": "00:56:23,700",
+    "text": "Do Miểu: Em là thuộc dạng..."
+  },
+  {
+    "start": "00:56:23,700",
+    "end": "00:56:24,500",
+    "text": "Thiên phú bẩm sinh"
+  },
+  {
+    "start": "00:56:24,500",
+    "end": "00:56:27,366",
+    "text": "Bình thường kiểm tra toàn 100 điểm"
+  },
+  {
+    "start": "00:56:27,366",
+    "end": "00:56:28,833",
+    "text": "Trần Lâm: Em nó cũng tự nhận thế đấy"
+  },
+  {
+    "start": "00:56:28,833",
+    "end": "00:56:29,400",
+    "text": "Do Miểu: Đúng chứ?"
+  },
+  {
+    "start": "00:56:29,400",
+    "end": "00:56:31,600",
+    "text": "Trần Lâm: Em ấy bảo mình là \"người chơi hệ thi cử*\"\n[*] Chỉ những người có tâm lý cực tốt, bình thường học tàng tàng nhưng vào phòng thi là phát huy xuất thần"
+  },
+  {
+    "start": "00:56:31,600",
+    "end": "00:56:35,200",
+    "text": "Nhưng thực ra cũng nhảy lỗi, vì quá căng thẳng"
+  },
+  {
+    "start": "00:56:35,200",
+    "end": "00:56:37,466",
+    "text": "Thế nhé, cảm ơn mọi người!"
+  },
+  {
+    "start": "00:56:38,600",
+    "end": "00:56:41,366",
+    "text": "Chào mọi người, mình là SNH48 Team SII Do Miểu"
+  },
+  {
+    "start": "00:56:41,366",
+    "end": "00:56:49,166",
+    "text": "Hoan nghênh mọi người đến xem buổi công diễn ra mắt thứ hai của 1&1 Anyone của chúng mình, cảm ơn mọi người"
+  },
+  {
+    "start": "00:57:54,166",
+    "end": "00:57:56,330",
+    "text": "Ok, Giai Ân"
+  },
+  {
+    "start": "00:57:56,333",
+    "end": "00:57:57,966",
+    "text": "Chị không nói mc à"
+  },
+  {
+    "start": "00:57:57,966",
+    "end": "00:57:58,800",
+    "text": "Xin lỗi, xin lỗi nha"
+  },
+  {
+    "start": "00:57:58,800",
+    "end": "00:58:00,933",
+    "text": "Tính lén trốn phần mc mà bị phát hiện mất tiêu"
+  },
+  {
+    "start": "00:58:01,833",
+    "end": "00:58:04,533",
+    "text": "Nói về khoảnh khắc suy sụp đúng không?"
+  },
+  {
+    "start": "00:58:04,533",
+    "end": "00:58:07,666",
+    "text": "Thật ra điều làm mình suy sụp nhất là cảm giác thể lực của bản thân không theo kịp"
+  },
+  {
+    "start": "00:58:07,933",
+    "end": "00:58:11,866",
+    "text": "Cả set công diễn này nó thực sự, thực sự, thực sự rất là mệt ấy"
+  },
+  {
+    "start": "00:58:11,866",
+    "end": "00:58:16,600",
+    "text": "Lúc biết phải diễn một mạch ba bài thật sự tụi mình đã rất suy sụp"
+  },
+  {
+    "start": "00:58:16,600",
+    "end": "00:58:18,866",
+    "text": "Bởi vì bình thường đều là 2 bài 1 part thôi đúng không?"
+  },
+  {
+    "start": "00:58:18,870",
+    "end": "00:58:19,642",
+    "text": "Với cường độ cả 3 bài đều rất nặng\nPhải"
+  },
+  {
+    "start": "00:58:19,642",
+    "end": "00:58:22,660",
+    "text": "Với cường độ cả 3 bài đều rất nặng"
+  },
+  {
+    "start": "00:58:22,660",
+    "end": "00:58:24,900",
+    "text": "Xếp liền chúng với nhau đúng là thử thách thể lực đối với tụi mình"
+  },
+  {
+    "start": "00:58:25,000",
+    "end": "00:58:26,200",
+    "text": "Nhưng mà biết sao không?"
+  },
+  {
+    "start": "00:58:26,200",
+    "end": "00:58:29,400",
+    "text": "Có lẽ vì cả 11 đứa ngày nào cũng tập luyện cùng nhau"
+  },
+  {
+    "start": "00:58:29,400",
+    "end": "00:58:32,766",
+    "text": "đứa này làm chỗ dựa tinh thần cho đứa kia"
+  },
+  {
+    "start": "00:58:32,766",
+    "end": "00:58:35,500",
+    "text": "Kiểu thấy mọi người làm được thì mình cũng làm được"
+  },
+  {
+    "start": "00:58:35,500",
+    "end": "00:58:40,766",
+    "text": "Với lại, 11 đứa tụi mình đời thường thật ra là hay \"hơn thua\" với nhau"
+  },
+  {
+    "start": "00:58:42,166",
+    "end": "00:58:44,866",
+    "text": "Vũ Giai Úy: Chị \"hơn thua\" thiệt hả?"
+  },
+  {
+    "start": "00:58:44,900",
+    "end": "00:58:47,666",
+    "text": "Dù miệng không nói ra đâu nhưng ai cũng âm thầm nỗ lực hết"
+  },
+  {
+    "start": "00:58:47,700",
+    "end": "00:58:51,600",
+    "text": "Nhiều khi mình tập xong xuôi rồi, về phòng nghỉ ngơi"
+  },
+  {
+    "start": "00:58:51,600",
+    "end": "00:58:54,660",
+    "text": "Rồi lúc đặt đồ giao tới thì đi xuống lấy"
+  },
+  {
+    "start": "00:58:54,660",
+    "end": "00:58:58,366",
+    "text": "Lúc đi lấy nhìn vào phòng tập thì phát hiện sao mà còn đông người quá vậy?"
+  },
+  {
+    "start": "00:58:58,366",
+    "end": "00:59:00,533",
+    "text": "Thế là: \"Không được, mình cũng phải xuống tập tiếp thôi!\""
+  },
+  {
+    "start": "00:59:00,533",
+    "end": "00:59:02,933",
+    "text": "Mọi người cứ âm thầm cuốn nhau vào cái guồng như thế"
+  },
+  {
+    "start": "00:59:02,933",
+    "end": "00:59:04,700",
+    "text": "Nhưng mình nghĩ nó rất tốt"
+  },
+  {
+    "start": "00:59:04,700",
+    "end": "00:59:07,400",
+    "text": "Kiểu tụi mình cùng nhau thúc đẩy vì sân khấu"
+  },
+  {
+    "start": "00:59:07,400",
+    "end": "00:59:09,000",
+    "text": "đồng thời truyền động lực cho nhau"
+  },
+  {
+    "start": "00:59:09,000",
+    "end": "00:59:11,125",
+    "text": "Đó cũng là ý nghĩa cho sự tồn tại của 11 đứa tụi mình"
+  },
+  {
+    "start": "00:59:11,130",
+    "end": "00:59:13,100",
+    "text": "Cũng hy vọng sẽ có nhiều người biết đến tụi mình hơn"
+  },
+  {
+    "start": "00:59:13,100",
+    "end": "00:59:14,133",
+    "text": "và ủng hộ tụi mình thật nhiều"
+  },
+  {
+    "start": "00:59:14,133",
+    "end": "00:59:15,442",
+    "text": "Cảm ơn mọi người"
+  },
+  {
+    "start": "00:59:21,533",
+    "end": "00:59:24,500",
+    "text": "Chào mọi người, mình là SNH48 Team SII Lý Giai Ân"
+  },
+  {
+    "start": "00:59:24,500",
+    "end": "00:59:29,800",
+    "text": "Cảm ơn mọi người đã đến xem buổi công diễn ra mắt thứ hai của 1&1 Anyone của chúng mình, cảm ơn mọi người"
+  },
+  {
+    "start": "01:00:16,166",
+    "end": "01:00:19,833",
+    "text": "Nói về chuyện suy sụp thì..."
+  },
+  {
+    "start": "01:00:19,833",
+    "end": "01:00:22,766",
+    "text": "...tự nhiên quên ngang"
+  },
+  {
+    "start": "01:00:22,766",
+    "end": "01:00:25,400",
+    "text": "Dương Tâm Du: Chị không có lúc nào suy sụp luôn hả?\nDo Miểu: Chị biết, chị biết nè!"
+  },
+  {
+    "start": "01:00:25,400",
+    "end": "01:00:28,533",
+    "text": "Không phải thầy Giai Ân có một cái đai lưng sao?"
+  },
+  {
+    "start": "01:00:28,533",
+    "end": "01:00:29,000",
+    "text": "Lý Giai Ân: Đúng rồi ha"
+  },
+  {
+    "start": "01:00:29,000",
+    "end": "01:00:32,366",
+    "text": "Xong rồi đang nhảy được nửa đường thì nó bị hết pin, thế là phát ra..."
+  },
+  {
+    "start": "01:00:32,366",
+    "end": "01:00:33,000",
+    "text": "Rất là quê"
+  },
+  {
+    "start": "01:00:33,000",
+    "end": "01:00:34,933",
+    "text": "Vì hôm đó ai cũng ê ẩm hết"
+  },
+  {
+    "start": "01:00:35,200",
+    "end": "01:00:37,000",
+    "text": "Thế là mình mới lén mặc một cái áo khoác thật rộng"
+  },
+  {
+    "start": "01:00:37,000",
+    "end": "01:00:40,166",
+    "text": "giấu cái đai massage điện ở bên trong"
+  },
+  {
+    "start": "01:00:40,166",
+    "end": "01:00:42,000",
+    "text": "Ban đầu định là vừa nhảy vừa lén massage một tí"
+  },
+  {
+    "start": "01:00:42,000",
+    "end": "01:00:43,500",
+    "text": "Ai ngờ đang nhảy nhảy thì tự dưng có tiếng rất to: \"Pin yếu, đang tắt thiết bị, đang tắt thiết bị\""
+  },
+  {
+    "start": "01:00:43,500",
+    "end": "01:00:46,366",
+    "text": "Tiếng rõ to ngay lúc đang im ắng cực kỳ, quê thiệt sự"
+  },
+  {
+    "start": "01:00:46,366",
+    "end": "01:00:50,866",
+    "text": "Ban đầu mình cũng muốn giấu giấu giếm giếm"
+  },
+  {
+    "start": "01:00:50,866",
+    "end": "01:00:53,200",
+    "text": "Dù gì thì cũng phải giữ chút sĩ diện"
+  },
+  {
+    "start": "01:00:53,200",
+    "end": "01:00:56,966",
+    "text": "chứ suốt ngày cứ than đau chỗ này nhức chỗ kia thì hơi mất mặt..."
+  },
+  {
+    "start": "01:00:56,966",
+    "end": "01:01:00,700",
+    "text": "Thành viên: Ơ... Thế bình thường mình toàn than đau thì sao?\nTrần Lâm: Chị cũng vậy hahaha"
+  },
+  {
+    "start": "01:01:00,700",
+    "end": "01:01:01,800",
+    "text": "Lý Giai Ân: Không phải..."
+  },
+  {
+    "start": "01:01:02,400",
+    "end": "01:01:05,666",
+    "text": "Chỉ là em muốn ra vẻ chút thôi"
+  },
+  {
+    "start": "01:01:05,666",
+    "end": "01:01:08,366",
+    "text": "Với cả còn một chuyện nữa"
+  },
+  {
+    "start": "01:01:08,366",
+    "end": "01:01:11,466",
+    "text": "Là cái công diễn này với mình mà nói thì không phải hoàn toàn mới"
+  },
+  {
+    "start": "01:01:11,466",
+    "end": "01:01:14,000",
+    "text": "vì trong số 11 bài thì có tới 9 bài mình từng nhảy qua rồi"
+  },
+  {
+    "start": "01:01:15,666",
+    "end": "01:01:18,100",
+    "text": "Nhưng mà thật ra lúc đầu mình thấy vui lắm"
+  },
+  {
+    "start": "01:01:18,100",
+    "end": "01:01:22,666",
+    "text": "Kiểu: \"Wow, sao mà hợp gu mình thế không biết!\""
+  },
+  {
+    "start": "01:01:22,666",
+    "end": "01:01:25,166",
+    "text": "Thế là máu chiến lại sùng sục lên liền"
+  },
+  {
+    "start": "01:01:34,466",
+    "end": "01:01:36,200",
+    "text": "Phần của mình đến đây thôi, cảm ơn mọi người"
+  },
+  {
+    "start": "01:01:38,166",
+    "end": "01:01:41,700",
+    "text": "Chào mọi người, mình là SNH48 Team X Trần Lâm"
+  },
+  {
+    "start": "01:01:41,700",
+    "end": "01:01:45,100",
+    "text": "Cảm ơn mọi người đã đến xem buổi công diễn ra mắt thứ hai của 1&1 Anyone của chúng mình"
+  },
+  {
+    "start": "01:02:14,666",
+    "end": "01:02:18,900",
+    "text": "Ồ, hôm nay ngày trong tuần mà sao cảm giác người đông thế?"
+  },
+  {
+    "start": "01:02:22,366",
+    "end": "01:02:25,800",
+    "text": "Nói về khoảnh khắc suy sụp của công diễn này đúng không?"
+  },
+  {
+    "start": "01:02:25,800",
+    "end": "01:02:31,333",
+    "text": "Thực ra nếu phải nói lúc suy sụp nhất, thì chính là lúc học bài Hoa Lửa"
+  },
+  {
+    "start": "01:02:31,333",
+    "end": "01:02:34,900",
+    "text": "Bởi vì bài này ai cũng biết hết cả"
+  },
+  {
+    "start": "01:02:34,900",
+    "end": "01:02:38,800",
+    "text": "Lúc mà tụi mình học học học, học một hồi mình mới phát hiện là ai cũng biết cả"
+  },
+  {
+    "start": "01:02:38,800",
+    "end": "01:02:41,266",
+    "text": "Chỉ có mỗi mình, Duệ Kỳ, với hình như là cả Trần Gia Nghi nữa là không biết thôi..."
+  },
+  {
+    "start": "01:02:41,266",
+    "end": "01:02:43,000",
+    "text": "Trần Gia Nghi: Có em nữa! Có cả em nữa"
+  },
+  {
+    "start": "01:02:43,000",
+    "end": "01:02:45,866",
+    "text": "Lúc còn đang mãi nghĩ xem bài này phải nhảy thế nào"
+  },
+  {
+    "start": "01:02:45,866",
+    "end": "01:02:47,200",
+    "text": "thì quay sang thấy ai cũng thuộc hết sạch rồi"
+  },
+  {
+    "start": "01:02:47,200",
+    "end": "01:02:48,733",
+    "text": "Thế là tiến độ bài đó thần tốc vô cùng"
+  },
+  {
+    "start": "01:02:48,733",
+    "end": "01:02:50,166",
+    "text": "làm mình suy sụp muốn chết"
+  },
+  {
+    "start": "01:02:50,166",
+    "end": "01:02:51,933",
+    "text": "Thành viên: Nhưng mà thực ra những người biết rồi còn suy sụp hơn cơ"
+  },
+  {
+    "start": "01:02:51,933",
+    "end": "01:02:54,200",
+    "text": "Thành viên: Tại vì có mấy chỗ nó bị khác đi"
+  },
+  {
+    "start": "01:02:54,200",
+    "end": "01:02:58,166",
+    "text": "Thành viên: Đúng, khác lắm! Lúc sửa động tác khổ kinh khủng"
+  },
+  {
+    "start": "01:02:58,166",
+    "end": "01:03:00,000",
+    "text": "Nhưng lúc mình học cũng khổ kinh khủng"
+  },
+  {
+    "start": "01:03:02,660",
+    "end": "01:03:07,366",
+    "text": "Cái lúc tụi mình quay video ấy, trong video có mỗi mình mình là đứng đực một chỗ"
+  },
+  {
+    "start": "01:03:07,366",
+    "end": "01:03:09,800",
+    "text": "Mọi người đang nhảy ầm ầm, tự dưng mình đứng hình vì quên bài"
+  },
+  {
+    "start": "01:03:09,800",
+    "end": "01:03:11,966",
+    "text": "Rồi mình tính đổi động tác, ơ... lại quên tiếp!"
+  },
+  {
+    "start": "01:03:11,966",
+    "end": "01:03:13,966",
+    "text": "Bất lực kinh khủng"
+  },
+  {
+    "start": "01:03:14,000",
+    "end": "01:03:23,400",
+    "text": "Còn những khi khác thì vẫn ổn, vì mình tập với mọi người chủ yếu là giỡn hớt vui vẻ thôi, át đi hết mấy phần khổ rồi"
+  },
+  {
+    "start": "01:03:23,400",
+    "end": "01:03:27,133",
+    "text": "Có điều lúc nhảy trên sân khấu này thì đúng là vẫn khổ"
+  },
+  {
+    "start": "01:03:27,133",
+    "end": "01:03:28,866",
+    "text": "Thế nhé, cảm ơn mọi người"
+  },
+  {
+    "start": "01:03:30,233",
+    "end": "01:03:32,900",
+    "text": "Chào mọi người, mình là SNH48 team HII Tưởng Thư Đình"
+  },
+  {
+    "start": "01:03:32,900",
+    "end": "01:03:34,525",
+    "text": "Cảm ơn mọi người"
+  },
+  {
+    "start": "01:04:07,800",
+    "end": "01:04:10,900",
+    "text": "Rồi nói về khoảnh khắc suy sụp nhất"
+  },
+  {
+    "start": "01:04:10,900",
+    "end": "01:04:13,000",
+    "text": "Mình nghĩ là học nhảy"
+  },
+  {
+    "start": "01:04:13,000",
+    "end": "01:04:15,660",
+    "text": "Bởi vì mình học nhảy cực kỳ chậm"
+  },
+  {
+    "start": "01:04:15,660",
+    "end": "01:04:17,400",
+    "text": "Lại còn chả hiểu sao đang học thì lơ đễnh"
+  },
+  {
+    "start": "01:04:17,400",
+    "end": "01:04:20,100",
+    "text": "Cô Mã thường nói: \"Tưởng Thư Đình, em có thấy hồn em bay ra ngoài rồi không?\""
+  },
+  {
+    "start": "01:04:20,100",
+    "end": "01:04:21,433",
+    "text": "Mình kiểu: \"Ối, sao cô biết?\""
+  },
+  {
+    "start": "01:04:21,433",
+    "end": "01:04:23,200",
+    "text": "Lúc đó hồn vía mình bay ra ngoài thật"
+  },
+  {
+    "start": "01:04:23,200",
+    "end": "01:04:26,100",
+    "text": "Cô đang dạy đang dạy thế này... động tác đầu tiên thì mình còn theo kịp"
+  },
+  {
+    "start": "01:04:26,100",
+    "end": "01:04:27,866",
+    "text": "Đoạn sau thì mình không nhớ nổi rồi"
+  },
+  {
+    "start": "01:04:27,866",
+    "end": "01:04:29,700",
+    "text": "Nhiều lúc mọi người đều đã thuộc bài hết rồi"
+  },
+  {
+    "start": "01:04:29,700",
+    "end": "01:04:32,333",
+    "text": "chỉ có mình là ngơ ngác"
+  },
+  {
+    "start": "01:04:32,333",
+    "end": "01:04:36,700",
+    "text": "Mình cuống lắm vì sắp tới ngày diễn rồi, cũng sợ cô Mã mắng nữa"
+  },
+  {
+    "start": "01:04:36,700",
+    "end": "01:04:42,500",
+    "text": "Thế là mình tự nhủ: \"Trời ơi, bây giờ chỉ còn nước cố nhét vào đầu thôi. Đợi tan học đi ăn miếng cơm, nghỉ ngơi lấy sức rồi tập trung học tiếp\""
+  },
+  {
+    "start": "01:04:42,500",
+    "end": "01:04:44,400",
+    "text": "Nhưng may sao, cuối cùng mình cũng nhớ được bài"
+  },
+  {
+    "start": "01:04:44,400",
+    "end": "01:04:47,200",
+    "text": "Cho nên lần này là thử thách cực lớn đối mình"
+  },
+  {
+    "start": "01:04:47,200",
+    "end": "01:04:48,533",
+    "text": "Cảm ơn mọi người"
+  },
+  {
+    "start": "01:04:50,300",
+    "end": "01:04:53,700",
+    "text": "Vậy mời bạn tiếp theo giới thiệu bản thân nhé"
+  },
+  {
+    "start": "01:04:59,300",
+    "end": "01:05:02,700",
+    "text": "Chào mọi người, mình là SNH48 team SII Trương Thiến, có thể gọi mình là SAGO"
+  },
+  {
+    "start": "01:05:02,733",
+    "end": "01:05:07,933",
+    "text": "Chào mừng mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone, cảm ơn mọi người"
+  },
+  {
+    "start": "01:05:48,660",
+    "end": "01:05:51,533",
+    "text": "Chuyện suy sụp thì thật ra có rất nhiều"
+  },
+  {
+    "start": "01:05:51,533",
+    "end": "01:05:54,400",
+    "text": "Nhưng thường là mấy chuyện đối nhân xử thế"
+  },
+  {
+    "start": "01:05:54,400",
+    "end": "01:05:56,942",
+    "text": "Nhạy cảm quá nên cũng hơi khó nói..."
+  },
+  {
+    "start": "01:05:56,940",
+    "end": "01:05:59,500",
+    "text": "Để xem cô Mã có ở đây không đã"
+  },
+  {
+    "start": "01:06:00,000",
+    "end": "01:06:02,966",
+    "text": "Thành viên: À, tính nói xấu cô chứ gì?\nThành viên: Cậu tính phốt cô gì thế?"
+  },
+  {
+    "start": "01:06:03,633",
+    "end": "01:06:04,808",
+    "text": "Thành viên: Cô Mã có ở đây sao?"
+  },
+  {
+    "start": "01:06:05,333",
+    "end": "01:06:07,500",
+    "text": "Thành viên: Cô Mã có đó không? Chắc là mc thì không có ở đó đâu"
+  },
+  {
+    "start": "01:06:08,166",
+    "end": "01:06:09,933",
+    "text": "Dương Tâm Du: Chị nói đi, chị không nói tí nữa cũng có người nói"
+  },
+  {
+    "start": "01:06:09,933",
+    "end": "01:06:10,500",
+    "text": "Trương Thiến: Được được"
+  },
+  {
+    "start": "01:06:11,100",
+    "end": "01:06:13,333",
+    "text": "Thành viên: Là cậu chuẩn bị nói đúng không?\nDương Tâm Du: Phải phải phải"
+  },
+  {
+    "start": "01:06:13,333",
+    "end": "01:06:22,742",
+    "text": "Mình cảm thấy chuyện suy sụp nhất trong dự án công diễn lần này chính là cảm thấy cô chấm điểm nhảy của mình thấp quá"
+  },
+  {
+    "start": "01:06:24,692",
+    "end": "01:06:27,933",
+    "text": "Đấy, mấy chuyện tế nhị trong ứng xử là mấy chuyện kiểu thế đấy..."
+  },
+  {
+    "start": "01:06:27,933",
+    "end": "01:06:30,700",
+    "text": "Lý Giai Ân: Chị thấy hay là bây giờ em làm quả solo luôn xem sao"
+  },
+  {
+    "start": "01:06:33,100",
+    "end": "01:06:34,766",
+    "text": "Vương Duệ Kỳ: Công diễn này cũng đủ mệt rồi ấy"
+  },
+  {
+    "start": "01:06:34,766",
+    "end": "01:06:38,000",
+    "text": "Do Miểu: Đột ngột quá rồi đó thầy Giai Ân, mệt lắm đó"
+  },
+  {
+    "start": "01:06:39,700",
+    "end": "01:06:41,533",
+    "text": "Lý Giai Ân không biết mệt đâu"
+  },
+  {
+    "start": "01:06:41,533",
+    "end": "01:06:43,233",
+    "text": "Lý Giai Ân: Em muốn battle với chị đúng không?"
+  },
+  {
+    "start": "01:06:47,266",
+    "end": "01:06:49,330",
+    "text": "Wow, chơi cả floorwork"
+  },
+  {
+    "start": "01:06:49,330",
+    "end": "01:06:50,433",
+    "text": "Breaking"
+  },
+  {
+    "start": "01:06:51,333",
+    "end": "01:06:53,166",
+    "text": "Thế thôi nhé, cảm ơn mọi người"
+  },
+  {
+    "start": "01:06:55,166",
+    "end": "01:06:57,500",
+    "text": "Chào mọi người, mình là SNH48 team X Vương Duệ Kỳ"
+  },
+  {
+    "start": "01:06:57,500",
+    "end": "01:07:01,566",
+    "text": "Cảm ơn mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone của chúng mình, cảm ơn mọi người rất nhiều"
+  },
+  {
+    "start": "01:07:38,966",
+    "end": "01:07:41,133",
+    "text": "Nói về chuyện suy sụp lúc tập"
+  },
+  {
+    "start": "01:07:41,133",
+    "end": "01:07:46,300",
+    "text": "Mình không có mệt, không có khổ, không có stress, không có áp lực, mình cực kỳ cực kỳ vui vẻ"
+  },
+  {
+    "start": "01:07:46,300",
+    "end": "01:07:47,875",
+    "text": "Chị quên cây đũa cảm xạ* hôm qua rồi à?\n[*] Đũa cảm xạ: Hai thanh kim loại chữ L trong trò chơi phát hiện nói dối"
+  },
+  {
+    "start": "01:07:47,880",
+    "end": "01:07:52,766",
+    "text": "Không có, mấy cây đũa đó có khi trơn tay nó cũng quay nhầm hướng nữa"
+  },
+  {
+    "start": "01:07:52,766",
+    "end": "01:07:55,366",
+    "text": "Thật đấy, mình hoàn toàn là người luôn luôn tích cực hướng về phía trước"
+  },
+  {
+    "start": "01:07:55,366",
+    "end": "01:07:56,600",
+    "text": "Là một người vô cùng lạc quan"
+  },
+  {
+    "start": "01:07:56,600",
+    "end": "01:07:58,566",
+    "text": "Là một người tinh thần luôn 10/10"
+  },
+  {
+    "start": "01:07:58,566",
+    "end": "01:08:00,100",
+    "text": "Là một người tràn trề động lực"
+  },
+  {
+    "start": "01:08:00,100",
+    "end": "01:08:01,333",
+    "text": "Mình là một chú bọt biển SpongeBob*\n[*] SpongeBob: Nhân vật hoạt hình trong \"Chú bọt biển tinh nghịch\", luôn lạc quan, yêu đời và tràn đầy năng lượng tích cực"
+  },
+  {
+    "start": "01:08:01,333",
+    "end": "01:08:03,366",
+    "text": "Mình rất là thích cái..."
+  },
+  {
+    "start": "01:08:04,333",
+    "end": "01:08:07,000",
+    "text": "Cứ thế này thì chị đang gây áp lực cho người sau đấy"
+  },
+  {
+    "start": "01:08:07,000",
+    "end": "01:08:09,266",
+    "text": "Đâu có, chị đang nói chị mà, chị chỉ tự nói về chị thôi"
+  },
+  {
+    "start": "01:08:09,266",
+    "end": "01:08:11,300",
+    "text": "Ừm, vậy nha, cảm ơn mọi người nhiều"
+  },
+  {
+    "start": "01:08:14,500",
+    "end": "01:08:17,008",
+    "text": "Chào mọi người, mình là  SNH48 Team SII, Dương Tâm Du"
+  },
+  {
+    "start": "01:08:17,010",
+    "end": "01:08:21,700",
+    "text": "Chào mừng mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone của chúng mình, cảm ơn mọi người rất nhiều"
+  },
+  {
+    "start": "01:09:15,500",
+    "end": "01:09:18,666",
+    "text": "Về chủ đề mc, khoảnh khắc suy sụp nhất khi tập"
+  },
+  {
+    "start": "01:09:18,666",
+    "end": "01:09:21,766",
+    "text": "Đầu mình lướt qua rất rất nhiều chuyện muốn kể"
+  },
+  {
+    "start": "01:09:21,766",
+    "end": "01:09:23,200",
+    "text": "Nên kể từ đâu đây"
+  },
+  {
+    "start": "01:09:23,200",
+    "end": "01:09:24,366",
+    "text": "Cô Mã ơi, em yêu cô lắm đó"
+  },
+  {
+    "start": "01:09:28,200",
+    "end": "01:09:29,266",
+    "text": "Thành viên: Cô Mã vừa nhắc thì quay lại liền hả"
+  },
+  {
+    "start": "01:09:29,266",
+    "end": "01:09:32,266",
+    "text": "Không phải, mình cũng không biết cô có ở đây không, chỉ làm trước cái hôn gió vậy thôi"
+  },
+  {
+    "start": "01:09:32,266",
+    "end": "01:09:33,933",
+    "text": "Không lẽ đến hôn gió cũng không được"
+  },
+  {
+    "start": "01:09:33,933",
+    "end": "01:09:39,700",
+    "text": "Là thế này, trong quá trình tập luyện ấy, tụi mình sẽ thường xuyên bị nhắc nhở đúng không?"
+  },
+  {
+    "start": "01:09:39,700",
+    "end": "01:09:45,800",
+    "text": "Mình cứ có cảm giác, đặc biệt là mấy ngày nay vào nhà hát, trong mắt cô Mã giống như là chỉ nhìn thấy mình thôi"
+  },
+  {
+    "start": "01:09:45,800",
+    "end": "01:09:48,433",
+    "text": "Là ngoại lệ đó"
+  },
+  {
+    "start": "01:09:48,433",
+    "end": "01:09:50,233",
+    "text": "Tiểu đường rồi đó"
+  },
+  {
+    "start": "01:09:51,800",
+    "end": "01:09:53,733",
+    "text": "Không phải, tí nữa lại bảo em ké..."
+  },
+  {
+    "start": "01:09:53,733",
+    "end": "01:09:56,100",
+    "text": "À thôi kệ đi, em ké fame cô một tí nhé, ngại ghê"
+  },
+  {
+    "start": "01:09:56,100",
+    "end": "01:09:57,266",
+    "text": "Hai người gọi là Mã Dương"
+  },
+  {
+    "start": "01:09:57,266",
+    "end": "01:10:00,700",
+    "text": "Thật đấy, mình cứ cảm giác lúc tập công diễn này, mỗi lần cô nói"
+  },
+  {
+    "start": "01:10:00,700",
+    "end": "01:10:01,433",
+    "text": "\"Đó là ai?\""
+  },
+  {
+    "start": "01:10:01,433",
+    "end": "01:10:02,333",
+    "text": "thì mình như thế này"
+  },
+  {
+    "start": "01:10:02,333",
+    "end": "01:10:03,866",
+    "text": "Rụt cổ như rùa không dám ngẩng đầu nhìn cô"
+  },
+  {
+    "start": "01:10:03,866",
+    "end": "01:10:06,008",
+    "text": "bởi vì mình sợ người cô nói là mình"
+  },
+  {
+    "start": "01:10:06,010",
+    "end": "01:10:08,866",
+    "text": "Nhưng hầu như là lần nào người đó cũng là mình"
+  },
+  {
+    "start": "01:10:08,866",
+    "end": "01:10:11,900",
+    "text": "Thỉnh thoảng cũng sẽ có Trần Gia Nghi"
+  },
+  {
+    "start": "01:10:11,900",
+    "end": "01:10:13,300",
+    "text": "và cả Duệ Kỳ"
+  },
+  {
+    "start": "01:10:13,300",
+    "end": "01:10:15,466",
+    "text": "Ba đứa tụi mình gần như hứng trọn phẫn nộ của cô luôn rồi"
+  },
+  {
+    "start": "01:10:15,466",
+    "end": "01:10:16,800",
+    "text": "Chị thấy chị mới là đứa hứng nhiều nhất"
+  },
+  {
+    "start": "01:10:16,800",
+    "end": "01:10:20,100",
+    "text": "Thật sao? Cho nên em mới thấy tâm lý của chị đỉnh thực sự"
+  },
+  {
+    "start": "01:10:20,100",
+    "end": "01:10:21,166",
+    "text": "Chị không hề stress tí nào"
+  },
+  {
+    "start": "01:10:22,666",
+    "end": "01:10:24,900",
+    "text": "Ẻm không có khổ, không có mệt"
+  },
+  {
+    "start": "01:10:24,900",
+    "end": "01:10:26,000",
+    "text": "Ẻm là SpongeBob"
+  },
+  {
+    "start": "01:10:26,000",
+    "end": "01:10:27,966",
+    "text": "Bởi vì em thấy tinh thần chị ấy rất tốt"
+  },
+  {
+    "start": "01:10:27,966",
+    "end": "01:10:29,600",
+    "text": "Công nhận, tinh thần em ấy thật sự tốt"
+  },
+  {
+    "start": "01:10:30,342",
+    "end": "01:10:33,200",
+    "text": "Mình cảm thấy mấy ngày tập luyện đó xong"
+  },
+  {
+    "start": "01:10:33,200",
+    "end": "01:10:35,300",
+    "text": "mình thấy hơi nghi ngờ bản thân rồi"
+  },
+  {
+    "start": "01:10:35,300",
+    "end": "01:10:41,933",
+    "text": "Hôm tổng duyệt xong, mình có xem video tổng duyệt từ monitor"
+  },
+  {
+    "start": "01:10:41,933",
+    "end": "01:10:44,600",
+    "text": "Mà tổng duyệt là sau khi cả đám đã tập nguyên một ngày trời"
+  },
+  {
+    "start": "01:10:44,600",
+    "end": "01:10:46,800",
+    "text": "xong cuối cùng ráp lại chạy một mạch từ đầu đến cuối, nhảy liên tục"
+  },
+  {
+    "start": "01:10:46,800",
+    "end": "01:10:49,533",
+    "text": "Cho nên lúc đó không ai trang điểm, mặt mộc hết"
+  },
+  {
+    "start": "01:10:49,533",
+    "end": "01:10:52,266",
+    "text": "Mặt mộc mà nên rất tàn tạ"
+  },
+  {
+    "start": "01:10:52,266",
+    "end": "01:10:54,400",
+    "text": "Mình lại là đứa có cơ địa dễ đỏ mặt nữa"
+  },
+  {
+    "start": "01:10:54,400",
+    "end": "01:10:59,000",
+    "text": "Tức là chỉ cần mệt một tí, nóng một tí hay ngột ngạt một tí là mặt đỏ cực kỳ đỏ"
+  },
+  {
+    "start": "01:10:59,000",
+    "end": "01:11:02,300",
+    "text": "Lúc quá mệt, mồ hôi đầy đầu, mặt thì đỏ chót"
+  },
+  {
+    "start": "01:11:02,300",
+    "end": "01:11:06,333",
+    "text": "Tóc tai toàn mồ hôi, bết lại, cọng quẹt bên này cọng dính bên kia"
+  },
+  {
+    "start": "01:11:06,333",
+    "end": "01:11:10,660",
+    "text": "Lúc xem lại, mình kiểu: \"Đứa ăn mày nào trên stage vậy?\""
+  },
+  {
+    "start": "01:11:10,660",
+    "end": "01:11:13,200",
+    "text": "Nói chung là rất kinh dị"
+  },
+  {
+    "start": "01:11:13,200",
+    "end": "01:11:15,008",
+    "text": "Cô Mã còn hỏi mình có phải sắp thở không ra hơi rồi không?"
+  },
+  {
+    "start": "01:11:15,010",
+    "end": "01:11:18,466",
+    "text": "Mình bảo làm gì tới mức đó, cơ địa em dễ đỏ mặt thôi, cũng khổ tâm lắm"
+  },
+  {
+    "start": "01:11:18,466",
+    "end": "01:11:20,900",
+    "text": "Ngày hôm qua diễn buổi đầu tiên cũng vậy"
+  },
+  {
+    "start": "01:11:20,900",
+    "end": "01:11:24,400",
+    "text": "Lần đầu tiên mình phát hiện mình hình như thuộc tuýp dễ đổ mồ hôi"
+  },
+  {
+    "start": "01:11:24,400",
+    "end": "01:11:25,300",
+    "text": "Là lần đầu phát hiện ra"
+  },
+  {
+    "start": "01:11:25,300",
+    "end": "01:11:30,600",
+    "text": "Vì mình thấy mọi người tuy cũng mệt nhưng lấy khăn giấy lau mồ hôi trên trán mấy cái là được rồi"
+  },
+  {
+    "start": "01:11:30,600",
+    "end": "01:11:35,266",
+    "text": "Còn mình, mồ hôi nó cuốn trôi luôn mi giả và miếng kích mí"
+  },
+  {
+    "start": "01:11:35,266",
+    "end": "01:11:38,866",
+    "text": "Nên là lúc xuống stage, tụi mình đâu có thời gian để dặm lại"
+  },
+  {
+    "start": "01:11:38,866",
+    "end": "01:11:42,166",
+    "text": "Vừa phải lên stage nói mc, vừa phải tranh thủ thay đồ rồi chạy đi nhảy tiếp"
+  },
+  {
+    "start": "01:11:42,166",
+    "end": "01:11:47,500",
+    "text": "Lúc đó bất lực thực sự, mình kiểu: \"Chờ chút đã chứ, hình như makeup bị mồ hôi làm trôi rồi\""
+  },
+  {
+    "start": "01:11:47,500",
+    "end": "01:11:51,666",
+    "text": "Chả biết làm sao, vì mặt vừa dễ đỏ mà mồ hôi lại còn siêu nhiều nữa"
+  },
+  {
+    "start": "01:11:52,166",
+    "end": "01:11:53,333",
+    "text": "Còn một chuyện làm mình bất lực nữa lúc tập"
+  },
+  {
+    "start": "01:11:53,333",
+    "end": "01:11:57,133",
+    "text": "Như lúc tụi mình tập nhảy ở trung tâm"
+  },
+  {
+    "start": "01:11:57,130",
+    "end": "01:12:02,660",
+    "text": "Ví dụ hễ có động tác nào làm chưa tới là y như rằng cô Mã sẽ đến bên cạnh bảo: \"Động tác của em còn chưa chuẩn\""
+  },
+  {
+    "start": "01:12:02,660",
+    "end": "01:12:06,192",
+    "text": "Mà động tác của mình có một số sẽ là phần vai, ví dụ như..."
+  },
+  {
+    "start": "01:12:07,008",
+    "end": "01:12:08,266",
+    "text": "Kiểu như vậy"
+  },
+  {
+    "start": "01:12:08,266",
+    "end": "01:12:10,700",
+    "text": "Cô Mã nói: \"Sao nhỏ xíu vậy, biên độ rộng tí xem nào!\""
+  },
+  {
+    "start": "01:12:10,700",
+    "end": "01:12:17,000",
+    "text": "Đầu mình lúc đó kiểu: \"Cô ơi, có khả năng là em đã cố hết mức có thể rồi đó\""
+  },
+  {
+    "start": "01:12:17,000",
+    "end": "01:12:21,166",
+    "text": "\"Nhưng mà cái vai của em nó chỉ có một mẩu thế này thôi, vai chỉ hẹp thế thôi\""
+  },
+  {
+    "start": "01:12:21,166",
+    "end": "01:12:27,300",
+    "text": "Cô Mã còn cười trêu, bảo nhìn mình cứ thẳng tuột một đường"
+  },
+  {
+    "start": "01:12:27,300",
+    "end": "01:12:30,100",
+    "text": "Mình bảo: \"Đây là niềm đau của em, cô đừng nói nữa!\""
+  },
+  {
+    "start": "01:12:30,100",
+    "end": "01:12:35,800",
+    "text": "Thế là mỗi lần đến động tác vai, cô Mã lại nghĩ là mình không dùng hết sức để nhảy"
+  },
+  {
+    "start": "01:12:35,800",
+    "end": "01:12:39,908",
+    "text": "Nhưng thực sự trong lòng mình nghĩ đã dùng tới 200% công lực rồi, thật sự rất khổ"
+  },
+  {
+    "start": "01:12:39,910",
+    "end": "01:12:44,233",
+    "text": "Bởi vì không phải mình không muốn làm tốt, mà là mình cố lắm rồi cũng chỉ đến được mức đấy thôi"
+  },
+  {
+    "start": "01:12:44,933",
+    "end": "01:12:46,866",
+    "text": "Đấy, ngoài hai chuyện bất lực đó ra..."
+  },
+  {
+    "start": "01:12:46,900",
+    "end": "01:12:50,900",
+    "text": "Thành viên: Vẫn còn nữa hả? Sao mà nhiều thế!"
+  },
+  {
+    "start": "01:12:51,933",
+    "end": "01:12:54,533",
+    "text": "Tại mọi người vừa nói làm em nhớ ra là em với Giai Ân khá là giống nhau"
+  },
+  {
+    "start": "01:12:54,533",
+    "end": "01:12:59,700",
+    "text": "List nhạc của công diễn này mình cũng nhảy đâu đó tầm 8, 9 bài rồi"
+  },
+  {
+    "start": "01:12:59,700",
+    "end": "01:13:03,200",
+    "text": "Trong đó có 3 bài unit mình đang nhảy ở công diễn hiện tại của mình luôn"
+  },
+  {
+    "start": "01:13:03,200",
+    "end": "01:13:08,200",
+    "text": "Là bài Tàn Tích, Kế Hoạch Phản Công, Hồi Âm đều là mấy bài mình đang nhảy cả"
+  },
+  {
+    "start": "01:13:08,200",
+    "end": "01:13:09,666",
+    "text": "Mấy bài cũng giống nhau"
+  },
+  {
+    "start": "01:13:09,666",
+    "end": "01:13:12,133",
+    "text": "Có mấy động tác mà cơ thể đã hình thành thói quen rồi"
+  },
+  {
+    "start": "01:13:12,133",
+    "end": "01:13:18,566",
+    "text": "nên khi học động tác mới mà nó khác hoàn toàn là mình cứ bị bứt rứt, khó chịu cực kỳ"
+  },
+  {
+    "start": "01:13:18,566",
+    "end": "01:13:20,600",
+    "text": "Thành ra bây giờ mình giống như phải học hai phiên bản khác nhau vậy"
+  },
+  {
+    "start": "01:13:20,600",
+    "end": "01:13:25,566",
+    "text": "Cách đây không lâu khi nhảy unit ở công diễn của mình, mình mới nhận ra là cơ thể lại bị quen theo phản xạ ở bên đây rồi"
+  },
+  {
+    "start": "01:13:25,566",
+    "end": "01:13:28,400",
+    "text": "Cho nên công diễn bên kia lại nhảy sai"
+  },
+  {
+    "start": "01:13:28,400",
+    "end": "01:13:32,825",
+    "text": "Nên là bây giờ mình phải hình thành hai kiểu phản xạ khác nhau để nhảy hai phiên bản cho cùng ba bài hát đó, cảm giác kiểu vậy"
+  },
+  {
+    "start": "01:13:32,830",
+    "end": "01:13:35,666",
+    "text": "Nhưng mà cứ ráng nhớ thôi, mình thấy về cơ bản thì cũng không khác quá nhiều"
+  },
+  {
+    "start": "01:13:35,666",
+    "end": "01:13:37,366",
+    "text": "Đại khái là thế, cảm ơn mọi người!"
+  },
+  {
+    "start": "01:13:39,500",
+    "end": "01:13:43,500",
+    "text": "Chào mọi người, mình là Liễu Vũ Trình SNH48 team SII"
+  },
+  {
+    "start": "01:13:43,500",
+    "end": "01:13:46,166",
+    "text": "Thành viên: Sao dẹo dữ vậy bà?"
+  },
+  {
+    "start": "01:13:46,166",
+    "end": "01:13:47,233",
+    "text": "Em cũng thua trò \"thật hay thách\" rồi đúng không?"
+  },
+  {
+    "start": "01:13:47,233",
+    "end": "01:13:48,700",
+    "text": "Em chơi thua rồi"
+  },
+  {
+    "start": "01:13:48,700",
+    "end": "01:13:53,633",
+    "text": "Cảm ơn mọi người đã đến xem buổi công diễn ra mắt thứ hai của 1&1 Anyone của tụi mình, cảm ơn mọi người rất nhiều"
+  },
+  {
+    "start": "01:14:48,975",
+    "end": "01:14:52,933",
+    "text": "OK, chủ đề mc hôm nay của tụi mình là “Những khoảnh khắc suy sụp trong lúc tập công diễn\""
+  },
+  {
+    "start": "01:14:52,933",
+    "end": "01:14:55,733",
+    "text": "Với mình thì điều làm mình áp lực, muốn suy sụp nhất chính là hai người"
+  },
+  {
+    "start": "01:14:55,733",
+    "end": "01:14:57,966",
+    "text": "Một là Đại Du, hai là Tiểu Vũ"
+  },
+  {
+    "start": "01:14:57,966",
+    "end": "01:14:59,400",
+    "text": "Hai người này làm mình mệt mỏi thật sự"
+  },
+  {
+    "start": "01:14:59,400",
+    "end": "01:15:04,000",
+    "text": "Tại vì lần nào chia line cũng một người đứng ngay trước mặt, người kia thì đứng ngay sau"
+  },
+  {
+    "start": "01:15:04,500",
+    "end": "01:15:07,400",
+    "text": "Rồi rất nhiều động tác phải phối hợp với hai người này nữa"
+  },
+  {
+    "start": "01:15:07,400",
+    "end": "01:15:12,900",
+    "text": "Đặc biệt là động tác ở bài Khẽ Gầm của mình với Tiểu Vũ"
+  },
+  {
+    "start": "01:15:12,900",
+    "end": "01:15:14,580",
+    "text": "Vũ Giai Úy: Cái đó ổn mà\nThành viên: Hai người đứng chung thử xem"
+  },
+  {
+    "start": "01:15:14,575",
+    "end": "01:15:17,233",
+    "text": "Không phải nói rồi sao, lần nào lên công diễn mình cũng giống như đang làm ảo thuật hô biến ra người ấy"
+  },
+  {
+    "start": "01:15:17,230",
+    "end": "01:15:21,200",
+    "text": "Đúng, mình thì toàn phải chật vật xoay xoay kiểu này để đi ra"
+  },
+  {
+    "start": "01:15:21,775",
+    "end": "01:15:23,200",
+    "text": "Rất có điểm nhấn mà"
+  },
+  {
+    "start": "01:15:23,200",
+    "end": "01:15:27,200",
+    "text": "Em nghĩ xem nếu chị đứng sau mà em nhảy ở đằng trước thì cũng kỳ cục lắm"
+  },
+  {
+    "start": "01:15:28,466",
+    "end": "01:15:34,300",
+    "text": "Còn nữa, cứ mỗi lần máy quay vừa lia tới hai bả xong đến lượt mình lại thành lọt hố"
+  },
+  {
+    "start": "01:15:34,300",
+    "end": "01:15:41,766",
+    "text": "Hôm qua lúc nhảy xong bài Tàn Tích đi xuống, các chị còn cười bảo: \"Không sao, các em nhảy đều lắm, nhưng mà nhìn em đáng yêu hơn\" các thứ"
+  },
+  {
+    "start": "01:15:41,766",
+    "end": "01:15:45,266",
+    "text": "Xong mình mới nói: \"Đứng được dưới hố cũng là một loại tài năng đó chị\""
+  },
+  {
+    "start": "01:15:46,533",
+    "end": "01:15:48,933",
+    "text": "Còn có khoảnh khắc bất lực hơn nữa"
+  },
+  {
+    "start": "01:15:48,933",
+    "end": "01:15:53,700",
+    "text": "Đó là bởi vì mình tự thấy dù vóc dáng mình nhỏ nhưng nhỏ mà có võ"
+  },
+  {
+    "start": "01:15:53,700",
+    "end": "01:15:56,866",
+    "text": "Tức là năng lượng rất lớn nên không nhảy được mấy kiểu quá quyến rũ"
+  },
+  {
+    "start": "01:15:56,866",
+    "end": "01:15:59,766",
+    "text": "Cũng không biết tại sao, chắc do từ nhỏ toàn làm top quen rồi"
+  },
+  {
+    "start": "01:15:59,766",
+    "end": "01:16:07,766",
+    "text": "Thành viên: Trời đất ơi! Liễu Vũ Trình chỉ làm top thôi đó!"
+  },
+  {
+    "start": "01:16:07,766",
+    "end": "01:16:14,600",
+    "text": "Thế nên lúc tụi mình tập 3 bài style sexy, cô Mã lúc nào cũng bảo mình phải dẻo hơn một tí"
+  },
+  {
+    "start": "01:16:14,600",
+    "end": "01:16:16,100",
+    "text": "Mình nói em dẻo không có nổi"
+  },
+  {
+    "start": "01:16:16,100",
+    "end": "01:16:20,700",
+    "text": "Lúc tập xong mấy bài nữ tính đó, chuyển sang bài Hoa Lửa hảo hán"
+  },
+  {
+    "start": "01:16:26,666",
+    "end": "01:16:31,533",
+    "text": "Cô liền bảo: \"Chẳng phải em nói em không nhảy được sao? Chẳng phải em nói em làm top à? Làm top cũng nhảy không được?\""
+  },
+  {
+    "start": "01:16:31,533",
+    "end": "01:16:34,800",
+    "text": "Thế là mình buông xuôi luôn, bảo là: \"Thôi coi như em không biết nhảy đi\""
+  },
+  {
+    "start": "01:16:35,758",
+    "end": "01:16:39,133",
+    "text": "Vậy nên cảm ơn cô Mã, cảm ơn công ty đã tuyển em vào đây"
+  },
+  {
+    "start": "01:16:39,133",
+    "end": "01:16:40,700",
+    "text": "Thế nhé, cảm ơn mọi người!"
+  },
+  {
+    "start": "01:16:46,700",
+    "end": "01:16:48,966",
+    "text": "Chào mọi người, mình là SNH48 team SII Chu Đồng Nguyệt"
+  },
+  {
+    "start": "01:16:48,966",
+    "end": "01:16:52,700",
+    "text": "Chào mừng mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone của chúng mình, cảm ơn mọi người"
+  },
+  {
+    "start": "01:17:20,133",
+    "end": "01:17:22,566",
+    "text": "Tiếp theo là nói về chuyện làm tụi mình suy sụp nhé"
+  },
+  {
+    "start": "01:17:23,500",
+    "end": "01:17:33,333",
+    "text": "Trần Gia Nghi, cậu có nhớ không? Hôm đó tụi mình ở nhà hát tổng duyệt xong, tụi mình cùng ngồi cùng xe về với giáo viên biên đạo"
+  },
+  {
+    "start": "01:17:33,333",
+    "end": "01:17:39,300",
+    "text": "Trần Gia Nghi thực sự là rất có chí tiến thủ, Liễu Vũ Trình cũng vậy"
+  },
+  {
+    "start": "01:17:39,300",
+    "end": "01:17:43,166",
+    "text": "Hai người họ cứ bám lấy giáo viên hỏi: \"Thầy/cô ơi, có thể nhận xét thẳng về em một chút được không?\""
+  },
+  {
+    "start": "01:17:43,166",
+    "end": "01:17:45,660",
+    "text": "Lúc đó thầy/cô kiểu siêu ngượng luôn"
+  },
+  {
+    "start": "01:17:46,258",
+    "end": "01:17:50,000",
+    "text": "Thật ra vì thầy/cô ấy không giỏi nói mấy câu tổn thương người khác cho lắm"
+  },
+  {
+    "start": "01:17:50,000",
+    "end": "01:17:51,966",
+    "text": "Đúng, thế là tụi mình nói: \"Thầy/cô ơi, thầy/cô nhập vai cô Mã thử xem sao\""
+  },
+  {
+    "start": "01:17:51,966",
+    "end": "01:17:55,000",
+    "text": "Thầy/cô ấy bảo là không nói được như vậy nhưng tụi mình cứ gặng hỏi mãi"
+  },
+  {
+    "start": "01:17:55,000",
+    "end": "01:17:56,900",
+    "text": "Thế là thầy/cô mới bảo là..."
+  },
+  {
+    "start": "01:17:56,900",
+    "end": "01:18:04,800",
+    "text": "Bởi vì bộ đồ bài Khẽ Gầm làm tụi mình hơi thiếu tự tin"
+  },
+  {
+    "start": "01:18:04,800",
+    "end": "01:18:09,366",
+    "text": "Thầy/cô bảo là hai tụi mình nhảy cứ kỳ kỳ dị dị"
+  },
+  {
+    "start": "01:18:09,366",
+    "end": "01:18:10,933",
+    "text": "Đúng, mình cũng thấy dị"
+  },
+  {
+    "start": "01:18:10,930",
+    "end": "01:18:18,933",
+    "text": "Vốn dĩ bài biên đạo là phong cách rất quyến rũ mà vận lên người tụi mình thì nhìn như bị đa nhân cách"
+  },
+  {
+    "start": "01:18:18,933",
+    "end": "01:18:21,666",
+    "text": "Chuyện này làm tụi mình hơi suy sụp một xíu..."
+  },
+  {
+    "start": "01:18:21,666",
+    "end": "01:18:25,166",
+    "text": "Nhưng mà những thứ khác thì đều cải thiện"
+  },
+  {
+    "start": "01:18:25,166",
+    "end": "01:18:30,600",
+    "text": "Thật ra mình thấy lần xếp đội 11 người này là một quá trình để mình nâng cao năng lực bản thân"
+  },
+  {
+    "start": "01:18:30,600",
+    "end": "01:18:35,900",
+    "text": "Trước công diễn, mình thậm chí còn không dám nghĩ mọi người có thích mình hay không, không dám kỳ vọng luôn"
+  },
+  {
+    "start": "01:18:35,900",
+    "end": "01:18:41,000",
+    "text": "Mình chỉ nghĩ là, nếu bản thân có cơ hội thì sẽ cố gắng hết sức để trở nên tốt hơn thôi"
+  },
+  {
+    "start": "01:18:41,000",
+    "end": "01:18:42,042",
+    "text": "Cảm ơn mọi người!"
+  },
+  {
+    "start": "01:18:43,766",
+    "end": "01:18:47,200",
+    "text": "Chào mọi người, mình là SNH48 team SII Trần Gia Nghi"
+  },
+  {
+    "start": "01:18:47,200",
+    "end": "01:18:54,266",
+    "text": "Hoan nghênh mọi người đã đến xem buổi công diễn ra mắt thứ hai của Anyone của tụi mình, cảm ơn mọi người rất nhiều"
+  },
+  {
+    "start": "01:19:46,400",
+    "end": "01:19:55,233",
+    "text": "Thực ra nói về chuyện làm mình hơi suy sụp, chính là mỗi lần cô Mã gọi mình, cô toàn bảo \"Đó là ai\", \"Cái bạn nữ kia...\""
+  },
+  {
+    "start": "01:19:56,200",
+    "end": "01:19:57,733",
+    "text": "Cô chẳng bao giờ nhớ nổi tên mình cả"
+  },
+  {
+    "start": "01:19:57,733",
+    "end": "01:20:00,466",
+    "text": "Ngày đầu tiên cô không gọi đúng tên mình một lần"
+  },
+  {
+    "start": "01:20:00,466",
+    "end": "01:20:11,533",
+    "text": "Ngày thứ hai lúc tập, nhờ có Giai Ân với giáo viên dạy nhảy nhắc đi nhắc lại mấy lần cô mới gọi được tên mình"
+  },
+  {
+    "start": "01:20:11,533",
+    "end": "01:20:14,733",
+    "text": "Làm mình có hơi suy sụp nhẹ"
+  },
+  {
+    "start": "01:20:14,733",
+    "end": "01:20:19,966",
+    "text": "Lý Giai Ân: Không phải đâu, chủ yếu là cái tên Gia Nghi của em nó phổ biến quá, đi đâu cũng đụng hàng ấy"
+  },
+  {
+    "start": "01:20:19,966",
+    "end": "01:20:22,366",
+    "text": "Xác suất trùng hơi bị cao đúng không?"
+  },
+  {
+    "start": "01:20:22,366",
+    "end": "01:20:24,266",
+    "text": "Thôi được, vậy mình tạm tha thứ cho cô Mã một lần vậy"
+  },
+  {
+    "start": "01:20:25,866",
+    "end": "01:20:29,966",
+    "text": "Thành viên: Ẻm tha cho cô rồi đấy cô Mã"
+  },
+  {
+    "start": "01:20:29,966",
+    "end": "01:20:32,566",
+    "text": "Em đùa thôi, đùa thôi!"
+  },
+  {
+    "start": "01:20:33,500",
+    "end": "01:20:37,133",
+    "text": "Dù sao thì sau đó cô cũng nhớ được tên mình rồi"
+  },
+  {
+    "start": "01:20:37,133",
+    "end": "01:20:41,233",
+    "text": "Còn nữa là cường độ tập của tụi mình thật sự căng kinh khủng"
+  },
+  {
+    "start": "01:20:41,233",
+    "end": "01:20:48,866",
+    "text": "Lần nào cô Mã cũng bảo tụi mình nhảy đi nhảy lại, một lần, hai lần, ba lần... cứ lặp đi lặp lại liên tục như vậy"
+  },
+  {
+    "start": "01:20:48,866",
+    "end": "01:20:51,166",
+    "text": "Mọi người ai cũng rã rời"
+  },
+  {
+    "start": "01:20:51,166",
+    "end": "01:20:59,600",
+    "text": "Lúc tập thì mình thường ăn chân gà ngâm muối ớt mà, ăn thay cơm"
+  },
+  {
+    "start": "01:20:59,600",
+    "end": "01:21:02,133",
+    "text": "Mà món đó ăn xong thì cay xé lưỡi"
+  },
+  {
+    "start": "01:21:02,133",
+    "end": "01:21:08,766",
+    "text": "Mà vừa lên stage là quay liền video, lúc quay thì phải dùng hết sức bình sinh, nhảy thật mạnh, thật bốc"
+  },
+  {
+    "start": "01:21:08,766",
+    "end": "01:21:14,933",
+    "text": "Nhảy đến mấy đoạn cuối là mình bắt đầu thấy buồn nôn, thật sự muốn nôn tới nơi"
+  },
+  {
+    "start": "01:21:14,933",
+    "end": "01:21:18,133",
+    "text": "Lúc đó nhịn đến mức mắt đỏ chót lên"
+  },
+  {
+    "start": "01:21:18,133",
+    "end": "01:21:19,800",
+    "text": "Ngoài cái đó ra thì còn lại đều ổn"
+  },
+  {
+    "start": "01:21:19,800",
+    "end": "01:21:22,158",
+    "text": "Phần mc của mình đến đây là hết rồi, cảm ơn mọi người rất nhiều!"
+  },
+  {
+    "start": "01:21:25,200",
+    "end": "01:21:28,966",
+    "text": "Ok ngoài phần này ra thì tụi mình còn có phần mini-game nữa"
+  },
+  {
+    "start": "01:21:29,700",
+    "end": "01:21:33,566",
+    "text": "Tới nữa rồi, đại hội thể thao mini của nhà hát tới nữa rồi"
+  },
+  {
+    "start": "01:21:33,566",
+    "end": "01:21:34,458",
+    "text": "Game thể thao ha"
+  },
+  {
+    "start": "01:21:35,142",
+    "end": "01:21:37,592",
+    "text": "Đợi tụi mình bê đạo cụ lên đã"
+  },
+  {
+    "start": "01:21:38,400",
+    "end": "01:21:40,825",
+    "text": "Ok tụi mình xem qua luật chơi trước nhé"
+  },
+  {
+    "start": "01:21:50,766",
+    "end": "01:21:51,900",
+    "text": "Luật nào đâu?"
+  },
+  {
+    "start": "01:21:51,933",
+    "end": "01:21:53,400",
+    "text": "Cái gì thế?"
+  },
+  {
+    "start": "01:21:56,300",
+    "end": "01:21:58,300",
+    "text": "Hay là giải thích luật chơi đi"
+  },
+  {
+    "start": "01:21:58,400",
+    "end": "01:21:59,833",
+    "text": "Thế để mình phổ biến cho mọi người nhé"
+  },
+  {
+    "start": "01:22:00,333",
+    "end": "01:22:04,966",
+    "text": "Tụi mình chia làm hai đội, đầu tiên là chơi trắng đen để chia nhóm 6 người"
+  },
+  {
+    "start": "01:22:04,966",
+    "end": "01:22:07,200",
+    "text": "Sau đó hai đội sẽ đấu với nhau"
+  },
+  {
+    "start": "01:22:07,200",
+    "end": "01:22:10,633",
+    "text": "Giờ tụi mình sẽ làm mẫu cho mọi người xem từng trò một"
+  },
+  {
+    "start": "01:22:10,925",
+    "end": "01:22:13,500",
+    "text": "- Bắt đầu từ trò này hả?\n- Bắt đầu từ chỗ kia đi..."
+  },
+  {
+    "start": "01:22:13,500",
+    "end": "01:22:14,866",
+    "text": "Ơ không phải, trò nào trước ấy nhỉ?"
+  },
+  {
+    "start": "01:22:14,866",
+    "end": "01:22:18,866",
+    "text": "Cứ từ bên kia đi, làm mẫu cho mọi người xem từ bên kia"
+  },
+  {
+    "start": "01:22:18,866",
+    "end": "01:22:22,866",
+    "text": "Trò này thì đáp án đúng ở bên trong, xong rồi mọi người phải mò"
+  },
+  {
+    "start": "01:22:22,866",
+    "end": "01:22:24,533",
+    "text": "Ví dụ như xếp thế này"
+  },
+  {
+    "start": "01:22:24,533",
+    "end": "01:22:26,860",
+    "text": "Nếu thứ tự không đúng thì tụi mình phải nói..."
+  },
+  {
+    "start": "01:22:26,858",
+    "end": "01:22:30,600",
+    "text": "Mỗi vòng MC sẽ báo là vòng này bạn đoán đúng được mấy cái"
+  },
+  {
+    "start": "01:22:30,600",
+    "end": "01:22:35,433",
+    "text": "Xong rồi cứ thử xếp, thử xếp liên tục, cho đến khi đoán đúng hết thì mới được qua vòng hai"
+  },
+  {
+    "start": "01:22:35,433",
+    "end": "01:22:36,766",
+    "text": "Vòng hai là..."
+  },
+  {
+    "start": "01:22:37,133",
+    "end": "01:22:38,766",
+    "text": "Trò thứ hai là xếp ly giấy"
+  },
+  {
+    "start": "01:22:38,766",
+    "end": "01:22:43,966",
+    "text": "Đầu tiên là tung quả bóng bay lên trời, xong rồi phải nhanh tay xếp ly, không được để bóng bay rơi xuống đất"
+  },
+  {
+    "start": "01:22:43,966",
+    "end": "01:22:47,733",
+    "text": "Trong lúc bóng chưa chạm đất mà xếp được hết đống ly vào nhau thì mới tính là thắng"
+  },
+  {
+    "start": "01:22:47,733",
+    "end": "01:22:48,800",
+    "text": "Khó dữ quá vậy"
+  },
+  {
+    "start": "01:22:48,800",
+    "end": "01:22:49,866",
+    "text": "Em cũng thấy vậy"
+  },
+  {
+    "start": "01:22:49,866",
+    "end": "01:22:51,600",
+    "text": "Phải tung siêu cao luôn ấy"
+  },
+  {
+    "start": "01:22:51,800",
+    "end": "01:22:54,933",
+    "text": "Mình tung lên tận trần nhà cho nó khỏi xuống luôn, xong rồi..."
+  },
+  {
+    "start": "01:22:54,933",
+    "end": "01:22:56,300",
+    "text": "Thế thì cưng đỉnh lắm đấy"
+  },
+  {
+    "start": "01:22:56,300",
+    "end": "01:22:59,266",
+    "text": "Vòng thứ ba là trò này..."
+  },
+  {
+    "start": "01:22:59,858",
+    "end": "01:23:01,666",
+    "text": "Cái này tả cho mọi người kiểu gì nhỉ?"
+  },
+  {
+    "start": "01:23:01,666",
+    "end": "01:23:04,466",
+    "text": "Xếp mấy cái giống nhau, cùng loại vào một cột"
+  },
+  {
+    "start": "01:23:04,466",
+    "end": "01:23:06,333",
+    "text": "Mỗi lần chỉ được di chuyển một cái thôi"
+  },
+  {
+    "start": "01:23:06,333",
+    "end": "01:23:09,133",
+    "text": "Mỗi lần chỉ được di chuyển một cái thôi á?"
+  },
+  {
+    "start": "01:23:09,133",
+    "end": "01:23:09,330",
+    "text": "Di chuyển từng viên, từng viên một\nMỗi lần chỉ được di chuyển một cái thôi á?"
+  },
+  {
+    "start": "01:23:09,330",
+    "end": "01:23:11,533",
+    "text": "Di chuyển từng viên, từng viên một"
+  },
+  {
+    "start": "01:23:11,533",
+    "end": "01:23:13,400",
+    "text": "Chỉ được xếp lên trên viên cùng màu thôi"
+  },
+  {
+    "start": "01:23:13,400",
+    "end": "01:23:14,400",
+    "text": "Chính xác"
+  },
+  {
+    "start": "01:23:15,500",
+    "end": "01:23:16,300",
+    "text": "Hiểu rồi đúng không?"
+  },
+  {
+    "start": "01:23:16,300",
+    "end": "01:23:17,800",
+    "text": "Cái gì cái gì? Em chưa hiểu, nói lại lần nữa đi"
+  },
+  {
+    "start": "01:23:17,800",
+    "end": "01:23:20,400",
+    "text": "Tức là mỗi lần em chỉ được chuyển một viên thôi, kiểu như này này"
+  },
+  {
+    "start": "01:23:20,400",
+    "end": "01:23:23,200",
+    "text": "Giống mấy cái mini-game trên Douyin đấy"
+  },
+  {
+    "start": "01:23:24,000",
+    "end": "01:23:26,400",
+    "text": "Cái chuỗi này có màu khác nữa kìa"
+  },
+  {
+    "start": "01:23:26,958",
+    "end": "01:23:28,508",
+    "text": "Tiếp theo... ây da, cái này hơi khó"
+  },
+  {
+    "start": "01:23:28,533",
+    "end": "01:23:30,000",
+    "text": "Cái này chơi kiểu này"
+  },
+  {
+    "start": "01:23:31,942",
+    "end": "01:23:33,666",
+    "text": "Cái này nặng quá"
+  },
+  {
+    "start": "01:23:35,966",
+    "end": "01:23:36,866",
+    "text": "Hay là đổi cái kia đi?"
+  },
+  {
+    "start": "01:23:36,866",
+    "end": "01:23:38,566",
+    "text": "Hay để em uống bớt cho?"
+  },
+  {
+    "start": "01:23:38,566",
+    "end": "01:23:40,300",
+    "text": "Em uống hả?"
+  },
+  {
+    "start": "01:23:40,300",
+    "end": "01:23:42,533",
+    "text": "Hay là ném dưới đất được không? Ném ở đằng kia được không?"
+  },
+  {
+    "start": "01:23:42,533",
+    "end": "01:23:45,466",
+    "text": "Nhưng mà bắt buộc phải ném vào cái ô này"
+  },
+  {
+    "start": "01:23:45,466",
+    "end": "01:23:47,000",
+    "text": "Thử dùng cái kia xem được không?"
+  },
+  {
+    "start": "01:23:47,000",
+    "end": "01:23:48,300",
+    "text": "Cái kia kìa, đúng đúng đúng, tụi mình thử xem"
+  },
+  {
+    "start": "01:23:48,300",
+    "end": "01:23:49,366",
+    "text": "Nó hơi bị chảy nước nha"
+  },
+  {
+    "start": "01:23:51,166",
+    "end": "01:23:52,100",
+    "text": "Đầy quá, đầy quá rồi"
+  },
+  {
+    "start": "01:23:52,100",
+    "end": "01:23:53,666",
+    "text": "Em sợ nó đổ ra ngoài mất"
+  },
+  {
+    "start": "01:23:53,666",
+    "end": "01:23:55,800",
+    "text": "Hay thế này đi, vòng này bỏ qua nha?"
+  },
+  {
+    "start": "01:23:55,800",
+    "end": "01:23:57,566",
+    "text": "Tụi mình bỏ vòng này đi"
+  },
+  {
+    "start": "01:23:58,400",
+    "end": "01:23:59,266",
+    "text": "À mà cần 6 người lận"
+  },
+  {
+    "start": "01:23:59,466",
+    "end": "01:24:02,400",
+    "text": "Thì cứ ném ở phía trước đi, dù sao bây giờ tụi mình cũng đang trên sân khấu mà chị"
+  },
+  {
+    "start": "01:24:02,400",
+    "end": "01:24:03,733",
+    "text": "Ừ được"
+  },
+  {
+    "start": "01:24:03,733",
+    "end": "01:24:07,733",
+    "text": "Đổi cái này thử xem sao, cái này nhỏ nè"
+  },
+  {
+    "start": "01:24:09,866",
+    "end": "01:24:12,166",
+    "text": "Cái này được nè"
+  },
+  {
+    "start": "01:24:12,566",
+    "end": "01:24:14,633",
+    "text": "Này là bóng bàn, bóng bàn chơi như này"
+  },
+  {
+    "start": "01:24:15,366",
+    "end": "01:24:16,933",
+    "text": "Tâng cho nó nảy vào trong là thắng"
+  },
+  {
+    "start": "01:24:16,933",
+    "end": "01:24:18,100",
+    "text": "Đúng, phải tâng vào trong"
+  },
+  {
+    "start": "01:24:18,100",
+    "end": "01:24:20,266",
+    "text": "Khó thật sự"
+  },
+  {
+    "start": "01:24:20,266",
+    "end": "01:24:20,330",
+    "text": "Phải tâng cho nảy vào trong nhé\nKhó thật sự"
+  },
+  {
+    "start": "01:24:20,330",
+    "end": "01:24:21,100",
+    "text": "Phải tâng cho nảy vào trong nhé"
+  },
+  {
+    "start": "01:24:21,100",
+    "end": "01:24:23,500",
+    "text": "Phần mc này của tụi mình có bị kéo tới 50 phút không vậy? Mình lo quá"
+  },
+  {
+    "start": "01:24:24,575",
+    "end": "01:24:28,466",
+    "text": "Cái này là úp hết mấy cái ly lại với nhau là được"
+  },
+  {
+    "start": "01:24:28,466",
+    "end": "01:24:30,533",
+    "text": "Không phải, phải làm hết cơ"
+  },
+  {
+    "start": "01:24:30,533",
+    "end": "01:24:32,200",
+    "text": "Chồng hết tụi nó lại với nhau"
+  },
+  {
+    "start": "01:24:32,333",
+    "end": "01:24:34,100",
+    "text": "Xong rồi người cuối cùng kết thúc phải bấm chuông"
+  },
+  {
+    "start": "01:24:34,100",
+    "end": "01:24:34,933",
+    "text": "Đoạn cuối là bấm chuông"
+  },
+  {
+    "start": "01:24:35,608",
+    "end": "01:24:38,266",
+    "text": "Đội nào tốn ít thời gian nhất thì đội đó thắng"
+  },
+  {
+    "start": "01:24:38,266",
+    "end": "01:24:38,958",
+    "text": "Hiểu"
+  },
+  {
+    "start": "01:24:40,600",
+    "end": "01:24:41,642",
+    "text": "Để tụi mình xếp lại cái đã"
+  },
+  {
+    "start": "01:24:44,466",
+    "end": "01:24:46,333",
+    "text": "Đây cũng là game tiếp sức"
+  },
+  {
+    "start": "01:24:46,333",
+    "end": "01:24:49,100",
+    "text": "Chỉ là hôm nay chia làm hai đội chứ không như hôm qua"
+  },
+  {
+    "start": "01:24:49,100",
+    "end": "01:24:51,600",
+    "text": "Tới đây, trắng đen chia đội"
+  },
+  {
+    "start": "01:24:53,966",
+    "end": "01:24:56,166",
+    "text": "Trắng, đen,.. ra!"
+  },
+  {
+    "start": "01:24:56,500",
+    "end": "01:24:59,000",
+    "text": "Đen đâu!"
+  },
+  {
+    "start": "01:24:59,166",
+    "end": "01:25:00,500",
+    "text": "4 người"
+  },
+  {
+    "start": "01:25:00,500",
+    "end": "01:25:05,500",
+    "text": "4 đứa mình ra trước, mấy người còn lại đấu tiếp để bốc ra 1 người"
+  },
+  {
+    "start": "01:25:05,500",
+    "end": "01:25:07,666",
+    "text": "Trắng, đen,.. ra!"
+  },
+  {
+    "start": "01:25:09,200",
+    "end": "01:25:12,233",
+    "text": "Không, thêm hai người nữa, có một người phải chơi hai vòng"
+  },
+  {
+    "start": "01:25:12,400",
+    "end": "01:25:13,300",
+    "text": "Bốc ra hai người nhé"
+  },
+  {
+    "start": "01:25:13,300",
+    "end": "01:25:14,266",
+    "text": "Có hai người sẵn rồi"
+  },
+  {
+    "start": "01:25:14,266",
+    "end": "01:25:14,866",
+    "text": "Ai đấy?"
+  },
+  {
+    "start": "01:25:14,866",
+    "end": "01:25:16,666",
+    "text": "Tưởng Thư Đình: Hai đứa em\nDo Miểu: Hai người nào?"
+  },
+  {
+    "start": "01:25:16,700",
+    "end": "01:25:19,400",
+    "text": "Tưởng Thư Đình: Em và Chu Đồng Nguyệt\nDo Miểu: Hai đứa hả? Hai đứa đấu thêm hiệp nữa"
+  },
+  {
+    "start": "01:25:19,400",
+    "end": "01:25:20,666",
+    "text": "Tụi em kéo búa bao nha?"
+  },
+  {
+    "start": "01:25:20,866",
+    "end": "01:25:21,566",
+    "text": "Cái gì cũng được"
+  },
+  {
+    "start": "01:25:23,000",
+    "end": "01:25:25,666",
+    "text": "Người thua phải chơi hai vòng"
+  },
+  {
+    "start": "01:25:26,466",
+    "end": "01:25:28,366",
+    "text": "Đừng có ham chơi mà cố tình thua nha"
+  },
+  {
+    "start": "01:25:28,366",
+    "end": "01:25:31,733",
+    "text": "Hai đội đấu với nhau, đội thua sẽ bị phạt cực kỳ nặng nha"
+  },
+  {
+    "start": "01:25:31,733",
+    "end": "01:25:33,700",
+    "text": "Thế chẳng phải kiểu gì cũng có một người phải chịu phạt sao?"
+  },
+  {
+    "start": "01:25:33,800",
+    "end": "01:25:36,366",
+    "text": "Chắc chắn phải có người chịu phạt rồi"
+  },
+  {
+    "start": "01:25:36,366",
+    "end": "01:25:38,392",
+    "text": "Tới đi! Kéo búa bao!"
+  },
+  {
+    "start": "01:25:41,466",
+    "end": "01:25:42,233",
+    "text": "Em ra búa đúng không?"
+  },
+  {
+    "start": "01:25:42,233",
+    "end": "01:25:43,600",
+    "text": "Không có, em chưa kịp chuẩn bị thật mà"
+  },
+  {
+    "start": "01:25:43,600",
+    "end": "01:25:44,500",
+    "text": "Đợi tí"
+  },
+  {
+    "start": "01:25:44,500",
+    "end": "01:25:45,566",
+    "text": "Lần này làm thật nha"
+  },
+  {
+    "start": "01:25:45,566",
+    "end": "01:25:46,800",
+    "text": "Kéo búa bao!"
+  },
+  {
+    "start": "01:25:48,200",
+    "end": "01:25:50,566",
+    "text": "Chu Đồng Nguyệt chơi hai vòng nha"
+  },
+  {
+    "start": "01:25:51,100",
+    "end": "01:25:52,566",
+    "text": "Ok, được được được"
+  },
+  {
+    "start": "01:25:52,566",
+    "end": "01:25:54,433",
+    "text": "Thế đội nào lên trước đây?"
+  },
+  {
+    "start": "01:25:55,266",
+    "end": "01:25:57,000",
+    "text": "Mấy đứa hả? Mấy đứa trước nhé?"
+  },
+  {
+    "start": "01:25:57,466",
+    "end": "01:25:58,733",
+    "text": "Được, tụi mình trước đi"
+  },
+  {
+    "start": "01:26:02,366",
+    "end": "01:26:05,200",
+    "text": "Em ở bên đội này"
+  },
+  {
+    "start": "01:26:05,200",
+    "end": "01:26:07,200",
+    "text": "Trần Gia Nghi: Đình Đình cũng bên đội này\nDương Tâm Du: Ok, giờ tụi mình xếp đội hình đi"
+  },
+  {
+    "start": "01:26:07,400",
+    "end": "01:26:09,942",
+    "text": "Đình Đình qua đây. 1, 2, 3, 4, 5, 6"
+  },
+  {
+    "start": "01:26:10,600",
+    "end": "01:26:12,233",
+    "text": "Được rồi, xếp đội hình nhé!"
+  },
+  {
+    "start": "01:26:12,466",
+    "end": "01:26:14,200",
+    "text": "Ơ có một người phải chơi hai vòng đúng không?"
+  },
+  {
+    "start": "01:26:14,200",
+    "end": "01:26:14,933",
+    "text": "Đúng rồi"
+  },
+  {
+    "start": "01:26:14,933",
+    "end": "01:26:16,800",
+    "text": "Chu Đồng Nguyệt, cậu lên đi, cậu chơi hai vòng"
+  },
+  {
+    "start": "01:26:26,133",
+    "end": "01:26:31,633",
+    "text": "Đây vẫn là màn đối kháng giữa hai đội, tính tổng thời gian của cả hai bên"
+  },
+  {
+    "start": "01:26:31,633",
+    "end": "01:26:34,166",
+    "text": "Đội nào tốn ít thời gian hơn thì đội đó giành chiến thắng"
+  },
+  {
+    "start": "01:26:35,366",
+    "end": "01:26:37,042",
+    "text": "Người cuối cùng nhớ phải bấm chuông nha"
+  },
+  {
+    "start": "01:26:37,040",
+    "end": "01:26:39,600",
+    "text": "Bấm chuông mới tính là dừng thời gian"
+  },
+  {
+    "start": "01:26:39,933",
+    "end": "01:26:43,533",
+    "text": "Các anh kỹ thuật sẽ bấm giờ giúp tụi mình"
+  },
+  {
+    "start": "01:26:43,933",
+    "end": "01:26:45,166",
+    "text": "Mọi người sẵn sàng chưa?"
+  },
+  {
+    "start": "01:26:45,166",
+    "end": "01:26:46,666",
+    "text": "Hồi hộp quá"
+  },
+  {
+    "start": "01:26:46,666",
+    "end": "01:26:48,733",
+    "text": "Cái này là nước uống hôm nay hả?"
+  },
+  {
+    "start": "01:26:48,733",
+    "end": "01:26:49,533",
+    "text": "Không biết nữa"
+  },
+  {
+    "start": "01:26:49,533",
+    "end": "01:26:51,375",
+    "text": "Cái này khó lắm đó, chị muốn chơi thật sao?"
+  },
+  {
+    "start": "01:26:51,380",
+    "end": "01:26:53,333",
+    "text": "Cái này phải tâng cho nó nảy vào trong mới tính là thắng"
+  },
+  {
+    "start": "01:26:53,333",
+    "end": "01:26:54,733",
+    "text": "Bắt buộc phải nảy vào trong hả?"
+  },
+  {
+    "start": "01:26:54,733",
+    "end": "01:26:57,300",
+    "text": "Đúng, bắt buộc phải nảy vào trong"
+  },
+  {
+    "start": "01:26:57,966",
+    "end": "01:26:59,000",
+    "text": "Sẵn sàng hết chưa?"
+  },
+  {
+    "start": "01:26:59,000",
+    "end": "01:26:59,700",
+    "text": "Cùng lúc luôn hả?"
+  },
+  {
+    "start": "01:27:00,666",
+    "end": "01:27:01,766",
+    "text": "Không cùng lúc"
+  },
+  {
+    "start": "01:27:01,766",
+    "end": "01:27:03,266",
+    "text": "Phải qua vòng một mới được"
+  },
+  {
+    "start": "01:27:03,266",
+    "end": "01:27:05,366",
+    "text": "Ok ok. Thế mọi người trước đi, để mình tập trước đã"
+  },
+  {
+    "start": "01:27:05,366",
+    "end": "01:27:06,266",
+    "text": "Chuẩn bị..."
+  },
+  {
+    "start": "01:27:06,366",
+    "end": "01:27:07,166",
+    "text": "Bắt đầu!"
+  },
+  {
+    "start": "01:27:07,700",
+    "end": "01:27:09,466",
+    "text": "Bắt đầu rồi, đồng hồ bắt đầu chạy!"
+  },
+  {
+    "start": "01:27:09,666",
+    "end": "01:27:11,433",
+    "text": "MC báo kết quả cho tụi mình với"
+  },
+  {
+    "start": "01:27:11,766",
+    "end": "01:27:12,700",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:27:13,933",
+    "end": "01:27:16,100",
+    "text": "Một cái! Có một cái đúng rồi"
+  },
+  {
+    "start": "01:27:16,766",
+    "end": "01:27:18,100",
+    "text": "Cảm thấy là mình có thể đợi mòn mỏi"
+  },
+  {
+    "start": "01:27:19,766",
+    "end": "01:27:20,566",
+    "text": "Không có"
+  },
+  {
+    "start": "01:27:24,300",
+    "end": "01:27:25,766",
+    "text": "Không có luôn"
+  },
+  {
+    "start": "01:27:26,633",
+    "end": "01:27:27,333",
+    "text": "Vẫn không có"
+  },
+  {
+    "start": "01:27:28,733",
+    "end": "01:27:29,600",
+    "text": "Không có"
+  },
+  {
+    "start": "01:27:30,466",
+    "end": "01:27:32,233",
+    "text": "Tụi mình chỉ biết trông cậy vào vận may của Duệ Kỳ thôi"
+  },
+  {
+    "start": "01:27:32,233",
+    "end": "01:27:35,660",
+    "text": "Một cái, bây giờ là một cái"
+  },
+  {
+    "start": "01:27:36,266",
+    "end": "01:27:37,233",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:27:39,200",
+    "end": "01:27:40,660",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:27:41,133",
+    "end": "01:27:41,766",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:27:41,766",
+    "end": "01:27:43,000",
+    "text": "Cậu biết cái nào đúng luôn hả?"
+  },
+  {
+    "start": "01:27:43,000",
+    "end": "01:27:45,133",
+    "text": "- Ba cái\n- Má ơi, cậu ấy biết cái nào đúng kìa"
+  },
+  {
+    "start": "01:27:45,133",
+    "end": "01:27:45,766",
+    "text": "Đúng hết rồi!"
+  },
+  {
+    "start": "01:27:47,158",
+    "end": "01:27:48,680",
+    "text": "- Người tiếp theo, người tiếp theo đi\n- Duệ Kỳ thông minh quá!"
+  },
+  {
+    "start": "01:27:48,675",
+    "end": "01:27:50,800",
+    "text": "Nó sắp rơi xuống rồi, sắp rơi xuống rồi, không sao không sao"
+  },
+  {
+    "start": "01:27:50,800",
+    "end": "01:27:52,600",
+    "text": "Cậu đặt cái mic xuống được không?"
+  },
+  {
+    "start": "01:27:57,100",
+    "end": "01:27:58,500",
+    "text": "Muốn chạy vào cánh gà rồi hả?"
+  },
+  {
+    "start": "01:28:01,200",
+    "end": "01:28:02,833",
+    "text": "Cẩn thận cẩn thận"
+  },
+  {
+    "start": "01:28:03,166",
+    "end": "01:28:04,466",
+    "text": "Bay mất 1000 tệ bây giờ"
+  },
+  {
+    "start": "01:28:04,466",
+    "end": "01:28:05,266",
+    "text": "Qua vòng tiếp theo!"
+  },
+  {
+    "start": "01:28:05,766",
+    "end": "01:28:06,666",
+    "text": "Loạn hết cả rồi"
+  },
+  {
+    "start": "01:28:06,666",
+    "end": "01:28:09,900",
+    "text": "Mỗi lần một cái, mỗi lần một cái thôi"
+  },
+  {
+    "start": "01:28:11,166",
+    "end": "01:28:12,500",
+    "text": "Vẫn còn trật tự ngăn nắp lắm"
+  },
+  {
+    "start": "01:28:16,100",
+    "end": "01:28:18,233",
+    "text": "Cái này bé tí luôn ấy"
+  },
+  {
+    "start": "01:28:18,900",
+    "end": "01:28:20,866",
+    "text": "Hợp cho mấy con hamster chơi ấy"
+  },
+  {
+    "start": "01:28:22,666",
+    "end": "01:28:23,666",
+    "text": "Sắp xong rồi, sắp xong rồi!"
+  },
+  {
+    "start": "01:28:24,766",
+    "end": "01:28:26,300",
+    "text": "Sắp xong rồi!"
+  },
+  {
+    "start": "01:28:26,300",
+    "end": "01:28:27,833",
+    "text": "Trò này phải kiên nhẫn lắm"
+  },
+  {
+    "start": "01:28:27,833",
+    "end": "01:28:28,933",
+    "text": "Cố lên, cố lên!"
+  },
+  {
+    "start": "01:28:28,933",
+    "end": "01:28:30,358",
+    "text": "Được rồi được rồi! Qua vòng!"
+  },
+  {
+    "start": "01:28:32,100",
+    "end": "01:28:33,466",
+    "text": "Suýt chút nữa, suýt chút nữa thôi"
+  },
+  {
+    "start": "01:28:37,566",
+    "end": "01:28:39,466",
+    "text": "Phải vào trong ô, vào trong ô cơ"
+  },
+  {
+    "start": "01:28:41,200",
+    "end": "01:28:42,266",
+    "text": "Khó quá"
+  },
+  {
+    "start": "01:28:42,700",
+    "end": "01:28:44,666",
+    "text": "Hồi nhỏ chị Lâm không chơi trò này à?"
+  },
+  {
+    "start": "01:28:44,666",
+    "end": "01:28:46,366",
+    "text": "Nhiều nước quá mà"
+  },
+  {
+    "start": "01:28:47,000",
+    "end": "01:28:48,600",
+    "text": "Sắp được rồi, nhanh lên nhanh lên!"
+  },
+  {
+    "start": "01:28:48,600",
+    "end": "01:28:51,000",
+    "text": "Tính tính tính, được rồi được rồi!"
+  },
+  {
+    "start": "01:28:51,000",
+    "end": "01:28:52,466",
+    "text": "Thiếu chút nữa, suýt soát không tính"
+  },
+  {
+    "start": "01:28:52,933",
+    "end": "01:28:53,766",
+    "text": "Như thế vẫn không tính sao?"
+  },
+  {
+    "start": "01:28:53,766",
+    "end": "01:28:55,660",
+    "text": "Chu Đồng Nguyệt bắt đầu luôn rồi kìa"
+  },
+  {
+    "start": "01:28:56,533",
+    "end": "01:28:59,400",
+    "text": "Hay là cứ dựng lên được là tính thắng đi, được không?"
+  },
+  {
+    "start": "01:28:59,800",
+    "end": "01:29:01,233",
+    "text": "Vậy dựng được lần nữa thì ok"
+  },
+  {
+    "start": "01:29:05,566",
+    "end": "01:29:07,366",
+    "text": "Đội mấy người đỉnh thật đấy"
+  },
+  {
+    "start": "01:29:08,466",
+    "end": "01:29:09,300",
+    "text": "Bấm chuông"
+  },
+  {
+    "start": "01:29:09,300",
+    "end": "01:29:10,500",
+    "text": "Hết giờ!"
+  },
+  {
+    "start": "01:29:10,500",
+    "end": "01:29:14,466",
+    "text": "2 phút 2 giây"
+  },
+  {
+    "start": "01:29:14,966",
+    "end": "01:29:15,700",
+    "text": "Wow, sao mà nhanh thế"
+  },
+  {
+    "start": "01:29:15,700",
+    "end": "01:29:16,966",
+    "text": "Hú vía"
+  },
+  {
+    "start": "01:29:16,966",
+    "end": "01:29:18,266",
+    "text": "Cứ tập liên tục nãy giờ"
+  },
+  {
+    "start": "01:29:18,733",
+    "end": "01:29:19,600",
+    "text": "Kinh thật"
+  },
+  {
+    "start": "01:29:19,600",
+    "end": "01:29:20,300",
+    "text": "Phân công thế nào đây?"
+  },
+  {
+    "start": "01:29:21,330",
+    "end": "01:29:23,500",
+    "text": "2 phút 2 giây. Lên đi, tới lượt mấy người đó!"
+  },
+  {
+    "start": "01:29:23,500",
+    "end": "01:29:25,366",
+    "text": "Thế đội mình chia người như nào đây?"
+  },
+  {
+    "start": "01:29:25,566",
+    "end": "01:29:27,000",
+    "text": "Để mình chơi ném chai cho"
+  },
+  {
+    "start": "01:29:27,100",
+    "end": "01:29:28,433",
+    "text": "Mọi người tự chọn đi"
+  },
+  {
+    "start": "01:29:28,500",
+    "end": "01:29:29,833",
+    "text": "Thế mình thầu cái cuối nhé"
+  },
+  {
+    "start": "01:29:32,000",
+    "end": "01:29:33,133",
+    "text": "Mình chơi trò này cho"
+  },
+  {
+    "start": "01:29:33,133",
+    "end": "01:29:34,600",
+    "text": "Vậy thì mình cái này"
+  },
+  {
+    "start": "01:29:37,733",
+    "end": "01:29:39,333",
+    "text": "Cái này chắc là dùng não ha"
+  },
+  {
+    "start": "01:29:39,333",
+    "end": "01:29:40,700",
+    "text": "Chắc phải dựa vào logic"
+  },
+  {
+    "start": "01:29:44,166",
+    "end": "01:29:44,933",
+    "text": "Chị muốn thử sao?"
+  },
+  {
+    "start": "01:29:44,933",
+    "end": "01:29:47,866",
+    "text": "Không, cái này không giống trò dùng não hôm qua"
+  },
+  {
+    "start": "01:29:54,666",
+    "end": "01:29:58,900",
+    "text": "Cả đội dàn trận xong chưa?"
+  },
+  {
+    "start": "01:30:00,966",
+    "end": "01:30:02,000",
+    "text": "Mình chơi trò này"
+  },
+  {
+    "start": "01:30:02,466",
+    "end": "01:30:04,133",
+    "text": "Tưởng Thư Đình chơi trò dùng não xem sao?"
+  },
+  {
+    "start": "01:30:05,600",
+    "end": "01:30:06,975",
+    "text": "Thế để em chơi trò dùng não"
+  },
+  {
+    "start": "01:30:09,333",
+    "end": "01:30:10,366",
+    "text": "Trò nào cũng dùng não hết"
+  },
+  {
+    "start": "01:30:10,366",
+    "end": "01:30:14,330",
+    "text": "Thế mình chơi trò này đi, trò này cần tỉ mỉ là được"
+  },
+  {
+    "start": "01:30:16,000",
+    "end": "01:30:17,866",
+    "text": "Đội tụi mình đã bố trí xong xuôi!"
+  },
+  {
+    "start": "01:30:17,866",
+    "end": "01:30:20,500",
+    "text": "Mọi người chuẩn bị xong thì cứ hô bắt đầu"
+  },
+  {
+    "start": "01:30:21,300",
+    "end": "01:30:23,433",
+    "text": "Ok, người đầu tiên chuẩn bị xong là bắt đầu được rồi"
+  },
+  {
+    "start": "01:30:24,133",
+    "end": "01:30:26,966",
+    "text": "Ơ ơ đợi chút, cái màn hình hiển thị kìa"
+  },
+  {
+    "start": "01:30:28,100",
+    "end": "01:30:29,600",
+    "text": "Mọi người cứ hô bắt đầu là được rồi"
+  },
+  {
+    "start": "01:30:30,533",
+    "end": "01:30:32,466",
+    "text": "3, 2, 1, Bắt đầu!"
+  },
+  {
+    "start": "01:30:33,000",
+    "end": "01:30:35,466",
+    "text": "Không được làm thế, đặt cả 5 cái luôn..."
+  },
+  {
+    "start": "01:30:36,966",
+    "end": "01:30:37,600",
+    "text": "0 cái"
+  },
+  {
+    "start": "01:30:37,600",
+    "end": "01:30:38,633",
+    "text": "Đúng được 1 cái"
+  },
+  {
+    "start": "01:30:38,933",
+    "end": "01:30:40,566",
+    "text": "0 cái"
+  },
+  {
+    "start": "01:30:40,566",
+    "end": "01:30:43,000",
+    "text": "Bà có nhìn đâu!"
+  },
+  {
+    "start": "01:30:43,000",
+    "end": "01:30:44,500",
+    "text": "Em cũng đang tự hỏi 1 cái ở đâu ra"
+  },
+  {
+    "start": "01:30:44,500",
+    "end": "01:30:46,533",
+    "text": "Đây là chiến thuật của đội mình hả? Gây nhiễu đối phương?"
+  },
+  {
+    "start": "01:30:46,533",
+    "end": "01:30:48,660",
+    "text": "Gây nhiễu tụi này đúng không?"
+  },
+  {
+    "start": "01:30:50,266",
+    "end": "01:30:51,833",
+    "text": "Một cái, một cái, một cái!"
+  },
+  {
+    "start": "01:30:53,200",
+    "end": "01:30:54,466",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:30:57,133",
+    "end": "01:30:58,233",
+    "text": "Một cái"
+  },
+  {
+    "start": "01:30:59,000",
+    "end": "01:31:00,200",
+    "text": "Hai cái"
+  },
+  {
+    "start": "01:31:02,500",
+    "end": "01:31:03,800",
+    "text": "Ba cái"
+  },
+  {
+    "start": "01:31:03,800",
+    "end": "01:31:04,633",
+    "text": "Hay vậy!"
+  },
+  {
+    "start": "01:31:06,400",
+    "end": "01:31:07,766",
+    "text": "Đỉnh đấy!"
+  },
+  {
+    "start": "01:31:07,766",
+    "end": "01:31:08,600",
+    "text": "Đội mình giỏi đấy!"
+  },
+  {
+    "start": "01:31:13,433",
+    "end": "01:31:15,366",
+    "text": "Không được, vầy là không được"
+  },
+  {
+    "start": "01:31:15,766",
+    "end": "01:31:17,166",
+    "text": "Ok, qua vòng ba!"
+  },
+  {
+    "start": "01:31:19,200",
+    "end": "01:31:22,400",
+    "text": "Mỗi lần một cái thôi"
+  },
+  {
+    "start": "01:31:23,933",
+    "end": "01:31:25,766",
+    "text": "Mỗi lần bốc một tụm vậy luôn hả?"
+  },
+  {
+    "start": "01:31:27,166",
+    "end": "01:31:28,792",
+    "text": "Cứ thả từng cái từng cái một cũng được"
+  },
+  {
+    "start": "01:31:29,092",
+    "end": "01:31:30,366",
+    "text": "Được được được được"
+  },
+  {
+    "start": "01:31:32,200",
+    "end": "01:31:33,766",
+    "text": "Không sao, từ từ thôi, cứ bình tĩnh"
+  },
+  {
+    "start": "01:31:33,766",
+    "end": "01:31:35,566",
+    "text": "Không sao đâu, còn sớm, còn nhiều thời gian"
+  },
+  {
+    "start": "01:31:40,100",
+    "end": "01:31:41,433",
+    "text": "Cứ từ từ mà làm thôi"
+  },
+  {
+    "start": "01:31:46,666",
+    "end": "01:31:47,666",
+    "text": "À còn một cái nữa"
+  },
+  {
+    "start": "01:31:52,133",
+    "end": "01:31:54,833",
+    "text": "Đỉnh chóp ta ơi, không đùa đâu"
+  },
+  {
+    "start": "01:31:54,833",
+    "end": "01:31:56,660",
+    "text": "Trần Gia Nghi à!"
+  },
+  {
+    "start": "01:31:56,733",
+    "end": "01:31:57,433",
+    "text": "Không sao hết"
+  },
+  {
+    "start": "01:31:59,366",
+    "end": "01:32:01,966",
+    "text": "Tụi mình được số phận độ rồi!"
+  },
+  {
+    "start": "01:32:02,733",
+    "end": "01:32:03,400",
+    "text": "Bấm chuông!"
+  },
+  {
+    "start": "01:32:03,400",
+    "end": "01:32:05,333",
+    "text": "1 phút 30 giây! 1 phút 30 giây!"
+  },
+  {
+    "start": "01:32:05,333",
+    "end": "01:32:06,900",
+    "text": "Sao mà xuất sắc dữ vậy trời!"
+  },
+  {
+    "start": "01:32:07,000",
+    "end": "01:32:08,866",
+    "text": "Đỉnh quá đỉnh quá!"
+  },
+  {
+    "start": "01:32:10,933",
+    "end": "01:32:11,833",
+    "text": "Hay thật đấy!"
+  },
+  {
+    "start": "01:32:12,000",
+    "end": "01:32:14,400",
+    "text": "Chị không phục nha, chị đề nghị Giai Ân ném lại lần nữa!"
+  },
+  {
+    "start": "01:32:15,400",
+    "end": "01:32:17,000",
+    "text": "Là sao đây chị?"
+  },
+  {
+    "start": "01:32:17,000",
+    "end": "01:32:18,666",
+    "text": "Vì lúc nãy em đè vạch rồi"
+  },
+  {
+    "start": "01:32:18,666",
+    "end": "01:32:21,466",
+    "text": "Giờ tụi mình cá cược đi, nếu em ném trúng thì sao?"
+  },
+  {
+    "start": "01:32:21,466",
+    "end": "01:32:22,542",
+    "text": "Thì chúc mừng em chứ sao"
+  },
+  {
+    "start": "01:32:26,800",
+    "end": "01:32:30,866",
+    "text": "Thế thôi hả? Thế thì em chả có động lực để chơi tí nào luôn"
+  },
+  {
+    "start": "01:32:30,866",
+    "end": "01:32:35,133",
+    "text": "Nếu chị ném đạt, tối nay liên hoan chị Lâm sẽ tự tay nhúng chả tôm cho chị"
+  },
+  {
+    "start": "01:32:35,500",
+    "end": "01:32:37,266",
+    "text": "Chị cho ẻm cái gì?"
+  },
+  {
+    "start": "01:32:37,266",
+    "end": "01:32:38,900",
+    "text": "Nhúng chả tôm"
+  },
+  {
+    "start": "01:32:38,900",
+    "end": "01:32:40,300",
+    "text": "À, nhúng chả tôm à?"
+  },
+  {
+    "start": "01:32:40,600",
+    "end": "01:32:42,666",
+    "text": "Thế thôi à? Được được được"
+  },
+  {
+    "start": "01:32:42,666",
+    "end": "01:32:44,333",
+    "text": "Kèo này hoàn toàn ok đúng không?"
+  },
+  {
+    "start": "01:32:44,333",
+    "end": "01:32:47,200",
+    "text": "Quá là ok! Thêm chả tôm chứ gì, chị cho em hẳn 100 con luôn!"
+  },
+  {
+    "start": "01:32:47,700",
+    "end": "01:32:50,300",
+    "text": "Thế nếu em thắng thì chị phải múa mì cho em xem nha"
+  },
+  {
+    "start": "01:32:54,366",
+    "end": "01:32:56,700",
+    "text": "Em muốn kiểu vừa múa mì, vừa nhảy công diễn luôn ấy..."
+  },
+  {
+    "start": "01:32:56,700",
+    "end": "01:33:00,733",
+    "text": "Thành viên: Ồ nếu thế chắc lúc đấy mình không có mặt ở đó\nTrần Lâm: Vậy em đừng chơi nữa"
+  },
+  {
+    "start": "01:33:00,733",
+    "end": "01:33:03,100",
+    "text": "Thôi lại lần nữa vậy, thật ra em cũng không tự tin lắm đâu"
+  },
+  {
+    "start": "01:33:08,533",
+    "end": "01:33:09,766",
+    "text": "Ây thôi xong"
+  },
+  {
+    "start": "01:33:09,766",
+    "end": "01:33:11,300",
+    "text": "Sượng tay rồi đúng không?"
+  },
+  {
+    "start": "01:33:11,300",
+    "end": "01:33:13,566",
+    "text": "Không sao, từ từ quen tay"
+  },
+  {
+    "start": "01:33:19,266",
+    "end": "01:33:20,533",
+    "text": "Đừng mà, đừng mà!"
+  },
+  {
+    "start": "01:33:21,500",
+    "end": "01:33:22,800",
+    "text": "Sắp được rồi, sắp được rồi!"
+  },
+  {
+    "start": "01:33:23,800",
+    "end": "01:33:24,800",
+    "text": "Ờ thôi, em xin lỗi mọi người!"
+  },
+  {
+    "start": "01:33:28,800",
+    "end": "01:33:31,300",
+    "text": "Đáng lẽ lúc nãy chị nên bảo là nếu không đạt thì chị ấy phải múa mì cho chị mới đúng"
+  },
+  {
+    "start": "01:33:31,300",
+    "end": "01:33:33,266",
+    "text": "Phải rồi, tự dưng giờ thấy hối hận ghê"
+  },
+  {
+    "start": "01:33:35,333",
+    "end": "01:33:36,300",
+    "text": "Thế hình phạt là gì ấy nhỉ?"
+  },
+  {
+    "start": "01:33:36,966",
+    "end": "01:33:38,466",
+    "text": "Do Miểu: Ể, là mấy đứa bị phạt\nLý Giai Ân: Hình phạt là ăn kẹo thối"
+  },
+  {
+    "start": "01:33:38,466",
+    "end": "01:33:40,200",
+    "text": "Chu Đồng Nguyệt: Đúng, là mấy người bị phạt\nLý Giai Ân: Hình phạt là ăn kẹo thối"
+  },
+  {
+    "start": "01:33:40,200",
+    "end": "01:33:41,766",
+    "text": "Do Miểu: Em chung đội đó đó..."
+  },
+  {
+    "start": "01:33:41,766",
+    "end": "01:33:43,500",
+    "text": "Chu Đồng Nguyệt: Em góp công góp sức lớn lắm nha"
+  },
+  {
+    "start": "01:33:44,966",
+    "end": "01:33:45,933",
+    "text": "Có hình phạt gì thế?"
+  },
+  {
+    "start": "01:33:45,933",
+    "end": "01:33:48,433",
+    "text": "- Kẹo thối\n- À, ăn kẹo thối"
+  },
+  {
+    "start": "01:33:48,433",
+    "end": "01:33:50,366",
+    "text": "Do Miểu: Vị gì cũng có nha mọi người"
+  },
+  {
+    "start": "01:33:50,366",
+    "end": "01:33:52,566",
+    "text": "Chu Đồng Nguyệt: Sao có mùi thối chân nữa vậy? Là vị gì vậy?"
+  },
+  {
+    "start": "01:33:52,800",
+    "end": "01:33:54,500",
+    "text": "Do Miểu: Vị gì cũng có hết"
+  },
+  {
+    "start": "01:33:54,842",
+    "end": "01:33:59,733",
+    "text": "Mọi người ăn thì xếp thành hàng cùng ăn một thể luôn đi"
+  },
+  {
+    "start": "01:33:59,733",
+    "end": "01:34:02,800",
+    "text": "Ăn xong chắc nhảy không nổi quá"
+  },
+  {
+    "start": "01:34:03,133",
+    "end": "01:34:04,000",
+    "text": "Dương Tâm Du: Thối lắm hả"
+  },
+  {
+    "start": "01:34:04,700",
+    "end": "01:34:07,166",
+    "text": "Mình có kinh nghiệm, nhìn là biết cái nào ngon liền"
+  },
+  {
+    "start": "01:34:07,166",
+    "end": "01:34:08,660",
+    "text": "Thật không đó?"
+  },
+  {
+    "start": "01:34:09,300",
+    "end": "01:34:12,333",
+    "text": "Nhưng mà hai viên cùng màu thì sẽ có một thối một thơm đó nha"
+  },
+  {
+    "start": "01:34:12,333",
+    "end": "01:34:12,660",
+    "text": "Thiệt hay giỡn vậy?\nNhưng mà hai viên cùng màu thì sẽ có một thối một thơm đó nha"
+  },
+  {
+    "start": "01:34:12,825",
+    "end": "01:34:13,742",
+    "text": "Thiệt hay giỡn vậy?"
+  },
+  {
+    "start": "01:34:16,466",
+    "end": "01:34:19,866",
+    "text": "Lựa cho cố mà vẫn trúng secret"
+  },
+  {
+    "start": "01:34:20,442",
+    "end": "01:34:21,142",
+    "text": "Đây, nhường đó"
+  },
+  {
+    "start": "01:34:21,140",
+    "end": "01:34:22,300",
+    "text": "Thối thiệt hả?"
+  },
+  {
+    "start": "01:34:22,300",
+    "end": "01:34:24,966",
+    "text": "Kiểu như có hai viên cùng màu, nhưng sẽ có một viên thơm một viên thối"
+  },
+  {
+    "start": "01:34:24,966",
+    "end": "01:34:26,600",
+    "text": "Không dám ngửi luôn"
+  },
+  {
+    "start": "01:34:29,233",
+    "end": "01:34:31,660",
+    "text": "Mình muốn ngửi thử xem, Trương Thiến"
+  },
+  {
+    "start": "01:34:31,660",
+    "end": "01:34:32,433",
+    "text": "Lại còn đòi ngửi nữa?"
+  },
+  {
+    "start": "01:34:32,833",
+    "end": "01:34:34,800",
+    "text": "Thối thật sự!"
+  },
+  {
+    "start": "01:34:34,800",
+    "end": "01:34:36,000",
+    "text": "Mùi chua chua thối thối"
+  },
+  {
+    "start": "01:34:36,600",
+    "end": "01:34:38,400",
+    "text": "Trong đống này chắc có viên ngon đúng không?"
+  },
+  {
+    "start": "01:34:38,400",
+    "end": "01:34:39,966",
+    "text": "Có lẽ là có"
+  },
+  {
+    "start": "01:34:41,733",
+    "end": "01:34:42,900",
+    "text": "Cái gì vậy bà?"
+  },
+  {
+    "start": "01:34:45,533",
+    "end": "01:34:46,366",
+    "text": "Mạnh mẽ lên"
+  },
+  {
+    "start": "01:34:46,366",
+    "end": "01:34:48,700",
+    "text": "Chốt nó nha, Dương Tâm Du!"
+  },
+  {
+    "start": "01:34:48,700",
+    "end": "01:34:50,600",
+    "text": "Mấy cái này là vị gì vậy trời?"
+  },
+  {
+    "start": "01:34:50,600",
+    "end": "01:34:51,866",
+    "text": "Ăn vào là biết liền chứ gì"
+  },
+  {
+    "start": "01:34:51,866",
+    "end": "01:34:52,666",
+    "text": "Cậu ăn chưa?"
+  },
+  {
+    "start": "01:34:52,666",
+    "end": "01:34:55,566",
+    "text": "- Nếm thử xem đi\n- Mọi người chọn một viên đi"
+  },
+  {
+    "start": "01:34:55,600",
+    "end": "01:34:57,166",
+    "text": "Để mình xem xem, để mình lựa kỹ coi"
+  },
+  {
+    "start": "01:34:58,158",
+    "end": "01:34:59,642",
+    "text": "Kinh dị quá"
+  },
+  {
+    "start": "01:35:00,333",
+    "end": "01:35:01,800",
+    "text": "Fan của mình đâu rồi?"
+  },
+  {
+    "start": "01:35:03,100",
+    "end": "01:35:05,000",
+    "text": "Chị định đưa cho fan ăn đấy hả?"
+  },
+  {
+    "start": "01:35:06,330",
+    "end": "01:35:10,666",
+    "text": "Làm thiệt hả? Ôi cảm ơn bạn, i love you"
+  },
+  {
+    "start": "01:35:14,366",
+    "end": "01:35:15,600",
+    "text": "Bởi vì họ hiếu kỳ"
+  },
+  {
+    "start": "01:35:16,500",
+    "end": "01:35:17,300",
+    "text": "Fan: Thối quá!"
+  },
+  {
+    "start": "01:35:20,366",
+    "end": "01:35:21,500",
+    "text": "Ăn chưa?"
+  },
+  {
+    "start": "01:35:22,566",
+    "end": "01:35:23,833",
+    "text": "Có phải ăn hết rồi không?"
+  },
+  {
+    "start": "01:35:25,733",
+    "end": "01:35:27,660",
+    "text": "Mọi người ăn hết rồi hả?"
+  },
+  {
+    "start": "01:35:28,166",
+    "end": "01:35:30,733",
+    "text": "3, 2, 1 cùng ăn nha, được không?"
+  },
+  {
+    "start": "01:35:30,733",
+    "end": "01:35:31,566",
+    "text": "Em ăn xong rồi"
+  },
+  {
+    "start": "01:35:31,566",
+    "end": "01:35:34,933",
+    "text": "Em ăn xong rồi hả? Không cảm giác gì luôn?"
+  },
+  {
+    "start": "01:35:34,933",
+    "end": "01:35:36,366",
+    "text": "Em ăn trúng vị kem đánh răng"
+  },
+  {
+    "start": "01:35:36,366",
+    "end": "01:35:39,900",
+    "text": "Kem đánh răng hả? Thế là may lắm đấy, thật sự luôn"
+  },
+  {
+    "start": "01:35:39,900",
+    "end": "01:35:41,866",
+    "text": "Ăn hết rồi hả?"
+  },
+  {
+    "start": "01:35:42,800",
+    "end": "01:35:43,900",
+    "text": "Vũ Giai Úy chưa ăn"
+  },
+  {
+    "start": "01:35:43,900",
+    "end": "01:35:45,900",
+    "text": "- Yên tĩnh thế\n- Vẫn ổn chứ hả?"
+  },
+  {
+    "start": "01:35:47,400",
+    "end": "01:35:49,000",
+    "text": "Ơ, viên của em ngọt nè"
+  },
+  {
+    "start": "01:35:49,000",
+    "end": "01:35:50,733",
+    "text": "- Của em ngọt hả?\n- Của mình cũng ngọt"
+  },
+  {
+    "start": "01:35:52,100",
+    "end": "01:35:53,333",
+    "text": "Vũ Giai Úy!"
+  },
+  {
+    "start": "01:35:53,333",
+    "end": "01:35:54,566",
+    "text": "Của mình cũng ngọt"
+  },
+  {
+    "start": "01:35:55,733",
+    "end": "01:35:56,600",
+    "text": "Kem đánh răng đúng không?"
+  },
+  {
+    "start": "01:35:56,600",
+    "end": "01:35:58,766",
+    "text": "Vũ Giai Úy bốc trúng secret rồi kìa"
+  },
+  {
+    "start": "01:35:58,766",
+    "end": "01:36:00,000",
+    "text": "Có một cảm giác rất là lạ"
+  },
+  {
+    "start": "01:36:00,000",
+    "end": "01:36:01,566",
+    "text": "Chắc là vị kem đánh răng giống mình thôi"
+  },
+  {
+    "start": "01:36:02,766",
+    "end": "01:36:05,766",
+    "text": "Thấy là Vũ Giai Úy sắp rớt nước mắt tới nơi rồi"
+  },
+  {
+    "start": "01:36:09,333",
+    "end": "01:36:10,600",
+    "text": "Em không dám nuốt luôn đó"
+  },
+  {
+    "start": "01:36:11,133",
+    "end": "01:36:12,566",
+    "text": "Kem đánh răng thôi mà, ăn đi"
+  },
+  {
+    "start": "01:36:12,566",
+    "end": "01:36:13,933",
+    "text": "Em nuốt ực một cái vô đi"
+  },
+  {
+    "start": "01:36:13,933",
+    "end": "01:36:16,330",
+    "text": "Đừng có ngậm, nuốt luôn đi"
+  },
+  {
+    "start": "01:36:16,600",
+    "end": "01:36:19,200",
+    "text": "Có vị hơi kỳ kỳ, hơi là lạ..."
+  },
+  {
+    "start": "01:36:19,200",
+    "end": "01:36:20,400",
+    "text": "Thì bởi vậy người ta mới gọi là kẹo thối"
+  },
+  {
+    "start": "01:36:20,400",
+    "end": "01:36:22,533",
+    "text": "Nhưng mà không phải kiểu mùi thối"
+  },
+  {
+    "start": "01:36:22,533",
+    "end": "01:36:23,600",
+    "text": "Chắc bị ám mùi"
+  },
+  {
+    "start": "01:36:27,400",
+    "end": "01:36:29,466",
+    "text": "Thế thì phần mc của tụi mình đến đây là kết thúc rồi"
+  },
+  {
+    "start": "01:36:29,466",
+    "end": "01:36:30,966",
+    "text": "Mọi người mau mau vô trong uống hớp nước"
+  },
+  {
+    "start": "01:36:30,966",
+    "end": "01:36:33,500",
+    "text": "Sau đó cùng thưởng thức những màn đặc sắc tiếp theo nhé!"
+  }
+];
+
+        const youtubeVideoId = 'LaWD3Pf1Z3M'; 
+        let player;
+        let isVideoPlaying = false; 
+        let isSubtitlesEnabled = true; 
+        const subtitleText = document.getElementById('subtitle-text');
+
+        function timeToSeconds(timeStr) {
+            if (!timeStr) return 0;
+            const parts = timeStr.replace(',', '.').split(':');
+            return (parseFloat(parts[0]) * 3600) + (parseFloat(parts[1]) * 60) + parseFloat(parts[2]);
+        }
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: youtubeVideoId, 
+                playerVars: { 'playsinline': 1, 'rel': 0, 'autoplay': 0, 'fs': 0, 'modestbranding': 1 },
+                events: { 
+                    'onReady': () => setInterval(updateSubtitles, 100),
+                    'onStateChange': onPlayerStateChange 
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                isVideoPlaying = true;
+                resetHideTimer(); 
+            } else {
+                isVideoPlaying = false;
+                controlsGroup.classList.remove('is-hidden');
+                clearTimeout(hideControlsTimeout);
+            }
+        }
+
+        function updateSubtitles() {
+            if (!isSubtitlesEnabled) return; 
+
+            if (!player || typeof player.getCurrentTime !== 'function') return;
+            const currentTime = player.getCurrentTime();
+            const currentSub = subtitles.find(sub => currentTime >= timeToSeconds(sub.start) && currentTime <= timeToSeconds(sub.end));
+            
+            if (currentSub) {
+                subtitleText.innerHTML = currentSub.text; // Đã đổi thành innerHTML để hỗ trợ tùy biến màu trong show
+                subtitleText.style.display = 'inline-block';
+            } else {
+                subtitleText.style.display = 'none';
+            }
+        }
+
+        let hideControlsTimeout;
+        const controlsGroup = document.getElementById('controls-group');
+        const videoWrapper = document.getElementById('video-wrapper');
+        const settingsPanel = document.getElementById('settings-panel');
+
+        function resetHideTimer() {
+            controlsGroup.classList.remove('is-hidden');
+            clearTimeout(hideControlsTimeout);
+            
+            if (settingsPanel.style.display === 'flex') return;
+            if (!isVideoPlaying) return; 
+
+            hideControlsTimeout = setTimeout(() => {
+                controlsGroup.classList.add('is-hidden');
+            }, 2500);
+        }
+
+        videoWrapper.addEventListener('mousemove', resetHideTimer);
+        videoWrapper.addEventListener('touchstart', resetHideTimer);
+        videoWrapper.addEventListener('click', resetHideTimer);
+        window.addEventListener('blur', resetHideTimer);
+        resetHideTimer();
+
+        // ---------- LOGIC NÚT CC ----------
+        const ccBtn = document.getElementById('custom-cc-btn');
+        const ccIconOn = document.getElementById('cc-icon-on');
+        const ccIconOff = document.getElementById('cc-icon-off');
+
+        function updateCCToggle() {
+            if (isSubtitlesEnabled) {
+                ccIconOn.style.display = 'block';
+                ccIconOff.style.display = 'none';
+                ccBtn.title = "Tắt Phụ đề";
+            } else {
+                ccIconOn.style.display = 'none';
+                ccIconOff.style.display = 'block';
+                ccBtn.title = "Bật Phụ đề";
+                subtitleText.style.display = 'none';
+            }
+        }
+
+        ccBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isSubtitlesEnabled = !isSubtitlesEnabled; 
+            updateCCToggle();
+            localStorage.setItem('subEnabled', isSubtitlesEnabled);
+            resetHideTimer();
+        });
+
+
+        // ---------- LOGIC BẢNG TÙY CHỈNH PHỤ ĐỀ ----------
+        const setBtn = document.getElementById('custom-set-btn');
+        const closeSetBtn = document.getElementById('close-settings');
+        
+        setBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            settingsPanel.style.display = settingsPanel.style.display === 'flex' ? 'none' : 'flex';
+            resetHideTimer();
+        });
+        closeSetBtn.addEventListener('click', () => { settingsPanel.style.display = 'none'; resetHideTimer(); });
+
+        const inFont = document.getElementById('set-font');
+        const inSize = document.getElementById('set-size');
+        const inColor = document.getElementById('set-color');
+        const inBg = document.getElementById('set-bg');
+        const inEdge = document.getElementById('set-edge');
+
+        function applySettings() {
+            subtitleText.style.setProperty('--sub-font', inFont.value);
+            subtitleText.style.setProperty('--sub-scale', inSize.value);
+            subtitleText.style.setProperty('--sub-color', inColor.value);
+            subtitleText.style.setProperty('--sub-bg', inBg.value);
+            subtitleText.style.setProperty('--sub-shadow', inEdge.value);
+
+            localStorage.setItem('subFont', inFont.value);
+            localStorage.setItem('subSize', inSize.value);
+            localStorage.setItem('subColor', inColor.value);
+            localStorage.setItem('subBg', inBg.value);
+            localStorage.setItem('subEdge', inEdge.value);
+        }
+
+        inFont.addEventListener('change', applySettings);
+        inSize.addEventListener('change', applySettings);
+        inColor.addEventListener('change', applySettings);
+        inBg.addEventListener('change', applySettings);
+        inEdge.addEventListener('change', applySettings);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('subEnabled') === 'false') {
+                isSubtitlesEnabled = false;
+            }
+            updateCCToggle(); 
+
+            if (localStorage.getItem('subFont')) inFont.value = localStorage.getItem('subFont');
+            if (localStorage.getItem('subSize')) inSize.value = localStorage.getItem('subSize');
+            if (localStorage.getItem('subColor')) inColor.value = localStorage.getItem('subColor');
+            if (localStorage.getItem('subBg')) inBg.value = localStorage.getItem('subBg');
+            if (localStorage.getItem('subEdge')) inEdge.value = localStorage.getItem('subEdge');
+            applySettings();
+        });
+
+        // ---------- LOGIC FULLSCREEN ----------
+        const fsBtn = document.getElementById('custom-fs-btn');
+        const iconEnter = document.getElementById('fs-icon-enter');
+        const iconExit = document.getElementById('fs-icon-exit');
+
+        function toggleFullscreen() {
+            settingsPanel.style.display = 'none'; 
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (videoWrapper.requestFullscreen) videoWrapper.requestFullscreen();
+                else if (videoWrapper.webkitRequestFullscreen) videoWrapper.webkitRequestFullscreen();
+                videoWrapper.classList.add('is-fullscreen');
+                iconEnter.style.display = 'none'; iconExit.style.display = 'block';
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                videoWrapper.classList.remove('is-fullscreen');
+                iconEnter.style.display = 'block'; iconExit.style.display = 'none';
+            }
+        }
+        fsBtn.addEventListener('click', toggleFullscreen);
+
+        function handleFsChange() {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                videoWrapper.classList.remove('is-fullscreen');
+                iconEnter.style.display = 'block'; iconExit.style.display = 'none';
+            }
+        }
+        document.addEventListener('fullscreenchange', handleFsChange);
+        document.addEventListener('webkitfullscreenchange', handleFsChange);
+    </script>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
