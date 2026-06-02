@@ -39,10 +39,30 @@ layout: default
         </div>
 
         <script>
-            const correctPass = "{{ page.password | strip }}";
-            function checkPassword() {
+            const storedPass = "{{ page.password | strip }}";
+            
+            async function hashInput(msg) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(msg);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
+
+            async function checkPassword() {
                 const input = document.getElementById('pass-input').value.trim();
-                if (input === correctPass) {
+                if (!input) return;
+
+                const inputHash = await hashInput(input);
+                let isMatched = false;
+
+                if (storedPass.length === 64 && /^[0-9a-f]{64}$/i.test(storedPass)) {
+                    isMatched = (inputHash === storedPass);
+                } else {
+                    isMatched = (input === storedPass);
+                }
+
+                if (isMatched) {
                     document.getElementById('lock-screen').style.display = 'none';
                     document.getElementById('real-content').style.display = 'block';
                 } else {
@@ -50,6 +70,7 @@ layout: default
                     document.getElementById('pass-input').style.borderColor = '#e50914';
                 }
             }
+
             document.getElementById('pass-input').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') checkPassword();
             });
@@ -251,7 +272,7 @@ layout: default
         box-shadow: 0 0 5px rgba(255, 215, 0, 0.5) !important; 
         
         /* Chỉnh lại khoảng cách để kéo sát vào tên */
-        margin-left: 1px !important; 
+        margin-left: 4px !important; 
         margin-right: 6px !important;
     }
 
@@ -343,7 +364,6 @@ layout: default
           let adjacentNode = nick.nextElementSibling;
           
           if (!adjacentNode || !adjacentNode.classList.contains('wl-badge-admin-fake')) {
-// Thay đổi thành nhãn có dấu tích (✔) và chữ VIP hoặc ADMIN tùy bạn
 const badgeHTML = `<span class="wl-badge-admin-fake">✔</span>`;          
             // Dán thẳng vô đằng sau cái tên, đẩy lùi Thời Gian ra
             nick.insertAdjacentHTML('afterend', badgeHTML);
