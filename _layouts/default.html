@@ -21,6 +21,55 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script>
+    // 1. NGAY LẬP TỨC giấu toàn bộ trang web đi (Trang web sẽ trắng bóc trong 0.1 giây)
+    document.documentElement.style.display = 'none';
+
+    // 2. Đi hỏi trạm kiểm soát Cloudflare
+    fetch('https://1.1.1.1/cdn-cgi/trace')
+        .then(res => res.text())
+        .then(data => {
+            let lines = data.split('\n');
+            let locLine = lines.find(line => line.startsWith('loc='));
+            
+            if(locLine) {
+                let country = locLine.split('=')[1];
+                let blockedCountries = ['CN', 'TW', 'HK'];
+                
+                if(blockedCountries.includes(country)) {
+                    // NẾU BỊ CHẶN: Xóa hết code cũ, thay bằng giao diện Lỗi 403
+                    document.documentElement.innerHTML = `
+                        <head>
+                            <title>403 Forbidden</title>
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <style>
+                                body { background-color: #f1f1f1; color: #333; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+                                h1 { font-size: 50px; margin-bottom: 10px; color: #d32f2f; }
+                                p { font-size: 18px; color: #666; text-align: center; padding: 0 20px;}
+                            </style>
+                        </head>
+                        <body>
+                            <h1>403 Forbidden</h1>
+                            <p>Access to this resource on the server is denied.</p>
+                            <p style="font-size: 12px; margin-top: 30px; color: #aaa;">Ray ID: ` + Math.random().toString(36).substr(2, 15) + ` &bull; Your IP is blocked by site owner.</p>
+                        </body>
+                    `;
+                    // Kéo mền lên cho xem lỗi 403
+                    document.documentElement.style.display = 'block';
+                } else {
+                    // NẾU LÀ NGƯỜI NGAY: Tháo mền ra, cho xem blog bình thường
+                    document.documentElement.style.display = 'block';
+                }
+            } else {
+                // Nếu Cloudflare không trả về vị trí, cứ thả cho vào
+                document.documentElement.style.display = 'block';
+            }
+        })
+        .catch(err => {
+            // Lỗi mạng không hỏi được Cloudflare, cũng thả cho vào luôn để tránh lỗi trắng trang
+            document.documentElement.style.display = 'block';
+        });
+</script>
 </head>
 
 <body>
