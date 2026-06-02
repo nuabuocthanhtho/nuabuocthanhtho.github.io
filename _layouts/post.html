@@ -225,7 +225,7 @@ layout: default
       margin: 0 !important;
     }
     
-/* 💎 HUY HIỆU VIP - ĐÃ ÉP CÂN & CĂN CHUẨN 💎 */
+/* 💎 HUY HIỆU VIP VIP - TRÒN XOE & ÔM SÁT 💎 */
     .wl-badge-admin-fake {
         position: relative; 
         overflow: hidden;   
@@ -233,21 +233,26 @@ layout: default
         align-items: center !important;
         justify-content: center !important;
         
+        /* Cố định kích thước để tạo hình tròn chuẩn 100% */
+        width: 15px !important; 
+        height: 15px !important; 
+        
         background: linear-gradient(135deg, #242424, #121212) !important; 
         border: 1px solid #FFD700 !important; 
         color: #FFD700 !important; 
         
-        font-size: 10px !important; /* Thu nhỏ chữ/icon lại */
+        font-size: 9px !important; /* Thu nhỏ icon lại một chút cho tinh tế */
         font-weight: 800 !important;
-        padding: 2px 6px !important; /* Bóp dẹp lại cho bớt mập */
-        border-radius: 12px !important; 
-        text-transform: uppercase !important;
-        vertical-align: middle !important;
-        transform: translateY(-1px) !important; /* Nhấc huy hiệu lên cao một chút để ngang bằng tên */
-        box-shadow: 0 0 6px rgba(255, 215, 0, 0.4) !important; 
+        padding: 0 !important; /* Xóa sạch khoảng đệm để không bị phình ra hình bầu dục */
+        border-radius: 50% !important; /* Bo tròn tuyệt đối */
         
-        margin-left: 1px !important; /* Kéo lại gần chữ Chủ blog hơn */
-        margin-right: 8px !important;
+        vertical-align: middle !important;
+        transform: translateY(-2px) !important; /* Nhấc nhẹ lên để tâm huy hiệu cân bằng với tâm chữ */
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5) !important; 
+        
+        /* Chỉnh lại khoảng cách để kéo sát vào tên */
+        margin-left: 4px !important; 
+        margin-right: 6px !important;
     }
 
     /* Hiệu ứng lướt sáng giữ nguyên */
