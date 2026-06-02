@@ -1,0 +1,24 @@
+name: Auto Backup to GitLab
+
+on:
+  push:
+    branches:
+      - main # Nếu nhánh chính của bạn tên là master thì sửa chữ main thành master
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push to GitLab
+        run: |
+          git config --global user.name "GitHub Backup Bot"
+          git config --global user.email "bot@example.com"
+          # LƯU Ý: THAY THẾ LINK BÊN DƯỚI BẰNG LINK KHO GITLAB CỦA BẠN
+          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/nuabuocthanhtho/backup-blog-nuabuocthanhtho.git
+          git push gitlab main --force 
+          # Tương tự, nếu xài nhánh master thì đổi chữ main ở dòng trên thành master
