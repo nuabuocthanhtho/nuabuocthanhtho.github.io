@@ -260,7 +260,7 @@ layout: default
         
        /* 2. MÀU SẮC TÍM TRÀ AESTHETIC */
         background: linear-gradient(135deg, #a18cd1, #fbc2eb) !important; 
-        border: 1.5px solid #d5b5ea !important; /* ĐỔI THÀNH VIỀN TÍM NHẠT ĐỂ TÁCH KHỎI NỀN TRẮNG */
+        border: 1.5px solid #d5b5ea !important; /* VIỀN TÍM NHẠT ĐỂ TÁCH KHỎI NỀN TRẮNG */
         color: #ffffff !important;
         
         font-family: Arial, sans-serif !important; 
@@ -331,29 +331,6 @@ layout: default
 
   <script>
     // 1. Dọn rác ở cái form điền tên
-    let count = 0;
-    const doiChuMo = setInterval(() => {
-      const nick = document.querySelector('input[name="nick"]');
-      const mail = document.querySelector('input[name="mail"]');
-      const link = document.querySelector('input[name="link"]');
-      
-      if (nick && mail && link) {
-        nick.placeholder = 'Bắt buộc';
-        mail.placeholder = 'Không bắt buộc';
-        link.placeholder = 'Không bắt buộc';
-        
-        document.querySelectorAll('.wl-header label').forEach(label => {
-          if (label.innerHTML.includes('()')) {
-            label.innerHTML = label.innerHTML.replace('()', '');
-          }
-        });
-        clearInterval(doiChuMo);
-      }
-      if (++count > 50) clearInterval(doiChuMo); 
-    }, 300);
-
-    <script>
-    // 1. Dọn rác ở cái form điền tên (Giữ nguyên)
     let count = 0;
     const doiChuMo = setInterval(() => {
       const nick = document.querySelector('input[name="nick"]');
