@@ -292,7 +292,8 @@ layout: default
     });
   </script>
 
-  <script>
+<script>
+    // 1. Quét dọn khung nhập liệu
     let count = 0;
     const doiChuMo = setInterval(() => {
       const nick = document.querySelector('input[name="nick"]');
@@ -315,5 +316,30 @@ layout: default
       
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
+
+    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ CHỦ BLOG 😎
+    // Cứ mỗi 1 giây nó sẽ quét xem có comment nào của sếp không để gắn mác
+    setInterval(() => {
+      document.querySelectorAll('.wl-item').forEach(comment => {
+        const nickElement = comment.querySelector('.wl-nick');
+        
+        // CHÚ Ý: Mày gõ tên mày là gì thì sửa chữ 'nuabuocthanhtho' ở dưới lại y chang vậy nha!
+        if (nickElement && nickElement.textContent.trim() === 'Chủ blog') {
+          
+          // Kiểm tra xem đã gắn huy hiệu chưa, chưa thì cộp mộc vào!
+          if (!comment.querySelector('.wl-badge-admin-fake')) {
+            const badge = document.createElement('span');
+            badge.className = 'wl-badge wl-badge-admin-fake';
+            
+            // Trang điểm cho huy hiệu đỏ rực uy lực
+            badge.style.cssText = 'font-size: 12px; padding: 2px 6px; border-radius: 4px; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; font-weight: 700; margin-left: 8px; vertical-align: middle; display: inline-block;';
+            badge.textContent = 'Admin';
+            
+            // Dán sát rạt vô kế bên cái tên
+            nickElement.after(badge);
+          }
+        }
+      });
+    }, 1000);
   </script>
 </div>
