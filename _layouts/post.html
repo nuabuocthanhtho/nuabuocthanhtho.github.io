@@ -225,34 +225,32 @@ layout: default
       margin: 0 !important;
     }
     
-/* 💎 HUY HIỆU VIP - HIỆU ỨNG LÓE SÁNG 💎 */
+/* 💎 HUY HIỆU VIP - ĐÃ ÉP CÂN & CĂN CHUẨN 💎 */
     .wl-badge-admin-fake {
-        position: relative; /* Bắt buộc để giữ ánh sáng bên trong */
-        overflow: hidden;   /* Cắt phần ánh sáng dư thừa */
+        position: relative; 
+        overflow: hidden;   
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
         
-        /* Giao diện Đen Nhám - Viền Vàng Gold sang trọng */
         background: linear-gradient(135deg, #242424, #121212) !important; 
         border: 1px solid #FFD700 !important; 
-        color: #FFD700 !important; /* Chữ màu vàng Gold */
+        color: #FFD700 !important; 
         
-        font-size: 11px !important; 
+        font-size: 10px !important; /* Thu nhỏ chữ/icon lại */
         font-weight: 800 !important;
-        padding: 4px 10px !important;
-        border-radius: 20px !important; /* Bo tròn thành hình viên thuốc */
+        padding: 2px 6px !important; /* Bóp dẹp lại cho bớt mập */
+        border-radius: 12px !important; 
         text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
         vertical-align: middle !important;
-        line-height: 1.2 !important;
-        box-shadow: 0 0 8px rgba(255, 215, 0, 0.4) !important; /* Đổ bóng tỏa sáng màu vàng */
+        transform: translateY(-1px) !important; /* Nhấc huy hiệu lên cao một chút để ngang bằng tên */
+        box-shadow: 0 0 6px rgba(255, 215, 0, 0.4) !important; 
         
-        margin-left: 8px !important;
-        margin-right: 8px !important;
+        margin-left: 4px !important; /* Kéo lại gần chữ Chủ blog hơn */
+        margin-right: 6px !important;
     }
 
-    /* Tạo dải ánh sáng lướt qua */
+    /* Hiệu ứng lướt sáng giữ nguyên */
     .wl-badge-admin-fake::before {
         content: '';
         position: absolute;
@@ -261,11 +259,10 @@ layout: default
         width: 50%;
         height: 100%;
         background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
-        transform: skewX(-25deg); /* Làm chéo dải sáng */
-        animation: vipShine 3s infinite; /* Lặp lại mỗi 3 giây */
+        transform: skewX(-25deg); 
+        animation: vipShine 3s infinite; 
     }
 
-    /* Hoạt ảnh ánh sáng chạy từ trái sang phải */
     @keyframes vipShine {
         0% { left: -100%; }
         20% { left: 200%; }
@@ -274,9 +271,12 @@ layout: default
   </style>
 
   <div id="waline" style="margin-top: 40px; padding: 20px; background: var(--waline-bg-color, transparent); border-radius: 8px;"></div>
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <link rel="preconnect" href="https://waline-comments-ten-orcin.vercel.app" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.css" />
   <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.js';
 
     init({
       el: '#waline',
