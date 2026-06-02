@@ -73,7 +73,7 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 </head>
 
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" style="-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;">
 
 {% if site.maintenance_mode %}
     <div id="maintenance-screen" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #FDFCFB; font-family: 'Karla', sans-serif; text-align: center; padding: 20px;">
