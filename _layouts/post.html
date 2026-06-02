@@ -26,7 +26,25 @@ layout: default
         </div>
 
         <div id="real-content" style="display: none;">
-            {{ content }}
+            {% if page.encoded == true %}
+                <div id="secret-text" style="display: none;">{{ content | strip_html | strip }}</div>
+                <div id="decoded-content" style="min-height: 200px;">
+                    <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        try {
+                            let rawCode = document.getElementById('secret-text').innerText.trim();
+                            let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
+                            document.getElementById('decoded-content').innerHTML = decodedText;
+                        } catch(e) {
+                            document.getElementById('decoded-content').innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã nội dung!</p>";
+                        }
+                    });
+                </script>
+            {% else %}
+                {{ content }}
+            {% endif %}
         </div>
 
         <script>
@@ -47,7 +65,27 @@ layout: default
         </script>
 
     {% else %}
-        {{ content }}
+        
+        {% if page.encoded == true %}
+            <div id="secret-text" style="display: none;">{{ content | strip_html | strip }}</div>
+            <div id="decoded-content" style="min-height: 200px;">
+                <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    try {
+                        let rawCode = document.getElementById('secret-text').innerText.trim();
+                        let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
+                        document.getElementById('decoded-content').innerHTML = decodedText;
+                    } catch(e) {
+                        document.getElementById('decoded-content').innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã nội dung!</p>";
+                    }
+                });
+            </script>
+        {% else %}
+            {{ content }}
+        {% endif %}
+        
     {% endif %}
 
     <div style='clear: both;'></div>
