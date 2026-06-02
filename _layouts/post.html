@@ -225,24 +225,23 @@ layout: default
       margin: 0 !important;
     }
     
-    /* 👑 LÊN ĐỒ CHO HUY HIỆU ADMIN (BẢN PRO MAX VIP - GRADIENT) 👑 */
+/* 👑 LÊN ĐỒ CHO HUY HIỆU ADMIN (PHIÊN BẢN VƯƠNG MIỆN) 👑 */
     .wl-badge-admin-fake {
         display: inline-flex !important;
         align-items: center !important;
-        background: linear-gradient(135deg, #f7b42c, #fc575e) !important; /* Màu gradient sang chảnh */
-        color: #ffffff !important;
-        font-size: 10px !important;
+        justify-content: center !important; /* Căn giữa hoàn hảo */
+        background: linear-gradient(135deg, #f7b42c, #fc575e) !important; /* Màu gradient cũ */
+        /* Xóa bỏ dòng color: #fff để Emoji dùng màu gốc */
+        font-size: 14px !important; /* Tăng kích thước vương miện lên một chút */
         font-weight: 700 !important;
-        padding: 3px 8px !important;
-        border-radius: 4px !important; /* Đổi thành 12px nếu bạn thích bo tròn hẳn như viên thuốc */
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        margin-left: 8px !important;
-        margin-right: 8px !important; /* Đẩy lùi thời gian ra xa */
+        padding: 4px 10px !important; /* Tăng nhẹ padding cho cân đối với icon lớn hơn */
+        border-radius: 4px !important;
         vertical-align: middle !important;
         border: none !important;
-        line-height: 1.2 !important;
+        line-height: 1 !important; /* Đảm bảo emoji không bị nhảy dòng */
         box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        margin-left: 8px !important;
+        margin-right: 8px !important; /* Đẩy lùi thời gian ra xa */
     }
     
     .wl-sys-badge {
@@ -329,10 +328,8 @@ layout: default
           let adjacentNode = nick.nextElementSibling;
           
           if (!adjacentNode || !adjacentNode.classList.contains('wl-badge-admin-fake')) {
-            
-            // Xây cái huy hiệu và nhúng luôn cái Icon vô nè
-            const badgeHTML = `<span class="wl-badge-admin-fake"><i class="fas fa-check-circle" style="margin-right: 4px; font-size: 10px;"></i>👑</span>`;
-            
+            // DÒNG NÀY LÀ ĐÚNG (CHỈ CHÈN 1 VƯƠNG MIỆN NẰM TRONG HUY HIỆU)
+const badgeHTML = `<span class="wl-badge-admin-fake">👑</span>`;            
             // Dán thẳng vô đằng sau cái tên, đẩy lùi Thời Gian ra
             nick.insertAdjacentHTML('afterend', badgeHTML);
           }
