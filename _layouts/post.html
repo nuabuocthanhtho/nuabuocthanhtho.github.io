@@ -246,7 +246,7 @@ layout: default
       margin: 0 !important;
     }
     
-/* 💎 HUY HIỆU VIP VIP - TRÒN XOE & ÔM SÁT 💎 */
+/* 💎 HUY HIỆU WEIBO VIP 💎 */
     .wl-badge-admin-fake {
         position: relative; 
         overflow: hidden;   
@@ -254,29 +254,30 @@ layout: default
         align-items: center !important;
         justify-content: center !important;
         
-        /* Cố định kích thước để tạo hình tròn chuẩn 100% */
-        width: 15px !important; 
-        height: 15px !important; 
+        width: 16px !important; 
+        height: 16px !important; 
         
-        background: linear-gradient(135deg, #242424, #121212) !important; 
-        border: 1px solid #FFD700 !important; 
-        color: #FFD700 !important; 
+        /* Bảng màu WEIBO: Nền đỏ, Viền vàng, Chữ V vàng */
+        background: linear-gradient(135deg, #e60026, #cc001b) !important; 
+        border: 2px solid #ffca00 !important; 
+        color: #ffca00 !important; 
         
-        font-size: 9px !important; /* Thu nhỏ icon lại một chút cho tinh tế */
-        font-weight: 800 !important;
-        padding: 0 !important; /* Xóa sạch khoảng đệm để không bị phình ra hình bầu dục */
-        border-radius: 50% !important; /* Bo tròn tuyệt đối */
+        font-family: Arial, sans-serif !important; /* Ép font cơ bản để nét chữ V được sắc cạnh */
+        font-size: 11px !important; 
+        font-weight: 900 !important;
+        padding: 0 !important; 
+        border-radius: 50% !important; 
         
         vertical-align: middle !important;
-        transform: translateY(-2px) !important; /* Nhấc nhẹ lên để tâm huy hiệu cân bằng với tâm chữ */
-        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5) !important; 
+        margin-left: 0 !important; 
         
-        /* Chỉnh lại khoảng cách để kéo sát vào tên */
-        margin-left: 4px !important; 
-        margin-right: 6px !important;
+        /* CHIÊU KÉO SÁT HUY HIỆU: Dịch sang trái 4px, nhấc lên trên 1px */
+        transform: translate(-4px, -1px) !important; 
+        
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important; 
     }
 
-    /* Hiệu ứng lướt sáng giữ nguyên */
+    /* Hiệu ứng lướt sáng (giữ nguyên cho chảnh) */
     .wl-badge-admin-fake::before {
         content: '';
         position: absolute;
@@ -284,7 +285,7 @@ layout: default
         left: -100%;
         width: 50%;
         height: 100%;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
         transform: skewX(-25deg); 
         animation: vipShine 3s infinite; 
     }
