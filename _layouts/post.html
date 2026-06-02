@@ -225,41 +225,51 @@ layout: default
       margin: 0 !important;
     }
     
-/* 👑 LÊN ĐỒ CHO HUY HIỆU ADMIN (PHIÊN BẢN VƯƠNG MIỆN) 👑 */
+/* 💎 HUY HIỆU VIP - HIỆU ỨNG LÓE SÁNG 💎 */
     .wl-badge-admin-fake {
+        position: relative; /* Bắt buộc để giữ ánh sáng bên trong */
+        overflow: hidden;   /* Cắt phần ánh sáng dư thừa */
         display: inline-flex !important;
         align-items: center !important;
-        justify-content: center !important; /* Căn giữa hoàn hảo */
-        background: linear-gradient(135deg, #f7b42c, #fc575e) !important; /* Màu gradient cũ */
-        /* Xóa bỏ dòng color: #fff để Emoji dùng màu gốc */
-        font-size: 14px !important; /* Tăng kích thước vương miện lên một chút */
-        font-weight: 700 !important;
-        padding: 4px 10px !important; /* Tăng nhẹ padding cho cân đối với icon lớn hơn */
-        border-radius: 4px !important;
+        justify-content: center !important;
+        
+        /* Giao diện Đen Nhám - Viền Vàng Gold sang trọng */
+        background: linear-gradient(135deg, #242424, #121212) !important; 
+        border: 1px solid #FFD700 !important; 
+        color: #FFD700 !important; /* Chữ màu vàng Gold */
+        
+        font-size: 11px !important; 
+        font-weight: 800 !important;
+        padding: 4px 10px !important;
+        border-radius: 20px !important; /* Bo tròn thành hình viên thuốc */
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
         vertical-align: middle !important;
-        border: none !important;
-        line-height: 1 !important; /* Đảm bảo emoji không bị nhảy dòng */
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        line-height: 1.2 !important;
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.4) !important; /* Đổ bóng tỏa sáng màu vàng */
+        
         margin-left: 8px !important;
-        margin-right: 8px !important; /* Đẩy lùi thời gian ra xa */
-    }
-    
-    .wl-sys-badge {
-      font-size: 12px !important;
-      padding: 2px 6px !important;
-      border-radius: 4px !important;
-      color: #6b7280 !important;
-      border: 1px solid #e5e7eb !important;
-      background: #f9fafb !important;
-      font-weight: normal !important;
+        margin-right: 8px !important;
     }
 
-    .wl-time {
-      font-size: 13px !important;
-      color: #9ca3af !important;
+    /* Tạo dải ánh sáng lướt qua */
+    .wl-badge-admin-fake::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+        transform: skewX(-25deg); /* Làm chéo dải sáng */
+        animation: vipShine 3s infinite; /* Lặp lại mỗi 3 giây */
     }
-    .wl-sort li {
-      font-size: 14px !important;
+
+    /* Hoạt ảnh ánh sáng chạy từ trái sang phải */
+    @keyframes vipShine {
+        0% { left: -100%; }
+        20% { left: 200%; }
+        100% { left: 200%; }
     }
   </style>
 
