@@ -76,7 +76,6 @@ layout: default
             let secretTextNode = document.getElementById('secret-text');
             let decodedContainer = document.getElementById('decoded-content');
             
-            // 1. Ưu tiên xử lý bài viết CŨ (Lý thuyết: Mã hóa toàn bộ bài viết)
             if (secretTextNode && decodedContainer) {
                 try {
                     let rawCode = secretTextNode.innerText.trim();
@@ -87,7 +86,6 @@ layout: default
                 }
             }
 
-            // 2. Tiếp tục dò tìm và giải mã các khối bảo mật TỪNG PHẦN (Bài viết mới xài tag [baomat])
             if (decodedContainer) {
                 let partialBlocks = decodedContainer.querySelectorAll('.nbtt-encoded-block');
                 partialBlocks.forEach(function(block) {
@@ -119,7 +117,7 @@ layout: default
   </div>
 
   <style>
-    /* BỎ HẲN KARLA ĐI! Ép xài font gốc của máy tính/điện thoại cho toàn bộ khung để chống rớt chữ Tiếng Việt */
+    /* Ép xài font gốc chống rớt Tiếng Việt */
     #waline, #waline *, .wl-panel *, .wl-header label, .wl-header input, .wl-header input::placeholder, .wl-editor, .wl-editor::placeholder, .wl-btn, .wl-sort li, .wl-content, .wl-nick {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
     }
@@ -227,8 +225,8 @@ layout: default
       margin: 0 !important;
     }
     
-    /* 💥 LÀM NỔI BẬT HUY HIỆU ADMIN (MÀU ĐỎ/HỒNG) 💥 */
-    .wl-badge {
+    /* 💥 CSS CHUẨN CỦA HUY HIỆU FAKE, ÉP HIỂN THỊ 100% 💥 */
+    .wl-badge-admin-fake {
       font-size: 12px !important;
       padding: 2px 6px !important;
       border-radius: 4px !important;
@@ -236,6 +234,9 @@ layout: default
       color: #dc2626 !important;      
       border: 1px solid #fca5a5 !important;
       font-weight: 700 !important;
+      margin-left: 8px !important;
+      vertical-align: middle !important;
+      display: inline-block !important;
     }
     
     .wl-sys-badge {
@@ -291,7 +292,7 @@ layout: default
   </script>
 
   <script>
-    // 1. Quét dọn khung nhập liệu
+    // 1. Dọn rác ở cái form điền tên
     let count = 0;
     const doiChuMo = setInterval(() => {
       const nick = document.querySelector('input[name="nick"]');
@@ -308,35 +309,34 @@ layout: default
             label.innerHTML = label.innerHTML.replace('()', '');
           }
         });
-        
         clearInterval(doiChuMo);
       }
-      
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
 
-    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ CHỦ BLOG (BẢN CHỐNG LỖI UNICODE) 😎
+    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ (Đã nâng cấp max sát thương) 💥
     setInterval(() => {
-      document.querySelectorAll('.wl-item').forEach(comment => {
-        const nickElement = comment.querySelector('.wl-nick');
+      document.querySelectorAll('.wl-nick').forEach(nick => {
+        // Lấy tên, viết thường hết, mặc kệ khoảng trắng hay html ẩn
+        let nameStr = nick.textContent.toLowerCase();
         
-        if (nickElement) {
-          // Bắt bệnh Unicode Tiếng Việt: Chuẩn hóa tất cả về cùng 1 định dạng (NFC) và chữ thường
-          const nameStr = nickElement.textContent.trim().normalize('NFC').toLowerCase();
+        // Quét thấy có chữ "chu blog" hoặc "chủ blog" là bớ liền
+        if (nameStr.includes('chủ blog') || nameStr.includes('chu blog')) {
           
-          // Chấp mày gõ "Chủ blog" hay "chu blog" cũng lụm hết
-          if (nameStr === 'chủ blog' || nameStr === 'chu blog') {
+          // Ngó coi đằng sau cái tên đã có huy hiệu đỏ chưa?
+          let adjacentNode = nick.nextElementSibling;
+          if (!adjacentNode || !adjacentNode.classList.contains('wl-badge-admin-fake')) {
             
-            // Kiểm tra xem đã dán huy hiệu chưa, tránh dán đè nhiều lần
-            if (!nickElement.querySelector('.wl-badge-admin-fake')) {
-              
-              // Nhét huy hiệu TRỰC TIẾP VÀO TRONG thẻ tên để CSS không có cửa giấu
-              const badgeHTML = `<span class="wl-badge wl-badge-admin-fake" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; font-weight: 700; margin-left: 8px; vertical-align: middle; display: inline-block;">Admin</span>`;
-              nickElement.insertAdjacentHTML('beforeend', badgeHTML);
-            }
+            // Xây cái huy hiệu
+            let badge = document.createElement('span');
+            badge.className = 'wl-badge-admin-fake';
+            badge.innerText = 'Admin';
+            
+            // Dán thẳng vô đằng sau cái tên luôn
+            nick.after(badge);
           }
         }
       });
-    }, 1000);
+    }, 500); // 0.5 giây quét 1 lần, chạy trốn đằng trời!
   </script>
 </div>
