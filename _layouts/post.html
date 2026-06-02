@@ -225,18 +225,22 @@ layout: default
       margin: 0 !important;
     }
     
-    /* 💥 CSS CHUẨN CỦA HUY HIỆU FAKE, ÉP HIỂN THỊ 100% 💥 */
+    /* 👑 LÊN ĐỒ CHO HUY HIỆU ADMIN (BẢN PRO MAX VIP) 👑 */
     .wl-badge-admin-fake {
-      font-size: 12px !important;
-      padding: 2px 6px !important;
-      border-radius: 4px !important;
-      background: #fee2e2 !important; 
-      color: #dc2626 !important;      
-      border: 1px solid #fca5a5 !important;
+      font-size: 11px !important;
+      padding: 3px 8px !important;
+      border-radius: 12px !important; /* Bo tròn như viên thuốc */
+      background: #dc2626 !important; /* Đỏ rực rỡ quyền lực */
+      color: #ffffff !important;      /* Chữ trắng tinh khôi */
+      border: none !important;        /* Cắt cái viền phèn đi */
       font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
       margin-left: 8px !important;
+      margin-right: 8px !important;   /* 👈 Phép màu đẩy xa cái Thời Gian ra đây nè! */
       vertical-align: middle !important;
-      display: inline-block !important;
+      display: inline-flex !important; /* Căn giữa chữ và icon */
+      align-items: center !important;
+      box-shadow: 0 2px 5px rgba(220, 38, 38, 0.3) !important; /* Đổ bóng bồng bềnh */
     }
     
     .wl-sys-badge {
@@ -314,29 +318,24 @@ layout: default
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
 
-    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ (Đã nâng cấp max sát thương) 💥
+    // 2. CHIÊU TỰ PHONG TƯỚC VỊ (GẮN ICON TÍCH XANH)
     setInterval(() => {
       document.querySelectorAll('.wl-nick').forEach(nick => {
-        // Lấy tên, viết thường hết, mặc kệ khoảng trắng hay html ẩn
         let nameStr = nick.textContent.toLowerCase();
         
-        // Quét thấy có chữ "chu blog" hoặc "chủ blog" là bớ liền
         if (nameStr.includes('chủ blog') || nameStr.includes('chu blog')) {
-          
-          // Ngó coi đằng sau cái tên đã có huy hiệu đỏ chưa?
           let adjacentNode = nick.nextElementSibling;
+          
           if (!adjacentNode || !adjacentNode.classList.contains('wl-badge-admin-fake')) {
             
-            // Xây cái huy hiệu
-            let badge = document.createElement('span');
-            badge.className = 'wl-badge-admin-fake';
-            badge.innerText = 'Admin';
+            // Xây cái huy hiệu và nhúng luôn cái Icon vô nè
+            const badgeHTML = `<span class="wl-badge-admin-fake"><i class="fas fa-check-circle" style="margin-right: 4px; font-size: 10px;"></i>ADMIN</span>`;
             
-            // Dán thẳng vô đằng sau cái tên luôn
-            nick.after(badge);
+            // Dán thẳng vô đằng sau cái tên, đẩy lùi Thời Gian ra
+            nick.insertAdjacentHTML('afterend', badgeHTML);
           }
         }
       });
-    }, 500); // 0.5 giây quét 1 lần, chạy trốn đằng trời!
+    }, 500);
   </script>
 </div>
