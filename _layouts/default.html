@@ -375,20 +375,24 @@
                 if(blockedCountries.includes(country)) {
                     // Nếu dính IP bị chặn -> Xóa sạch sành sanh web và hiện bảng Lỗi 403 giả
                     document.documentElement.innerHTML = `
-                        <head>
-                            <title>403 Forbidden</title>
-                            <style>
-                                body { background-color: #f1f1f1; color: #333; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-                                h1 { font-size: 50px; margin-bottom: 10px; color: #d32f2f; }
-                                p { font-size: 18px; color: #666; }
-                            </style>
-                        </head>
-                        <body>
-                            <h1>403 Forbidden</h1>
-                            <p>Access to this resource on the server is denied.</p>
-                            <p style="font-size: 12px; margin-top: 30px; color: #aaa;">Ray ID: ` + Math.random().toString(36).substr(2, 15) + ` &bull; Your IP is blocked by site owner.</p>
-                        </body>
-                    `;
+    <head>
+        <title>Site not found &middot; GitHub Pages</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: #f6f8fa; color: #24292e; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+            .box { text-align: center; background: white; padding: 40px; border: 1px solid #e1e4e8; border-radius: 6px; box-shadow: 0 1px 3px rgba(27,31,35,0.04); max-width: 400px; width: 85%; }
+            h1 { font-size: 24px; margin: 0 0 10px; font-weight: 600; }
+            p { font-size: 15px; margin: 0; color: #586069; }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>404</h1>
+            <p><strong>File not found</strong></p>
+            <p style="margin-top: 15px;">The site configured at this address does not contain the requested file.</p>
+        </div>
+    </body>
+`;
                 }
             }
         })
