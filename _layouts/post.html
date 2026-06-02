@@ -28,23 +28,14 @@ layout: default
         <div id="real-content" style="display: none;">
             {% if page.encoded == true %}
                 <div id="secret-text" style="display: none;">{{ content | strip_html | strip }}</div>
-                <div id="decoded-content" style="min-height: 200px;">
-                    <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        try {
-                            let rawCode = document.getElementById('secret-text').innerText.trim();
-                            let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
-                            document.getElementById('decoded-content').innerHTML = decodedText;
-                        } catch(e) {
-                            document.getElementById('decoded-content').innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã nội dung!</p>";
-                        }
-                    });
-                </script>
-            {% else %}
-                {{ content }}
             {% endif %}
+            <div id="decoded-content" style="min-height: 200px;">
+                {% if page.encoded == true %}
+                    <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
+                {% else %}
+                    {{ content }}
+                {% endif %}
+            </div>
         </div>
 
         <script>
@@ -68,25 +59,50 @@ layout: default
         
         {% if page.encoded == true %}
             <div id="secret-text" style="display: none;">{{ content | strip_html | strip }}</div>
-            <div id="decoded-content" style="min-height: 200px;">
-                <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
-            </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    try {
-                        let rawCode = document.getElementById('secret-text').innerText.trim();
-                        let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
-                        document.getElementById('decoded-content').innerHTML = decodedText;
-                    } catch(e) {
-                        document.getElementById('decoded-content').innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã nội dung!</p>";
-                    }
-                });
-            </script>
-        {% else %}
-            {{ content }}
         {% endif %}
         
+        <div id="decoded-content" style="min-height: 200px;">
+            {% if page.encoded == true %}
+                <p style="text-align: center; color: #888;"><i>Đang giải mã nội dung...</i></p>
+            {% else %}
+                {{ content }}
+            {% endif %}
+        </div>
+        
     {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let secretTextNode = document.getElementById('secret-text');
+            let decodedContainer = document.getElementById('decoded-content');
+            
+            // 1. Ưu tiên xử lý bài viết CŨ (Lý thuyết: Mã hóa toàn bộ bài viết)
+            if (secretTextNode && decodedContainer) {
+                try {
+                    let rawCode = secretTextNode.innerText.trim();
+                    let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
+                    decodedContainer.innerHTML = decodedText;
+                } catch(e) {
+                    decodedContainer.innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã toàn bộ nội dung!</p>";
+                }
+            }
+
+            // 2. Tiếp tục dò tìm và giải mã các khối bảo mật TỪNG PHẦN (Bài viết mới xài tag [baomat])
+            // Script này quét toàn bộ nội dung, thấy cục Base64 nào là tự động dịch cục đó ra HTML
+            if (decodedContainer) {
+                let partialBlocks = decodedContainer.querySelectorAll('.nbtt-encoded-block');
+                partialBlocks.forEach(function(block) {
+                    try {
+                        let rawCode = block.getAttribute('data-code');
+                        let decodedText = decodeURIComponent(escape(window.atob(rawCode)));
+                        block.innerHTML = decodedText;
+                    } catch(e) {
+                        block.innerHTML = "<p style='color:red;'>Lỗi: Không thể giải mã đoạn văn bản này!</p>";
+                    }
+                });
+            }
+        });
+    </script>
 
     <div style='clear: both;'></div>
   </div>
