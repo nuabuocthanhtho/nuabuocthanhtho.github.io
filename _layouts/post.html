@@ -88,7 +88,6 @@ layout: default
             }
 
             // 2. Tiếp tục dò tìm và giải mã các khối bảo mật TỪNG PHẦN (Bài viết mới xài tag [baomat])
-            // Script này quét toàn bộ nội dung, thấy cục Base64 nào là tự động dịch cục đó ra HTML
             if (decodedContainer) {
                 let partialBlocks = decodedContainer.querySelectorAll('.nbtt-encoded-block');
                 partialBlocks.forEach(function(block) {
@@ -233,13 +232,12 @@ layout: default
       font-size: 12px !important;
       padding: 2px 6px !important;
       border-radius: 4px !important;
-      background: #fee2e2 !important; /* Nền đỏ nhạt */
-      color: #dc2626 !important;      /* Chữ đỏ rực */
+      background: #fee2e2 !important; 
+      color: #dc2626 !important;      
       border: 1px solid #fca5a5 !important;
       font-weight: 700 !important;
     }
     
-    /* Nhãn Windows, Chrome nhỏ xinh màu xám */
     .wl-sys-badge {
       font-size: 12px !important;
       padding: 2px 6px !important;
@@ -278,7 +276,7 @@ layout: default
       login: 'disable', 
       
       locale: {
-        admin: 'Chủ Blog',  // 👈 DÒNG THẦN CHÚ KHAI PHÓNG HUY HIỆU ADMIN
+        admin: 'Chủ Blog',  
         nick: 'Biệt danh', 
         mail: 'Email',     
         link: 'Website',   
@@ -292,7 +290,7 @@ layout: default
     });
   </script>
 
-<script>
+  <script>
     // 1. Quét dọn khung nhập liệu
     let count = 0;
     const doiChuMo = setInterval(() => {
@@ -317,26 +315,25 @@ layout: default
       if (++count > 50) clearInterval(doiChuMo); 
     }, 300);
 
-    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ CHỦ BLOG 😎
-    // Cứ mỗi 1 giây nó sẽ quét xem có comment nào của sếp không để gắn mác
+    // 2. CHIÊU CUỐI: TỰ PHONG TƯỚC VỊ CHỦ BLOG (BẢN CHỐNG LỖI UNICODE) 😎
     setInterval(() => {
       document.querySelectorAll('.wl-item').forEach(comment => {
         const nickElement = comment.querySelector('.wl-nick');
         
-        // CHÚ Ý: Mày gõ tên mày là gì thì sửa chữ 'nuabuocthanhtho' ở dưới lại y chang vậy nha!
-        if (nickElement && nickElement.textContent.trim() === 'Chủ blog') {
+        if (nickElement) {
+          // Bắt bệnh Unicode Tiếng Việt: Chuẩn hóa tất cả về cùng 1 định dạng (NFC) và chữ thường
+          const nameStr = nickElement.textContent.trim().normalize('NFC').toLowerCase();
           
-          // Kiểm tra xem đã gắn huy hiệu chưa, chưa thì cộp mộc vào!
-          if (!comment.querySelector('.wl-badge-admin-fake')) {
-            const badge = document.createElement('span');
-            badge.className = 'wl-badge wl-badge-admin-fake';
+          // Chấp mày gõ "Chủ blog" hay "chu blog" cũng lụm hết
+          if (nameStr === 'chủ blog' || nameStr === 'chu blog') {
             
-            // Trang điểm cho huy hiệu đỏ rực uy lực
-            badge.style.cssText = 'font-size: 12px; padding: 2px 6px; border-radius: 4px; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; font-weight: 700; margin-left: 8px; vertical-align: middle; display: inline-block;';
-            badge.textContent = 'Admin';
-            
-            // Dán sát rạt vô kế bên cái tên
-            nickElement.after(badge);
+            // Kiểm tra xem đã dán huy hiệu chưa, tránh dán đè nhiều lần
+            if (!nickElement.querySelector('.wl-badge-admin-fake')) {
+              
+              // Nhét huy hiệu TRỰC TIẾP VÀO TRONG thẻ tên để CSS không có cửa giấu
+              const badgeHTML = `<span class="wl-badge wl-badge-admin-fake" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; font-weight: 700; margin-left: 8px; vertical-align: middle; display: inline-block;">Admin</span>`;
+              nickElement.insertAdjacentHTML('beforeend', badgeHTML);
+            }
           }
         }
       });
