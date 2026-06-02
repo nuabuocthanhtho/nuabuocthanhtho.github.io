@@ -338,8 +338,8 @@ layout: default
           let adjacentNode = nick.nextElementSibling;
           
           if (!adjacentNode || !adjacentNode.classList.contains('wl-badge-admin-fake')) {
-            // DÒNG NÀY LÀ ĐÚNG (CHỈ CHÈN 1 VƯƠNG MIỆN NẰM TRONG HUY HIỆU)
-const badgeHTML = `<span class="wl-badge-admin-fake">👑</span>`;            
+// Thay đổi thành nhãn có dấu tích (✔) và chữ VIP hoặc ADMIN tùy bạn
+const badgeHTML = `<span class="wl-badge-admin-fake">✔ VIP</span>`;          
             // Dán thẳng vô đằng sau cái tên, đẩy lùi Thời Gian ra
             nick.insertAdjacentHTML('afterend', badgeHTML);
           }
