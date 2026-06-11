@@ -25,4 +25,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap  # <-- SỬA TÊN PLUGIN CHO ĐÚNG
 # Công tắc bảo trì blog (đổi thành false khi muốn mở lại)
-maintenance_mode: true
+maintenance_mode: false
